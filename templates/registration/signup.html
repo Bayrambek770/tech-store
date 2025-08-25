@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'main/css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/meyawo.css' %}">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40">
+    {% include 'layouts/navbar.html' with static_nav=True %}
+
+    <section class="auth-hero">
+        <div class="container" style="z-index:2;">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 mb-4 mb-lg-0 d-none d-lg-block">
+                    <img src="{% static 'main/imgs/folio-3.jpg' %}" alt="Sign Up" class="img-fluid product-hero-img">
+                </div>
+                <div class="col-md-8 col-lg-5">
+                    <div class="glass-card">
+                        <h2 class="mb-1">Create Account</h2>
+                        <p class="muted-link mb-4">Join us and explore products.</p>
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} py-2">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+                        <form method="post" novalidate>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="id_email">Email</label>
+                                {{ form.email }}
+                                {% if form.email.errors %}<small class="text-danger">{{ form.email.errors.0 }}</small>{% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_first_name">First name</label>
+                                {{ form.first_name }}
+                                {% if form.first_name.errors %}<small class="text-danger">{{ form.first_name.errors.0 }}</small>{% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_last_name">Last name</label>
+                                {{ form.last_name }}
+                                {% if form.last_name.errors %}<small class="text-danger">{{ form.last_name.errors.0 }}</small>{% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_password1">Password</label>
+                                {{ form.password1 }}
+                                {% if form.password1.errors %}<small class="text-danger">{{ form.password1.errors.0 }}</small>{% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_password2">Confirm Password</label>
+                                {{ form.password2 }}
+                                {% if form.password2.errors %}<small class="text-danger">{{ form.password2.errors.0 }}</small>{% endif %}
+                            </div>
+                            {% if form.non_field_errors %}
+                                <div class="alert alert-danger py-2">{{ form.non_field_errors.0 }}</div>
+                            {% endif %}
+                            <button type="submit" class="btn btn-gradient btn-block">Sign Up</button>
+                            <p class="mt-4 text-center">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'main/vendors/jquery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'main/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'main/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+    <script src="{% static 'main/js/meyawo.js' %}"></script>
+</body>
+</html>

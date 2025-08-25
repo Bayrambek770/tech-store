@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Detail (Placeholder)</title>
+  <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="assets/css/meyawo.css" />
+  <link rel="stylesheet" href="assets/css/custom.css" />
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40">
+  <!-- Placeholder detail page; logic intentionally minimal -->
+  <nav class="custom-navbar navbar-solid" data-spy="affix" data-offset-top="20">
+    <div class="container">
+      <a class="logo" href="index.html#home">Meyawo</a>
+      <ul class="nav">
+        <li class="item"><a class="link" href="index.html#home">Home</a></li>
+        <li class="item"><a class="link" href="about.html">About</a></li>
+        <li class="item"><a class="link" href="store.html">Store</a></li>
+        <li class="item"><a class="link" href="cart.html">Cart <span id="nav-cart-count" class="badge badge-primary"></span></a></li>
+        <li class="item"><a class="link" href="login.html">Login</a></li>
+        <li class="item"><a class="link" href="signup.html">Sign Up</a></li>
+      </ul>
+      <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic"><div class="hamburger-box"><div class="hamburger-inner"></div></div></a>
+    </div>
+  </nav>
+
+  <div class="container page-section-spacer">
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="border rounded p-3 text-center bg-light">
+          <div style="height:320px;display:flex;align-items:center;justify-content:center;" class="text-muted">
+            <span>Product Image Placeholder</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h2 class="mb-3">Product Title Placeholder</h2>
+        <p class="text-muted">Category: <em>placeholder</em></p>
+        <h4 class="mb-3">$0.00</h4>
+        <p>This is a static placeholder product detail page. Dynamic functionality will be added later.</p>
+        <button class="btn btn-primary" disabled>Add to Cart (Disabled)</button>
+        <a href="store.html" class="btn btn-outline-primary ml-2">Back to Store</a>
+      </div>
+    </div>
+    <hr class="my-5">
+    <h5>Specifications (Placeholder)</h5>
+    <ul class="text-muted">
+      <li>Feature one</li>
+      <li>Feature two</li>
+      <li>Feature three</li>
+    </ul>
+    <h5 class="mt-5">Related Products (Placeholder)</h5>
+    <div class="row">
+      <div class="col-sm-6 col-lg-3 mb-4"><div class="card p-3 text-center small">Item A</div></div>
+      <div class="col-sm-6 col-lg-3 mb-4"><div class="card p-3 text-center small">Item B</div></div>
+      <div class="col-sm-6 col-lg-3 mb-4"><div class="card p-3 text-center small">Item C</div></div>
+      <div class="col-sm-6 col-lg-3 mb-4"><div class="card p-3 text-center small">Item D</div></div>
+    </div>
+  </div>
+
+
+  <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+  <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+  <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+  <script src="assets/js/meyawo.js"></script>
+  <script>
+    (function(){
+      const cart = JSON.parse(localStorage.getItem('cart')||'[]');
+      const count = cart.reduce((s,i)=>s+i.qty,0);
+      const badge=document.getElementById('nav-cart-count');
+      if(badge) badge.textContent=count?count:'';
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'main/css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/meyawo.css' %}">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40">
+    <!-- Shared Navbar -->
+    {% include "layouts/navbar.html" with static_nav=True %}
+
+        <section class="auth-hero">
+            <div class="container" style="z-index:2;">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0 d-none d-lg-block">
+                        <img src="{% static 'main/imgs/folio-2.jpg' %}" alt="Login" class="img-fluid product-hero-img">
+                    </div>
+                    <div class="col-md-8 col-lg-5">
+                        <div class="glass-card">
+                            <h2 class="mb-1">Welcome Back</h2>
+                            <p class="muted-link mb-4">Access your account to continue.</p>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-{{ message.tags }} py-2">{{ message }}</div>
+                                {% endfor %}
+                            {% endif %}
+                            <form method="post" novalidate>
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="id_email">Email</label>
+                                    {{ form.email }}
+                                    {% if form.email.errors %}<small class="text-danger">{{ form.email.errors.0 }}</small>{% endif %}
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_password">Password</label>
+                                    {{ form.password }}
+                                    {% if form.password.errors %}<small class="text-danger">{{ form.password.errors.0 }}</small>{% endif %}
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="custom-control custom-checkbox">
+                                        {{ form.remember }}
+                                        <label class="custom-control-label" for="id_remember">Remember me</label>
+                                    </div>
+                                    <a href="{% url 'password_reset' %}" class="muted-link">Forgot password?</a>
+                                </div>
+                                {% if form.non_field_errors %}
+                                    <div class="alert alert-danger py-2">{{ form.non_field_errors.0 }}</div>
+                                {% endif %}
+                                <button type="submit" class="btn btn-gradient btn-block">Login</button>
+                                <p class="mt-4 text-center">Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <!-- core scripts -->
+    <script src="{% static 'main/vendors/jquery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'main/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'main/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+    <script src="{% static 'main/js/meyawo.js' %}"></script>
+    <script>
+        (function(){
+            const cart = JSON.parse(localStorage.getItem('cart')||'[]');
+            const count = cart.reduce((s,i)=>s+i.qty,0);
+            const badge=document.getElementById('nav-cart-count');
+            if(badge) badge.textContent=count?count:'';
+        })();
+    </script>
+</body>
+</html>

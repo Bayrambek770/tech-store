@@ -1,0 +1,147 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}{{ asset.name }} - Design Asset{% endblock %}
+{% block content %}
+<div class="container py-5" style="max-width:1100px;">
+  <div class="row">
+    <div class="col-lg-6 mb-4">
+      <div class="border rounded p-3 bg-light position-relative" style="min-height:420px;overflow:hidden;">
+        {% if asset.cover_image %}
+          <img id="main-img" src="{{ asset.cover_image.url }}" alt="{{ asset.name }}" class="img-fluid w-100" style="object-fit:contain;max-height:420px;transition:transform .25s;">
+        {% else %}
+          <div class="d-flex align-items-center justify-content-center text-muted" style="height:400px;">No Image</div>
+        {% endif %}
+      </div>
+      {% if images %}
+      <div class="d-flex flex-wrap mt-3" id="thumbs">
+        {% for img in images %}
+          <div class="mr-2 mb-2 border rounded overflow-hidden thumb-item" style="cursor:pointer;width:80px;height:70px;">
+            <img src="{{ img.image.url }}" alt="{{ img.alt_text|default:asset.name }}" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <div class="col-lg-6">
+      <h2 class="font-weight-bold mb-2">{{ asset.name }}</h2>
+      <p class="text-muted mb-2">Category: {{ asset.category.get_type_display }} / {{ asset.category.name }}</p>
+      <div class="d-flex align-items-baseline mb-3">
+        <span class="h3 text-primary mb-0 mr-3">${{ asset.price }}</span>
+        {% if asset.discount %}<span class="badge badge-danger">-{{ asset.discount }}%</span>{% endif %}
+      </div>
+      <div class="mb-4 text-muted" style="white-space:pre-line;">{{ asset.description|default:'No description provided.' }}</div>
+      <div class="mb-4" style="max-width:180px;">
+        <label class="small font-weight-bold">Quantity</label>
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend"><button class="btn btn-outline-secondary" id="qty-dec" type="button">-</button></div>
+          <input type="text" id="qty-input" class="form-control text-center" value="1">
+          <div class="input-group-append"><button class="btn btn-outline-secondary" id="qty-inc" type="button">+</button></div>
+        </div>
+      </div>
+      <button class="btn btn-gradient mb-2 mr-2" id="add-design-btn" data-id="{{ asset.id }}"><i class="ti-shopping-cart"></i> Add to Cart</button>
+      <a href="{% url 'designs:marketplace' %}" class="btn btn-outline-secondary mr-2 mb-2">Back to Marketplace</a>
+    </div>
+  </div>
+  {% if related %}
+  <hr class="my-5">
+  <h5 class="mb-4">Related Assets</h5>
+  <div class="row">
+    {% for r in related %}
+      <div class="col-6 col-sm-4 col-lg-3 mb-4">
+        <a href="{% url 'designs:asset_detail' r.slug %}" class="text-decoration-none d-block border rounded h-100 p-2">
+          {% if r.cover_image %}
+            <img src="{{ r.cover_image.url }}" alt="{{ r.name }}" style="height:110px;width:100%;object-fit:cover;" class="mb-2 rounded">
+          {% else %}
+            <div class="d-flex align-items-center justify-content-center text-muted bg-light mb-2 rounded" style="height:110px;">No image</div>
+          {% endif %}
+          <div class="small text-truncate font-weight-500">{{ r.name }}</div>
+          <div class="small text-primary">${{ r.price }}</div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <hr class="my-5">
+  <div class="row">
+    <div class="col-lg-7 mb-5">
+      <h5 class="mb-3">Customer Reviews</h5>
+      {% if reviews %}
+        <ul class="list-unstyled mb-4" id="review-list">
+          {% for r in reviews %}
+            <li class="media mb-3 p-3 border rounded">
+              <div class="media-body">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <strong>{{ r.user.first_name|default:r.user.username }}</strong>
+                  <small class="text-muted">{{ r.created_at|date:'M d, Y H:i' }}</small>
+                </div>
+                <div class="mb-1">
+                  {% for i in '12345' %}
+                    {% if forloop.counter <= r.rating %}<span class="text-warning">★</span>{% else %}<span class="text-muted">★</span>{% endif %}
+                  {% endfor %}
+                </div>
+                {% if r.comment %}<p class="mb-0 small" style="white-space:pre-line;">{{ r.comment }}</p>{% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="text-muted">No reviews yet.</p>
+      {% endif %}
+    </div>
+    <div class="col-lg-5 mb-5">
+      <h5 class="mb-3">{% if review_form and review_form.instance.pk %}Update Your Review{% else %}Leave a Review{% endif %}</h5>
+      {% if user.is_authenticated %}
+        <form method="post" class="border rounded p-3 bg-light">
+          {% csrf_token %}
+          <input type="hidden" name="form_type" value="review">
+          <div class="form-group mb-3">
+            <label class="small font-weight-bold">Rating (1-5)</label>
+            {{ review_form.rating }}
+          </div>
+          <div class="form-group mb-3">
+            <label class="small font-weight-bold">Comment</label>
+            {{ review_form.comment }}
+          </div>
+          <button class="btn btn-primary btn-block">Save Review</button>
+          {% if review_form and review_form.errors %}
+            <div class="text-danger small mt-2">Please correct the errors above.</div>
+          {% endif %}
+        </form>
+      {% else %}
+        <div class="alert alert-info">Please <a href="{% url 'login' %}?next={{ request.path }}">log in</a> to leave a review.</div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const main = document.getElementById('main-img');
+  if(main){
+    main.addEventListener('mousemove', e=>{
+      const rect=main.getBoundingClientRect();
+      const x=(e.clientX-rect.left)/rect.width*100; const y=(e.clientY-rect.top)/rect.height*100;
+      main.style.transformOrigin=x+'% '+y+'%';
+      main.style.transform='scale(1.2)';
+    });
+    main.addEventListener('mouseleave', ()=>{ main.style.transform='scale(1)'; });
+  }
+  document.querySelectorAll('#thumbs .thumb-item img').forEach(img=>{
+    img.addEventListener('click',()=>{ main.src = img.src; });
+  });
+  const addBtn = document.getElementById('add-design-btn');
+  const qtyInput = document.getElementById('qty-input');
+  const dec = document.getElementById('qty-dec');
+  const inc = document.getElementById('qty-inc');
+  function sanitize(){ let v=parseInt(qtyInput.value,10); if(isNaN(v)||v<1) v=1; if(v>999) v=999; qtyInput.value=v; }
+  if(dec) dec.addEventListener('click', ()=>{ sanitize(); qtyInput.value = Math.max(1, parseInt(qtyInput.value,10)-1); });
+  if(inc) inc.addEventListener('click', ()=>{ sanitize(); qtyInput.value = Math.min(999, parseInt(qtyInput.value,10)+1); });
+  if(qtyInput) qtyInput.addEventListener('input', sanitize);
+  if(addBtn){
+    addBtn.addEventListener('click', ()=>{ sanitize(); const qty=qtyInput.value; const id=addBtn.dataset.id;
+      fetch('{% url 'add_to_cart' %}', {method:'POST', headers:{'X-CSRFToken':'{{ csrf_token }}'}, body:new URLSearchParams({product_id:id, qty:qty, type:'design'})})
+        .then(r=>r.json()).then(d=>{ if(d.ok){ const nav=document.getElementById('nav-cart-count'); if(nav) nav.textContent=d.count?d.count:''; addBtn.innerHTML='<i class="ti-check"></i> Added'; setTimeout(()=> addBtn.innerHTML='<i class="ti-shopping-cart"></i> Add to Cart',1200);} });
+    });
+  }
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Brand Hero Concepts – OOO J&Z Shop</title>
+<link rel="stylesheet" href="{% static 'main/vendors/themify-icons/css/themify-icons.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/meyawo.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/custom.css' %}">
+<style>
+body{background:#0d1117;color:#e2e8f0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;}
+.page-wrap{max-width:1320px;margin:0 auto;padding:40px 22px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:34px;}
+.concept{position:relative;border:1px solid #222;border-radius:18px;overflow:hidden;background:#111;min-height:320px;display:flex;align-items:center;justify-content:center;padding:28px;text-align:center;}
+.concept-header{position:absolute;top:10px;left:12px;font-size:11px;font-weight:600;letter-spacing:.5px;color:#94a3b8;text-transform:uppercase;}
+.tag{display:inline-block;background:#1e293b;color:#cbd5e1;font-size:11px;padding:4px 10px;border-radius:30px;margin:4px 4px 10px;}
+/* 1 Gradient Emphasis */
+.c1 h1{font-size:2.4rem;background:linear-gradient(90deg,#ff7e5f,#feb47b,#ffe259,#ffa751);-webkit-background-clip:text;color:transparent;animation:gradShift 6s linear infinite;background-size:300% 100%;font-weight:700;letter-spacing:1px;}
+@keyframes gradShift{0%{background-position:0 0}100%{background-position:300% 0}}
+/* 2 Split Reveal */
+.c2 h1{font-size:2.3rem;font-weight:700;line-height:1.05;}
+.c2 .line{display:block;opacity:0;transform:translateY(18px);animation:rise .8s ease forwards;}
+.c2 .line:nth-child(2){animation-delay:.25s;color:#38bdf8;}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+/* 3 Typewriter */
+.c3 .type{font-size:2.2rem;font-weight:700;display:inline-block;white-space:nowrap;border-right:3px solid #fff;animation:typing 3.2s steps(22,end),blink .9s step-end infinite alternate;overflow:hidden;}
+@keyframes typing{0%{width:0}100%{width:100%}}
+@keyframes blink{50%{border-color:transparent}}
+/* 4 Glass Banner */
+.c4 .glass{backdrop-filter:blur(14px);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);padding:36px 26px;border-radius:22px;box-shadow:0 8px 30px -8px rgba(0,0,0,.5);} 
+.c4 h1{margin:0;font-size:2.1rem;font-weight:650;background:linear-gradient(135deg,#fff,#d2d8ff);-webkit-background-clip:text;color:transparent;}
+/* 5 Neon Outline */
+.c5 h1{font-size:2.5rem;font-weight:700;color:#111;position:relative;padding:.4rem 1rem;}
+.c5 h1:before,.c5 h1:after{content:"OOO J&Z Shop";position:absolute;left:0;top:0;width:100%;height:100%;}
+.c5 h1:before{color:#0ff;filter:blur(4px);opacity:.7;animation:flicker 3.5s linear infinite;} 
+.c5 h1:after{color:#fff;}
+@keyframes flicker{0%,18%,22%,25%,53%,57%,100%{opacity:.8}20%,24%,55%{opacity:.2}}
+/* 6 Particle Halo (placeholder simple dots) */
+.c6 .halo-wrap{position:relative;padding:40px 10px;}
+.c6 h1{font-size:2.2rem;font-weight:700;margin:0;}
+.c6 .dot{position:absolute;width:6px;height:6px;background:#38bdf8;border-radius:50%;animation:orb 9s linear infinite;}
+.c6 .dot:nth-child(1){top:10%;left:20%;animation-duration:11s}
+.c6 .dot:nth-child(2){top:18%;right:15%;animation-duration:8s}
+.c6 .dot:nth-child(3){bottom:15%;left:18%;animation-duration:10s}
+.c6 .dot:nth-child(4){bottom:12%;right:22%;animation-duration:12s}
+@keyframes orb{0%{transform:translate(0,0)}50%{transform:translate(12px,-18px) scale(.8)}100%{transform:translate(0,0)}}
+/* 7 Rotating Ring */
+.c7 .ring-box{position:relative;width:240px;height:240px;}
+.c7 svg{position:absolute;inset:0;width:100%;height:100%;}
+.c7 circle{fill:none;stroke:#1e293b;stroke-width:2;}
+.c7 text{font-size:14px;letter-spacing:3px;fill:#94a3b8;text-transform:uppercase;animation:spin 16s linear infinite;transform-origin:center;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.c7 .center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.15rem;}
+/* 8 Entry Splash */
+.c8 .splash{position:absolute;inset:0;background:#000;display:flex;align-items:center;justify-content:center;animation:splashFade 1.4s ease forwards;z-index:6;}
+.c8 h1{font-size:2.3rem;font-weight:700;}
+@keyframes splashFade{0%{opacity:1}70%{opacity:1}100%{opacity:0;visibility:hidden}}
+/* 9 Watermark */
+.c9{overflow:hidden;}
+.c9 .watermark{position:absolute;font-size:7rem;font-weight:800;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-18deg);color:rgba(255,255,255,0.03);pointer-events:none;white-space:nowrap;}
+.c9 h1{font-size:2.2rem;font-weight:700;position:relative;}
+/* 10 Badge Ribbon */
+.c10 h1{font-size:2.2rem;font-weight:700;margin:0;display:inline-flex;align-items:center;gap:12px;}
+.c10 .badge-icon{background:linear-gradient(135deg,#6366f1,#8b5cf6);width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px -8px rgba(99,102,241,.6);} 
+.c10 .badge-icon svg{width:30px;height:30px;fill:#fff;}
+.c10 .ribbon{position:absolute;bottom:8px;right:-40px;background:linear-gradient(90deg,#8b5cf6,#6366f1);color:#fff;padding:6px 14px;font-size:11px;font-weight:600;letter-spacing:.5px;border-radius:30px;box-shadow:0 6px 18px -6px rgba(0,0,0,.45);}
+/* Utility */
+.concept p{font-size:.8rem;color:#94a3b8;margin-top:12px;}
+@media (max-width:600px){.concept{min-height:260px;padding:22px;} .c9 .watermark{font-size:4.5rem;} }
+</style>
+</head>
+<body class="has-static-nav">
+{% include 'layouts/navbar.html' with static_nav=True %}
+<div class="page-wrap">
+  <h2 class="mb-4" style="font-weight:600;">Brand Hero Concept Slides</h2>
+  <p class="mb-5" style="max-width:760px;">Preview of the proposed appearance variants for highlighting <strong>OOO J&amp;Z Shop</strong> on first load. Choose one (and optional add-ons) to integrate into the live index hero.</p>
+  <div class="grid">
+    <div class="concept c1"><span class="concept-header">01 Gradient Emphasis</span><div><h1>OOO J&Z Shop</h1><p>Animated multi‑stop gradient text focus.</p></div></div>
+    <div class="concept c2"><span class="concept-header">02 Split Reveal</span><div><h1><span class="line">OOO J&Z</span><span class="line">Shop</span></h1><p>Two-line staggered slide + fade.</p></div></div>
+    <div class="concept c3"><span class="concept-header">03 Typewriter</span><div><span class="type">OOO J&amp;Z Shop</span><p>Single pass typewriter effect.</p></div></div>
+    <div class="concept c4"><span class="concept-header">04 Glass Banner</span><div class="glass"><h1>OOO J&Z Shop</h1><p style="margin:10px 0 0;font-size:.8rem;color:#cbd5e1;">Frosted container + subtle gradient fill.</p></div></div>
+    <div class="concept c5"><span class="concept-header">05 Neon Outline</span><div><h1>OOO J&Z Shop</h1><p>Layered glow & flicker outline.</p></div></div>
+    <div class="concept c6"><span class="concept-header">06 Particle Halo</span><div class="halo-wrap"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><h1>OOO J&Z Shop</h1><p>Ambient drifting accent dots.</p></div></div>
+    <div class="concept c7"><span class="concept-header">07 Rotating Ring</span><div class="ring-box"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" /><text x="50" y="50" text-anchor="middle" dominant-baseline="central">OOO J&Z SHOP • </text></svg><div class="center">OOO J&Z<br>Shop</div></div></div>
+    <div class="concept c8"><span class="concept-header">08 Entry Splash</span><div style="position:relative;width:100%;"><div class="splash"><h1>OOO J&Z Shop</h1></div><h1 style="margin:0;font-size:1.6rem;">Main Content Preview</h1><p style="margin-top:8px;">Quick intro splash overlay.</p></div></div>
+    <div class="concept c9"><span class="concept-header">09 Watermark</span><div><div class="watermark">OOO J&Z Shop</div><h1>OOO J&Z Shop</h1><p>Huge low-opacity diagonal backing text.</p></div></div>
+    <div class="concept c10"><span class="concept-header">10 Badge Ribbon</span><div style="position:relative;"><h1><span class="badge-icon"><svg viewBox="0 0 16 16"><path d="M8 0l2.146 2.854 3.49-.52-.52 3.49L16 8l-2.854 2.146.52 3.49-3.49-.52L8 16l-2.146-2.854-3.49.52.52-3.49L0 8l2.854-2.146-.52-3.49 3.49.52z"/></svg></span>OOO J&Z Shop</h1><span class="ribbon">EST. 2025</span><p style="margin-top:14px;">Premium badge + ribbon accent.</p></div></div>
+  </div>
+  <div class="mt-5 small text-muted">All animations include automatic <code>prefers-reduced-motion</code> fallback potential during integration.</div>
+</div>
+</body>
+</html>

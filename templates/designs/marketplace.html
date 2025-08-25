@@ -1,0 +1,85 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}Design Marketplace{% endblock %}
+{% block content %}
+<div class="container py-5 design-marketplace">
+  <div class="d-flex flex-wrap align-items-center mb-4">
+    <h2 class="mb-3 mr-4">Design Marketplace</h2>
+    <form id="filter-form" class="form-inline flex-wrap">
+      <select name="type" id="type" class="form-control mr-2 mb-2">
+        <option value="">All Types</option>
+        <option value="3d" {% if current_type == '3d' %}selected{% endif %}>3D Max Products</option>
+        <option value="interior" {% if current_type == 'interior' %}selected{% endif %}>Interior Design</option>
+      </select>
+      <select name="category" id="category" class="form-control mr-2 mb-2">
+        <option value="">All Categories</option>
+        {% for cat in categories %}
+          <option value="{{ cat.slug }}" {% if current_category == cat.slug %}selected{% endif %}>{{ cat.get_type_display }} - {{ cat.name }}</option>
+        {% endfor %}
+      </select>
+      <select name="page_size" id="page_size" class="form-control mr-2 mb-2">
+        {% for size in page_size_options %}
+          <option value="{{ size }}" {% if size == page_size %}selected{% endif %}>{{ size }} / page</option>
+        {% endfor %}
+      </select>
+      <input type="text" name="q" value="{{ search_query|default:'' }}" placeholder="Search..." class="form-control mr-2 mb-2" style="min-width:180px;">
+      <button class="btn btn-primary mb-2">Apply</button>
+    </form>
+  </div>
+  <div id="asset-grid">
+    {% include 'designs/partials/_asset_grid.html' %}
+  </div>
+  <div id="pagination-wrapper" class="mt-4">
+    {% include 'designs/partials/_pagination.html' %}
+  </div>
+</div>
+<style>
+.design-marketplace .asset-card{position:relative;overflow:hidden;border:1px solid #eee;border-radius:12px;transition:box-shadow .25s,transform .25s;background:#fff;display:flex;flex-direction:column}
+.design-marketplace .asset-card:hover{box-shadow:0 10px 28px -8px rgba(0,0,0,.18);transform:translateY(-4px)}
+.design-marketplace .asset-thumb{height:180px;object-fit:cover;width:100%;background:#f5f7fa}
+.design-marketplace .discount-badge{position:absolute;top:10px;left:10px;background:#dc3545;color:#fff;padding:4px 8px;font-size:12px;border-radius:20px}
+.design-marketplace .asset-body{padding:14px 16px;flex:1;display:flex;flex-direction:column}
+.design-marketplace .asset-title{font-weight:600;font-size:15px;margin-bottom:4px;line-height:1.2}
+.design-marketplace .asset-price{font-size:14px;font-weight:600;color:#007bff}
+.design-marketplace .asset-footer{padding:10px 16px;border-top:1px solid #f0f2f5;display:flex;justify-content:space-between;align-items:center}
+.design-marketplace .asset-type-badge{font-size:11px;background:#eef2f7;color:#555;padding:3px 8px;border-radius:12px}
+</style>
+<script>
+(function(){
+  const form = document.getElementById('filter-form');
+  function bindCartBtns(){
+    document.querySelectorAll('.add-design-cart').forEach(btn=>{
+      if(btn.dataset.bound) return; btn.dataset.bound='1';
+      btn.addEventListener('click', e=>{ 
+        e.preventDefault(); e.stopPropagation();
+        if(btn.classList.contains('added-once')){ window.location.href = '{% url 'cart' %}'; return; }
+        const id = btn.getAttribute('data-id');
+        btn.disabled = true;
+        fetch('{% url 'add_to_cart' %}', {method:'POST', headers:{'X-CSRFToken':'{{ csrf_token }}'}, body:new URLSearchParams({product_id:id, qty:1, type:'design'})})
+          .then(r=>r.json()).then(d=>{ if(d.ok){ const nav=document.getElementById('nav-cart-count'); if(nav) nav.textContent=d.count?d.count:''; btn.innerHTML='<i class="ti-check"></i>'; btn.classList.add('added-once','btn-success'); btn.classList.remove('btn-outline-primary'); btn.title='View in cart'; } })
+          .finally(()=>{ btn.disabled=false; });
+      });
+    });
+  }
+  function ajaxLoad(url){
+    const params = new URLSearchParams(new FormData(form));
+    if(url.indexOf('?')===-1) url += '?' + params.toString();
+    fetch(url, {headers:{'X-Requested-With':'XMLHttpRequest'}}).then(r=>r.json()).then(d=>{
+      document.getElementById('asset-grid').innerHTML=d.html;
+      document.getElementById('pagination-wrapper').innerHTML=d.pagination;
+      window.scrollTo({top:0,behavior:'smooth'});
+      attachPagination();
+      bindCartBtns();
+    });
+  }
+  function attachPagination(){
+    document.querySelectorAll('#pagination-wrapper a[data-page]').forEach(a=>{
+      a.addEventListener('click', e=>{e.preventDefault(); const page=a.getAttribute('data-page'); const url = window.location.pathname + '?page=' + page; ajaxLoad(url);});
+    });
+  }
+  form.addEventListener('submit', function(e){ e.preventDefault(); ajaxLoad(window.location.pathname); });
+  attachPagination();
+  bindCartBtns();
+})();
+</script>
+{% endblock %}

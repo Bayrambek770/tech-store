@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Store</title>
+    <!-- Themify Icons (correct static path) -->
+    <link rel="stylesheet" href="{% static 'main/vendors/themify-icons/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/meyawo.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/custom.css' %}">
+</head>
+
+<body class="store-page has-static-nav">
+    <style>
+        /* Store page navbar: ensure positioned ancestor for absolute mobile menu */
+        .store-page .custom-navbar { position: relative; }
+        /* Slight spacing below navbar if desired */
+        .store-page .store-container { margin-top: 8px; }
+        /* Improve mobile dropdown alignment */
+        @media (max-width: 991.98px){
+            .store-page .custom-navbar .nav { top:100%; left:0; }
+        }
+    </style>
+    {% include 'layouts/navbar.html' with static_nav=True %}
+    <div class="container store-container page-section-spacer">
+        <div class="d-flex flex-column flex-md-row align-items-md-center mb-4">
+            <h2 class="mb-2 mb-md-0 mr-md-3">Product Store</h2>
+            <span class="text-muted">Browse & discover</span>
+        </div>
+        <form method="get" class="store-filters row mb-4" id="filter-form">
+            <div class="col-lg-5 mb-2 mb-lg-0"><input type="text" name="q" value="" class="form-control"
+                    placeholder="Search products..."></div>
+            <div class="col-lg-3 mb-2 mb-lg-0">
+                <select name="category" class="form-control">
+                    <option value="">All Categories</option>
+                    {% for cat in categories %}
+                    <option value="{{ cat.name }}" {% if current_category == cat.name %}selected{% endif %}>{{ cat.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-lg-2 mb-2 mb-lg-0">
+                <select name="page_size" class="form-control" id="page-size-select">
+                    {% for size in page_size_options %}
+                    <option value="{{ size }}" {% if page_size == size %}selected{% endif %}>{{ size }} / page</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-lg-2"><button class="btn btn-primary btn-block">Apply</button></div>
+        </form>
+        <div id="products-wrapper">
+            {% include 'partials/_product_grid.html' %}
+            {% include 'partials/_pagination.html' %}
+        </div>
+        <div class="text-right mt-4">
+            <a href="{% url 'cart' %}" class="btn btn-gradient"><i class="ti-shopping-cart"></i> Go to Cart <span
+                    id="cart-inline-count" class="badge badge-light ml-1"></span></a>
+        </div>
+    </div>
+    <!-- Floating cart button -->
+    <button id="floating-cart-btn" title="View Cart" style="position:fixed;right:18px;bottom:18px;z-index:1050;"
+        class="btn btn-primary btn-lg shadow rounded-circle d-flex align-items-center justify-content-center">
+        <i class="ti-shopping-cart"></i>
+        <span id="floating-cart-count" class="badge badge-light"
+            style="position:absolute;top:-4px;right:-4px;font-size:11px;"></span>
+    </button>
+    <script>
+    // HTML snippet for Advance Payment card to re-add after AJAX filtering
+    const ADVANCE_CARD_HTML = `\n<div class="mt-5">\n    <a href="{% url 'donation' %}" class="text-decoration-none d-block p-4 rounded shadow-sm border position-relative advance-card" style="background:linear-gradient(135deg,#f6f9fc,#e9eef5);">\n        <div class="d-flex align-items-center">\n            <div class="mr-4" style="font-size:38px;line-height:1;">💳</div>\n            <div>\n                <h4 class="mb-1" style="font-weight:600;">Making an advance payment</h4>\n                <p class="mb-0 text-muted">Contribute a custom amount and proceed to checkout.</p>\n            </div>\n        </div>\n    </a>\n</div>`;
+        function updateCartBadge(count) {
+            if (count === undefined) { return fetch('{% url 'update_cart_item' %}', { method: 'HEAD' }).catch(() => { }); }
+            const badge = document.getElementById('nav-cart-count');
+            const floatCount = document.getElementById('floating-cart-count');
+            const inlineCount = document.getElementById('cart-inline-count');
+            [badge, floatCount, inlineCount].forEach(el => { if (el) el.textContent = count ? count : ''; });
+        }
+        function bindProductEvents() {
+            document.querySelectorAll('#products-wrapper .add-to-cart-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (this.classList.contains('added-once')) {
+                        // Toggle: second click acts as quick access to cart instead of incrementing
+                        window.location.href = '{% url 'cart' %}';
+                        return;
+                    }
+                    const id = this.getAttribute('data-add');
+                    this.disabled = true;
+                    fetch('{% url 'add_to_cart' %}', {
+                        method: 'POST',
+                        headers: { 'X-CSRFToken': '{{ csrf_token }}' },
+                        body: new URLSearchParams({ product_id: id, qty: 1 })
+                    }).then(r => r.json()).then(data => { if (data.ok) { updateCartBadge(data.count); this.innerHTML = '<i class="ti-check"></i>'; this.classList.add('added-once','btn-success'); this.classList.remove('btn-outline-primary'); this.title='View in cart'; } })
+                    .finally(()=>{ this.disabled = false; });
+                });
+            });
+            document.querySelectorAll('#products-wrapper .page-link-nav').forEach(a => {
+                a.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const page = this.dataset.page;
+                    if (!page) return;
+                    loadPage(page);
+                });
+            });
+        }
+        function serializeFilters(extra) {
+            const form = document.getElementById('filter-form');
+            const data = new FormData(form);
+            if (extra) { Object.entries(extra).forEach(([k, v]) => data.set(k, v)); }
+            return new URLSearchParams(data).toString();
+        }
+        function loadPage(page) {
+            const qs = serializeFilters({ page: page });
+            fetch(`?${qs}`, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+                .then(r => r.json())
+                .then(d => {
+                    const wrap = document.getElementById('products-wrapper');
+                    wrap.innerHTML = d.html + d.pagination + ADVANCE_CARD_HTML; // ensure advance payment card always at bottom
+                    bindProductEvents();
+                    window.history.replaceState({}, '', `?${qs}`);
+                });
+        }
+        document.getElementById('filter-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            loadPage(1);
+        });
+        document.getElementById('page-size-select').addEventListener('change', function () {
+            loadPage(1);
+        });
+        bindProductEvents();
+        document.getElementById('floating-cart-btn').addEventListener('click', () => { window.location.href = '{% url 'cart' %}'; });
+        // Ensure advance card present on initial (non-AJAX) render
+        (function ensureAdvanceCard(){
+            const wrap = document.getElementById('products-wrapper');
+            if(wrap && !wrap.querySelector('.advance-card')){
+                wrap.insertAdjacentHTML('beforeend', ADVANCE_CARD_HTML);
+            }
+        })();
+    </script>
+    <script src="{% static 'main/vendors/jquery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'main/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'main/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+    <script src="{% static 'main/js/meyawo.js' %}"></script>
+</body>
+
+</html>

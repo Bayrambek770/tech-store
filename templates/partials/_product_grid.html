@@ -1,0 +1,27 @@
+{% load static %}
+<div class="product-list row" id="product-list">
+  {% for p in products %}
+    <div class="col-sm-6 col-lg-4 mb-4">{# 3 per row for 12 cols -> 9 per page default #}
+      <div class="card h-100 product-card p-0 text-center d-flex flex-column position-relative overflow-hidden">
+        {% if p.discount %}<span class="badge-category">-{{ p.discount }}%</span>{% endif %}
+        <a href="{% url 'product_detail' p.slug %}" class="d-block">
+          {% if p.image %}
+            <img src="{{ p.image.url }}" alt="{{ p.name }}" class="img-fluid" style="height:160px;object-fit:cover;width:100%;" />
+          {% else %}
+            <img src="{% static 'images/placeholder.png' %}" alt="{{ p.name }}" class="img-fluid" style="height:160px;object-fit:cover;width:100%;" />
+          {% endif %}
+        </a>
+        <div class="p-3 d-flex flex-column flex-grow-1">
+          <h6 class="mb-1 flex-grow-0 text-truncate" title="{{ p.name }}">{{ p.name }}</h6>
+          <p class="small text-muted mb-2">${{ p.price }}</p>
+          <div class="mt-auto d-flex justify-content-center">
+            <button class="btn btn-sm btn-outline-primary mr-1 add-to-cart-btn" data-add="{{ p.id }}" title="Add to Cart (second click opens cart)"><i class="ti-shopping-cart"></i></button>
+            <a class="btn btn-sm btn-outline-secondary" href="{% url 'product_detail' p.slug %}" title="View Details"><i class="ti-eye"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <div class="col-12"><p>No products found.</p></div>
+  {% endfor %}
+</div>

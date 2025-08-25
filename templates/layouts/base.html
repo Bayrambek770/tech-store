@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>{% block title %}Site{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'main/vendors/themify-icons/css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'main/css/meyawo.css' %}">
+	<link rel="stylesheet" href="{% static 'main/css/custom.css' %}">
+	{% block extra_head %}{% endblock %}
+</head>
+<body class="navbar-static-page">
+	{% include 'layouts/navbar.html' with static_nav=True %}
+	<main class="pt-3" style="min-height:60vh;">
+		{% block content %}{% endblock %}
+	</main>
+	<footer class="py-4 text-center small text-muted border-top mt-5">&copy; {{ now|date:'Y' }} All for PC</footer>
+	<script src="{% static 'main/vendors/jquery/jquery-3.4.1.js' %}"></script>
+	<script src="{% static 'main/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+	<script src="{% static 'main/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+	<script src="{% static 'main/js/meyawo.js' %}"></script>
+	{% block extra_js %}{% endblock %}
+</body>
+</html>

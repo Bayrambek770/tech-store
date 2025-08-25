@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>{{ product.name }}</title>
+<link rel="stylesheet" href="{% static 'main/vendors/themify-icons/css/themify-icons.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/meyawo.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/custom.css' %}">
+</head>
+<body>
+{% include 'layouts/navbar.html' with static_nav=True %}
+<div class="container page-section-spacer product-detail-container" style="max-width:1080px;">
+  <div class="row">
+    <div class="col-lg-6 mb-4">
+      <div class="product-media position-relative border rounded p-3 bg-light d-flex align-items-center justify-content-center" style="min-height:400px;overflow:hidden;">
+        {% if product.image %}
+          <img id="main-image" src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid product-main-img" style="max-height:420px;object-fit:contain;transition:transform .25s;">
+        {% else %}
+          <div style="height:320px;display:flex;align-items:center;justify-content:center;" class="text-muted">No image</div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <h2 class="mb-2 font-weight-bold">{{ product.name }}</h2>
+      <p class="text-muted mb-2">In <a href="{% url 'store' %}?category={{ product.category.name }}" class="text-decoration-none">{{ product.category.name }}</a></p>
+      <div class="d-flex align-items-baseline mb-3">
+        <span class="h3 mb-0 mr-3 text-primary">${{ product.price }}</span>
+        {% if product.discount %}<span class="badge badge-danger">-{{ product.discount }}%</span>{% endif %}
+      </div>
+      <div class="small text-muted mb-4">Added: {{ product.created_at|date:'M d, Y H:i' }}</div>
+      <div class="mb-4">
+        <label class="small text-uppercase d-block font-weight-bold">Quantity</label>
+        <div class="input-group" style="max-width:160px;">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary" type="button" id="qty-dec">-</button>
+          </div>
+          <input type="text" id="qty-input" class="form-control text-center" value="1" pattern="^[0-9]{1,3}$">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="qty-inc">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex align-items-center flex-wrap mb-4">
+        <button class="btn btn-gradient mr-3 mb-2" id="detail-add-btn" data-id="{{ product.id }}"><i class="ti-shopping-cart"></i> Add to Cart</button>
+        <a href="{% url 'store' %}" class="btn btn-outline-secondary mb-2">Back to Store</a>
+      </div>
+      <div class="border-top pt-3 small text-muted">Secure checkout • Easy returns • Fast support</div>
+    </div>
+  </div>
+  {% if related %}
+  <hr class="my-5">
+  <h5 class="mb-4">Related Products</h5>
+  <div class="row">
+    {% for r in related %}
+      <div class="col-6 col-sm-4 col-lg-3 mb-4">
+        <a href="{% url 'product_detail' r.slug %}" class="text-decoration-none d-block border rounded h-100 p-2 product-related-card">
+          {% if r.image %}
+            <img src="{{ r.image.url }}" alt="{{ r.name }}" style="height:110px;width:100%;object-fit:cover;" class="mb-2 rounded">
+          {% else %}
+            <div class="d-flex align-items-center justify-content-center text-muted bg-light mb-2 rounded" style="height:110px;">No image</div>
+          {% endif %}
+          <div class="small text-truncate font-weight-500">{{ r.name }}</div>
+          <div class="small text-primary">${{ r.price }}</div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <hr class="my-5">
+  <div class="row">
+    <div class="col-lg-7 mb-5">
+      <h5 class="mb-3">Customer Reviews</h5>
+      {% if reviews %}
+        <ul class="list-unstyled mb-4" id="review-list">
+          {% for r in reviews %}
+            <li class="media mb-3 p-3 border rounded">
+              <div class="media-body">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <strong>{{ r.user.first_name|default:r.user.username }}</strong>
+                  <small class="text-muted">{{ r.created_at|date:'M d, Y H:i' }}</small>
+                </div>
+                <div class="mb-1">
+                  {% for i in '12345' %}
+                    {% if forloop.counter <= r.rating %}<span class="text-warning">★</span>{% else %}<span class="text-muted">★</span>{% endif %}
+                  {% endfor %}
+                </div>
+                {% if r.comment %}<p class="mb-0 small" style="white-space:pre-line;">{{ r.comment }}</p>{% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="text-muted">No reviews yet.</p>
+      {% endif %}
+    </div>
+    <div class="col-lg-5 mb-5">
+      <h5 class="mb-3">{% if review_form and review_form.instance.pk %}Update Your Review{% else %}Leave a Review{% endif %}</h5>
+      {% if user.is_authenticated %}
+        <form method="post" class="border rounded p-3 bg-light">
+          {% csrf_token %}
+          <input type="hidden" name="form_type" value="review">
+          <div class="form-group mb-3">
+            <label class="small font-weight-bold">Rating (1-5)</label>
+            {{ review_form.rating }}
+          </div>
+            <div class="form-group mb-3">
+              <label class="small font-weight-bold">Comment</label>
+              {{ review_form.comment }}
+            </div>
+            <button class="btn btn-primary btn-block">Save Review</button>
+            {% if review_form and review_form.errors %}
+              <div class="text-danger small mt-2">Please correct the errors above.</div>
+            {% endif %}
+        </form>
+      {% else %}
+        <div class="alert alert-info">Please <a href="{% url 'login' %}?next={{ request.path }}">log in</a> to leave a review.</div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const btn = document.getElementById('detail-add-btn');
+  const qtyInput = document.getElementById('qty-input');
+  const dec = document.getElementById('qty-dec');
+  const inc = document.getElementById('qty-inc');
+  function sanitize(){ let v = parseInt(qtyInput.value,10); if(isNaN(v)||v<1) v=1; if(v>999) v=999; qtyInput.value=v; }
+  if(dec) dec.addEventListener('click', ()=>{ sanitize(); qtyInput.value = Math.max(1, parseInt(qtyInput.value,10)-1); });
+  if(inc) inc.addEventListener('click', ()=>{ sanitize(); qtyInput.value = Math.min(999, parseInt(qtyInput.value,10)+1); });
+  if(qtyInput) qtyInput.addEventListener('input', sanitize);
+  if(btn){
+    btn.addEventListener('click', function(){
+      sanitize();
+      const qty = qtyInput.value;
+      fetch('{% url 'add_to_cart' %}', {method:'POST', headers:{'X-CSRFToken': '{{ csrf_token }}'}, body:new URLSearchParams({product_id:btn.dataset.id, qty:qty})})
+        .then(r=>r.json()).then(d=>{ if(d.ok){
+          const navCount=document.getElementById('nav-cart-count');
+          if(navCount) navCount.textContent=d.count?d.count:'';
+          btn.innerHTML='<i class="ti-check"></i> Added';
+          setTimeout(()=>{btn.innerHTML='<i class="ti-shopping-cart"></i> Add to Cart';},1200);
+        }});
+    });
+  }
+  // Simple zoom on hover
+  const mainImg = document.getElementById('main-image');
+  if(mainImg){
+    mainImg.addEventListener('mousemove', e=>{
+      const rect = mainImg.getBoundingClientRect();
+      const x = (e.clientX - rect.left)/rect.width*100;
+      const y = (e.clientY - rect.top)/rect.height*100;
+      mainImg.style.transformOrigin = x+'% '+y+'%';
+      mainImg.style.transform='scale(1.25)';
+    });
+    mainImg.addEventListener('mouseleave', ()=>{ mainImg.style.transform='scale(1)'; });
+  }
+})();
+</script>
+<script src="{% static 'main/vendors/jquery/jquery-3.4.1.js' %}"></script>
+<script src="{% static 'main/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'main/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+<script src="{% static 'main/js/meyawo.js' %}"></script>
+</body></html>

@@ -309,8 +309,3 @@ def public_offer(request):
     return render(request, 'public_offer.html')
 
 
-def brand_preview(request):
-    """Show visual slides of hero branding style options for 'OOO J&Z Shop'."""
-    return render(request, 'brand_preview.html')
-
-

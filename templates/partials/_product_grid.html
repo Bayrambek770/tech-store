@@ -2,7 +2,7 @@
 <div class="product-list row" id="product-list">
   {% for p in products %}
     <div class="col-sm-6 col-lg-4 mb-4">{# 3 per row for 12 cols -> 9 per page default #}
-      <div class="card h-100 product-card p-0 text-center d-flex flex-column position-relative overflow-hidden">
+  <div class="card h-100 product-card p-0 text-center d-flex flex-column position-relative overflow-hidden" data-product-id="{{ p.id }}">
         {% if p.discount %}<span class="badge-category">-{{ p.discount }}%</span>{% endif %}
         <a href="{% url 'product_detail' p.slug %}" class="d-block">
           {% if p.image %}

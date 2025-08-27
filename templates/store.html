@@ -14,14 +14,8 @@
 
 <body class="store-page has-static-nav">
     <style>
-        /* Store page navbar: ensure positioned ancestor for absolute mobile menu */
-        .store-page .custom-navbar { position: relative; }
-        /* Slight spacing below navbar if desired */
-        .store-page .store-container { margin-top: 8px; }
-        /* Improve mobile dropdown alignment */
-        @media (max-width: 991.98px){
-            .store-page .custom-navbar .nav { top:100%; left:0; }
-        }
+        /* Page-specific spacing (navbar is fixed so provide top offset if needed) */
+        .store-page .store-container { margin-top: 12px; }
     </style>
     {% include 'layouts/navbar.html' with static_nav=True %}
     <div class="container store-container page-section-spacer">
@@ -53,10 +47,6 @@
         <div id="products-wrapper">
             {% include 'partials/_product_grid.html' %}
             {% include 'partials/_pagination.html' %}
-        </div>
-        <div class="text-right mt-4">
-            <a href="{% url 'cart' %}" class="btn btn-gradient"><i class="ti-shopping-cart"></i> Go to Cart <span
-                    id="cart-inline-count" class="badge badge-light ml-1"></span></a>
         </div>
     </div>
     <!-- Floating cart button -->
@@ -141,6 +131,17 @@
     <script src="{% static 'main/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
     <script src="{% static 'main/vendors/bootstrap/bootstrap.affix.js' %}"></script>
     <script src="{% static 'main/js/meyawo.js' %}"></script>
+    <script src="{% static 'main/js/custom.js' %}"></script>
+    <style>
+    .store-actions-wrapper{position:relative;}
+    .store-actions-inner{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:14px 18px;border:1px solid rgba(0,0,0,.06);border-radius:18px;background:linear-gradient(140deg,rgba(255,255,255,.78),rgba(255,255,255,.55));backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);box-shadow:0 4px 28px -10px rgba(0,0,0,.25),0 0 0 1px rgba(255,255,255,.5);} 
+    .store-actions-inner .btn{margin-bottom:6px;}
+    @media (max-width: 600px){
+        .store-actions-inner{flex-direction:column;align-items:stretch;}
+        .store-actions-inner .left,.store-actions-inner .right{width:100%;display:flex;justify-content:space-between;}
+        #direct-checkout-btn{flex:1;justify-content:center;}
+    }
+    </style>
 </body>
 
 </html>

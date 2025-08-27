@@ -20,7 +20,7 @@
     </style>
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home" class="tight-spacing">
 
     {% include "layouts/navbar.html" %}
 
@@ -28,7 +28,7 @@
         <div class="overlay"></div>
         <div class="header-content container d-flex align-items-center justify-content-center" style="min-height:74vh;">
                                     <div class="glass-hero text-center p-4 p-md-5">
-                                            <h1 class="brand-title mb-3">OOO J&amp;Z Shop</h1>
+                                            <h1 class="brand-title mb-3">Dark and White</h1>
                                             <p class="lead mb-0 brand-tagline">Premium Components • Design Assets • Smart Advance Payments</p>
                                             <div class="hero-learn-wrapper mt-4">
                                                 <a href="#about" class="hero-learn-link" aria-label="Learn more about OOO J&Z Shop section">Learn more</a>
@@ -56,17 +56,6 @@
             </div>
         </div>
     </section>
-
-    <footer class="py-4 border-top text-center small" style="background:#111; color:#aaa;">
-        <div class="container">
-            <div class="mb-2">&copy; {{ now|date:'Y' }} All for PC. All rights reserved.</div>
-            <div>
-                <a href="{% url 'public_offer' %}" class="text-light mr-3">Public Offer</a>
-                <a href="{% url 'donation' %}" class="text-light mr-3">Advance Payment</a>
-                <a href="{% url 'designs:marketplace' %}" class="text-light">Marketplace</a>
-            </div>
-        </div>
-    </footer>
 
     <section class="section" id="service">
         <div class="container text-center">
@@ -111,6 +100,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <section class="section" id="portfolio" aria-labelledby="hot-offers-title">
         <div class="container text-center">
@@ -236,6 +227,17 @@
             </form>
         </div>
     </section>
+
+    <footer class="py-4 border-top text-center small" style="background:#111; color:#aaa;">
+        <div class="container">
+            <div class="mb-2">&copy; {{ now|date:'Y' }} All for PC. All rights reserved.</div>
+            <div>
+                <a href="{% url 'public_offer' %}" class="text-light mr-3">Public Offer</a>
+                <a href="{% url 'donation' %}" class="text-light mr-3">Advance Payment</a>
+                <a href="{% url 'designs:marketplace' %}" class="text-light">Marketplace</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="{% static 'main/vendors/jquery/jquery-3.4.1.js' %}"></script>
     <script src="{% static 'main/vendors/bootstrap/bootstrap.bundle.js' %}"></script>

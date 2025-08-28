@@ -1,29 +1,28 @@
 from pathlib import Path
-import os
 from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# ------------------------------------------------------------------
-# Environment configuration via django-decouple
-# ------------------------------------------------------------------
+# -------------------------------------------------------------
+# Environment variables (django-decouple). Keep it simple.
+# -------------------------------------------------------------
 try:
-    from decouple import config, Csv
-except ModuleNotFoundError:  # fallback if decouple not installed
-    def config(key, default=None, cast=None):
+    from decouple import config  # type: ignore
+except ImportError:  # graceful fallback for local scripts
+    def config(key, default=None, cast=str):
         return default
-    class Csv:  # minimal stub
-        def __init__(self, *args, **kwargs):
-            pass
 
-SECRET_KEY = config('DJANGO_SECRET_KEY', default='dev-insecure-change-me')
-DEBUG = config('DJANGO_DEBUG', default=False, cast=lambda v: str(v).lower() in ('1','true','yes','on'))
-_allowed = config('DJANGO_ALLOWED_HOSTS', default='*', cast=Csv())
-if isinstance(_allowed, str):
-    ALLOWED_HOSTS = [h.strip() for h in _allowed.split(',') if h.strip()]
-else:
-    ALLOWED_HOSTS = list(_allowed) or ['*']
-CSRF_TRUSTED_ORIGINS = [o for o in config('DJANGO_CSRF_TRUSTED_ORIGINS', default='', cast=str).split(',') if o]
+def bool_env(name, default=False):
+    return config(name, default=str(default)).lower() in ('1', 'true', 'yes', 'on')
+
+def list_env(name, default=""):
+    raw = config(name, default=default)
+    return [p.strip() for p in raw.split(',') if p.strip()]
+
+SECRET_KEY = config('DJANGO_SECRET_KEY', default='CHANGE_ME_IN_PRODUCTION')
+DEBUG = bool_env('DJANGO_DEBUG', False)
+ALLOWED_HOSTS = list_env('DJANGO_ALLOWED_HOSTS', '*') or ['*']
+CSRF_TRUSTED_ORIGINS = list_env('DJANGO_CSRF_TRUSTED_ORIGINS', '')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -46,7 +45,6 @@ AUTH_USER_MODEL = "users.CustomUser"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -80,10 +78,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 DB_ENGINE = config('DB_ENGINE', default='django.db.backends.sqlite3')
-if DB_ENGINE.endswith('sqlite3'):
-    DB_NAME = config('DB_NAME', default=str(BASE_DIR / 'db.sqlite3'))
-else:
-    DB_NAME = config('DB_NAME', default='techstore')
+DB_NAME = config('DB_NAME', default=str(BASE_DIR / 'db.sqlite3'))
 
 DATABASES = {
     'default': {
@@ -139,7 +134,7 @@ USE_TZ = True
 STATIC_URL = config('STATIC_URL', default='/static/')
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'assets']
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 MEDIA_URL = config('MEDIA_URL', default='/media/')
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -175,16 +170,16 @@ PARLER_LANGUAGES = {
 # Security hardening (only effective when DEBUG=False)
 # ------------------------------------------------------------------
 if not DEBUG:
-    SECURE_SSL_REDIRECT = config('DJANGO_SECURE_SSL_REDIRECT', default=True, cast=lambda v: str(v).lower() in ('1','true','yes','on'))
-    SESSION_COOKIE_SECURE = config('DJANGO_SESSION_COOKIE_SECURE', default=True, cast=lambda v: str(v).lower() in ('1','true','yes','on'))
-    CSRF_COOKIE_SECURE = config('DJANGO_CSRF_COOKIE_SECURE', default=True, cast=lambda v: str(v).lower() in ('1','true','yes','on'))
-    SECURE_HSTS_SECONDS = config('DJANGO_SECURE_HSTS_SECONDS', default=31536000, cast=int)
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = config('DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS', default=True, cast=lambda v: str(v).lower() in ('1','true','yes','on'))
-    SECURE_HSTS_PRELOAD = config('DJANGO_SECURE_HSTS_PRELOAD', default=True, cast=lambda v: str(v).lower() in ('1','true','yes','on'))
-    SECURE_REFERRER_POLICY = config('DJANGO_SECURE_REFERRER_POLICY', default='strict-origin-when-cross-origin')
-    SECURE_BROWSER_XSS_FILTER = config('DJANGO_SECURE_BROWSER_XSS_FILTER', default=True, cast=lambda v: str(v).lower() in ('1','true','yes','on'))
-    SECURE_CONTENT_TYPE_NOSNIFF = config('DJANGO_SECURE_CONTENT_TYPE_NOSNIFF', default=True, cast=lambda v: str(v).lower() in ('1','true','yes','on'))
-    X_FRAME_OPTIONS = config('DJANGO_X_FRAME_OPTIONS', default='DENY')
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    X_FRAME_OPTIONS = 'DENY'
 
 # ------------------------------------------------------------------
 # Logging

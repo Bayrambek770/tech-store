@@ -1,19 +1,21 @@
 from django.contrib import admin
+from parler.admin import TranslatableAdmin
 from .models import Product, Category, Review
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(TranslatableAdmin):
     list_display = ("name", "description")
-    search_fields = ("name",)
+    search_fields = ("translations__name",)
 
 
 @admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(TranslatableAdmin):
     list_display = ("name", "price", "category", "is_active")
-    search_fields = ("name", "category__name")
+    search_fields = ("translations__name", "category__translations__name")
     list_filter = ("category", "is_active")
-    prepopulated_fields = {"slug": ("name",)}
-    readonly_fields = ('is_active',)
+    # Removed prepopulated_fields because 'name' is translated (Parler stores it separately)
+    readonly_fields = ('slug','is_active',)
+    ordering = ('translations__name',)
 
 
 @admin.register(Review)

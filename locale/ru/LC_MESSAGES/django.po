@@ -1,0 +1,2242 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 11:14+0500\n"
+"PO-Revision-Date: 2025-08-28 01:28+0000\n"
+"Last-Translator:   <admin@mail.ru>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
+
+#: .\config\settings.py:94
+msgid "Russian"
+msgstr "Русский"
+
+#: .\config\settings.py:95
+msgid "English"
+msgstr "Английский"
+
+#: .\config\settings.py:96
+msgid "Uzbek"
+msgstr "Узбекский"
+
+#: .\products\models.py:23 .\products\models.py:39 .\users\models.py:25
+msgid "Name"
+msgstr "Название"
+
+#: .\products\models.py:24
+msgid "Description"
+msgstr "Описание"
+
+#: .\products\models.py:31 .\products\models.py:49
+msgid "Category"
+msgstr "Категория"
+
+#: .\products\models.py:32
+msgid "Categories"
+msgstr "Категории"
+
+#: .\products\models.py:40 .\templates\cart.html:24
+msgid "Price"
+msgstr "Цена"
+
+#: .\products\models.py:42
+msgid "Slug"
+msgstr "Слаг"
+
+#: .\products\models.py:43
+msgid "Discount (%)"
+msgstr "Скидка (%)"
+
+#: .\products\models.py:45
+msgid "Is active"
+msgstr "Активен"
+
+#: .\products\models.py:74 .\products\models.py:84 .\templates\cart.html:23
+msgid "Product"
+msgstr "Товар"
+
+# Clean reconstruction of corrupted entries
+#: .\products\models.py:75
+msgid "Products"
+msgstr "Продукты"
+
+#: .\products\models.py:90
+msgid "User"
+msgstr "Пользователь"
+
+#: .\products\models.py:95
+msgid "Rating"
+msgstr "Рейтинг"
+
+#: .\products\models.py:98 .\templates\product_detail.html:107
+msgid "Comment"
+msgstr "Комментарий"
+
+#: .\products\models.py:101
+msgid "Review"
+msgstr "Отзыв"
+
+#: .\products\models.py:102
+msgid "Reviews"
+msgstr "Отзывы"
+
+#: .\products\models.py:109
+#, python-format
+msgid "Review for %(product)s by %(user)s"
+msgstr "Отзыв о %(product)s от %(user)s"
+
+#: .\templates\cart.html:8 .\templates\layouts\navbar.html:11
+#: .\templates\layouts\navbar.html:33
+msgid "Cart"
+msgstr "Корзина"
+
+#: .\templates\cart.html:17
+msgid "Shopping Cart"
+msgstr "Корзина покупок"
+
+#: .\templates\cart.html:18
+msgid "Review your selected items"
+msgstr "Просмотрите выбранные товары"
+
+#: .\templates\cart.html:22
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:420
+msgid "Image"
+msgstr "Изображение"
+
+#: .\templates\cart.html:24
+msgid "Price"
+msgstr "Цена"
+
+#: .\templates\cart.html:25 .\templates\donation.html:23
+#: .\templates\product_detail.html:32
+msgid "Quantity"
+msgstr "Количество"
+
+#: .\templates\cart.html:26
+msgid "Total"
+msgstr "Итого"
+
+#: .\templates\cart.html:27
+msgid "Remove"
+msgstr "Удалить"
+
+#: .\templates\cart.html:33
+msgid "No Img"
+msgstr "Нет изображения"
+
+#: .\templates\cart.html:34
+msgid "Design"
+msgstr "Дизайн"
+
+#: .\templates\cart.html:34
+msgid "Advance"
+msgstr "Аванс"
+
+#: .\templates\cart.html:51 .\templates\cart.html:78
+msgid "Your cart is empty."
+msgstr "Ваша корзина пуста."
+
+#: .\templates\cart.html:57
+msgid "Subtotal:"
+msgstr "Подытог:"
+
+#: .\templates\cart.html:58
+msgid "Continue Shopping"
+msgstr "Продолжить покупки"
+
+#: .\templates\cart.html:59
+msgid "Proceed to Checkout"
+msgstr "Перейти к оформлению"
+
+#: .\templates\checkout.html:4
+msgid "Checkout"
+msgstr "Оформление заказа"
+
+#: .\templates\checkout.html:15
+msgid "Shipping & Contact"
+msgstr "Доставка и контакты"
+
+#: .\templates\checkout.html:18
+msgid "First Name"
+msgstr "Имя"
+
+#: .\templates\checkout.html:29
+msgid "John"
+msgstr "Иван"
+
+#: .\templates\checkout.html:34
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: .\templates\checkout.html:45
+msgid "Doe"
+msgstr "Иванов"
+
+#: .\templates\checkout.html:51 .\users\models.py:26
+msgid "Email"
+msgstr "Email"
+
+#: .\templates\checkout.html:60
+msgid "you@example.com"
+msgstr "you@example.com"
+
+#: .\templates\checkout.html:66
+msgid "Phone"
+msgstr "Телефон"
+
+#: .\templates\checkout.html:76
+msgid "+1 555 123 4567"
+msgstr "+1 555 123 4567"
+
+#: .\templates\checkout.html:82
+msgid "Address Line 1"
+msgstr "Адрес (строка 1)"
+
+#: .\templates\checkout.html:92
+msgid "123 Main St"
+msgstr "Ул. Центральная 123"
+
+#: .\templates\checkout.html:97
+msgid "Address Line 2"
+msgstr "Адрес (строка 2)"
+
+#: .\templates\checkout.html:97
+msgid "Optional"
+msgstr "Необязательно"
+
+#: .\templates\checkout.html:110 .\templates\checkout.html:121
+msgid "Country"
+msgstr "Страна"
+
+#: .\templates\checkout.html:126
+msgid "State/Region"
+msgstr "Регион"
+
+#: .\templates\checkout.html:137
+msgid "State / Region"
+msgstr "Регион"
+
+#: .\templates\checkout.html:142 .\templates\checkout.html:153
+msgid "ZIP"
+msgstr "Индекс"
+
+#: .\templates\checkout.html:159
+msgid "Payment"
+msgstr "Оплата"
+
+#: .\templates\checkout.html:163
+msgid "Credit / Debit Card"
+msgstr "Банковская карта"
+
+#: .\templates\checkout.html:167
+msgid "Cash on Delivery"
+msgstr "Наложенный платеж"
+
+#: .\templates\checkout.html:172
+msgid "Card Number"
+msgstr "Номер карты"
+
+#: .\templates\checkout.html:181
+msgid "4111 1111 1111 1111"
+msgstr "4111 1111 1111 1111"
+
+#: .\templates\checkout.html:190
+msgid "Expiry (MM/YY)"
+msgstr "Срок (MM/ГГ)"
+
+#: .\templates\checkout.html:199
+msgid "08/27"
+msgstr "08/27"
+
+#: .\templates\checkout.html:206
+msgid "CVC"
+msgstr "CVC"
+
+#: .\templates\checkout.html:215
+msgid "123"
+msgstr "123"
+
+#: .\templates\checkout.html:222
+msgid "Your card data is secured."
+msgstr "Ваши данные карты защищены."
+
+#: .\templates\checkout.html:226
+msgid "Order Summary"
+msgstr "Сводка заказа"
+
+#: .\templates\checkout.html:241
+msgid "Total:"
+msgstr "Всего:"
+
+#: .\templates\checkout.html:242
+msgid "Pay Now"
+msgstr "Оплатить"
+
+#: .\templates\donation.html:4 .\templates\index.html:235
+msgid "Advance Payment"
+msgstr "Авансовый платеж"
+
+#: .\templates\donation.html:11 .\templates\store.html:61
+msgid "Making an advance payment"
+msgstr "Внесение аванса"
+
+#: .\templates\donation.html:12
+msgid ""
+"Enter any positive amount and optionally increase the quantity if you wish "
+"to multiply it. This will appear in your cart as a separate line."
+msgstr ""
+"Введите любую положительную сумму и при желании увеличьте количество, если "
+"хотите умножить. Это появится в вашей корзине как отдельная строка."
+
+#: .\templates\donation.html:19
+msgid "Amount (USD)"
+msgstr "Сумма (USD)"
+
+#: .\templates\donation.html:30 .\templates\product_detail.html:44
+#: .\templates\product_detail.html:140
+msgid "Add to Cart"
+msgstr "В корзину"
+
+#: .\templates\donation.html:31 .\templates\product_detail.html:45
+msgid "Back to Store"
+msgstr "Назад в магазин"
+
+#: .\templates\donation.html:33
+msgid ""
+"This is treated like a product only for checkout purposes. Taxes / shipping "
+"do not apply."
+msgstr ""
+"Рассматривается как товар только для оформления. Налоги и доставка не "
+"применяются."
+
+#: .\templates\index.html:9
+msgid "Start your development with All for PC landing page."
+msgstr "Начните разработку с лендинга All for PC."
+
+#: .\templates\index.html:11 .\templates\layouts\navbar.html:6
+#: .\templates\layouts\navbar.html:27
+msgid "All for PC"
+msgstr "Все для ПК"
+
+#: .\templates\index.html:31 .\templates\layouts\navbar.html:6
+msgid "Dark and White"
+msgstr "Dark and White"
+
+#: .\templates\index.html:32
+msgid "Premium Components • Design Assets • Smart Advance Payments"
+msgstr "Премиум компоненты • Дизайн-активы • Умные авансы"
+
+#: .\templates\index.html:34
+msgid "Learn more about OOO J&Z Shop section"
+msgstr "Узнайте больше о разделе ООО J&Z Shop"
+
+#: .\templates\index.html:34
+msgid "Learn more"
+msgstr "Узнать больше"
+
+#: .\templates\index.html:45
+msgid "Who are we ?"
+msgstr "Кто мы?"
+
+#: .\templates\index.html:46
+msgid "About Us"
+msgstr "О нас"
+
+#: .\templates\index.html:47
+msgid ""
+"Welcome to the store with a funny name Snail.\n"
+"                        Why A Snail? Because we're small, but without fuss, we'll help you climb Mount Fuji!\n"
+"                        We offer everything you need to create gaming stations, work machines and servers: processors,\n"
+"                        graphics cards, RAM. Here you will find only proven brands – AMD, Intel, NVIDIA, ASUS, MSI and\n"
+"                        others,\n"
+"                        as well as exclusive offers that will help save."
+msgstr ""
+"Добро пожаловать в магазин с забавным названием Улитка.\n"
+"Почему Улитка? Потому что мы маленькие, но без суеты поможем вам взобраться на гору Фудзи!\n"
+"Мы предлагаем всё необходимое для создания игровых станций, рабочих машин и серверов: процессоры, видеокарты, оперативная память. Здесь вы найдете только проверенные бренды – AMD, Intel, NVIDIA, ASUS, MSI и другие, а также эксклюзивные предложения, которые помогут сэкономить."
+
+#: .\templates\index.html:61
+msgid "Why choose us?"
+msgstr "Почему выбирают нас?"
+
+#: .\templates\index.html:67
+msgid "Wide range"
+msgstr "Широкий ассортимент"
+
+#: .\templates\index.html:68
+msgid "From budget solutions to top components for enthusiasts."
+msgstr "От бюджетных решений до топовых компонентов для энтузиастов."
+
+#: .\templates\index.html:76
+msgid "Fast delivery"
+msgstr "Быстрая доставка"
+
+#: .\templates\index.html:77
+msgid "Sending throughout Russia and the CIS as soon as possible."
+msgstr "Отправка по всей России и СНГ в кратчайшие сроки."
+
+#: .\templates\index.html:85
+msgid "Expert support"
+msgstr "Экспертная поддержка"
+
+#: .\templates\index.html:86
+msgid "Our specialists will help you to choose components for your tasks."
+msgstr "Наши специалисты помогут подобрать компоненты под ваши задачи."
+
+#: .\templates\index.html:94
+msgid "Best Prices"
+msgstr "Лучшие цены"
+
+#: .\templates\index.html:95
+msgid "Promotions, discounts and bonuses for regular customers."
+msgstr "Акции, скидки и бонусы для постоянных клиентов."
+
+#: .\templates\index.html:107
+msgid "Now in stock"
+msgstr "В наличии"
+
+#: .\templates\index.html:108
+msgid "Hot offers"
+msgstr "Горячие предложения"
+
+#: .\templates\index.html:163
+#, python-format
+msgid "View %(name)s details"
+msgstr "Просмотреть детали %(name)s"
+
+#: .\templates\index.html:173 .\templates\product_detail.html:19
+#: .\templates\product_detail.html:60
+msgid "No image"
+msgstr "Нет изображения"
+
+#: .\templates\index.html:190
+msgid "Promo banner"
+msgstr "Промо баннер"
+
+#: .\templates\index.html:194
+msgid "Do not miss the chance to equip your PC at a bargain price"
+msgstr "Не упустите шанс оснастить свой ПК по выгодной цене"
+
+#: .\templates\index.html:195
+msgid "the promotion is valid until July 15, 2025!"
+msgstr "акция действует до 15 июля 2025!"
+
+#: .\templates\index.html:198
+msgid "Go Shopping"
+msgstr "В магазин"
+
+#: .\templates\index.html:199
+msgid "Advance Pay"
+msgstr "Авансовый платеж"
+
+#: .\templates\index.html:208
+msgid "How can you communicate?"
+msgstr "Как с нами связаться?"
+
+#: .\templates\index.html:209
+msgid "Contact Us"
+msgstr "Свяжитесь с нами"
+
+#: .\templates\index.html:214
+msgid "Your Name"
+msgstr "Ваше имя"
+
+#: .\templates\index.html:214
+msgid "Your name"
+msgstr "Ваше имя"
+
+#: .\templates\index.html:217
+msgid "Enter Email"
+msgstr "Введите Email"
+
+#: .\templates\index.html:217
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1920
+msgid "Email address"
+msgstr "Адрес электронной почты"
+
+#: .\templates\index.html:220
+msgid "Write Something"
+msgstr "Напишите сообщение"
+
+#: .\templates\index.html:220 .\users\models.py:28
+msgid "Message"
+msgstr "Сообщение"
+
+#: .\templates\index.html:223
+msgid "Send Message"
+msgstr "Отправить сообщение"
+
+#: .\templates\index.html:223
+msgid "Send message"
+msgstr "Отправить сообщение"
+
+#: .\templates\index.html:232
+msgid "All for PC. All rights reserved."
+msgstr "All for PC. Все права защищены."
+
+#: .\templates\index.html:234 .\templates\layouts\navbar.html:17
+#: .\templates\layouts\navbar.html:34
+msgid "Public Offer"
+msgstr "Публичная оферта"
+
+#: .\templates\index.html:236 .\templates\layouts\navbar.html:9
+#: .\templates\layouts\navbar.html:31
+msgid "Marketplace"
+msgstr "Маркетплейс"
+
+#: .\templates\layouts\navbar.html:10 .\templates\layouts\navbar.html:32
+#: .\templates\store.html:8
+msgid "Store"
+msgstr "Магазин"
+
+#: .\templates\layouts\navbar.html:18
+msgid "Logged in user"
+msgstr "Авторизованный пользователь"
+
+#: .\templates\layouts\navbar.html:18 .\templates\layouts\navbar.html:35
+msgid "Account"
+msgstr "Аккаунт"
+
+#: .\templates\product_detail.html:47
+msgid "Secure checkout • Easy returns • Fast support"
+msgstr "Безопасное оформление • Лёгкий возврат • Быстрая поддержка"
+
+#: .\templates\product_detail.html:52
+msgid "Related Products"
+msgstr "Похожие товары"
+
+#: .\templates\product_detail.html:72
+msgid "Customer Reviews"
+msgstr "Отзывы покупателей"
+
+#: .\templates\product_detail.html:93
+msgid "No reviews yet."
+msgstr "Отзывов пока нет."
+
+#: .\templates\product_detail.html:97
+msgid "Update Your Review"
+msgstr "Обновить отзыв"
+
+#: .\templates\product_detail.html:97
+msgid "Leave a Review"
+msgstr "Оставить отзыв"
+
+#: .\templates\product_detail.html:103
+msgid "Rating (1-5)"
+msgstr "Рейтинг (1-5)"
+
+#: .\templates\product_detail.html:110
+msgid "Save Review"
+msgstr "Сохранить отзыв"
+
+#: .\templates\product_detail.html:112
+msgid "Please correct the errors above."
+msgstr "Пожалуйста, исправьте ошибки выше."
+
+#: .\templates\product_detail.html:139
+msgid "Added"
+msgstr "Добавлено"
+
+#: .\templates\public_offer.html:7
+msgid "Public Offer & Terms"
+msgstr "Публичная оферта и условия"
+
+#: .\templates\public_offer.html:28
+msgid "LEGAL"
+msgstr "ПРАВОВОЕ"
+
+#: .\templates\public_offer.html:28
+msgid "Public Offer & Terms of Service"
+msgstr "Публичная оферта и условия обслуживания"
+
+#: .\templates\public_offer.html:31
+msgid "Contents"
+msgstr "Содержание"
+
+#: .\templates\public_offer.html:32 .\templates\public_offer.html:54
+msgid "1. Acceptance of the Offer"
+msgstr "1. Принятие оферты"
+
+#: .\templates\public_offer.html:33 .\templates\public_offer.html:55
+msgid "2. Definitions"
+msgstr "2. Определения"
+
+#: .\templates\public_offer.html:34 .\templates\public_offer.html:56
+msgid "3. Subject of the Agreement"
+msgstr "3. Предмет соглашения"
+
+#: .\templates\public_offer.html:35 .\templates\public_offer.html:57
+msgid "4. Product Information & Availability"
+msgstr "4. Информация о товарах и наличие"
+
+#: .\templates\public_offer.html:36 .\templates\public_offer.html:58
+msgid "5. Prices, Discounts & Advance Payments"
+msgstr "5. Цены, скидки и авансовые платежи"
+
+#: .\templates\public_offer.html:37 .\templates\public_offer.html:59
+msgid "6. Ordering Process"
+msgstr "6. Процесс оформления заказа"
+
+#: .\templates\public_offer.html:38 .\templates\public_offer.html:60
+msgid "7. Payment Methods & Security"
+msgstr "7. Способы оплаты и безопасность"
+
+#: .\templates\public_offer.html:39 .\templates\public_offer.html:61
+msgid "8. Delivery & Digital Assets"
+msgstr "8. Доставка и цифровые объекты"
+
+#: .\templates\public_offer.html:40 .\templates\public_offer.html:62
+msgid "9. User Accounts & Security"
+msgstr "9. Учетные записи пользователей и безопасность"
+
+#: .\templates\public_offer.html:41 .\templates\public_offer.html:63
+msgid "10. Reviews & User Content"
+msgstr "10. Отзывы и пользовательский контент"
+
+#: .\templates\public_offer.html:42 .\templates\public_offer.html:64
+msgid "11. Intellectual Property"
+msgstr "11. Интеллектуальная собственность"
+
+#: .\templates\public_offer.html:43 .\templates\public_offer.html:65
+msgid "12. Warranty Disclaimer"
+msgstr "12. Отказ от гарантий"
+
+#: .\templates\public_offer.html:44 .\templates\public_offer.html:66
+msgid "13. Returns, Refunds & Cancellations"
+msgstr "13. Возвраты, возвраты средств и отмены"
+
+#: .\templates\public_offer.html:45 .\templates\public_offer.html:67
+msgid "14. Advance / Donation Policy"
+msgstr "14. Политика авансов / пожертвований"
+
+#: .\templates\public_offer.html:46 .\templates\public_offer.html:68
+msgid "15. Limitation of Liability"
+msgstr "15. Ограничение ответственности"
+
+#: .\templates\public_offer.html:47 .\templates\public_offer.html:69
+msgid "16. Data Protection & Privacy"
+msgstr "16. Защита данных и конфиденциальность"
+
+#: .\templates\public_offer.html:48 .\templates\public_offer.html:70
+msgid "17. Anti-Fraud & Security Monitoring"
+msgstr "17. Мониторинг мошенничества и безопасности"
+
+#: .\templates\public_offer.html:49 .\templates\public_offer.html:71
+msgid "18. Force Majeure"
+msgstr "18. Форс-мажор"
+
+#: .\templates\public_offer.html:50 .\templates\public_offer.html:72
+msgid "19. Amendments"
+msgstr "19. Изменения"
+
+#: .\templates\public_offer.html:51 .\templates\public_offer.html:73
+msgid "20. Governing Law & Disputes"
+msgstr "20. Применимое право и споры"
+
+#: .\templates\public_offer.html:52 .\templates\public_offer.html:74
+msgid "21. Contact Information"
+msgstr "21. Контактная информация"
+
+#: .\templates\public_offer.html:54
+msgid ""
+"By accessing or using this website (the \"Platform\"), placing an order, "
+"creating an account, submitting an advance payment or donation, or "
+"downloading a digital design asset, you irrevocably agree to this Public "
+"Offer (the \"Agreement\"). If you disagree with any clause, you must cease "
+"usage immediately. Your continued use constitutes ongoing acceptance."
+msgstr ""
+"Получая доступ или используя этот веб‑сайт (\"Платформа\"), оформляя заказ, "
+"создавая учетную запись, внося аванс или пожертвование либо скачивая "
+"цифровой дизайн‑актив, вы безотзывно соглашаетесь с настоящей Публичной "
+"офертой (\"Соглашение\"). Если вы не согласны с каким‑либо пунктом, "
+"немедленно прекратите использование. Дальнейшее использование означает "
+"продолжение принятия условий."
+
+#: .\templates\public_offer.html:55
+msgid ""
+"<strong>\"Products\"</strong> – physical computer hardware listed in the "
+"Store. <strong>\"Design Assets\"</strong> – downloadable or licensable "
+"digital works provided via the Marketplace. <strong>\"Advance "
+"Payment\"</strong> – voluntary pre-payment or contribution processed through"
+" the Advance Payment module. <strong>\"User\"</strong> – any natural or "
+"legal person accessing the Platform. <strong>\"Account\"</strong> – "
+"personalized access credentials enabling orders and reviews."
+msgstr ""
+"<strong>\"Товары\"</strong> – физическое компьютерное оборудование, "
+"представленное в Магазине. <strong>\"Дизайн‑активы\"</strong> – загружаемые "
+"или лицензируемые цифровые работы на Маркетплейсе. <strong>\"Авансовый "
+"платеж\"</strong> – добровольная предоплата или взнос через модуль авансов. "
+"<strong>\"Пользователь\"</strong> – любое физическое или юридическое лицо, "
+"получающее доступ к Платформе. <strong>\"Учетная запись\"</strong> – "
+"персонализированные учетные данные, позволяющие оформлять заказы и оставлять"
+" отзывы."
+
+#: .\templates\public_offer.html:56
+msgid ""
+"We provide: (a) an e-commerce interface for purchasing hardware Products; "
+"(b) a curated Marketplace for Design Assets; (c) a session-based cart "
+"enabling combined checkout; and (d) an optional Advance Payment feature. We "
+"reserve the right to modify available Products, pricing, and features "
+"without prior notice."
+msgstr ""
+"Мы предоставляем: (a) интерфейс электронной коммерции для покупки аппаратных"
+" Товаров; (b) модерируемый Маркетплейс для Дизайн‑активов; (c) сессионную "
+"корзину для совместного оформления; и (d) необязательную функцию Авансового "
+"платежа. Мы оставляем за собой право менять ассортимент, цены и "
+"функциональность без предварительного уведомления."
+
+#: .\templates\public_offer.html:57
+msgid ""
+"All listings include indicative specifications, pricing, discount data and "
+"media. While we strive for accuracy, minor discrepancies (e.g., color tone, "
+"packaging) may occur. Stock status is dynamic; placement of items in a cart "
+"does not reserve inventory until order confirmation."
+msgstr ""
+"Все карточки содержат ориентировочные характеристики, цену, данные о скидках"
+" и медиа. Хотя мы стремимся к точности, возможны незначительные расхождения "
+"(например, оттенок цвета, упаковка). Наличие динамично; помещение товара в "
+"корзину не резервирует его до подтверждения заказа."
+
+#: .\templates\public_offer.html:58
+msgid ""
+"Prices are shown in the local currency unless otherwise stated and may "
+"change before order acceptance. Percentage discount calculations are based "
+"on the pre-discount list price. Advance Payments are discretionary and do "
+"not grant equity or ownership; they may be applied toward future purchases "
+"at our discretion or treated as goodwill support."
+msgstr ""
+"Цены отображаются в локальной валюте, если не указано иное, и могут "
+"изменяться до принятия заказа. Процент скидки рассчитывается от базовой цены"
+" до скидки. Авансовые платежи добровольны и не дают доли или права "
+"собственности; они могут быть зачтены в будущие покупки по нашему усмотрению"
+" или рассматриваться как поддержка."
+
+#: .\templates\public_offer.html:59
+msgid ""
+"Order steps: (1) Add items (physical or digital) / choose optional Advance "
+"Payment; (2) Review cart; (3) Provide checkout details; (4) Submit payment; "
+"(5) Receive confirmation. We may decline or cancel orders (e.g., suspected "
+"fraud, pricing errors, regulatory concerns) with refund where payment has "
+"settled."
+msgstr ""
+"Этапы заказа: (1) Добавьте позиции (физические или цифровые) / выберите "
+"опциональный аванс; (2) Проверьте корзину; (3) Укажите данные оформления; "
+"(4) Произведите оплату; (5) Получите подтверждение. Мы можем отклонить или "
+"отменить заказ (например, подозрение на мошенничество, ошибки цены, "
+"нормативные ограничения) с возвратом, если платеж уже совершен."
+
+#: .\templates\public_offer.html:60
+msgid ""
+"Supported payment channels are listed at checkout. Transactions are "
+"processed through vetted third-party providers using encrypted transport. We"
+" do not store raw card numbers. You agree not to use payment instruments "
+"without proper authorization."
+msgstr ""
+"Поддерживаемые способы оплаты перечислены при оформлении. Транзакции "
+"обрабатываются проверенными сторонними провайдерами с использованием "
+"шифрования. Мы не храним исходные номера карт. Вы соглашаетесь не "
+"использовать платёжные инструменты без надлежащего разрешения."
+
+#: .\templates\public_offer.html:61
+msgid ""
+"Physical Products ship per carrier timelines displayed at checkout; risk of "
+"loss transfers upon carrier acceptance. Digital Design Assets are delivered "
+"via authenticated download or licensed access; license is non-exclusive, "
+"non-transferable and revocable upon breach."
+msgstr ""
+"Физические Товары отправляются согласно срокам перевозчика, показанным при "
+"оформлении; риск утраты переходит при принятии перевозчиком. Цифровые "
+"Дизайн‑активы предоставляются через аутентифицированную загрузку или "
+"лицензированный доступ; лицензия неисключительная, непередаваемая и может "
+"быть отозвана при нарушении."
+
+#: .\templates\public_offer.html:62
+msgid ""
+"You must maintain accurate profile data, safeguard credentials, and promptly"
+" report unauthorized use. We may suspend accounts exhibiting abusive, "
+"fraudulent or security-compromising behavior."
+msgstr ""
+"Вы должны поддерживать актуальные профильные данные, защищать учетные данные"
+" и своевременно сообщать о несанкционированном использовании. Мы можем "
+"приостановить учетные записи при злоупотреблениях, мошенничестве или угрозе "
+"безопасности."
+
+#: .\templates\public_offer.html:63
+msgid ""
+"Reviews must reflect genuine personal experience and comply with applicable "
+"law. We may moderate or remove content that is misleading, defamatory, "
+"obscene, infringing, spam-like, or violates this Agreement. One review per "
+"Product or Asset per account (editable thereafter)."
+msgstr ""
+"Отзывы должны отражать реальный личный опыт и соответствовать применимому "
+"законодательству. Мы можем модерировать или удалять вводящий в заблуждение, "
+"клеветнический, непристойный, нарушающий права, спам‑подобный или нарушающий"
+" Соглашение контент. Один отзыв на Товар или Актив на аккаунт (с последующим"
+" редактированием)."
+
+#: .\templates\public_offer.html:64
+msgid ""
+"All trademarks, logos, interface design, code, product data and Design "
+"Assets (unless otherwise attributed) remain our or the respective creator’s "
+"intellectual property. Unauthorized reproduction, scraping, or automated "
+"extraction is prohibited."
+msgstr ""
+"Все товарные знаки, логотипы, дизайн интерфейса, код, данные о товарах и "
+"Дизайн‑активы (если не указано иное) являются нашей или соответствующего "
+"автора интеллектуальной собственностью. Несанкционированное воспроизведение,"
+" сбор или автоматизированное извлечение запрещены."
+
+#: .\templates\public_offer.html:65
+msgid ""
+"Except where mandated by law, the Platform and content are provided \"AS "
+"IS\" without warranties (express or implied) including merchantability, "
+"fitness for a particular purpose, title, or non-infringement. Hardware "
+"manufacturer warranties may apply separately."
+msgstr ""
+"За исключением случаев, предусмотренных законом, Платформа и контент "
+"предоставляются \"КАК ЕСТЬ\" без каких-либо (явных или подразумеваемых) "
+"гарантий, включая товарную пригодность, пригодность для конкретной цели, "
+"права собственности или ненарушение прав. Гарантии производителя "
+"оборудования могут применяться отдельно."
+
+#: .\templates\public_offer.html:66
+msgid ""
+"Eligible physical Products may be returned in original condition within the "
+"statutory window (unless classified as final sale). Digital Assets and "
+"Advance Payments are generally non-refundable once accessed or booked, "
+"except where required by consumer protection rules or in cases of confirmed "
+"technical defect."
+msgstr ""
+"Допустимые физические Товары могут быть возвращены в первоначальном "
+"состоянии в пределах установленного законом срока (если не обозначены как "
+"окончательная продажа). Цифровые Активы и Авансовые платежи обычно не "
+"подлежат возврату после доступа или бронирования, кроме случаев, требуемых "
+"правилами защиты прав потребителей или при подтверждённом техническом "
+"дефекте."
+
+#: .\templates\public_offer.html:67
+msgid ""
+"Advance Payments are voluntary and processed like a standalone cart line. "
+"They don’t constitute purchase of goods unless later applied at checkout per"
+" an explicit program. Misuse (e.g., money laundering attempts) will result "
+"in reversal and possible reporting."
+msgstr ""
+"Авансовые платежи добровольны и обрабатываются как отдельная строка корзины."
+" Они не означают покупку товаров, если позже не зачтены при оформлении по "
+"явной программе. Злоупотребление (например, попытки отмывания средств) "
+"приведёт к отмене и возможному сообщению компетентным органам."
+
+#: .\templates\public_offer.html:68
+msgid ""
+"To the maximum extent permitted, aggregate liability for any claims arising "
+"out of Platform use shall not exceed the greater of: (a) the total fees paid"
+" for the disputed order; or (b) the amount of the Advance Payment linked to "
+"the claim. We are not liable for indirect, incidental, special or "
+"consequential damages."
+msgstr ""
+"В максимально допустимой степени совокупная ответственность по любым "
+"требованиям из использования Платформы не превышает большую из величин: (a) "
+"общая сумма, уплаченная за спорный заказ; или (b) размер Авансового платежа,"
+" связанного с требованием. Мы не отвечаем за косвенные, случайные, особые "
+"или последующие убытки."
+
+#: .\templates\public_offer.html:69
+msgid ""
+"Personal data is processed under our Privacy Policy (available separately) "
+"for legitimate operational, security, and communication purposes. You "
+"consent to necessary cross-border data transfers where applicable safeguards"
+" exist."
+msgstr ""
+"Персональные данные обрабатываются согласно нашей Политике "
+"конфиденциальности (доступна отдельно) для законных операционных, "
+"безопасностных и коммуникационных целей. Вы соглашаетесь на необходимые "
+"трансграничные передачи данных при наличии соответствующих гарантий."
+
+#: .\templates\public_offer.html:70
+msgid ""
+"We implement automated and manual review layers to detect anomalous patterns"
+" (bulk account creation, scripted cart manipulation, abnormal payment "
+"attempts). Confirmed abuse may trigger suspension and law enforcement "
+"referral."
+msgstr ""
+"Мы используем автоматические и ручные проверки для выявления аномалий "
+"(массовое создание аккаунтов, скриптовые манипуляции с корзиной, необычные "
+"платежные попытки). Подтверждённые нарушения могут привести к блокировке и "
+"передаче информации в правоохранительные органы."
+
+#: .\templates\public_offer.html:71
+msgid ""
+"Performance delays or failures caused by events beyond reasonable control "
+"(natural disasters, power failures, cyber incidents, regulatory actions, "
+"supply chain disruption) shall not constitute breach. Obligations resume "
+"once impediment ends."
+msgstr ""
+"Задержки или сбои исполнения, вызванные событиями вне разумного контроля "
+"(стихийные бедствия, отключения электроэнергии, киберинциденты, регуляторные"
+" меры, сбои цепочек поставок), не считаются нарушением. Обязательства "
+"возобновляются после прекращения препятствия."
+
+#: .\templates\public_offer.html:72
+msgid ""
+"We may revise this Offer by posting an updated version with a new effective "
+"date. Material revisions will, where feasible, include a notice banner. "
+"Continued usage following publication constitutes acceptance."
+msgstr ""
+"Мы можем изменять эту Оферту, публикуя обновлённую версию с новой датой "
+"вступления. Существенные изменения, где возможно, будут сопровождаться "
+"уведомлением. Дальнейшее использование после публикации означает принятие."
+
+#: .\templates\public_offer.html:73
+msgid ""
+"Applicable governing law is determined by our principal place of business "
+"unless mandatory consumer jurisdiction rules apply. Parties shall first "
+"attempt amicable resolution; failing that, disputes proceed to competent "
+"courts of general jurisdiction."
+msgstr ""
+"Применимое право определяется местом нашего основного ведения деятельности, "
+"если только обязательные нормы потребительской юрисдикции не предписывают "
+"иное. Стороны сначала стремятся к мирному урегулированию; при неудаче споры "
+"рассматриваются компетентными судами общей юрисдикции."
+
+#: .\templates\public_offer.html:74
+msgid ""
+"Questions, legal notices, or data requests: <a "
+"href=\"mailto:support@example.com\">support@example.com</a>. Physical "
+"correspondence address available upon legitimate written request."
+msgstr ""
+"Вопросы, юридические уведомления или запросы данных: <a "
+"href=\"mailto:support@example.com\">support@example.com</a>. Почтовый адрес "
+"предоставляется при обоснованном письменном запросе."
+
+#: .\templates\public_offer.html:75
+msgid "Need a copy?"
+msgstr "Нужна копия?"
+
+#: .\templates\public_offer.html:75
+msgid ""
+"You may print or store this page locally. Continued use of the Platform "
+"signifies ongoing acceptance of the latest version of these terms."
+msgstr ""
+"Вы можете распечатать или сохранить эту страницу локально. Продолжение "
+"использования Платформы означает принятие актуальной версии условий."
+
+#: .\templates\store.html:23
+msgid "Product Store"
+msgstr "Каталог товаров"
+
+#: .\templates\store.html:24
+msgid "Browse & discover"
+msgstr "Ищите и открывайте"
+
+#: .\templates\store.html:28
+msgid "Search products..."
+msgstr "Поиск товаров..."
+
+#: .\templates\store.html:31
+msgid "All Categories"
+msgstr "Все категории"
+
+#: .\templates\store.html:41
+msgid "/ page"
+msgstr "/ стр."
+
+#: .\templates\store.html:45
+msgid "Apply"
+msgstr "Применить"
+
+#: .\templates\store.html:53
+msgid "View Cart"
+msgstr "Перейти в корзину"
+
+#: .\templates\store.html:61
+msgid "Contribute a custom amount and proceed to checkout."
+msgstr "Внесите произвольную сумму и перейдите к оформлению."
+
+#: .\users\managers.py:15
+msgid "The Email must be set"
+msgstr "Необходимо указать Email"
+
+#: .\users\managers.py:31
+msgid "Superuser must have is_staff=True."
+msgstr "Суперпользователь должен иметь is_staff=True."
+
+#: .\users\managers.py:33
+msgid "Superuser must have is_superuser=True."
+msgstr "Суперпользователь должен иметь is_superuser=True."
+
+#: .\users\models.py:11
+msgid "email address"
+msgstr "адрес электронной почты"
+
+#: .\users\models.py:12
+msgid "first name"
+msgstr "имя"
+
+#: .\users\models.py:13
+msgid "last name"
+msgstr "фамилия"
+
+#: .\users\models.py:27
+msgid "Subject"
+msgstr "Тема"
+
+#: .\users\models.py:29 .\users\models.py:45
+msgid "Created at"
+msgstr "Создано"
+
+#: .\users\models.py:35
+msgid "Contact"
+msgstr "Контакт"
+
+#: .\users\models.py:36
+msgid "Contacts"
+msgstr "Контакты"
+
+#: .\users\models.py:41
+msgid "Title"
+msgstr "Заголовок"
+
+#: .\users\models.py:42
+msgid "Content"
+msgstr "Содержимое"
+
+#: .\users\models.py:52
+msgid "Blog"
+msgstr "Блог"
+
+#: .\users\models.py:53
+msgid "Blogs"
+msgstr "Блоги"
+
+#: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
+msgid "Messages"
+msgstr "Сообщения"
+
+#: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
+msgid "Site Maps"
+msgstr "Карты сайта"
+
+#: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+msgid "Static Files"
+msgstr "Статические файлы"
+
+#: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "Syndication"
+msgstr "Синдикация"
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: .\venv\Lib\site-packages\django\core\paginator.py:30
+msgid "…"
+msgstr "…"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:32
+msgid "That page number is not an integer"
+msgstr "Номер страницы не является целым числом"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:33
+msgid "That page number is less than 1"
+msgstr "Номер страницы меньше 1"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:34
+msgid "That page contains no results"
+msgstr "Эта страница не содержит результатов"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:22
+msgid "Enter a valid value."
+msgstr "Введите корректное значение."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:70
+msgid "Enter a valid domain name."
+msgstr "Введите корректное доменное имя."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:775
+msgid "Enter a valid URL."
+msgstr "Введите корректный URL."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:200
+msgid "Enter a valid integer."
+msgstr "Введите целое число."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:211
+msgid "Enter a valid email address."
+msgstr "Введите корректный email адрес."
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: .\venv\Lib\site-packages\django\core\validators.py:289
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr "Введите корректный слаг из букв, цифр, подчёркиваний или дефисов."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:297
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or"
+" hyphens."
+msgstr ""
+"Введите корректный слаг из букв Unicode, цифр, подчёркиваний или дефисов."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:309
+#: .\venv\Lib\site-packages\django\core\validators.py:318
+#: .\venv\Lib\site-packages\django\core\validators.py:332
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2220
+#, python-format
+msgid "Enter a valid %(protocol)s address."
+msgstr "Введите корректный адрес %(protocol)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:311
+msgid "IPv4"
+msgstr "IPv4"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:320
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:43
+msgid "IPv6"
+msgstr "IPv6"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:334
+msgid "IPv4 or IPv6"
+msgstr "IPv4 или IPv6"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:375
+msgid "Enter only digits separated by commas."
+msgstr "Введите только цифры, разделённые запятыми."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:381
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+"Убедитесь, что это значение равно %(limit_value)s (сейчас %(show_value)s)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:416
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr "Убедитесь, что это значение меньше или равно %(limit_value)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:425
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr "Убедитесь, что это значение больше или равно %(limit_value)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:434
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr "Убедитесь, что это значение кратно шагу %(limit_value)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:441
+#, python-format
+msgid ""
+"Ensure this value is a multiple of step size %(limit_value)s, starting from "
+"%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
+msgstr ""
+"Убедитесь, что значение кратно шагу %(limit_value)s начиная с %(offset)s, "
+"например %(offset)s, %(valid_value1)s, %(valid_value2)s и т.д."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:473
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:491
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:514
+#: .\venv\Lib\site-packages\django\forms\fields.py:366
+#: .\venv\Lib\site-packages\django\forms\fields.py:405
+msgid "Enter a number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:516
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:521
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:526
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:597
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:659
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1600
+#: .\venv\Lib\site-packages\django\forms\models.py:908
+msgid "and"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1602
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\constraints.py:22
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:134
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:135
+msgid "This field cannot be null."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:136
+msgid "This field cannot be blank."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:137
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:141
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:180
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1162
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1163
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1165
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1215
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1217
+msgid "String (unlimited)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1326
+msgid "Comma-separated integers"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1427
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1431
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1566
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1435
+msgid "Date (without time)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1562
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1570
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1575
+msgid "Date (with time)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1702
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1704
+msgid "Decimal number"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1864
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1868
+msgid "Duration"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1945
+msgid "File path"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2023
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2025
+msgid "Floating point number"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2065
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2067
+msgid "Integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2163
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2180
+msgid "Small integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2188
+msgid "IPv4 address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2219
+msgid "IP address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2310
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2311
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2313
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2364
+msgid "Positive big integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2379
+msgid "Positive integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2394
+msgid "Positive small integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2410
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2446
+msgid "Text"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2526
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2530
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2534
+msgid "Time"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2642
+msgid "URL"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2666
+msgid "Raw binary data"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2731
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2733
+msgid "Universally unique identifier"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:244
+msgid "File"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:24
+msgid "A JSON object"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:26
+msgid "Value must be valid JSON."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:979
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r is not a valid choice."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:982
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1276
+msgid "One-to-one relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1333
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1335
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1383
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the
+#. label
+#: .\venv\Lib\site-packages\django\forms\boundfield.py:185
+msgid ":?.!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:95
+msgid "This field is required."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:315
+msgid "Enter a whole number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:486
+#: .\venv\Lib\site-packages\django\forms\fields.py:1267
+msgid "Enter a valid date."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:509
+#: .\venv\Lib\site-packages\django\forms\fields.py:1268
+msgid "Enter a valid time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:536
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:570
+msgid "Enter a valid duration."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:571
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:640
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:641
+msgid "No file was submitted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:642
+msgid "The submitted file is empty."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:644
+#, python-format
+msgid ""
+"Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:649
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:717
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:889
+#: .\venv\Lib\site-packages\django\forms\fields.py:975
+#: .\venv\Lib\site-packages\django\forms\models.py:1592
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:977
+#: .\venv\Lib\site-packages\django\forms\fields.py:1096
+#: .\venv\Lib\site-packages\django\forms\models.py:1590
+msgid "Enter a list of values."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1097
+msgid "Enter a complete value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1339
+msgid "Enter a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1369
+msgid "Enter a valid JSON."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: .\venv\Lib\site-packages\django\forms\forms.py:97
+msgid ":"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\forms.py:239
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:61
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:65
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:70
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:484
+#: .\venv\Lib\site-packages\django\forms\formsets.py:491
+msgid "Order"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:499
+msgid "Delete"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:901
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:906
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:913
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:922
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1359
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1450
+msgid ""
+"Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1594
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\utils.py:229
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:527
+msgid "Clear"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:528
+msgid "Currently"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:529
+msgid "Change"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:866
+msgid "Unknown"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:867
+msgid "Yes"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:868
+msgid "No"
+msgstr ""
+
+#. Translators: Please do not add spaces around commas.
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:873
+msgid "yes,no,maybe"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:903
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:920
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:922
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:924
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:926
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:928
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:930
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:74
+msgid "p.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:75
+msgid "a.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:80
+msgid "PM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:81
+msgid "AM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:153
+msgid "midnight"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:155
+msgid "noon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:7
+msgid "Monday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:8
+msgid "Tuesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:9
+msgid "Wednesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:10
+msgid "Thursday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:11
+msgid "Friday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:12
+msgid "Saturday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:13
+msgid "Sunday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:16
+msgid "Mon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:17
+msgid "Tue"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:18
+msgid "Wed"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:19
+msgid "Thu"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:20
+msgid "Fri"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:21
+msgid "Sat"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:22
+msgid "Sun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:25
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:26
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:27
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:28
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:29
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:30
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:31
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:32
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:33
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:34
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:35
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:36
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:39
+msgid "jan"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:40
+msgid "feb"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:41
+msgid "mar"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:42
+msgid "apr"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:43
+msgid "may"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:44
+msgid "jun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:45
+msgid "jul"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:46
+msgid "aug"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:47
+msgid "sep"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:48
+msgid "oct"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:49
+msgid "nov"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:50
+msgid "dec"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:55
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:69
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:20
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:76
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:287
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: .\venv\Lib\site-packages\django\utils\text.py:306
+#: .\venv\Lib\site-packages\django\utils\timesince.py:135
+msgid ", "
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:29
+msgid "Forbidden"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:30
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:34
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:40
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:45
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or"
+" including the “Referrer-Policy: no-referrer” header, please remove them. "
+"The CSRF protection requires the “Referer” header to do strict referer "
+"checking. If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:54
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:60
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:66
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:44
+msgid "No year specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:64
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:115
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:214
+msgid "Date out of range"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:94
+msgid "No month specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:147
+msgid "No day specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:194
+msgid "No week specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:353
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:384
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:680
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:720
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:173
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:49
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:51
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:68
+#: .\venv\Lib\site-packages\django\views\templates\directory_index.html:8
+#: .\venv\Lib\site-packages\django\views\templates\directory_index.html:11
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:204
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:208
+#, python-format
+msgid ""
+"You are seeing this page because <a "
+"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
+"target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
+"and you have not configured any URLs."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:217
+msgid "Django Documentation"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:218
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:226
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:227
+msgid "Get started with Django"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:235
+msgid "Django Community"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
+msgid "Connect, get help, or contribute"
+msgstr ""

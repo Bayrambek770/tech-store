@@ -1,4 +1,5 @@
 from django.contrib import admin
+from parler.admin import TranslatableAdmin
 from .models import DesignCategory, DesignAsset, AssetImage, DesignReview
 
 class AssetImageInline(admin.TabularInline):
@@ -6,19 +7,21 @@ class AssetImageInline(admin.TabularInline):
     extra = 1
 
 @admin.register(DesignCategory)
-class DesignCategoryAdmin(admin.ModelAdmin):
+class DesignCategoryAdmin(TranslatableAdmin):
     list_display = ("name", "type", "slug")
     list_filter = ("type", )
-    search_fields = ("name", "slug")
-    prepopulated_fields = {"slug": ("name", )}
+    search_fields = ("translations__name", "slug")
+    readonly_fields = ('slug',)
+    ordering = ('translations__name',)
 
 @admin.register(DesignAsset)
-class DesignAssetAdmin(admin.ModelAdmin):
+class DesignAssetAdmin(TranslatableAdmin):
     list_display = ("name", "category", "price", "discount", "is_active")
     list_filter = ("category__type", "category", "is_active")
-    search_fields = ("name", "slug", "description")
+    search_fields = ("translations__name", "slug", "translations__description")
     inlines = [AssetImageInline]
-    prepopulated_fields = {"slug": ("name", )}
+    readonly_fields = ('slug',)
+    ordering = ('translations__name',)
 
 @admin.register(DesignReview)
 class DesignReviewAdmin(admin.ModelAdmin):

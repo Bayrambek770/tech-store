@@ -1,11 +1,11 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Store</title>
+    <title>{% trans "Store" %}</title>
     <!-- Themify Icons (correct static path) -->
     <link rel="stylesheet" href="{% static 'main/vendors/themify-icons/css/themify-icons.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/meyawo.css' %}">
@@ -20,15 +20,15 @@
     {% include 'layouts/navbar.html' with static_nav=True %}
     <div class="container store-container page-section-spacer">
         <div class="d-flex flex-column flex-md-row align-items-md-center mb-4">
-            <h2 class="mb-2 mb-md-0 mr-md-3">Product Store</h2>
-            <span class="text-muted">Browse & discover</span>
+            <h2 class="mb-2 mb-md-0 mr-md-3">{% trans "Product Store" %}</h2>
+            <span class="text-muted">{% trans "Browse & discover" %}</span>
         </div>
         <form method="get" class="store-filters row mb-4" id="filter-form">
-            <div class="col-lg-5 mb-2 mb-lg-0"><input type="text" name="q" value="" class="form-control"
-                    placeholder="Search products..."></div>
+        <div class="col-lg-5 mb-2 mb-lg-0"><input type="text" name="q" value="" class="form-control"
+            placeholder="{% trans 'Search products...' %}"></div>
             <div class="col-lg-3 mb-2 mb-lg-0">
                 <select name="category" class="form-control">
-                    <option value="">All Categories</option>
+                    <option value="">{% trans "All Categories" %}</option>
                     {% for cat in categories %}
                     <option value="{{ cat.name }}" {% if current_category == cat.name %}selected{% endif %}>{{ cat.name }}
                     </option>
@@ -38,11 +38,11 @@
             <div class="col-lg-2 mb-2 mb-lg-0">
                 <select name="page_size" class="form-control" id="page-size-select">
                     {% for size in page_size_options %}
-                    <option value="{{ size }}" {% if page_size == size %}selected{% endif %}>{{ size }} / page</option>
+                    <option value="{{ size }}" {% if page_size == size %}selected{% endif %}>{{ size }} {% trans '/ page' %}</option>
                     {% endfor %}
                 </select>
             </div>
-            <div class="col-lg-2"><button class="btn btn-primary btn-block">Apply</button></div>
+            <div class="col-lg-2"><button class="btn btn-primary btn-block">{% trans "Apply" %}</button></div>
         </form>
         <div id="products-wrapper">
             {% include 'partials/_product_grid.html' %}
@@ -50,7 +50,7 @@
         </div>
     </div>
     <!-- Floating cart button -->
-    <button id="floating-cart-btn" title="View Cart" style="position:fixed;right:18px;bottom:18px;z-index:1050;"
+    <button id="floating-cart-btn" title="{% trans 'View Cart' %}" style="position:fixed;right:18px;bottom:18px;z-index:1050;"
         class="btn btn-primary btn-lg shadow rounded-circle d-flex align-items-center justify-content-center">
         <i class="ti-shopping-cart"></i>
         <span id="floating-cart-count" class="badge badge-light"
@@ -58,7 +58,7 @@
     </button>
     <script>
     // HTML snippet for Advance Payment card to re-add after AJAX filtering
-    const ADVANCE_CARD_HTML = `\n<div class="mt-5">\n    <a href="{% url 'donation' %}" class="text-decoration-none d-block p-4 rounded shadow-sm border position-relative advance-card" style="background:linear-gradient(135deg,#f6f9fc,#e9eef5);">\n        <div class="d-flex align-items-center">\n            <div class="mr-4" style="font-size:38px;line-height:1;">💳</div>\n            <div>\n                <h4 class="mb-1" style="font-weight:600;">Making an advance payment</h4>\n                <p class="mb-0 text-muted">Contribute a custom amount and proceed to checkout.</p>\n            </div>\n        </div>\n    </a>\n</div>`;
+    const ADVANCE_CARD_HTML = `\n<div class="mt-5">\n    <a href="{% url 'donation' %}" class="text-decoration-none d-block p-4 rounded shadow-sm border position-relative advance-card" style="background:linear-gradient(135deg,#f6f9fc,#e9eef5);">\n        <div class="d-flex align-items-center">\n            <div class="mr-4" style="font-size:38px;line-height:1;">💳</div>\n            <div>\n                <h4 class="mb-1" style="font-weight:600;">{% filter escapejs %}{% trans 'Making an advance payment' %}{% endfilter %}</h4>\n                <p class="mb-0 text-muted">{% filter escapejs %}{% trans 'Contribute a custom amount and proceed to checkout.' %}{% endfilter %}</p>\n            </div>\n        </div>\n    </a>\n</div>`;
         function updateCartBadge(count) {
             if (count === undefined) { return fetch('{% url 'update_cart_item' %}', { method: 'HEAD' }).catch(() => { }); }
             const badge = document.getElementById('nav-cart-count');

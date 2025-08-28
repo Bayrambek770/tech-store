@@ -1,5 +1,6 @@
 from email.mime import image
 from django.db import models
+from parler.models import TranslatableModel, TranslatedFields
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.text import slugify
 from django.db.models import Q, F
@@ -17,9 +18,11 @@ class BaseModel(models.Model):
         abstract = True
 
 
-class Category(BaseModel):
-    name = models.CharField(_("Name"), max_length=255)
-    description = models.TextField(_("Description"), blank=True)
+class Category(TranslatableModel, BaseModel):
+    translations = TranslatedFields(
+        name = models.CharField(_("Name"), max_length=255),
+        description = models.TextField(_("Description"), blank=True),
+    )
 
     def __str__(self):
         return self.name
@@ -30,11 +33,13 @@ class Category(BaseModel):
         db_table = "categories"
 
 
-class Product(BaseModel):
+class Product(TranslatableModel, BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(_("Name"), max_length=255)
+    translations = TranslatedFields(
+        name = models.CharField(_("Name"), max_length=255),
+        price = models.DecimalField(_("Price"), max_digits=12, decimal_places=2, validators=[MinValueValidator(0)])
+    )
     slug = models.SlugField(_("Slug"), max_length=280, unique=True, blank=True)
-    price = models.DecimalField(_("Price"), max_digits=12, decimal_places=2, validators=[MinValueValidator(0)])
     discount = models.PositiveIntegerField(_("Discount (%)"), default=0,
                                            validators=[MinValueValidator(0), MaxValueValidator(90)])
     is_active = models.BooleanField(_("Is active"), default=True)
@@ -49,11 +54,14 @@ class Product(BaseModel):
     image = models.ImageField(upload_to="products/images/", blank=True, null=True)
 
     def __str__(self):
-        return f"{self.name[:20]}..."
+        try:
+            return f"{self.safe_translation_getter('name', any_language=True)[:20]}..."
+        except Exception:
+            return str(self.pk)
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            base = slugify(self.name)[:50]
+            base = slugify(self.safe_translation_getter('name', any_language=True) or str(self.pk))[:50]
             candidate = base
             counter = 1
             while Product.objects.filter(slug=candidate).exclude(pk=self.pk).exists():

@@ -1,4 +1,5 @@
 from django import forms
+from parler.forms import TranslatableModelForm
 from django.contrib.auth.forms import (
     UserCreationForm,
     UserChangeForm,

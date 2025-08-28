@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from parler.models import TranslatableModel, TranslatedFields
 
 from .managers import CustomUserManager
 
@@ -35,14 +36,17 @@ class Contact(models.Model):
         verbose_name_plural = _("Contacts")
         ordering = ["-created_at"]
 
-class BlogsModel(models.Model):
-    title = models.CharField(_("Title"), max_length=255)
-    content = models.TextField(_("Content"))
+class BlogsModel(TranslatableModel):
+    translations = TranslatedFields(
+        title = models.CharField(_("Title"), max_length=255),
+        content = models.TextField(_("Content")),
+    )
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     created_at = models.DateTimeField(_("Created at"), auto_now_add=True)
 
     def __str__(self):
-        return self.title
+        title = self.safe_translation_getter('title', any_language=True)
+        return title or str(self.pk)
 
     class Meta:
         verbose_name = _("Blog")

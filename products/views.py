@@ -147,80 +147,111 @@ def add_to_cart(request):
 
 @require_POST
 def update_cart_item(request):
-    product_id = request.POST.get('product_id')  # may include prefix P: or D:
-    action = request.POST.get('action')  # inc, dec, remove
-    cart = _get_cart(request.session)
-    key = str(product_id)
-    if key not in cart:
-        return HttpResponseBadRequest('Item not in cart')
-    if action == 'inc':
-        cart[key] += 1
-    elif action == 'dec':
-        cart[key] = max(1, cart[key] - 1)
-    elif action == 'remove':
-        del cart[key]
-    else:
-        return HttpResponseBadRequest('Bad action')
-    _save_cart(request.session, cart)
-    # Compute updated subtotal and line total (if item still exists)
-    product = None
-    line_total = 0
-    if key in cart:
-        if key.startswith('P:'):
-            pid = key.split(':',1)[1]
-            product = Product.objects.filter(pk=pid).first()
-            if product:
-                line_total = float(product.price) * cart[key]
-        elif key.startswith('D:'):
-            did = key.split(':',1)[1]
-            product = DesignAsset.objects.filter(pk=did).first()
-            if product:
-                line_total = float(product.price) * cart[key]
-        elif key.startswith('C:'):
-            # Donation / advance payment
-            price = request.session.get('donation_price')
-            try:
-                price_val = float(price)
-            except (TypeError, ValueError):
-                price_val = 0
-            line_total = price_val * cart[key]
-    subtotal = 0
-    if cart:
-        product_ids = [k.split(':',1)[1] for k in cart.keys() if k.startswith('P:')]
-        design_ids = [k.split(':',1)[1] for k in cart.keys() if k.startswith('D:')]
-        products = Product.objects.filter(pk__in=product_ids)
-        designs = DesignAsset.objects.filter(pk__in=design_ids)
-        price_map = {f"P:{p.pk}": float(p.price) for p in products}
-        price_map.update({f"D:{d.pk}": float(d.price) for d in designs})
-        donation_price = request.session.get('donation_price')
-        if donation_price is not None and 'C:DONATION' in cart:
-            try:
-                price_map['C:DONATION'] = float(donation_price)
-            except (TypeError, ValueError):
-                price_map['C:DONATION'] = 0
-        subtotal = sum(price_map.get(k, 0) * q for k, q in cart.items())
-    return JsonResponse({
-        'ok': True,
-        'qty': cart.get(key, 0),
-        'count': sum(cart.values()),
-        'line_total': round(line_total, 2),
-        'subtotal': round(subtotal, 2),
-        'removed': key not in cart
-    })
+    try:
+        product_id = request.POST.get('product_id')  # already prefixed key (P:, D:, C:)
+        action = request.POST.get('action')  # inc | dec | remove
+        cart = _get_cart(request.session)
+        key = str(product_id)
+        if key not in cart:
+            return JsonResponse({'ok': False, 'error': 'not_in_cart'}, status=400)
+
+        if action == 'inc':
+            cart[key] += 1
+        elif action == 'dec':
+            cart[key] = max(1, cart[key] - 1)
+        elif action == 'remove':
+            del cart[key]
+        else:
+            return JsonResponse({'ok': False, 'error': 'bad_action'}, status=400)
+
+        _save_cart(request.session, cart)
+
+        # Compute updated subtotal & line total if item still exists
+        line_total = 0.0
+        if key in cart:
+            if key.startswith('P:'):
+                obj_id = key.split(':', 1)[1]
+                product = Product.objects.filter(pk=obj_id).first()
+                if product:
+                    price_val = product.safe_translation_getter('price', any_language=True)
+                    try:
+                        price_num = float(price_val or 0)
+                    except (TypeError, ValueError):
+                        price_num = 0
+                    line_total = price_num * cart[key]
+            elif key.startswith('D:'):
+                obj_id = key.split(':', 1)[1]
+                design = DesignAsset.objects.filter(pk=obj_id).first()
+                if design:
+                    try:
+                        price_num = float(getattr(design, 'price', 0) or 0)
+                    except (TypeError, ValueError):
+                        price_num = 0
+                    line_total = price_num * cart[key]
+            elif key.startswith('C:'):
+                price = request.session.get('donation_price')
+                try:
+                    price_val = float(price)
+                except (TypeError, ValueError):
+                    price_val = 0
+                line_total = price_val * cart[key]
+
+        # Subtotal (iterate once over current cart)
+        subtotal = 0.0
+        if cart:
+            product_ids = [k.split(':', 1)[1] for k in cart if k.startswith('P:')]
+            design_ids = [k.split(':', 1)[1] for k in cart if k.startswith('D:')]
+            products = Product.objects.filter(pk__in=product_ids)
+            designs = DesignAsset.objects.filter(pk__in=design_ids)
+            price_map = {}
+            for p in products:
+                val = p.safe_translation_getter('price', any_language=True)
+                try:
+                    price_map[f"P:{p.pk}"] = float(val or 0)
+                except (TypeError, ValueError):
+                    price_map[f"P:{p.pk}"] = 0
+            for d in designs:
+                try:
+                    price_map[f"D:{d.pk}"] = float(getattr(d, 'price', 0) or 0)
+                except (TypeError, ValueError):
+                    price_map[f"D:{d.pk}"] = 0
+            donation_price = request.session.get('donation_price')
+            if donation_price is not None and 'C:DONATION' in cart:
+                try:
+                    price_map['C:DONATION'] = float(donation_price)
+                except (TypeError, ValueError):
+                    price_map['C:DONATION'] = 0
+            subtotal = sum(price_map.get(k, 0) * q for k, q in cart.items())
+
+        return JsonResponse({
+            'ok': True,
+            'qty': cart.get(key, 0),
+            'count': sum(cart.values()),
+            'line_total': round(line_total, 2),
+            'subtotal': round(subtotal, 2),
+            'removed': key not in cart
+        })
+    except Exception as e:
+        return JsonResponse({'ok': False, 'error': 'exception', 'detail': str(e)}, status=500)
 
 
 def cart_view(request):
+    """Render the cart page with all current items and a subtotal.
+
+    Uses translation fallback for product name/price so the page never errors
+    if a particular translation is missing. Missing prices are treated as 0.
+    """
     cart = _get_cart(request.session)
-    product_ids = [k.split(':',1)[1] for k in cart.keys() if k.startswith('P:')]
-    design_ids = [k.split(':',1)[1] for k in cart.keys() if k.startswith('D:')]
+    product_ids = [k.split(':', 1)[1] for k in cart if k.startswith('P:')]
+    design_ids = [k.split(':', 1)[1] for k in cart if k.startswith('D:')]
     products = Product.objects.filter(pk__in=product_ids)
     designs = DesignAsset.objects.filter(pk__in=design_ids)
     prod_map = {f"P:{p.pk}": p for p in products}
     design_map = {f"D:{d.pk}": d for d in designs}
     items = []
-    subtotal = 0
+    subtotal = Decimal('0')
+
     for key, qty in cart.items():
-        obj = prod_map.get(key) or design_map.get(key)
         if key.startswith('C:'):
             price = request.session.get('donation_price')
             try:
@@ -228,14 +259,59 @@ def cart_view(request):
             except (InvalidOperation, TypeError):
                 price_dec = Decimal('0')
             line_total = price_dec * qty
-            items.append({'key': key, 'product': type('Tmp', (), {'name': 'Advance Payment', 'price': price_dec, 'image': None})(), 'qty': qty, 'line_total': line_total, 'is_design': False, 'is_donation': True})
+            items.append({
+                'key': key,
+                'product': type('Tmp', (), {'name': 'Advance Payment', 'price': price_dec, 'image': None})(),
+                'qty': qty,
+                'line_total': line_total,
+                'is_design': False,
+                'is_donation': True
+            })
             subtotal += line_total
             continue
+
+        obj = prod_map.get(key) or design_map.get(key)
         if not obj:
+            continue  # stale entry
+
+        if hasattr(obj, 'safe_translation_getter'):
+            price_val = obj.safe_translation_getter('price', any_language=True)
+            name_val = obj.safe_translation_getter('name', any_language=True) or str(obj.pk)
+            try:
+                price_number = Decimal(str(price_val)) if price_val is not None else Decimal('0')
+            except (InvalidOperation, TypeError):
+                price_number = Decimal('0')
+            line_total = price_number * qty
+            subtotal += line_total
+            temp_obj = obj
+            temp_obj.name = name_val
+            temp_obj.price = price_number
+            items.append({
+                'key': key,
+                'product': temp_obj,
+                'qty': qty,
+                'line_total': line_total,
+                'is_design': key.startswith('D:'),
+                'is_donation': False
+            })
             continue
-        line_total = obj.price * qty
+
+        # Fallback: object without parler translation (e.g. DesignAsset without translated fields)
+        try:
+            price_number = Decimal(str(getattr(obj, 'price', 0) or 0))
+        except (InvalidOperation, TypeError):
+            price_number = Decimal('0')
+        line_total = price_number * qty
         subtotal += line_total
-        items.append({'key': key, 'product': obj, 'qty': qty, 'line_total': line_total, 'is_design': key.startswith('D:'), 'is_donation': False})
+        items.append({
+            'key': key,
+            'product': obj,
+            'qty': qty,
+            'line_total': line_total,
+            'is_design': key.startswith('D:'),
+            'is_donation': False
+        })
+
     return render(request, 'cart.html', {'items': items, 'subtotal': subtotal})
 
 
@@ -251,9 +327,11 @@ def checkout_view(request):
     prod_map = {f"P:{p.pk}": p for p in products}
     design_map = {f"D:{d.pk}": d for d in designs}
     items = []
-    total = 0
+    total = Decimal('0')
     donation_price = request.session.get('donation_price')
+
     for key, qty in cart.items():
+        # Advance payment entries
         if key.startswith('C:'):
             try:
                 price_dec = Decimal(str(donation_price))
@@ -261,12 +339,39 @@ def checkout_view(request):
                 price_dec = Decimal('0')
             line_total = price_dec * qty
             total += line_total
-            items.append({'product': type('Tmp', (), {'name': 'Advance Payment', 'price': price_dec, 'image': None})(), 'qty': qty, 'line_total': line_total})
+            items.append({
+                'product': type('Tmp', (), {'name': 'Advance Payment', 'price': price_dec, 'image': None})(),
+                'qty': qty,
+                'line_total': line_total
+            })
             continue
+
         obj = prod_map.get(key) or design_map.get(key)
         if not obj:
+            continue  # stale key
+
+        # Products with translations
+        if hasattr(obj, 'safe_translation_getter'):
+            price_val = obj.safe_translation_getter('price', any_language=True)
+            name_val = obj.safe_translation_getter('name', any_language=True) or str(obj.pk)
+            try:
+                price_number = Decimal(str(price_val)) if price_val is not None else Decimal('0')
+            except (InvalidOperation, TypeError):
+                price_number = Decimal('0')
+            line_total = price_number * qty
+            total += line_total
+            # Attach safe fallback values for template rendering
+            obj.name = name_val
+            obj.price = price_number
+            items.append({'product': obj, 'qty': qty, 'line_total': line_total})
             continue
-        line_total = obj.price * qty
+
+        # Design assets or other objects without translation helper
+        try:
+            price_number = Decimal(str(getattr(obj, 'price', 0) or 0))
+        except (InvalidOperation, TypeError):
+            price_number = Decimal('0')
+        line_total = price_number * qty
         total += line_total
         items.append({'product': obj, 'qty': qty, 'line_total': line_total})
     if request.method == 'POST':

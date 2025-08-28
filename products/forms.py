@@ -1,11 +1,12 @@
 from django import forms
+from parler.forms import TranslatableModelForm
 from users.models import Contact
 from .models import Review
 import re
 
 
 
-class ContactForm(forms.ModelForm):
+class ContactForm(forms.ModelForm):  # Not translatable model currently
     class Meta:
         model = Contact
         fields = ['name', 'email', 'message']
@@ -32,7 +33,7 @@ class ContactForm(forms.ModelForm):
         return message
 
 
-class ReviewForm(forms.ModelForm):
+class ReviewForm(forms.ModelForm):  # Review model not converted to TranslatableModel
     rating = forms.IntegerField(min_value=1, max_value=5, widget=forms.NumberInput(attrs={'class':'form-control','min':1,'max':5}))
     comment = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','rows':3,'placeholder':'Share your experience...'}))
 

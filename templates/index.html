@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,9 +6,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with All for PC landing page.">
+    <meta name="description" content="{% trans 'Start your development with All for PC landing page.' %}">
     <meta name="author" content="Devcrud">
-    <title>All for PC</title>
+    <title>{% trans "All for PC" %}</title>
     <link rel="stylesheet" href="{% static 'main/vendors/themify-icons/css/themify-icons.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/meyawo.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/custom.css' %}">
@@ -28,10 +28,10 @@
         <div class="overlay"></div>
         <div class="header-content container d-flex align-items-center justify-content-center" style="min-height:74vh;">
                                     <div class="glass-hero text-center p-4 p-md-5">
-                                            <h1 class="brand-title mb-3">Dark and White</h1>
-                                            <p class="lead mb-0 brand-tagline">Premium Components • Design Assets • Smart Advance Payments</p>
+                                            <h1 class="brand-title mb-3">{% trans "Dark and White" %}</h1>
+                                            <p class="lead mb-0 brand-tagline">{% trans "Premium Components • Design Assets • Smart Advance Payments" %}</p>
                                             <div class="hero-learn-wrapper mt-4">
-                                                <a href="#about" class="hero-learn-link" aria-label="Learn more about OOO J&Z Shop section">Learn more</a>
+                                                <a href="#about" class="hero-learn-link" aria-label="{% trans 'Learn more about OOO J&Z Shop section' %}">{% trans "Learn more" %}</a>
                                             </div>
                                     </div>
                             </div>
@@ -42,15 +42,14 @@
         <div class="container text-center">
             <div class="about">
                 <div class="about-caption">
-                    <p class="section-subtitle">Who are we ?</p>
-                    <h2 class="section-title mb-3">About Us</h2>
-                    <p>
-                        Welcome to the store with a funny name Snail.
+                    <p class="section-subtitle">{% trans "Who are we ?" %}</p>
+                    <h2 class="section-title mb-3">{% trans "About Us" %}</h2>
+                    <p>{% blocktrans %}Welcome to the store with a funny name Snail.
                         Why A Snail? Because we're small, but without fuss, we'll help you climb Mount Fuji!
                         We offer everything you need to create gaming stations, work machines and servers: processors,
                         graphics cards, RAM. Here you will find only proven brands – AMD, Intel, NVIDIA, ASUS, MSI and
                         others,
-                        as well as exclusive offers that will help save.
+                        as well as exclusive offers that will help save.{% endblocktrans %}
                     </p>
                 </div>
             </div>
@@ -59,14 +58,14 @@
 
     <section class="section" id="service">
         <div class="container text-center">
-            <h6 class="section-title mb-6">Why choose us?</h6>
+            <h6 class="section-title mb-6">{% trans "Why choose us?" %}</h6>
             <div class="row">
                 <div class="col-md-6 col-lg-3">
                     <div class="service-card">
                         <div class="body">
                             <img src="{% static 'main/imgs/pencil-case.svg' %}" class="icon" alt="">
-                            <h6 class="title">Wide range</h6>
-                            <p class="subtitle">From budget solutions to top components for enthusiasts.</p>
+                            <h6 class="title">{% trans "Wide range" %}</h6>
+                            <p class="subtitle">{% trans "From budget solutions to top components for enthusiasts." %}</p>
                         </div>
                     </div>
                 </div>
@@ -74,8 +73,8 @@
                     <div class="service-card">
                         <div class="body">
                             <img src="{% static 'main/imgs/responsive.svg' %}" class="icon" alt="">
-                            <h6 class="title">Fast delivery</h6>
-                            <p class="subtitle">Sending throughout Russia and the CIS as soon as possible.</p>
+                            <h6 class="title">{% trans "Fast delivery" %}</h6>
+                            <p class="subtitle">{% trans "Sending throughout Russia and the CIS as soon as possible." %}</p>
                         </div>
                     </div>
                 </div>
@@ -83,8 +82,8 @@
                     <div class="service-card">
                         <div class="body">
                             <img src="{% static 'main/imgs/toolbox.svg' %}" class="icon" alt="">
-                            <h6 class="title">Expert support</h6>
-                            <p class="subtitle">Our specialists will help you to choose components for your tasks.</p>
+                            <h6 class="title">{% trans "Expert support" %}</h6>
+                            <p class="subtitle">{% trans "Our specialists will help you to choose components for your tasks." %}</p>
                         </div>
                     </div>
                 </div>
@@ -92,8 +91,8 @@
                     <div class="service-card">
                         <div class="body">
                             <img src="{% static 'main/imgs/analytics.svg' %}" class="icon" alt="">
-                            <h6 class="title">Best Prices</h6>
-                            <p class="subtitle">Promotions, discounts and bonuses for regular customers.</p>
+                            <h6 class="title">{% trans "Best Prices" %}</h6>
+                            <p class="subtitle">{% trans "Promotions, discounts and bonuses for regular customers." %}</p>
                         </div>
                     </div>
                 </div>
@@ -105,8 +104,8 @@
 
     <section class="section" id="portfolio" aria-labelledby="hot-offers-title">
         <div class="container text-center">
-            <p class="section-subtitle">Now in stock</p>
-            <h6 id="hot-offers-title" class="section-title mb-6">Hot offers</h6>
+            <p class="section-subtitle">{% trans "Now in stock" %}</p>
+            <h6 id="hot-offers-title" class="section-title mb-6">{% trans "Hot offers" %}</h6>
             <div class="row">
                 <style>
                     .portfolio-card {
@@ -161,7 +160,7 @@
                 {% if products %}
                 {% for product in products %}
                 <div class="col-md-4 mb-4">
-                    <a href="{% url 'product_detail' slug=product.slug %}" class="portfolio-card" aria-label="View {{ product.name }} details">
+                    <a href="{% url 'product_detail' slug=product.slug %}" class="portfolio-card" aria-label="{% blocktrans with name=product.name %}View {{ name }} details{% endblocktrans %}">
                         {% if product.discount_percent %}
                         <div class="discount-badge">-{{ product.discount_percent }}%</div>
                         {% elif product.discount %}
@@ -171,7 +170,7 @@
                         <img src="{{ product.image.url }}" alt="{{ product.name }}" class="portfolio-card-img"
                             loading="lazy">
                         {% else %}
-                        <img src="{% static 'images/placeholder.png' %}" alt="No image" class="portfolio-card-img"
+                        <img src="{% static 'images/placeholder.png' %}" alt="{% trans 'No image' %}" class="portfolio-card-img"
                             loading="lazy">
                         {% endif %}
                         <span class="portfolio-card-overlay">
@@ -188,16 +187,16 @@
         </div>
     </section>
 
-    <section class="section-sm bg-primary" aria-label="Promo banner">
+    <section class="section-sm bg-primary" aria-label="{% trans 'Promo banner' %}">
         <div class="container text-center text-sm-left">
             <div class="row align-items-center">
                 <div class="col-sm offset-md-1 mb-4 mb-md-0">
-                    <h6 class="title text-light">Do not miss the chance to equip your PC at a bargain price</h6>
-                    <p class="m-0 text-light"> the promotion is valid until July 15, 2025!</p>
+                    <h6 class="title text-light">{% trans "Do not miss the chance to equip your PC at a bargain price" %}</h6>
+                    <p class="m-0 text-light">{% trans "the promotion is valid until July 15, 2025!" %}</p>
                 </div>
                 <div class="col-sm offset-sm-2 offset-md-3 d-flex">
-                    <a href="{% url 'store' %}" class="btn btn-lg my-font btn-light rounded mr-2">Go Shopping</a>
-                    <a href="{% url 'donation' %}" class="btn btn-lg my-font btn-outline-light rounded">Advance Pay</a>
+                    <a href="{% url 'store' %}" class="btn btn-lg my-font btn-light rounded mr-2">{% trans "Go Shopping" %}</a>
+                    <a href="{% url 'donation' %}" class="btn btn-lg my-font btn-outline-light rounded">{% trans "Advance Pay" %}</a>
                 </div>
             </div>
         </div>
@@ -206,22 +205,22 @@
 
     <section class="section" id="contact" aria-labelledby="contact-title">
         <div class="container text-center">
-            <p class="section-subtitle">How can you communicate?</p>
-            <h6 id="contact-title" class="section-title mb-5">Contact Us</h6>
+            <p class="section-subtitle">{% trans "How can you communicate?" %}</p>
+            <h6 id="contact-title" class="section-title mb-5">{% trans "Contact Us" %}</h6>
             <form action="" class="contact-form col-md-10 col-lg-8 m-auto" method="post">
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="form-group col-sm-6">
-                        <input type="text" size="50" class="form-control" placeholder="Your Name" name="name" required aria-label="Your name">
+                        <input type="text" size="50" class="form-control" placeholder="{% trans 'Your Name' %}" name="name" required aria-label="{% trans 'Your name' %}">
                     </div>
                     <div class="form-group col-sm-6">
-                        <input type="email" class="form-control" placeholder="Enter Email" name="email" required aria-label="Email address">
+                        <input type="email" class="form-control" placeholder="{% trans 'Enter Email' %}" name="email" required aria-label="{% trans 'Email address' %}">
                     </div>
                     <div class="form-group col-sm-12">
-                        <textarea name="message" id="message" rows="6" class="form-control" placeholder="Write Something" aria-label="Message"></textarea>
+                        <textarea name="message" id="message" rows="6" class="form-control" placeholder="{% trans 'Write Something' %}" aria-label="{% trans 'Message' %}"></textarea>
                     </div>
                     <div class="form-group col-sm-12 mt-3">
-                        <input id="send-btn" type="submit" value="Send Message" class="btn btn-outline-primary rounded" aria-label="Send message">
+                        <input id="send-btn" type="submit" value="{% trans 'Send Message' %}" class="btn btn-outline-primary rounded" aria-label="{% trans 'Send message' %}">
                     </div>
                 </div>
             </form>
@@ -230,11 +229,11 @@
 
     <footer class="py-4 border-top text-center small" style="background:#111; color:#aaa;">
         <div class="container">
-            <div class="mb-2">&copy; {{ now|date:'Y' }} All for PC. All rights reserved.</div>
+            <div class="mb-2">&copy; {{ now|date:'Y' }} {% trans "All for PC. All rights reserved." %}</div>
             <div>
-                <a href="{% url 'public_offer' %}" class="text-light mr-3">Public Offer</a>
-                <a href="{% url 'donation' %}" class="text-light mr-3">Advance Payment</a>
-                <a href="{% url 'designs:marketplace' %}" class="text-light">Marketplace</a>
+                <a href="{% url 'public_offer' %}" class="text-light mr-3">{% trans "Public Offer" %}</a>
+                <a href="{% url 'donation' %}" class="text-light mr-3">{% trans "Advance Payment" %}</a>
+                <a href="{% url 'designs:marketplace' %}" class="text-light">{% trans "Marketplace" %}</a>
             </div>
         </div>
     </footer>

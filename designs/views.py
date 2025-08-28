@@ -3,6 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 from .models import DesignAsset, DesignCategory, DesignReview
+from django.db.models import Q
 from .forms import DesignReviewForm
 
 
@@ -16,7 +17,8 @@ def marketplace(request):
         qs = qs.filter(category__slug=cat_slug)
     search = request.GET.get('q')
     if search:
-        qs = qs.filter(name__icontains=search)
+        # For TranslatableModel field 'name' we must query through translations relation
+        qs = qs.filter(translations__name__icontains=search)
     try:
         per_page = int(request.GET.get('page_size', '12'))
     except ValueError:
@@ -31,7 +33,8 @@ def marketplace(request):
     except EmptyPage:
         page_obj = paginator.page(paginator.num_pages)
 
-    categories = DesignCategory.objects.all().order_by('type', 'name')
+    # Order categories by type then translated name (via translations__name)
+    categories = DesignCategory.objects.all().order_by('type', 'translations__name')
     context = {
         'assets': page_obj.object_list,
         'page_obj': page_obj,

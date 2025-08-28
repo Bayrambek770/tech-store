@@ -1,20 +1,34 @@
 {% load static %}
+{% load i18n %}
 <nav class="site-nav" aria-label="Main navigation">
     <div class="site-nav__bar">
         <a class="site-nav__brand" href="{% url 'home' %}">
-            <img src="{% static 'images/new_logo.PNG' %}" alt="All for PC" width="60" height="80" loading="lazy"> Dark and White
+            <img src="{% static 'images/new_logo.PNG' %}" alt="{% trans 'All for PC' %}" width="60" height="80" loading="lazy"> {% trans 'Dark and White' %}
         </a>
         <ul class="site-nav__links" data-desktop-links>
-            <li><a href="{% url 'designs:marketplace' %}">Marketplace</a></li>
-            <li><a href="{% url 'store' %}">Store</a></li>
-            <li><a href="{% url 'cart' %}" class="cart-link" title="Cart">
+            <li><a href="{% url 'designs:marketplace' %}">{% trans 'Marketplace' %}</a></li>
+            <li><a href="{% url 'store' %}">{% trans 'Store' %}</a></li>
+            <li><a href="{% url 'cart' %}" class="cart-link" title="{% trans 'Cart' %}">
                 <span class="icon-wrap">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>
                     <span id="nav-cart-count" class="badge"></span>
                 </span>
             </a></li>
-            <li><a href="{% url 'public_offer' %}">Public Offer</a></li>
-            {% if user.is_authenticated %}<li><span class="user-greet" aria-label="Logged in user">{{ request.user.first_name|default:'Account' }}</span></li>{% endif %}
+            <li><a href="{% url 'public_offer' %}">{% trans 'Public Offer' %}</a></li>
+            {% if user.is_authenticated %}<li><span class="user-greet" aria-label="{% trans 'Logged in user' %}">{{ request.user.first_name|default:_('Account') }}</span></li>{% endif %}
+            <li class="lang-switcher">
+                <form action="{% url 'set_language' %}" method="post" aria-label="{% trans 'Change language' %}">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ request.path }}" />
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    <select name="language" onchange="this.form.submit()" aria-label="{% trans 'Select language' %}">
+                        {% for lang_code, lang_name in LANGUAGES %}
+                            <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>{{ lang_name }}</option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </li>
         </ul>
         <button class="site-nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="offcanvasMenu">
             <span></span><span></span><span></span>
@@ -23,15 +37,28 @@
     <div class="site-nav__offcanvas" id="offcanvasMenu" aria-hidden="true">
         <div class="offcanvas__panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
             <div class="offcanvas__header">
-                <a class="site-nav__brand small" href="{% url 'home' %}">All for PC</a>
+                <a class="site-nav__brand small" href="{% url 'home' %}">{% trans 'All for PC' %}</a>
                 <button class="offcanvas__close" id="navClose" aria-label="Close menu">&times;</button>
             </div>
             <ul class="offcanvas__links">
-                <li><a href="{% url 'designs:marketplace' %}">Marketplace</a></li>
-                <li><a href="{% url 'store' %}">Store</a></li>
-                <li><a href="{% url 'cart' %}" class="cart-link">Cart <span id="nav-cart-count-mobile" class="badge"></span></a></li>
-                <li><a href="{% url 'public_offer' %}">Public Offer</a></li>
-                {% if user.is_authenticated %}<li><span class="user-greet">{{ request.user.first_name|default:'Account' }}</span></li>{% endif %}
+                <li><a href="{% url 'designs:marketplace' %}">{% trans 'Marketplace' %}</a></li>
+                <li><a href="{% url 'store' %}">{% trans 'Store' %}</a></li>
+                <li><a href="{% url 'cart' %}" class="cart-link">{% trans 'Cart' %} <span id="nav-cart-count-mobile" class="badge"></span></a></li>
+                <li><a href="{% url 'public_offer' %}">{% trans 'Public Offer' %}</a></li>
+                {% if user.is_authenticated %}<li><span class="user-greet">{{ request.user.first_name|default:_('Account') }}</span></li>{% endif %}
+                <li class="mt-2">
+                    <form action="{% url 'set_language' %}" method="post" aria-label="{% trans 'Change language' %}">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ request.path }}" />
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        <select name="language" onchange="this.form.submit()" aria-label="{% trans 'Select language' %}">
+                            {% for lang_code, lang_name in LANGUAGES %}
+                                <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>{{ lang_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>

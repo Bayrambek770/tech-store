@@ -1,36 +1,36 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Advance Payment</title>
+<title>{% trans "Advance Payment" %}</title>
 <link rel="stylesheet" href="{% static 'main/vendors/themify-icons/css/themify-icons.css' %}">
 <link rel="stylesheet" href="{% static 'main/css/meyawo.css' %}">
 <link rel="stylesheet" href="{% static 'main/css/custom.css' %}">
 </head><body class="has-static-nav">
 {% include 'layouts/navbar.html' with static_nav=True %}
 <div class="container page-section-spacer" style="max-width:640px;">
-  <h2 class="mb-3">Making an advance payment</h2>
-  <p class="text-muted mb-4">Enter any positive amount and optionally increase the quantity if you wish to multiply it. This will appear in your cart as a separate line.</p>
+  <h2 class="mb-3">{% trans "Making an advance payment" %}</h2>
+  <p class="text-muted mb-4">{% trans "Enter any positive amount and optionally increase the quantity if you wish to multiply it. This will appear in your cart as a separate line." %}</p>
   {% for message in messages %}
     <div class="alert alert-{{ message.tags }}">{{ message }}</div>
   {% endfor %}
   <form method="post" class="border rounded p-4 bg-light" id="donation-form" novalidate>
     {% csrf_token %}
     <div class="form-group">
-      <label for="amount">Amount (USD)</label>
+  <label for="amount">{% trans "Amount (USD)" %}</label>
       <input type="number" step="0.01" min="0.01" class="form-control" id="amount" name="amount" placeholder="50.00" required>
     </div>
     <div class="form-group" style="max-width:200px;">
-      <label class="d-block">Quantity</label>
+  <label class="d-block">{% trans "Quantity" %}</label>
       <div class="input-group">
         <div class="input-group-prepend"><button type="button" class="btn btn-outline-secondary" id="qty-dec">-</button></div>
         <input type="text" class="form-control text-center" id="qty" name="qty" value="1">
         <div class="input-group-append"><button type="button" class="btn btn-outline-secondary" id="qty-inc">+</button></div>
       </div>
     </div>
-    <button class="btn btn-gradient btn-block" type="submit">Add to Cart</button>
-    <a href="{% url 'store' %}" class="btn btn-link btn-sm mt-2">Back to Store</a>
+  <button class="btn btn-gradient btn-block" type="submit">{% trans "Add to Cart" %}</button>
+  <a href="{% url 'store' %}" class="btn btn-link btn-sm mt-2">{% trans "Back to Store" %}</a>
   </form>
-  <div class="mt-4 small text-muted">This is treated like a product only for checkout purposes. Taxes / shipping do not apply.</div>
+  <div class="mt-4 small text-muted">{% trans "This is treated like a product only for checkout purposes. Taxes / shipping do not apply." %}</div>
 </div>
 <script>
 (function(){

@@ -1,5 +1,6 @@
 import uuid
 from django.db import models
+from parler.models import TranslatableModel, TranslatedFields
 from django.utils.text import slugify
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
@@ -13,24 +14,28 @@ class BaseModel(models.Model):
         abstract = True
 
 
-class DesignCategory(BaseModel):
+class DesignCategory(TranslatableModel, BaseModel):
     TYPE_CHOICES = (
         ("3d", "3D Max Product"),
         ("interior", "Interior Design"),
     )
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=180)
+    translations = TranslatedFields(
+        name = models.CharField(max_length=180),
+        description = models.TextField(blank=True),
+    )
     type = models.CharField(max_length=20, choices=TYPE_CHOICES)
-    description = models.TextField(blank=True)
     slug = models.SlugField(max_length=220, unique=True, blank=True)
 
     class Meta:
         verbose_name = 'Design Category'
         verbose_name_plural = 'Design Categories'
-        ordering = ["name"]
+        # Can't order by translated field directly at model meta; admin can specify ordering.
+        ordering = ['created_at']
 
     def __str__(self):
-        return f"{self.get_type_display()}: {self.name}" if self.type else self.name
+        nm = self.safe_translation_getter('name', any_language=True) or ''
+        return f"{self.get_type_display()}: {nm}" if self.type else nm
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -44,16 +49,18 @@ class DesignCategory(BaseModel):
         super().save(*args, **kwargs)
 
 
-class DesignAsset(BaseModel):
+class DesignAsset(TranslatableModel, BaseModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     category = models.ForeignKey(DesignCategory, related_name='assets', on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
+    translations = TranslatedFields(
+        name = models.CharField(max_length=255),
+        description = models.TextField(blank=True),
+        price = models.DecimalField(max_digits=12, decimal_places=2, validators=[MinValueValidator(0)])
+    )
     slug = models.SlugField(max_length=280, unique=True, blank=True)
     cover_image = models.ImageField(upload_to='designs/covers/', blank=True, null=True)
-    price = models.DecimalField(max_digits=12, decimal_places=2, validators=[MinValueValidator(0)])
     discount = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(90)])
     is_active = models.BooleanField(default=True)
-    description = models.TextField(blank=True)
 
     class Meta:
         verbose_name = 'Design Asset'
@@ -61,11 +68,11 @@ class DesignAsset(BaseModel):
         ordering = ['-created_at']
 
     def __str__(self):
-        return self.name
+        return self.safe_translation_getter('name', any_language=True) or str(self.pk)
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            base = slugify(self.name)[:50]
+            base = slugify(self.safe_translation_getter('name', any_language=True) or str(self.pk))[:50]
             candidate = base
             counter = 1
             while DesignAsset.objects.filter(slug=candidate).exclude(pk=self.pk).exists():

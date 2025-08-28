@@ -1,0 +1,1254 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-27 11:54+0500\n"
+"PO-Revision-Date: 2025-08-28 00:56+0000\n"
+"Last-Translator:   <admin@mail.ru>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
+
+# Marketplace strings
+#: .\templates\designs\marketplace.html:3
+msgid "Design Marketplace"
+msgstr "Dizayn bozori"
+
+#: .\templates\designs\marketplace.html:9
+msgid "All Types"
+msgstr "Barcha turlari"
+
+#: .\templates\designs\marketplace.html:10
+msgid "3D Max Products"
+msgstr "3D Max mahsulotlari"
+
+#: .\templates\designs\marketplace.html:11
+msgid "Interior Design"
+msgstr "Ichki dizayn"
+
+#: .\templates\designs\marketplace.html:17
+msgid "Search..."
+msgstr "Qidirish..."
+
+#: .\templates\designs\marketplace.html:18
+msgid "Apply"
+msgstr "Qo'llash"
+
+# Language switcher generic
+msgid "Change language"
+msgstr "Tilni o'zgartirish"
+
+msgid "Select language"
+msgstr "Tilni tanlang"
+
+#: .\config\settings.py:95
+msgid "Russian"
+msgstr "Ruscha"
+
+#: .\config\settings.py:96
+msgid "English"
+msgstr "Inglizcha"
+
+#: .\config\settings.py:97
+msgid "Uzbek"
+msgstr "O'zbekcha"
+
+#: .\products\models.py:23 .\products\models.py:39 .\users\models.py:25
+msgid "Name"
+msgstr "Nomi"
+
+#: .\products\models.py:24
+msgid "Description"
+msgstr "Tavsif"
+
+#: .\products\models.py:31 .\products\models.py:49
+msgid "Category"
+msgstr "Kategoriya"
+
+#: .\products\models.py:32
+msgid "Categories"
+msgstr "Kategoriyalar"
+
+#: .\products\models.py:40 .\templates\cart.html:24
+msgid "Price"
+msgstr "Narx"
+
+#: .\products\models.py:42
+msgid "Slug"
+msgstr "Slug"
+
+#: .\products\models.py:43
+msgid "Discount (%)"
+msgstr "Chegirma (%)"
+
+#: .\products\models.py:45
+msgid "Is active"
+msgstr "Faol"
+
+#: .\products\models.py:74 .\products\models.py:84 .\templates\cart.html:23
+msgid "Product"
+msgstr "Mahsulot"
+
+#: .\products\models.py:75
+msgid "Products"
+msgstr "Mahsulotlar"
+
+#: .\products\models.py:90
+msgid "User"
+msgstr "Foydalanuvchi"
+
+#: .\products\models.py:95
+msgid "Rating"
+msgstr "Reyting"
+
+#: .\products\models.py:98 .\templates\product_detail.html:107
+msgid "Comment"
+msgstr "Izoh"
+
+#: .\products\models.py:101
+msgid "Review"
+msgstr "Sharh"
+
+#: .\products\models.py:102
+msgid "Reviews"
+msgstr "Sharhlar"
+
+#: .\products\models.py:109
+#, python-format
+msgid "Review for %(product)s by %(user)s"
+msgstr "%(user)s tomonidan %(product)s uchun sharh"
+
+#: .\templates\cart.html:8 .\templates\layouts\navbar.html:11
+#: .\templates\layouts\navbar.html:46
+msgid "Cart"
+msgstr "Savat"
+
+#: .\templates\cart.html:17
+msgid "Shopping Cart"
+msgstr "Xarid savati"
+
+#: .\templates\cart.html:18
+msgid "Review your selected items"
+msgstr "Tanlangan mahsulotlarni ko'rib chiqing"
+
+#: .\templates\cart.html:22
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:420
+msgid "Image"
+msgstr "Rasm"
+
+#: .\templates\cart.html:25 .\templates\donation.html:23
+#: .\templates\product_detail.html:32
+msgid "Quantity"
+msgstr "Soni"
+
+#: .\templates\cart.html:26
+msgid "Total"
+msgstr "Jami"
+
+#: .\templates\cart.html:27
+msgid "Remove"
+msgstr "O'chirish"
+
+#: .\templates\cart.html:33
+msgid "No Img"
+msgstr "Rasm yo'q"
+
+#: .\templates\cart.html:34
+msgid "Design"
+msgstr "Dizayn"
+
+#: .\templates\cart.html:34
+msgid "Advance"
+msgstr "Oldindan to'lov"
+
+#: .\templates\cart.html:51 .\templates\cart.html:78
+msgid "Your cart is empty."
+msgstr "Savatingiz bo'sh."
+
+#: .\templates\cart.html:57
+msgid "Subtotal:"
+msgstr "Oraliq jami:"
+
+#: .\templates\cart.html:58
+msgid "Continue Shopping"
+msgstr "Xaridni davom ettirish"
+
+#: .\templates\cart.html:59
+msgid "Proceed to Checkout"
+msgstr "To'lovga o'tish"
+
+#: .\templates\checkout.html:4
+msgid "Checkout"
+msgstr "To'lov"
+
+#: .\templates\checkout.html:15
+msgid "Shipping & Contact"
+msgstr "Yuk va aloqa"
+
+#: .\templates\checkout.html:18
+msgid "First Name"
+msgstr "Ism"
+
+#: .\templates\checkout.html:29
+msgid "John"
+msgstr "John"
+
+#: .\templates\checkout.html:34
+msgid "Last Name"
+msgstr "Familiya"
+
+#: .\templates\checkout.html:45
+msgid "Doe"
+msgstr "Doe"
+
+#: .\templates\checkout.html:51 .\users\models.py:26
+msgid "Email"
+msgstr "Email"
+
+#: .\templates\checkout.html:60
+msgid "you@example.com"
+msgstr "you@example.com"
+
+#: .\templates\checkout.html:66
+msgid "Phone"
+msgstr "Telefon"
+
+#: .\templates\checkout.html:76
+msgid "+1 555 123 4567"
+msgstr "+1 555 123 4567"
+
+#: .\templates\checkout.html:82
+msgid "Address Line 1"
+msgstr "Manzil 1-qator"
+
+#: .\templates\checkout.html:92
+msgid "123 Main St"
+msgstr "Asosiy ko'cha 123"
+
+#: .\templates\checkout.html:97
+msgid "Address Line 2"
+msgstr "Manzil 2-qator"
+
+#: .\templates\checkout.html:97
+msgid "Optional"
+msgstr "Ixtiyoriy"
+
+#: .\templates\checkout.html:110 .\templates\checkout.html:121
+msgid "Country"
+msgstr "Mamlakat"
+
+#: .\templates\checkout.html:126
+msgid "State/Region"
+msgstr "Viloyat"
+
+#: .\templates\checkout.html:137
+msgid "State / Region"
+msgstr "Viloyat"
+
+#: .\templates\checkout.html:142 .\templates\checkout.html:153
+msgid "ZIP"
+msgstr "Indeks"
+
+#: .\templates\checkout.html:159
+msgid "Payment"
+msgstr "To'lov"
+
+#: .\templates\checkout.html:163
+msgid "Credit / Debit Card"
+msgstr "Kredit / Debet karta"
+
+#: .\templates\checkout.html:167
+msgid "Cash on Delivery"
+msgstr "Yetkazilganda naqd"
+
+#: .\templates\checkout.html:172
+msgid "Card Number"
+msgstr "Karta raqami"
+
+#: .\templates\checkout.html:181
+msgid "4111 1111 1111 1111"
+msgstr "4111 1111 1111 1111"
+
+#: .\templates\checkout.html:190
+msgid "Expiry (MM/YY)"
+msgstr "Amal muddati (OY/YIL)"
+
+#: .\templates\checkout.html:199
+msgid "08/27"
+msgstr "08/27"
+
+#: .\templates\checkout.html:206
+msgid "CVC"
+msgstr "CVC"
+
+#: .\templates\checkout.html:215
+msgid "123"
+msgstr "123"
+
+#: .\templates\checkout.html:222
+msgid "Your card data is secured."
+msgstr "Kartangiz ma'lumotlari himoyalangan."
+
+#: .\templates\checkout.html:226
+msgid "Order Summary"
+msgstr "Buyurtma xulosasi"
+
+#: .\templates\checkout.html:241
+msgid "Total:"
+msgstr "Jami:"
+
+#: .\templates\checkout.html:242
+msgid "Pay Now"
+msgstr "To'lash"
+
+#: .\templates\donation.html:4 .\templates\index.html:235
+msgid "Advance Payment"
+msgstr "Oldindan to'lov"
+
+#: .\templates\donation.html:11 .\templates\store.html:61
+msgid "Making an advance payment"
+msgstr "Oldindan to'lov kiritish"
+
+#: .\templates\donation.html:12
+msgid ""
+"Enter any positive amount and optionally increase the quantity if you wish "
+"to multiply it. This will appear in your cart as a separate line."
+msgstr "Musbat son kiriting va ixtiyoriy miqdorni oshiring"
+
+#: .\templates\donation.html:19
+msgid "Amount (USD)"
+msgstr "Miqdor (USD)"
+
+#: .\templates\donation.html:30 .\templates\product_detail.html:44
+#: .\templates\product_detail.html:140
+msgid "Add to Cart"
+msgstr "Savatga qo'shish"
+
+#: .\templates\donation.html:31 .\templates\product_detail.html:45
+msgid "Back to Store"
+msgstr "Do'konga qaytish"
+
+#: .\templates\donation.html:33
+msgid ""
+"This is treated like a product only for checkout purposes. Taxes / shipping "
+"do not apply."
+msgstr ""
+"Bu faqat to'lov jarayoni uchun mahsulot sifatida qaraladi. Soliq va yetkazib"
+" berish qo'llanilmaydi."
+
+#: .\templates\index.html:9
+msgid "Start your development with All for PC landing page."
+msgstr "Loyihangizni All for PC landing sahifasidan boshlang."
+
+#: .\templates\index.html:11 .\templates\layouts\navbar.html:6
+#: .\templates\layouts\navbar.html:40
+msgid "All for PC"
+msgstr "All for PC"
+
+#: .\templates\index.html:31 .\templates\layouts\navbar.html:6
+msgid "Dark and White"
+msgstr "Dark and White"
+
+#: .\templates\index.html:32
+msgid "Premium Components • Design Assets • Smart Advance Payments"
+msgstr "Yuqori kompanentlar, Dizayn tovarlar va Qulay oldindan to'lov"
+
+#: .\templates\index.html:34
+msgid "Learn more about OOO J&Z Shop section"
+msgstr "OOO J&Z Shop bo'limi haqida ko'proq bilish"
+
+#: .\templates\index.html:34
+msgid "Learn more"
+msgstr "Yana"
+
+#: .\templates\index.html:45
+msgid "Who are we ?"
+msgstr "Biz kimmiz"
+
+#: .\templates\index.html:46
+msgid "About Us"
+msgstr "Biz haqimizda"
+
+#: .\templates\index.html:47
+msgid ""
+"Welcome to the store with a funny name Snail.\n"
+"                        Why A Snail? Because we're small, but without fuss, we'll help you climb Mount Fuji!\n"
+"                        We offer everything you need to create gaming stations, work machines and servers: processors,\n"
+"                        graphics cards, RAM. Here you will find only proven brands – AMD, Intel, NVIDIA, ASUS, MSI and\n"
+"                        others,\n"
+"                        as well as exclusive offers that will help save."
+msgstr ""
+"Funny Snail ismli do'konga xush kelibsiz.\n"
+"Nima uchun Snail? Chunki biz kichkinamiz, lekin shov-shuvsiz Fudzi tog'iga chiqishingizga yordam beramiz!\n"
+"Biz sizga o'yin stantsiyalari, ish mashinalari va serverlarni yaratish uchun kerak bo'lgan hamma narsani taklif qilamiz: protsessorlar,\n"
+"grafik kartalar, RAM. Bu erda siz faqat tasdiqlangan brendlarni topasiz - AMD, Intel, NVIDIA, ASUS, MSI va\n"
+"boshqalar, shuningdek, tejashga yordam beradigan eksklyuziv takliflar."
+
+#: .\templates\index.html:61
+msgid "Why choose us?"
+msgstr "Nega biz"
+
+#: .\templates\index.html:67
+msgid "Wide range"
+msgstr "Keng Assortiment"
+
+#: .\templates\index.html:68
+msgid "From budget solutions to top components for enthusiasts."
+msgstr ""
+"Byudjet echimlaridan tortib, ishqibozlar uchun eng yaxshi komponentlargacha."
+
+#: .\templates\index.html:76
+msgid "Fast delivery"
+msgstr "Tez yetkazib berish"
+
+#: .\templates\index.html:77
+msgid "Sending throughout Russia and the CIS as soon as possible."
+msgstr "Iloji boricha tezroq Rossiya va MDH bo'ylab jo'natish."
+
+#: .\templates\index.html:85
+msgid "Expert support"
+msgstr "Mutaxassis yordami"
+
+#: .\templates\index.html:86
+msgid "Our specialists will help you to choose components for your tasks."
+msgstr ""
+"Bizning mutaxassislarimiz sizning vazifalaringiz uchun komponentlarni "
+"tanlashda yordam beradi."
+
+#: .\templates\index.html:94
+msgid "Best Prices"
+msgstr "Eng yaxshi narxlar"
+
+#: .\templates\index.html:95
+msgid "Promotions, discounts and bonuses for regular customers."
+msgstr "Doimiy mijozlar uchun aktsiyalar, chegirmalar va bonuslar."
+
+#: .\templates\index.html:107
+msgid "Now in stock"
+msgstr "Hozir chegirmada"
+
+#: .\templates\index.html:108
+msgid "Hot offers"
+msgstr "Qaynoq takliflar"
+
+#: .\templates\index.html:163
+#, python-format
+msgid "View %(name)s details"
+msgstr "%(name)s tafsilotlarini ko'rish"
+
+#: .\templates\index.html:173 .\templates\product_detail.html:19
+#: .\templates\product_detail.html:60
+msgid "No image"
+msgstr "Rasm yo'q"
+
+#: .\templates\index.html:190
+msgid "Promo banner"
+msgstr "Aksiyaviy banner"
+
+#: .\templates\index.html:194
+msgid "Do not miss the chance to equip your PC at a bargain price"
+msgstr ""
+"Shaxsiy kompyuteringizni arzon narxda jihozlash imkoniyatini boy bermang"
+
+#: .\templates\index.html:195
+msgid "the promotion is valid until July 15, 2025!"
+msgstr "aksiya 2025-yil 15-iyulgacha amal qiladi!"
+
+#: .\templates\index.html:198
+msgid "Go Shopping"
+msgstr "Xarid qilish"
+
+#: .\templates\index.html:199
+msgid "Advance Pay"
+msgstr "Oldindan to'lov"
+
+#: .\templates\index.html:208
+msgid "How can you communicate?"
+msgstr "Qanday qilib muloqot qila olasiz?"
+
+#: .\templates\index.html:209
+msgid "Contact Us"
+msgstr "Biz bilan bog'lanish"
+
+#: .\templates\index.html:214
+msgid "Your Name"
+msgstr "Ismingiz"
+
+#: .\templates\index.html:214
+msgid "Your name"
+msgstr "Ismingiz"
+
+#: .\templates\index.html:217
+msgid "Enter Email"
+msgstr "Email kiriting"
+
+#: .\templates\index.html:217
+#: .\venv\Lib\site-packages\django\db\models\fields__init__.py:1920
+msgid "Email address"
+msgstr "Elektron pochta manzili"
+
+#: .\templates\index.html:220
+msgid "Write Something"
+msgstr "Xabar yozing"
+
+#: .\templates\index.html:220 .\users\models.py:28
+msgid "Message"
+msgstr "Xabar"
+
+#: .\templates\index.html:223
+msgid "Send Message"
+msgstr "Xabar yuborish"
+
+#: .\templates\index.html:223
+msgid "Send message"
+msgstr "Xabar yuborish"
+
+#: .\templates\index.html:232
+msgid "All for PC. All rights reserved."
+msgstr "All for PC. Barcha huquqlar himoyalangan."
+
+#: .\templates\index.html:234 .\templates\layouts\navbar.html:17
+#: .\templates\layouts\navbar.html:47
+msgid "Public Offer"
+msgstr "Ommaviy oferta"
+
+#: .\templates\index.html:236 .\templates\layouts\navbar.html:9
+#: .\templates\layouts\navbar.html:44
+msgid "Marketplace"
+msgstr "Bozor"
+
+#: .\templates\layouts\navbar.html:10 .\templates\layouts\navbar.html:45
+#: .\templates\store.html:8
+msgid "Store"
+msgstr "Do'kon"
+
+#: .\templates\layouts\navbar.html:18
+msgid "Logged in user"
+msgstr "Tizimga kirgan foydalanuvchi"
+
+#: .\templates\layouts\navbar.html:18 .\templates\layouts\navbar.html:48
+msgid "Account"
+msgstr "Hisob"
+
+#: .\templates\layouts\navbar.html:20 .\templates\layouts\navbar.html:50
+msgid "Change language"
+msgstr "Tilni o'zgartirish"
+
+#: .\templates\layouts\navbar.html:25 .\templates\layouts\navbar.html:55
+msgid "Select language"
+msgstr "Tilni tanlang"
+
+#: .\templates\product_detail.html:47
+msgid "Secure checkout • Easy returns • Fast support"
+msgstr "Xavfsiz to'lov • Oson qaytarish • Tezkor yordam"
+
+#: .\templates\product_detail.html:52
+msgid "Related Products"
+msgstr "O'xshash mahsulotlar"
+
+#: .\templates\product_detail.html:72
+msgid "Customer Reviews"
+msgstr "Mijozlar sharhlari"
+
+#: .\templates\product_detail.html:93
+msgid "No reviews yet."
+msgstr "Hozircha sharhlar yo'q."
+
+#: .\templates\product_detail.html:97
+msgid "Update Your Review"
+msgstr "Sharhingizni yangilang"
+
+#: .\templates\product_detail.html:97
+msgid "Leave a Review"
+msgstr "Sharh qoldiring"
+
+#: .\templates\product_detail.html:103
+msgid "Rating (1-5)"
+msgstr "Baholash (1-5)"
+
+#: .\templates\product_detail.html:110
+msgid "Save Review"
+msgstr "Sharhni saqlash"
+
+#: .\templates\product_detail.html:112
+msgid "Please correct the errors above."
+msgstr "Iltimos, yuqoridagi xatolarni to'g'rilang."
+
+#: .\templates\product_detail.html:139
+msgid "Added"
+msgstr "Qo'shildi"
+
+#: .\templates\public_offer.html:7
+msgid "Public Offer & Terms"
+msgstr "Ommaviy oferta va shartlar"
+
+#: .\templates\public_offer.html:28
+msgid "LEGAL"
+msgstr "HUQUQIY"
+
+#: .\templates\public_offer.html:28
+msgid "Public Offer & Terms of Service"
+msgstr "Ommaviy oferta va foydalanish shartlari"
+
+#: .\templates\public_offer.html:31
+msgid "Contents"
+msgstr "Mundarija"
+
+#: .\templates\public_offer.html:32 .\templates\public_offer.html:54
+msgid "1. Acceptance of the Offer"
+msgstr "1. Oferta qabul qilinishi"
+
+#: .\templates\public_offer.html:33 .\templates\public_offer.html:55
+msgid "2. Definitions"
+msgstr "2. Ta'riflar"
+
+#: .\templates\public_offer.html:34 .\templates\public_offer.html:56
+msgid "3. Subject of the Agreement"
+msgstr "3. Shartnoma predmeti"
+
+#: .\templates\public_offer.html:35 .\templates\public_offer.html:57
+msgid "4. Product Information & Availability"
+msgstr "4. Mahsulot ma'lumoti va mavjudligi"
+
+#: .\templates\public_offer.html:36 .\templates\public_offer.html:58
+msgid "5. Prices, Discounts & Advance Payments"
+msgstr "5. Narxlar, chegirmalar va oldindan to'lovlar"
+
+#: .\templates\public_offer.html:37 .\templates\public_offer.html:59
+msgid "6. Ordering Process"
+msgstr "6. Buyurtma jarayoni"
+
+#: .\templates\public_offer.html:38 .\templates\public_offer.html:60
+msgid "7. Payment Methods & Security"
+msgstr "7. To'lov usullari va xavfsizlik"
+
+#: .\templates\public_offer.html:39 .\templates\public_offer.html:61
+msgid "8. Delivery & Digital Assets"
+msgstr "8. Yetkazib berish va raqamli aktivlar"
+
+#: .\templates\public_offer.html:40 .\templates\public_offer.html:62
+msgid "9. User Accounts & Security"
+msgstr "9. Foydalanuvchi hisobi va xavfsizlik"
+
+#: .\templates\public_offer.html:41 .\templates\public_offer.html:63
+msgid "10. Reviews & User Content"
+msgstr "10. Sharhlar va foydalanuvchi kontenti"
+
+#: .\templates\public_offer.html:42 .\templates\public_offer.html:64
+msgid "11. Intellectual Property"
+msgstr "11. Intellektual mulk"
+
+#: .\templates\public_offer.html:43 .\templates\public_offer.html:65
+msgid "12. Warranty Disclaimer"
+msgstr "12. Kafolat rad etilishi"
+
+#: .\templates\public_offer.html:44 .\templates\public_offer.html:66
+msgid "13. Returns, Refunds & Cancellations"
+msgstr "13. Qaytarish, qayta to'lash va bekor qilish"
+
+#: .\templates\public_offer.html:45 .\templates\public_offer.html:67
+msgid "14. Advance / Donation Policy"
+msgstr "14. Oldindan to'lov / xayriya siyosati"
+
+#: .\templates\public_offer.html:46 .\templates\public_offer.html:68
+msgid "15. Limitation of Liability"
+msgstr "15. Javobgarlikni cheklash"
+
+#: .\templates\public_offer.html:47 .\templates\public_offer.html:69
+msgid "16. Data Protection & Privacy"
+msgstr "16. Ma'lumotlarni himoya qilish va maxfiylik"
+
+#: .\templates\public_offer.html:48 .\templates\public_offer.html:70
+msgid "17. Anti-Fraud & Security Monitoring"
+msgstr "17. Firibgarlikka qarshi va xavfsizlik monitoringi"
+
+#: .\templates\public_offer.html:49 .\templates\public_offer.html:71
+msgid "18. Force Majeure"
+msgstr "18. Fors-major"
+
+#: .\templates\public_offer.html:50 .\templates\public_offer.html:72
+msgid "19. Amendments"
+msgstr "19. O'zgartirishlar"
+
+#: .\templates\public_offer.html:51 .\templates\public_offer.html:73
+msgid "20. Governing Law & Disputes"
+msgstr "20. Qo'llaniladigan qonun va nizolar"
+
+#: .\templates\public_offer.html:52 .\templates\public_offer.html:74
+msgid "21. Contact Information"
+msgstr "21. Aloqa ma'lumotlari"
+
+#: .\templates\public_offer.html:54
+msgid ""
+"By accessing or using this website (the \"Platform\"), placing an order, "
+"creating an account, submitting an advance payment or donation, or "
+"downloading a digital design asset, you irrevocably agree to this Public "
+"Offer (the \"Agreement\"). If you disagree with any clause, you must cease "
+"usage immediately. Your continued use constitutes ongoing acceptance."
+msgstr ""
+"Ushbu veb-saytdan (\"Platforma\") foydalanish, buyurtma berish, hisob "
+"yaratish, oldindan to'lov yoki xayriya yuborish yoki raqamli dizayn aktivini"
+" yuklab olish orqali siz ushbu Ommaviy ofertaga (\"Shartnoma\") qaytarib "
+"bo'lmaydigan tarzda rozilik bildirasiz. Agar biror bandga rozi bo'lmasangiz,"
+" darhol foydalanishni to'xtating. Foydalanishni davom ettirishingiz ushbu "
+"shartlarni qabul qilganingizni anglatadi."
+
+#: .\templates\public_offer.html:55
+msgid ""
+"<strong>\"Products\"</strong> – physical computer hardware listed in the "
+"Store. <strong>\"Design Assets\"</strong> – downloadable or licensable "
+"digital works provided via the Marketplace. <strong>\"Advance "
+"Payment\"</strong> – voluntary pre-payment or contribution processed through"
+" the Advance Payment module. <strong>\"User\"</strong> – any natural or "
+"legal person accessing the Platform. <strong>\"Account\"</strong> – "
+"personalized access credentials enabling orders and reviews."
+msgstr ""
+"<strong>\"Mahsulotlar\"</strong> – Do'konda keltirilgan fizik kompyuter "
+"jihozlari. <strong>\"Dizayn aktivlari\"</strong> – Marketplace orqali taqdim"
+" etiladigan yuklab olinadigan yoki litsenziyalanuvchi raqamli ishlar. "
+"<strong>\"Oldindan to'lov\"</strong> – Oldindan to'lov modulida qayta "
+"ishlanadigan ixtiyoriy avans yoki hissa. <strong>\"Foydalanuvchi\"</strong> "
+"– Platformaga kiradigan har qanday jismoniy yoki yuridik shaxs. "
+"<strong>\"Hisob\"</strong> – buyurtmalar va sharhlarni amalga oshirish "
+"imkonini beruvchi shaxsiy kirish ma'lumotlari."
+
+#: .\templates\public_offer.html:56
+msgid ""
+"We provide: (a) an e-commerce interface for purchasing hardware Products; "
+"(b) a curated Marketplace for Design Assets; (c) a session-based cart "
+"enabling combined checkout; and (d) an optional Advance Payment feature. We "
+"reserve the right to modify available Products, pricing, and features "
+"without prior notice."
+msgstr ""
+"Biz taqdim etamiz: (a) apparat Mahsulotlarini sotib olish uchun e-tijorat "
+"interfeysi; (b) Dizayn aktivlari uchun tanlangan Marketplace; (c) birgalikda"
+" to'lovni ta'minlovchi sessiya asosidagi savat; va (d) ixtiyoriy Oldindan "
+"to'lov funksiyasi. Ogohlantirmasdan Mahsulotlar, narx va funksiyalarni "
+"o'zgartirish huquqini saqlab qolamiz."
+
+#: .\templates\public_offer.html:57
+msgid ""
+"All listings include indicative specifications, pricing, discount data and "
+"media. While we strive for accuracy, minor discrepancies (e.g., color tone, "
+"packaging) may occur. Stock status is dynamic; placement of items in a cart "
+"does not reserve inventory until order confirmation."
+msgstr ""
+"Barcha ro'yxatlar taxminiy texnik tavsiflar, narx, chegirma ma'lumotlari va "
+"media materiallarni o'z ichiga oladi. Aniqlikka intilsak ham, kichik farqlar"
+" (rang ohangi, o'ram va h.k.) bo'lishi mumkin. Ombor holati dinamik; savatga"
+" qo'yish buyurtma tasdiqlanmaguncha zaxirani band qilmaydi."
+
+#: .\templates\public_offer.html:58
+msgid ""
+"Prices are shown in the local currency unless otherwise stated and may "
+"change before order acceptance. Percentage discount calculations are based "
+"on the pre-discount list price. Advance Payments are discretionary and do "
+"not grant equity or ownership; they may be applied toward future purchases "
+"at our discretion or treated as goodwill support."
+msgstr ""
+"Agar boshqacha ko'rsatilmagan bo'lsa, narxlar mahalliy valyutada "
+"ko'rsatiladi va buyurtma qabul qilinishidan oldin o'zgarishi mumkin. "
+"Chegirma foizlari chegirmagacha bo'lgan ro'yxat narxiga asoslanadi. Oldindan"
+" to'lovlar ixtiyoriy bo'lib, ulush yoki mulk huquqini bermaydi; kelajakdagi "
+"xaridlarga bizning ixtiyorimizga ko'ra qo'llanishi yoki goodwill ko'magi "
+"sifatida qaralishi mumkin."
+
+#: .\templates\public_offer.html:59
+msgid ""
+"Order steps: (1) Add items (physical or digital) / choose optional Advance "
+"Payment; (2) Review cart; (3) Provide checkout details; (4) Submit payment; "
+"(5) Receive confirmation. We may decline or cancel orders (e.g., suspected "
+"fraud, pricing errors, regulatory concerns) with refund where payment has "
+"settled."
+msgstr ""
+"Buyurtma bosqichlari: (1) Tovarlarni (fizik yoki raqamli) qo'shish / "
+"ixtiyoriy Oldindan to'lovni tanlash; (2) Savatni ko'rib chiqish; (3) To'lov "
+"ma'lumotlarini kiritish; (4) To'lovni yuborish; (5) Tasdiq olish. "
+"Firibgarlik gumoni, narx xatosi yoki boshqa sabablar bo'lsa, to'lov o'tgan "
+"bo'lsa qaytarish bilan buyurtma rad etilishi yoki bekor qilinishi mumkin."
+
+#: .\templates\public_offer.html:60
+msgid ""
+"Supported payment channels are listed at checkout. Transactions are "
+"processed through vetted third-party providers using encrypted transport. We"
+" do not store raw card numbers. You agree not to use payment instruments "
+"without proper authorization."
+msgstr ""
+"Qo'llab-quvvatlanadigan to'lov kanallari to'lov sahifasida ko'rsatiladi. "
+"Tranzaksiyalar shifrlangan uzatish orqali tekshirilgan uchinchi tomon "
+"provayderlari tomonidan amalga oshiriladi. Karta raqamlarini saqlamaymiz. "
+"Ruxsatsiz to'lov vositalaridan foydalanmaslikka rozilik bildirasiz."
+
+#: .\templates\public_offer.html:61
+msgid ""
+"Physical Products ship per carrier timelines displayed at checkout; risk of "
+"loss transfers upon carrier acceptance. Digital Design Assets are delivered "
+"via authenticated download or licensed access; license is non-exclusive, "
+"non-transferable and revocable upon breach."
+msgstr ""
+"Fizik Mahsulotlar to'lov sahifasida ko'rsatilgan tashuvchi muddatlariga "
+"muvofiq jo'natiladi; yo'qotish xavfi tashuvchi qabul qilganda o'tadi. "
+"Raqamli Dizayn aktivlari autentifikatsiyalangan yuklab olish yoki "
+"litsenziyalangan kirish orqali yetkaziladi; litsenziya mutlaq bo'lmagan, "
+"o'tkazilmaydigan va buzilish bo'lsa bekor qilinadi."
+
+#: .\templates\public_offer.html:62
+msgid ""
+"You must maintain accurate profile data, safeguard credentials, and promptly"
+" report unauthorized use. We may suspend accounts exhibiting abusive, "
+"fraudulent or security-compromising behavior."
+msgstr ""
+"Profil ma'lumotlarini aniq saqlang, kirish ma'lumotlarini himoya qiling va "
+"ruxsatsiz foydalanishni zudlik bilan xabar bering. Suiiste'mol yoki xavfli "
+"xatti-harakatlarda hisob vaqtincha to'xtatilishi mumkin."
+
+#: .\templates\public_offer.html:63
+msgid ""
+"Reviews must reflect genuine personal experience and comply with applicable "
+"law. We may moderate or remove content that is misleading, defamatory, "
+"obscene, infringing, spam-like, or violates this Agreement. One review per "
+"Product or Asset per account (editable thereafter)."
+msgstr ""
+"Sharhlar haqiqiy shaxsiy tajribaga asoslanishi va amaldagi qonunlarga mos "
+"bo'lishi kerak. Chalg'ituvchi, tuhmatli, odobsiz, huquqbuzar, spamga "
+"o'xshash yoki ushbu Shartnomani buzuvchi kontent o'chirilishi yoki "
+"tahrirlanishi mumkin. Har bir mahsulot/aktiv uchun hisobga bitta sharh "
+"(keyin tahrirlanadi)."
+
+#: .\templates\public_offer.html:64
+msgid ""
+"All trademarks, logos, interface design, code, product data and Design "
+"Assets (unless otherwise attributed) remain our or the respective creator’s "
+"intellectual property. Unauthorized reproduction, scraping, or automated "
+"extraction is prohibited."
+msgstr ""
+"Barcha savdo belgilari, logotiplar, interfeys dizayni, kod, mahsulot "
+"ma'lumotlari va Dizayn aktivlari (boshqa ko'rsatilmagan bo'lsa) bizga yoki "
+"muallifga tegishli intellektual mulkdir. Ruxsatsiz ko'paytirish yoki "
+"avtomatlashtirilgan yig'ish taqiqlanadi."
+
+#: .\templates\public_offer.html:65
+msgid ""
+"Except where mandated by law, the Platform and content are provided \"AS "
+"IS\" without warranties (express or implied) including merchantability, "
+"fitness for a particular purpose, title, or non-infringement. Hardware "
+"manufacturer warranties may apply separately."
+msgstr ""
+"Qonun talab qilgan holatlar bundan mustasno, Platforma va kontent hech "
+"qanday kafolatlarsiz (aniq yoki nazarda tutilgan) 'HOZIRGI HOLATIDA' taqdim "
+"etiladi, shu jumladan sotuvga yaroqlilik, maqsadga muvofiqlik, nom yoki "
+"buzmaslik kafolatlari. Qurilma ishlab chiqaruvchi kafolatlari alohida "
+"qo'llanilishi mumkin."
+
+#: .\templates\public_offer.html:66
+msgid ""
+"Eligible physical Products may be returned in original condition within the "
+"statutory window (unless classified as final sale). Digital Assets and "
+"Advance Payments are generally non-refundable once accessed or booked, "
+"except where required by consumer protection rules or in cases of confirmed "
+"technical defect."
+msgstr ""
+"Mos fizik Mahsulotlar qonunda belgilangan muddat ichida asl holatda "
+"qaytarilishi mumkin (yakuniy sotuv bo'lmasa). Raqamli aktivlar va Oldindan "
+"to'lovlar odatda foydalanilgandan yoki bron qilingandan so'ng qaytarilmaydi,"
+" iste'molchini himoya qilish qoidalari yoki tasdiqlangan texnik nuqson "
+"bundan mustasno."
+
+#: .\templates\public_offer.html:67
+msgid ""
+"Advance Payments are voluntary and processed like a standalone cart line. "
+"They don’t constitute purchase of goods unless later applied at checkout per"
+" an explicit program. Misuse (e.g., money laundering attempts) will result "
+"in reversal and possible reporting."
+msgstr ""
+"Oldindan to'lovlar ixtiyoriy va alohida savat qatori sifatida qayta "
+"ishlanadi. Ular keyinchalik aniq dastur bo'yicha qo'llanilmaguncha tovar "
+"sotib olish emas. Noto'g'ri foydalanish (masalan, pul yuvish) bekor "
+"qilinishi va xabar qilinishi mumkin."
+
+#: .\templates\public_offer.html:68
+msgid ""
+"To the maximum extent permitted, aggregate liability for any claims arising "
+"out of Platform use shall not exceed the greater of: (a) the total fees paid"
+" for the disputed order; or (b) the amount of the Advance Payment linked to "
+"the claim. We are not liable for indirect, incidental, special or "
+"consequential damages."
+msgstr ""
+"Ruxsat etilgan eng katta darajada Platformadan foydalanishdan kelib "
+"chiqadigan talablar bo'yicha umumiy javobgarlik quyidagidan oshmaydi: (a) "
+"nizoli buyurtma uchun to'langan jami summa; yoki (b) talabga bog'liq "
+"Oldindan to'lov miqdori. Bilvosita yoki oqibat zararlari uchun javobgar "
+"emasmiz."
+
+#: .\templates\public_offer.html:69
+msgid ""
+"Personal data is processed under our Privacy Policy (available separately) "
+"for legitimate operational, security, and communication purposes. You "
+"consent to necessary cross-border data transfers where applicable safeguards"
+" exist."
+msgstr ""
+"Shaxsiy ma'lumotlar Maxfiylik siyosatimiz asosida qonuniy operatsion, "
+"xavfsizlik va aloqa maqsadlari uchun qayta ishlanadi. Siz tegishli himoya "
+"choralari mavjud bo'lsa, zarur transchegaraviy uzatishlarga rozilik "
+"bildirasiz."
+
+#: .\templates\public_offer.html:70
+msgid ""
+"We implement automated and manual review layers to detect anomalous patterns"
+" (bulk account creation, scripted cart manipulation, abnormal payment "
+"attempts). Confirmed abuse may trigger suspension and law enforcement "
+"referral."
+msgstr ""
+"G'ayrioddiy naqshlarni aniqlash uchun avtomatik va qo'lda tekshiruv "
+"qatlamlari qo'llaniladi (ko'p hisob yaratish, skript orqali savatni "
+"boshqarish, noodatiy to'lov urinishlari). Tasdiqlangan suiiste'mol hisobni "
+"to'xtatish va tegishli organlarga xabar berishga olib kelishi mumkin."
+
+#: .\templates\public_offer.html:71
+msgid ""
+"Performance delays or failures caused by events beyond reasonable control "
+"(natural disasters, power failures, cyber incidents, regulatory actions, "
+"supply chain disruption) shall not constitute breach. Obligations resume "
+"once impediment ends."
+msgstr ""
+"Oqilona nazoratdan tashqaridagi hodisalar (tabiiy ofat, elektr uzilishi, "
+"kiber hodisa, tartibga solish choralari, ta'minot zanjiri uzilishi) tufayli "
+"kechikish yoki bajarilmaslik buzilish hisoblanmaydi. To'siq tugashi bilan "
+"majburiyatlar davom etadi."
+
+#: .\templates\public_offer.html:72
+msgid ""
+"We may revise this Offer by posting an updated version with a new effective "
+"date. Material revisions will, where feasible, include a notice banner. "
+"Continued usage following publication constitutes acceptance."
+msgstr ""
+"Biz ushbu Ofertani yangi kuchga kirish sanasi bilan yangilangan versiyani "
+"joylashtirish orqali o'zgartirishimiz mumkin. Muhim o'zgarishlar imkon "
+"bo'lsa ogohlantirish banneri bilan beriladi. E'lon qilingandan so'ng "
+"foydalanishni davom ettirish qabul qilinganini anglatadi."
+
+#: .\templates\public_offer.html:73
+msgid ""
+"Applicable governing law is determined by our principal place of business "
+"unless mandatory consumer jurisdiction rules apply. Parties shall first "
+"attempt amicable resolution; failing that, disputes proceed to competent "
+"courts of general jurisdiction."
+msgstr ""
+"Majburiy iste'molchi yurisdiksiya qoidalari qo'llanilmasa, qo'llaniladigan "
+"qonun bizning asosiy faoliyat joyimiz bilan belgilanadi. Tomonlar avval "
+"o'zaro kelishishga urinishadi; bo'lmasa nizo vakolatli umumiy sudlarga "
+"o'tadi."
+
+#: .\templates\public_offer.html:74
+msgid ""
+"Questions, legal notices, or data requests: <a "
+"href=\"mailto:support@example.com\">support@example.com</a>. Physical "
+"correspondence address available upon legitimate written request."
+msgstr ""
+"Savollar, huquqiy bildirishnomalar yoki ma'lumot so'rovlari: <a "
+"href=\"mailto:support@example.com\">support@example.com</a>. Jismoniy pochta"
+" manzili asosli yozma so'rov bilan beriladi."
+
+#: .\templates\public_offer.html:75
+msgid "Need a copy?"
+msgstr "Nusxa kerakmi?"
+
+#: .\templates\public_offer.html:75
+msgid ""
+"You may print or store this page locally. Continued use of the Platform "
+"signifies ongoing acceptance of the latest version of these terms."
+msgstr ""
+"Siz ushbu sahifani chop etishingiz yoki lokal saqlashingiz mumkin. "
+"Platformadan foydalanishni davom ettirish ushbu shartlarning so'nggi "
+"versiyasini qabul qilishni anglatadi."
+
+#: .\templates\store.html:23
+msgid "Product Store"
+msgstr "Mahsulot do'koni"
+
+#: .\templates\store.html:24
+msgid "Browse & discover"
+msgstr "Ko'ring va kashf qiling"
+
+#: .\templates\store.html:28
+msgid "Search products..."
+msgstr "Mahsulotlarni qidiring..."
+
+#: .\templates\store.html:31
+msgid "All Categories"
+msgstr "Barcha kategoriyalar"
+
+#: .\templates\store.html:41
+msgid "/ page"
+msgstr "/ sahifa"
+
+#: .\templates\store.html:45
+msgid "Apply"
+msgstr "Qo'llash"
+
+#: .\templates\store.html:53
+msgid "View Cart"
+msgstr "Savatni ko'rish"
+
+#: .\templates\store.html:61
+msgid "Contribute a custom amount and proceed to checkout."
+msgstr "Ixtiyoriy summani kiriting va to'lovga o'ting."
+
+#: .\users\managers.py:15
+msgid "The Email must be set"
+msgstr "Email kiritilishi shart"
+
+#: .\users\managers.py:31
+msgid "Superuser must have is_staff=True."
+msgstr "Superuser uchun is_staff=True bo'lishi kerak."
+
+#: .\users\managers.py:33
+msgid "Superuser must have is_superuser=True."
+msgstr "Superuser uchun is_superuser=True bo'lishi kerak."
+
+#: .\users\models.py:11
+msgid "email address"
+msgstr "elektron pochta manzili"
+
+#: .\users\models.py:12
+msgid "first name"
+msgstr "ism"
+
+#: .\users\models.py:13
+msgid "last name"
+msgstr "familiya"
+
+#: .\users\models.py:27
+msgid "Subject"
+msgstr "Mavzu"
+
+#: .\users\models.py:29 .\users\models.py:45
+msgid "Created at"
+msgstr "Yaratilgan vaqt"
+
+#: .\users\models.py:35
+msgid "Contact"
+msgstr "Aloqa"
+
+#: .\users\models.py:36
+msgid "Contacts"
+msgstr "Aloqalar"
+
+#: .\users\models.py:41
+msgid "Title"
+msgstr "Sarlavha"
+
+#: .\users\models.py:42
+msgid "Content"
+msgstr "Kontent"
+
+#: .\users\models.py:52
+msgid "Blog"
+msgstr "Blog"
+
+#: .\users\models.py:53
+msgid "Blogs"
+msgstr "Bloglar"
+
+#: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
+msgid "Messages"
+msgstr "Xabarlar"
+
+#: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
+msgid "Site Maps"
+msgstr "Sayt xaritalari"
+
+#: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+msgid "Static Files"
+msgstr "Statik fayllar"
+
+#: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "Syndication"
+msgstr "Sindikatsiya"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:30
+msgid "…"
+msgstr "…"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:32
+msgid "That page number is not an integer"
+msgstr "Sahifa raqami butun son emas"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:33
+msgid "That page number is less than 1"
+msgstr "Sahifa raqami 1 dan kichik"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:34
+msgid "That page contains no results"
+msgstr "Bu sahifada natijalar yo'q"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:22
+msgid "Enter a valid value."
+msgstr "Yaroqli qiymat kiriting."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:70
+msgid "Enter a valid domain name."
+msgstr "Yaroqli domen nomini kiriting."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:153
+#: .\venv\Lib\site-packages\django\forms\fields.py:775
+msgid "Enter a valid URL."
+msgstr "Yaroqli URL kiriting."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:200
+msgid "Enter a valid integer."
+msgstr "Yaroqli butun son kiriting."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:211
+msgid "Enter a valid email address."
+msgstr "Yaroqli elektron pochta manzilini kiriting."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:289
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+"Harf, raqam, pastki chiziq yoki defisdan iborat yaroqli 'slug' kiriting."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:297
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or"
+" hyphens."
+msgstr ""
+"Unicode harflari, raqamlar, pastki chiziqlar yoki defislardan iborat yaroqli"
+" 'slug' kiriting."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:309
+#: .\venv\Lib\site-packages\django\core\validators.py:318
+#: .\venv\Lib\site-packages\django\core\validators.py:332
+#: .\venv\Lib\site-packages\django\db\models\fields__init__.py:2220
+#, python-format
+msgid "Enter a valid %(protocol)s address."
+msgstr "Yaroqli %(protocol)s manzilini kiriting."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:311
+msgid "IPv4"
+msgstr "IPv4"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:320
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:43
+msgid "IPv6"
+msgstr "IPv6"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:334
+msgid "IPv4 or IPv6"
+msgstr "IPv4 yoki IPv6"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:375
+msgid "Enter only digits separated by commas."
+msgstr "Faqat vergul bilan ajratilgan raqamlarni kiriting."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:381
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr "Bu qiymat %(limit_value)s bo'lishi kerak (hozir %(show_value)s)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:416
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr "Qiymat %(limit_value)s dan kichik yoki teng bo'lishi kerak."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:425
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr "Qiymat %(limit_value)s dan katta yoki teng bo'lishi kerak."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:434
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr "Qiymat %(limit_value)s qadam o'lchamining karrali bo'lishi kerak."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:441
+#, python-format
+msgid ""
+"Ensure this value is a multiple of step size %(limit_value)s, starting from "
+"%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
+msgstr ""
+"Qiymat %(offset)s dan boshlab %(limit_value)s qadam o'lchamining karrali "
+"bo'lishi kerak, masalan: %(offset)s, %(valid_value1)s, %(valid_value2)s va "
+"hokazo."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:473
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+"Qiymat kamida %(limit_value)d ta belgidan iborat bo'lishi kerak (hozir "
+"%(show_value)d)."
+msgstr[1] ""
+"Qiymat kamida %(limit_value)d ta belgidan iborat bo'lishi kerak (hozir "
+"%(show_value)d)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:491
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+"Qiymat eng ko'p %(limit_value)d ta belgi bo'lishi mumkin (hozir "
+"%(show_value)d)."
+msgstr[1] ""
+"Qiymat eng ko'p %(limit_value)d ta belgi bo'lishi mumkin (hozir "
+"%(show_value)d)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:514
+#: .\venv\Lib\site-packages\django\forms\fields.py:366
+#: .\venv\Lib\site-packages\django\forms\fields.py:405
+msgid "Enter a number."
+msgstr "Raqam kiriting."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:516
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] "Umumiy raqamlar soni %(max)s tadan oshmasligi kerak."
+msgstr[1] "Umumiy raqamlar soni %(max)s tadan oshmasligi kerak."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:521
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] "O'nli kasrlar soni %(max)s tadan oshmasligi kerak."
+msgstr[1] "O'nli kasrlar soni %(max)s tadan oshmasligi kerak."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:526
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] "Nuqtadan oldingi raqamlar soni %(max)s tadan oshmasligi kerak."
+msgstr[1] "Nuqtadan oldingi raqamlar soni %(max)s tadan oshmasligi kerak."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:597
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+"“%(extension)s” fayl kengaytmasiga ruxsat berilmaydi. Ruxsat etilgan "
+"kengaytmalar: %(allowed_extensions)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:659
+msgid "Null characters are not allowed."
+msgstr "Nol belgilariga ruxsat berilmaydi."

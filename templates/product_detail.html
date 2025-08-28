@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n currency %}
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -16,7 +16,7 @@
         {% if product.image %}
           <img id="main-image" src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid product-main-img" style="max-height:420px;object-fit:contain;transition:transform .25s;">
         {% else %}
-          <div style="height:320px;display:flex;align-items:center;justify-content:center;" class="text-muted">No image</div>
+          <div style="height:320px;display:flex;align-items:center;justify-content:center;" class="text-muted">{% trans "No image" %}</div>
         {% endif %}
       </div>
     </div>
@@ -24,12 +24,12 @@
       <h2 class="mb-2 font-weight-bold">{{ product.name }}</h2>
       <p class="text-muted mb-2">In <a href="{% url 'store' %}?category={{ product.category.name }}" class="text-decoration-none">{{ product.category.name }}</a></p>
       <div class="d-flex align-items-baseline mb-3">
-        <span class="h3 mb-0 mr-3 text-primary">${{ product.price }}</span>
+  <span class="h3 mb-0 mr-3 text-primary">{{ product.price|price_local }}</span>
         {% if product.discount %}<span class="badge badge-danger">-{{ product.discount }}%</span>{% endif %}
       </div>
       <div class="small text-muted mb-4">Added: {{ product.created_at|date:'M d, Y H:i' }}</div>
       <div class="mb-4">
-        <label class="small text-uppercase d-block font-weight-bold">Quantity</label>
+        <label class="small text-uppercase d-block font-weight-bold">{% trans "Quantity" %}</label>
         <div class="input-group" style="max-width:160px;">
           <div class="input-group-prepend">
             <button class="btn btn-outline-secondary" type="button" id="qty-dec">-</button>
@@ -41,15 +41,15 @@
         </div>
       </div>
       <div class="d-flex align-items-center flex-wrap mb-4">
-        <button class="btn btn-gradient mr-3 mb-2" id="detail-add-btn" data-id="{{ product.id }}"><i class="ti-shopping-cart"></i> Add to Cart</button>
-        <a href="{% url 'store' %}" class="btn btn-outline-secondary mb-2">Back to Store</a>
+  <button class="btn btn-gradient mr-3 mb-2" id="detail-add-btn" data-id="{{ product.id }}"><i class="ti-shopping-cart"></i> {% trans "Add to Cart" %}</button>
+  <a href="{% url 'store' %}" class="btn btn-outline-secondary mb-2">{% trans "Back to Store" %}</a>
       </div>
-      <div class="border-top pt-3 small text-muted">Secure checkout • Easy returns • Fast support</div>
+  <div class="border-top pt-3 small text-muted">{% trans "Secure checkout • Easy returns • Fast support" %}</div>
     </div>
   </div>
   {% if related %}
   <hr class="my-5">
-  <h5 class="mb-4">Related Products</h5>
+  <h5 class="mb-4">{% trans "Related Products" %}</h5>
   <div class="row">
     {% for r in related %}
       <div class="col-6 col-sm-4 col-lg-3 mb-4">
@@ -57,10 +57,10 @@
           {% if r.image %}
             <img src="{{ r.image.url }}" alt="{{ r.name }}" style="height:110px;width:100%;object-fit:cover;" class="mb-2 rounded">
           {% else %}
-            <div class="d-flex align-items-center justify-content-center text-muted bg-light mb-2 rounded" style="height:110px;">No image</div>
+            <div class="d-flex align-items-center justify-content-center text-muted bg-light mb-2 rounded" style="height:110px;">{% trans "No image" %}</div>
           {% endif %}
           <div class="small text-truncate font-weight-500">{{ r.name }}</div>
-          <div class="small text-primary">${{ r.price }}</div>
+          <div class="small text-primary">{{ r.price|price_local }}</div>
         </a>
       </div>
     {% endfor %}
@@ -69,7 +69,7 @@
   <hr class="my-5">
   <div class="row">
     <div class="col-lg-7 mb-5">
-      <h5 class="mb-3">Customer Reviews</h5>
+  <h5 class="mb-3">{% trans "Customer Reviews" %}</h5>
       {% if reviews %}
         <ul class="list-unstyled mb-4" id="review-list">
           {% for r in reviews %}
@@ -90,30 +90,30 @@
           {% endfor %}
         </ul>
       {% else %}
-        <p class="text-muted">No reviews yet.</p>
+  <p class="text-muted">{% trans "No reviews yet." %}</p>
       {% endif %}
     </div>
     <div class="col-lg-5 mb-5">
-      <h5 class="mb-3">{% if review_form and review_form.instance.pk %}Update Your Review{% else %}Leave a Review{% endif %}</h5>
+  <h5 class="mb-3">{% if review_form and review_form.instance.pk %}{% trans "Update Your Review" %}{% else %}{% trans "Leave a Review" %}{% endif %}</h5>
       {% if user.is_authenticated %}
         <form method="post" class="border rounded p-3 bg-light">
           {% csrf_token %}
           <input type="hidden" name="form_type" value="review">
           <div class="form-group mb-3">
-            <label class="small font-weight-bold">Rating (1-5)</label>
+            <label class="small font-weight-bold">{% trans "Rating (1-5)" %}</label>
             {{ review_form.rating }}
           </div>
             <div class="form-group mb-3">
-              <label class="small font-weight-bold">Comment</label>
+              <label class="small font-weight-bold">{% trans "Comment" %}</label>
               {{ review_form.comment }}
             </div>
-            <button class="btn btn-primary btn-block">Save Review</button>
+            <button class="btn btn-primary btn-block">{% trans "Save Review" %}</button>
             {% if review_form and review_form.errors %}
-              <div class="text-danger small mt-2">Please correct the errors above.</div>
+              <div class="text-danger small mt-2">{% trans "Please correct the errors above." %}</div>
             {% endif %}
         </form>
       {% else %}
-        <div class="alert alert-info">Please <a href="{% url 'login' %}?next={{ request.path }}">log in</a> to leave a review.</div>
+  <div class="alert alert-info">Please <a href="{% url 'login' %}?next={{ request.path }}">log in</a> to leave a review.</div>
       {% endif %}
     </div>
   </div>
@@ -136,8 +136,8 @@
         .then(r=>r.json()).then(d=>{ if(d.ok){
           const navCount=document.getElementById('nav-cart-count');
           if(navCount) navCount.textContent=d.count?d.count:'';
-          btn.innerHTML='<i class="ti-check"></i> Added';
-          setTimeout(()=>{btn.innerHTML='<i class="ti-shopping-cart"></i> Add to Cart';},1200);
+          btn.innerHTML='<i class="ti-check"></i> '+'{% filter escapejs %}{% trans "Added" %}{% endfilter %}';
+          setTimeout(()=>{btn.innerHTML='<i class="ti-shopping-cart"></i> '+'{% filter escapejs %}{% trans "Add to Cart" %}{% endfilter %}';},1200);
         }});
     });
   }

@@ -1,29 +1,29 @@
 {% extends 'layouts/base.html' %}
-{% load static %}
-{% block title %}Design Marketplace{% endblock %}
+{% load static i18n %}
+{% block title %}{% trans 'Design Marketplace' %}{% endblock %}
 {% block content %}
 <div class="container py-5 design-marketplace">
   <div class="d-flex flex-wrap align-items-center mb-4">
-    <h2 class="mb-3 mr-4">Design Marketplace</h2>
+  <h2 style='margin-top:50px' class="mb-3 mr-4">{% trans 'Design Marketplace' %}</h2>
     <form id="filter-form" class="form-inline flex-wrap">
       <select name="type" id="type" class="form-control mr-2 mb-2">
-        <option value="">All Types</option>
-        <option value="3d" {% if current_type == '3d' %}selected{% endif %}>3D Max Products</option>
-        <option value="interior" {% if current_type == 'interior' %}selected{% endif %}>Interior Design</option>
+        <option value="">{% trans 'All Types' %}</option>
+        <option value="3d" {% if current_type == '3d' %}selected{% endif %}>{% trans '3D Max Products' %}</option>
+        <option value="interior" {% if current_type == 'interior' %}selected{% endif %}>{% trans 'Interior Design' %}</option>
       </select>
       <select name="category" id="category" class="form-control mr-2 mb-2">
-        <option value="">All Categories</option>
+        <option value="">{% trans 'All Categories' %}</option>
         {% for cat in categories %}
           <option value="{{ cat.slug }}" {% if current_category == cat.slug %}selected{% endif %}>{{ cat.get_type_display }} - {{ cat.name }}</option>
         {% endfor %}
       </select>
-      <select name="page_size" id="page_size" class="form-control mr-2 mb-2">
+    <select name="page_size" id="page_size" class="form-control mr-2 mb-2">
         {% for size in page_size_options %}
-          <option value="{{ size }}" {% if size == page_size %}selected{% endif %}>{{ size }} / page</option>
+      <option value="{{ size }}" {% if size == page_size %}selected{% endif %}>{{ size }} {% trans '/ page' %}</option>
         {% endfor %}
       </select>
-      <input type="text" name="q" value="{{ search_query|default:'' }}" placeholder="Search..." class="form-control mr-2 mb-2" style="min-width:180px;">
-      <button class="btn btn-primary mb-2">Apply</button>
+    <input type="text" name="q" value="{{ search_query|default:'' }}" placeholder="{% trans 'Search...' %}" class="form-control mr-2 mb-2" style="min-width:180px;">
+    <button class="btn btn-primary mb-2">{% trans 'Apply' %}</button>
     </form>
   </div>
   <div id="asset-grid">

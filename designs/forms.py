@@ -1,8 +1,9 @@
 from django import forms
 from .models import DesignAsset, AssetImage, DesignReview
+from parler.forms import TranslatableModelForm
 
 
-class DesignAssetForm(forms.ModelForm):
+class DesignAssetForm(TranslatableModelForm):
     class Meta:
         model = DesignAsset
         fields = ['category', 'name', 'price', 'discount', 'cover_image', 'description', 'is_active']

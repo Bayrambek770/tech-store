@@ -24,13 +24,13 @@
             <span class="text-muted">{% trans "Browse & discover" %}</span>
         </div>
         <form method="get" class="store-filters row mb-4" id="filter-form">
-        <div class="col-lg-5 mb-2 mb-lg-0"><input type="text" name="q" value="" class="form-control"
+        <div class="col-lg-5 mb-2 mb-lg-0"><input type="text" name="q" value="{{ search_query|default:'' }}" class="form-control"
             placeholder="{% trans 'Search products...' %}"></div>
             <div class="col-lg-3 mb-2 mb-lg-0">
                 <select name="category" class="form-control">
                     <option value="">{% trans "All Categories" %}</option>
                     {% for cat in categories %}
-                    <option value="{{ cat.name }}" {% if current_category == cat.name %}selected{% endif %}>{{ cat.name }}
+                    <option value="{{ cat.id }}" {% if current_category == cat.id %}selected{% endif %}>{{ cat.name }}
                     </option>
                     {% endfor %}
                 </select>
@@ -60,7 +60,7 @@
     // HTML snippet for Advance Payment card to re-add after AJAX filtering
     const ADVANCE_CARD_HTML = `\n<div class="mt-5">\n    <a href="{% url 'donation' %}" class="text-decoration-none d-block p-4 rounded shadow-sm border position-relative advance-card" style="background:linear-gradient(135deg,#f6f9fc,#e9eef5);">\n        <div class="d-flex align-items-center">\n            <div class="mr-4" style="font-size:38px;line-height:1;">💳</div>\n            <div>\n                <h4 class="mb-1" style="font-weight:600;">{% filter escapejs %}{% trans 'Making an advance payment' %}{% endfilter %}</h4>\n                <p class="mb-0 text-muted">{% filter escapejs %}{% trans 'Contribute a custom amount and proceed to checkout.' %}{% endfilter %}</p>\n            </div>\n        </div>\n    </a>\n</div>`;
         function updateCartBadge(count) {
-            if (count === undefined) { return fetch('{% url 'update_cart_item' %}', { method: 'HEAD' }).catch(() => { }); }
+            if (count === undefined) { return fetch("{% url 'update_cart_item' %}", { method: 'HEAD' }).catch(() => { }); }
             const badge = document.getElementById('nav-cart-count');
             const floatCount = document.getElementById('floating-cart-count');
             const inlineCount = document.getElementById('cart-inline-count');
@@ -71,12 +71,12 @@
                 btn.addEventListener('click', function () {
                     if (this.classList.contains('added-once')) {
                         // Toggle: second click acts as quick access to cart instead of incrementing
-                        window.location.href = '{% url 'cart' %}';
+                        window.location.href = "{% url 'cart' %}";
                         return;
                     }
                     const id = this.getAttribute('data-add');
                     this.disabled = true;
-                    fetch('{% url 'add_to_cart' %}', {
+                    fetch("{% url 'add_to_cart' %}", {
                         method: 'POST',
                         headers: { 'X-CSRFToken': '{{ csrf_token }}' },
                         body: new URLSearchParams({ product_id: id, qty: 1 })
@@ -102,12 +102,20 @@
         function loadPage(page) {
             const qs = serializeFilters({ page: page });
             fetch(`?${qs}`, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
-                .then(r => r.json())
+                .then(r => { if(!r.ok){ throw new Error('Network response was not ok'); } return r.json(); })
                 .then(d => {
                     const wrap = document.getElementById('products-wrapper');
                     wrap.innerHTML = d.html + d.pagination + ADVANCE_CARD_HTML; // ensure advance payment card always at bottom
                     bindProductEvents();
                     window.history.replaceState({}, '', `?${qs}`);
+                })
+                .catch(err => {
+                    console.error('Filter load failed', err);
+                    // Optionally show a small alert area
+                    const wrap = document.getElementById('products-wrapper');
+                    if (wrap) {
+                        wrap.insertAdjacentHTML('afterbegin', `<div class="alert alert-danger">{% trans 'Failed to load filtered products. Please retry.' %}</div>`);
+                    }
                 });
         }
         document.getElementById('filter-form').addEventListener('submit', function (e) {
@@ -118,7 +126,7 @@
             loadPage(1);
         });
         bindProductEvents();
-        document.getElementById('floating-cart-btn').addEventListener('click', () => { window.location.href = '{% url 'cart' %}'; });
+    document.getElementById('floating-cart-btn').addEventListener('click', () => { window.location.href = "{% url 'cart' %}"; });
         // Ensure advance card present on initial (non-AJAX) render
         (function ensureAdvanceCard(){
             const wrap = document.getElementById('products-wrapper');

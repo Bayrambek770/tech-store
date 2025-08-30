@@ -48,13 +48,28 @@ def _save_cart(session, cart):
 
 # ------------------------- STORE VIEW -----------------------------
 def store_view(request):
+    """Product listing with optional category + name search filters.
+
+    Fixes:
+    - Use stable category primary key instead of translated name for filtering.
+    - Query translated product names via parler translation table.
+    - Preserve submitted search/category values in the form.
+    """
     qs = Product.objects.filter(is_active=True).select_related('category')
-    category_slug = request.GET.get('category')
-    if category_slug:
-        qs = qs.filter(category__name__iexact=category_slug)
+    # Category filter (expect primary key in GET)
+    category_raw = request.GET.get('category')
+    current_category_id = None
+    if category_raw:
+        try:
+            current_category_id = int(category_raw)
+        except (TypeError, ValueError):
+            current_category_id = None
+    if current_category_id:
+        qs = qs.filter(category_id=current_category_id)
+    # Search across translated names (django-parler)
     search = request.GET.get('q')
     if search:
-        qs = qs.filter(name__icontains=search)
+        qs = qs.filter(translations__name__icontains=search).distinct()
     try:
         per_page = int(request.GET.get('page_size', '9'))
     except ValueError:
@@ -75,7 +90,7 @@ def store_view(request):
         'paginator': paginator,
         'is_paginated': products_page.has_other_pages(),
         'categories': categories,
-        'current_category': category_slug,
+        'current_category': current_category_id,
         'search_query': search,
         'page_size': per_page,
     'page_size_options': [9, 18, 27, 36],

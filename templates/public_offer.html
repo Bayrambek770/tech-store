@@ -20,6 +20,17 @@
     .toc a{display:block;color:#0d6efd;text-decoration:none;padding:4px 0;}
     .highlight-box{background:linear-gradient(135deg,#eef4ff,#f7f9fc);padding:16px 18px;border-left:4px solid #4a6cf7;border-radius:6px;margin:24px 0;font-size:.9rem;}
     .badge-term{display:inline-block;background:#4a6cf7;color:#fff;font-size:.65rem;letter-spacing:.5px;font-weight:600;padding:3px 8px;border-radius:20px;vertical-align:middle;margin-right:6px;}
+    /* Responsive legal table */
+    .legal-table{background:#fff;}
+    .legal-table th{font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.5px;color:#333;}
+    @media (max-width: 640px){
+      .legal-table thead{display:none;}
+      .legal-table tr{display:block;margin:0 0 14px;border:1px solid #e2e8f0;border-radius:10px;box-shadow:0 2px 4px -2px rgba(0,0,0,.05);overflow:hidden;}
+      .legal-table tr:last-child{margin-bottom:0;}
+      .legal-table td{display:block;width:100%;border:none !important;padding:10px 14px !important;}
+      .legal-table td:first-child{background:#f8fafc;font-weight:600;border-bottom:1px solid #e2e8f0 !important;font-size:.8rem;text-transform:uppercase;letter-spacing:.5px;color:#555;}
+      .legal-table td:first-child:after{content:'';}
+    }
   </style>
 </head>
 <body class="has-static-nav">
@@ -73,6 +84,51 @@
   <div id="20" class="clause"><h2>{% trans "20. Governing Law & Disputes" %}</h2><p>{% blocktrans %}Applicable governing law is determined by our principal place of business unless mandatory consumer jurisdiction rules apply. Parties shall first attempt amicable resolution; failing that, disputes proceed to competent courts of general jurisdiction.{% endblocktrans %}</p></div>
   <div id="21" class="clause"><h2>{% trans "21. Contact Information" %}</h2><p>{% blocktrans %}Questions, legal notices, or data requests: <a href="mailto:support@example.com">support@example.com</a>. Physical correspondence address available upon legitimate written request.{% endblocktrans %}</p></div>
   <div class="highlight-box"><strong>{% trans "Need a copy?" %}</strong> {% trans "You may print or store this page locally. Continued use of the Platform signifies ongoing acceptance of the latest version of these terms." %}</div>
+
+  <!-- Company info table relocated to bottom -->
+  <section id="company-info" class="mt-5 mb-4">
+    <h2 style="margin-top:1.5rem;">Company Legal & Banking Information</h2>
+    <p class="clause" style="margin-top:.6rem;">The following table summarizes the officially registered corporate and banking details of the service provider for reference in contractual / public offer contexts.</p>
+    <div class="table-responsive" style="overflow-x:auto;">
+      <table class="legal-table" style="width:100%;border-collapse:collapse;font-size:.9rem;">
+        <thead>
+          <tr style="background:#f1f4f9;">
+            <th style="text-align:left;padding:10px 12px;border:1px solid #dfe5ec;width:220px;">Field</th>
+            <th style="text-align:left;padding:10px 12px;border:1px solid #dfe5ec;">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">Full Company Name</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">"DARK AND WHITE" Mas’uliyati Cheklangan Jamiyat</td></tr>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">Short Name</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">"DARK AND WHITE" MCHJ</td></tr>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">TIN (STIR)</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">312384078</td></tr>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">Registration Date</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">26.08.2025</td></tr>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">Registration Number</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">2924139</td></tr>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">Legal Form</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">Mas’uliyati Cheklangan Jamiyat (LLC)</td></tr>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">Registered Address</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">Farg‘ona viloyati, Quvasoy shahri, Ziyinat MFY, A.Azizov ko‘chasi, 235A-uy, 21-xonadon</td></tr>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">Issued By</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">Farg‘ona viloyati, Quvasoy shahri DXM</td></tr>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">Bank Name</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">APEX BANK AJ</td></tr>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">Bank Branch</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">Alpha Sotuvi Ofisi</td></tr>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">Bank Address</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">1017, Tashkent, Taras Shevchenko street 17A</td></tr>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">Bank Phone</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">+998 55-512-77-77</td></tr>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">MFO</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">01196</td></tr>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">Bank TIN</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">310329897</td></tr>
+          <tr><td style="padding:8px 12px;border:1px solid #e5ebf1;">SWIFT</td><td style="padding:8px 12px;border:1px solid #e5ebf1;">APXBUZ22</td></tr>
+          <tr>
+            <td style="padding:8px 12px;border:1px solid #e5ebf1;vertical-align:top;">Bank Accounts</td>
+            <td style="padding:8px 12px;border:1px solid #e5ebf1;">
+              <ul style="margin:0;padding-left:18px;list-style:disc;">
+                <li><strong>20208000407300305001</strong> – Deposit account (UZS) – Opened: 27.08.2025</li>
+                <li><strong>20208840707300305001</strong> – Deposit account (USD) – Opened: 27.08.2025</li>
+                <li><strong>22613000107300305001</strong> – Blocked conversion account (UZS) – Opened: 27.08.2025</li>
+                <li><strong>22614840207300305001</strong> – Special conversion account (USD) – Opened: 27.08.2025</li>
+                <li><strong>23106006007300305001</strong> – Transit salary account (Uzcard) – Opened: 27.08.2025</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
   </div>
   <script src="{% static 'main/vendors/jquery/jquery-3.4.1.js' %}"></script>
   <script src="{% static 'main/vendors/bootstrap/bootstrap.bundle.js' %}"></script>

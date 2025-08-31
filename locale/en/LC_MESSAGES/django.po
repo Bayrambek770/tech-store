@@ -90,6 +90,85 @@ msgstr ""
 msgid "Reviews"
 msgstr ""
 
+# Company info table (public_offer)
+msgid "Company Legal & Banking Information"
+msgstr "Company Legal & Banking Information"
+
+msgid "The following table summarizes the officially registered corporate and banking details of the service provider for reference in contractual / public offer contexts."
+msgstr "The following table summarizes the officially registered corporate and banking details of the service provider for reference in contractual / public offer contexts."
+
+msgid "Field"
+msgstr "Field"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Full Company Name"
+msgstr "Full Company Name"
+
+msgid "Short Name"
+msgstr "Short Name"
+
+msgid "TIN (STIR)"
+msgstr "TIN (STIR)"
+
+msgid "Registration Date"
+msgstr "Registration Date"
+
+msgid "Registration Number"
+msgstr "Registration Number"
+
+msgid "Legal Form"
+msgstr "Legal Form"
+
+msgid "Registered Address"
+msgstr "Registered Address"
+
+msgid "Issued By"
+msgstr "Issued By"
+
+msgid "Bank Name"
+msgstr "Bank Name"
+
+msgid "Bank Branch"
+msgstr "Bank Branch"
+
+msgid "Bank Address"
+msgstr "Bank Address"
+
+msgid "Bank Phone"
+msgstr "Bank Phone"
+
+msgid "MFO"
+msgstr "MFO"
+
+msgid "Bank TIN"
+msgstr "Bank TIN"
+
+msgid "SWIFT"
+msgstr "SWIFT"
+
+msgid "Bank Accounts"
+msgstr "Bank Accounts"
+
+msgid "Deposit account (UZS)"
+msgstr "Deposit account (UZS)"
+
+msgid "Deposit account (USD)"
+msgstr "Deposit account (USD)"
+
+msgid "Blocked conversion account (UZS)"
+msgstr "Blocked conversion account (UZS)"
+
+msgid "Special conversion account (USD)"
+msgstr "Special conversion account (USD)"
+
+msgid "Transit salary account (Uzcard)"
+msgstr "Transit salary account (Uzcard)"
+
+msgid "Opened:"
+msgstr "Opened:"
+
 #: .\products\models.py:109
 #, python-format
 msgid "Review for %(product)s by %(user)s"

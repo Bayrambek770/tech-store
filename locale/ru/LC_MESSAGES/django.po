@@ -362,8 +362,8 @@ msgid ""
 "                        others,\n"
 "                        as well as exclusive offers that will help save."
 msgstr ""
-"Добро пожаловать в магазин с забавным названием Улитка.\n"
-"Почему Улитка? Потому что мы маленькие, но без суеты поможем вам взобраться на гору Фудзи!\n"
+"Добро пожаловать в магазин с забавным названием DARK AND WHITE.\n"
+"Почему DARK AND WHITE? Потому что мы маленькие, но без суеты поможем вам взобраться на гору Фудзи!\n"
 "Мы предлагаем всё необходимое для создания игровых станций, рабочих машин и серверов: процессоры, видеокарты, оперативная память. Здесь вы найдете только проверенные бренды – AMD, Intel, NVIDIA, ASUS, MSI и другие, а также эксклюзивные предложения, которые помогут сэкономить."
 
 #: .\templates\index.html:61
@@ -922,6 +922,85 @@ msgstr ""
 #: .\templates\public_offer.html:75
 msgid "Need a copy?"
 msgstr "Нужна копия?"
+
+# Company info table (public_offer)
+msgid "Company Legal & Banking Information"
+msgstr "Юридическая и банковская информация компании"
+
+msgid "The following table summarizes the officially registered corporate and banking details of the service provider for reference in contractual / public offer contexts."
+msgstr "Ниже приведена таблица с официально зарегистрированными корпоративными и банковскими сведениями поставщика услуг для использования в договорных целях и в публичной оферте."
+
+msgid "Field"
+msgstr "Поле"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Full Company Name"
+msgstr "Полное наименование компании"
+
+msgid "Short Name"
+msgstr "Сокращённое наименование"
+
+msgid "TIN (STIR)"
+msgstr "ИНН (СТИР)"
+
+msgid "Registration Date"
+msgstr "Дата регистрации"
+
+msgid "Registration Number"
+msgstr "Регистрационный номер"
+
+msgid "Legal Form"
+msgstr "Организационно-правовая форма"
+
+msgid "Registered Address"
+msgstr "Юридический адрес"
+
+msgid "Issued By"
+msgstr "Выдан"
+
+msgid "Bank Name"
+msgstr "Наименование банка"
+
+msgid "Bank Branch"
+msgstr "Филиал банка"
+
+msgid "Bank Address"
+msgstr "Адрес банка"
+
+msgid "Bank Phone"
+msgstr "Телефон банка"
+
+msgid "MFO"
+msgstr "МФО"
+
+msgid "Bank TIN"
+msgstr "ИНН банка"
+
+msgid "SWIFT"
+msgstr "SWIFT"
+
+msgid "Bank Accounts"
+msgstr "Банковские счета"
+
+msgid "Deposit account (UZS)"
+msgstr "Депозитный счёт (UZS)"
+
+msgid "Deposit account (USD)"
+msgstr "Депозитный счёт (USD)"
+
+msgid "Blocked conversion account (UZS)"
+msgstr "Блокированный счёт для конверсии (UZS)"
+
+msgid "Special conversion account (USD)"
+msgstr "Специальный счёт для конверсии (USD)"
+
+msgid "Transit salary account (Uzcard)"
+msgstr "Транзитный зарплатный счёт (Uzcard)"
+
+msgid "Opened:"
+msgstr "Открыт:"
 
 #: .\templates\public_offer.html:75
 msgid ""

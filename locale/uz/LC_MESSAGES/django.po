@@ -387,8 +387,8 @@ msgid ""
 "                        others,\n"
 "                        as well as exclusive offers that will help save."
 msgstr ""
-"Funny Snail ismli do'konga xush kelibsiz.\n"
-"Nima uchun Snail? Chunki biz kichkinamiz, lekin shov-shuvsiz Fudzi tog'iga chiqishingizga yordam beramiz!\n"
+"DARK AND WHITE ismli do'konga xush kelibsiz.\n"
+"Nima uchun DARK AND WHITE? Chunki biz kichkinamiz, lekin shov-shuvsiz Fudzi tog'iga chiqishingizga yordam beramiz!\n"
 "Biz sizga o'yin stantsiyalari, ish mashinalari va serverlarni yaratish uchun kerak bo'lgan hamma narsani taklif qilamiz: protsessorlar,\n"
 "grafik kartalar, RAM. Bu erda siz faqat tasdiqlangan brendlarni topasiz - AMD, Intel, NVIDIA, ASUS, MSI va\n"
 "boshqalar, shuningdek, tejashga yordam beradigan eksklyuziv takliflar."
@@ -994,6 +994,85 @@ msgstr "/ sahifa"
 #: .\templates\store.html:45
 msgid "Apply"
 msgstr "Qo'llash"
+
+# Company info table (public_offer)
+msgid "Company Legal & Banking Information"
+msgstr "Kompaniyaning yuridik va bank ma'lumotlari"
+
+msgid "The following table summarizes the officially registered corporate and banking details of the service provider for reference in contractual / public offer contexts."
+msgstr "Quyidagi jadval xizmat ko'rsatuvchi provayderning shartnoma / ommaviy oferta uchun rasmiy ro'yxatdan o'tgan yuridik va bank ma'lumotlarini jamlaydi." 
+
+msgid "Field"
+msgstr "Maydon"
+
+msgid "Description"
+msgstr "Tavsif"
+
+msgid "Full Company Name"
+msgstr "To'liq kompaniya nomi"
+
+msgid "Short Name"
+msgstr "Qisqa nom"
+
+msgid "TIN (STIR)"
+msgstr "STIR"
+
+msgid "Registration Date"
+msgstr "Ro'yxatdan o'tgan sana"
+
+msgid "Registration Number"
+msgstr "Ro'yxat raqami"
+
+msgid "Legal Form"
+msgstr "Tashkiliy-huquqiy shakli"
+
+msgid "Registered Address"
+msgstr "Yuridik manzil"
+
+msgid "Issued By"
+msgstr "Tashkilot"
+
+msgid "Bank Name"
+msgstr "Bank nomi"
+
+msgid "Bank Branch"
+msgstr "Bank filiali"
+
+msgid "Bank Address"
+msgstr "Bank manzili"
+
+msgid "Bank Phone"
+msgstr "Bank telefoni"
+
+msgid "MFO"
+msgstr "MFO"
+
+msgid "Bank TIN"
+msgstr "Bank STIR"
+
+msgid "SWIFT"
+msgstr "SWIFT"
+
+msgid "Bank Accounts"
+msgstr "Bank hisoblari"
+
+msgid "Deposit account (UZS)"
+msgstr "Depozit hisobi (UZS)"
+
+msgid "Deposit account (USD)"
+msgstr "Depozit hisobi (USD)"
+
+msgid "Blocked conversion account (UZS)"
+msgstr "Bloklangan konvertatsiya hisobi (UZS)"
+
+msgid "Special conversion account (USD)"
+msgstr "Maxsus konvertatsiya hisobi (USD)"
+
+msgid "Transit salary account (Uzcard)"
+msgstr "Tranzit ish haqi hisobi (Uzcard)"
+
+msgid "Opened:"
+msgstr "Ochilgan:"
 
 #: .\templates\store.html:53
 msgid "View Cart"

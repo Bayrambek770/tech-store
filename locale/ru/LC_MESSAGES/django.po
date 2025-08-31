@@ -114,9 +114,6 @@ msgstr "Просмотрите выбранные товары"
 msgid "Image"
 msgstr "Изображение"
 
-#: .\templates\cart.html:24
-msgid "Price"
-msgstr "Цена"
 
 #: .\templates\cart.html:25 .\templates\donation.html:23
 #: .\templates\product_detail.html:32

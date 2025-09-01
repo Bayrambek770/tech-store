@@ -69,7 +69,8 @@
         }
         function formatLocal(amount){
             const lang = document.documentElement.lang || 'en';
-            const meta = { en:{sym:'$', suf:false, dec:'.'}, ru:{sym:'₽', suf:true, dec:','}, uz:{sym:"so'm", suf:true, dec:','} }[lang.slice(0,2)] || {sym:'$', suf:false, dec:'.'};
+            // ru now displays Uzbek sums with word "сум"
+            const meta = { en:{sym:'$', suf:false, dec:'.'}, ru:{sym:'сум', suf:true, dec:','}, uz:{sym:"so'm", suf:true, dec:','} }[lang.slice(0,2)] || {sym:'$', suf:false, dec:'.'};
             const val = Number(amount)||0;
             const fixed = val.toFixed(2);
             const parts = fixed.split('.');
@@ -81,7 +82,7 @@
         document.getElementById('cart-body').addEventListener('click', e => {
             const btn = e.target.closest('button'); if (!btn) return;
             const tr = btn.closest('tr'); const id = tr.getAttribute('data-id'); const action = btn.getAttribute('data-action');
-            post('{% url 'update_cart_item' %}', { product_id: id, action }).then(data => {
+            post('{% url "update_cart_item" %}', { product_id: id, action }).then(data => {
                 if (!data.ok) {
                     console.error('Cart update failed', data);
                     return;

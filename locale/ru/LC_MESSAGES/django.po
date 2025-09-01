@@ -392,7 +392,6 @@ msgid "About Us"
 msgstr "О нас"
 
 #: templates/index.html:47
-#, fuzzy
 #| msgid ""
 #| "Welcome to the store with a funny name Snail.\n"
 #| "                        Why A Snail? Because we're small, but without "

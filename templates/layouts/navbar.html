@@ -21,17 +21,14 @@
                     <input name="next" type="hidden" value="{{ request.path }}" />
                     {% get_current_language as LANGUAGE_CODE %}
                     {% get_available_languages as LANGUAGES %}
-                    <button type="button" class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
-                        <span class="lang-current">{{ LANGUAGE_CODE|upper }}</span>
-                        <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M4.646 5.646a.5.5 0 0 1 .708 0L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708L8.354 9.354a.5.5 0 0 1-.708 0L4.646 6.354a.5.5 0 0 1 0-.708"/></svg>
-                    </button>
-                    <ul class="lang-menu" id="langMenu" role="listbox">
-                        {% for lang_code, lang_name in LANGUAGES %}
-                        <li>
-                            <button type="submit" name="language" value="{{ lang_code }}" class="lang-option {% if lang_code == LANGUAGE_CODE %}active{% endif %}" role="option" aria-selected="{% if lang_code == LANGUAGE_CODE %}true{% else %}false{% endif %}">{{ lang_code|upper }} · {{ lang_name }}</button>
-                        </li>
-                        {% endfor %}
-                    </ul>
+                    <div class="lang-select-wrapper">
+                        <select name="language" class="lang-select" onchange="this.form.submit()" aria-label="{% trans 'Select language' %}">
+                            {% for lang_code, lang_name in LANGUAGES %}
+                                <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>{{ lang_code|upper }} · {{ lang_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <span class="lang-caret" aria-hidden="true">▾</span>
+                    </div>
                 </form>
             </li>
         </ul>
@@ -70,16 +67,3 @@
         </div>
     </div>
 </nav>
-<script>
-(function(){
-  const btn=document.getElementById('langBtn');
-  const menu=document.getElementById('langMenu');
-  if(btn && menu){
-    function close(){btn.setAttribute('aria-expanded','false');menu.classList.remove('show');}
-    btn.addEventListener('click',e=>{e.preventDefault();const open=btn.getAttribute('aria-expanded')==='true'; if(open){close();} else {btn.setAttribute('aria-expanded','true');menu.classList.add('show');}}
-    );
-    document.addEventListener('click',e=>{ if(!menu.contains(e.target) && e.target!==btn && !btn.contains(e.target)) close(); });
-    document.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
-  }
-})();
-</script>

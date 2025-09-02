@@ -18,11 +18,11 @@
             <li class="lang-switcher">
                 <form action="{% url 'set_language' %}" method="post" aria-label="{% trans 'Change language' %}" class="lang-form">
                     {% csrf_token %}
-                    <input name="next" type="hidden" value="{{ request.path }}" />
+                    <input name="next" type="hidden" value="{{ request.get_full_path }}" />
                     {% get_current_language as LANGUAGE_CODE %}
                     {% get_available_languages as LANGUAGES %}
                     <div class="lang-select-wrapper">
-                        <select name="language" class="lang-select" onchange="this.form.submit()" aria-label="{% trans 'Select language' %}">
+                        <select name="language" class="lang-select" aria-label="{% trans 'Select language' %}" data-auto-lang>
                             {% for lang_code, lang_name in LANGUAGES %}
                                 <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>{{ lang_code|upper }} · {{ lang_name }}</option>
                             {% endfor %}
@@ -50,12 +50,12 @@
                 <li class="mt-2 lang-switcher-mobile">
                     <form action="{% url 'set_language' %}" method="post" aria-label="{% trans 'Change language' %}" class="lang-form">
                         {% csrf_token %}
-                        <input name="next" type="hidden" value="{{ request.path }}" />
+                        <input name="next" type="hidden" value="{{ request.get_full_path }}" />
                         {% get_current_language as LANGUAGE_CODE %}
                         {% get_available_languages as LANGUAGES %}
                         <div class="lang-dropdown">
                             <span class="lang-label">{{ LANGUAGE_CODE|upper }}</span>
-                            <select name="language" onchange="this.form.submit()" aria-label="{% trans 'Select language' %}" class="lang-select-native">
+                            <select name="language" aria-label="{% trans 'Select language' %}" class="lang-select-native" data-auto-lang>
                                 {% for lang_code, lang_name in LANGUAGES %}
                                     <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>{{ lang_code|upper }} · {{ lang_name }}</option>
                                 {% endfor %}
@@ -67,3 +67,16 @@
         </div>
     </div>
 </nav>
+<script>
+// resilient auto-submit for language switch (handles Turbolinks/partial reloads or blocked inline onchange)
+document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('select[data-auto-lang]').forEach(function(sel){
+        if(sel.dataset._langBound) return; sel.dataset._langBound = '1';
+        sel.addEventListener('change', function(){
+            const form = sel.closest('form'); if(!form) return;
+            // disable select to prevent double post race
+            sel.disabled = true; form.submit();
+        });
+    });
+});
+</script>

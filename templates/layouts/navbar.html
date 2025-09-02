@@ -16,7 +16,7 @@
             </a></li>
             <li><a href="{% url 'public_offer' %}">{% trans 'Public Offer' %}</a></li>
             <li class="lang-switcher">
-                <form action="{% url 'set_language' %}" method="post" aria-label="{% trans 'Change language' %}" class="lang-form">
+                <form action="{% url 'set_language' %}" method="post" aria-label="{% trans 'Change language' %}" class="lang-form" data-default-lang="ru" data-lang-codes="ru,en,uz">
                     {% csrf_token %}
                     <input name="next" type="hidden" value="{{ request.get_full_path }}" />
                     {% get_current_language as LANGUAGE_CODE %}
@@ -48,7 +48,7 @@
                 <li><a href="{% url 'cart' %}" class="cart-link">{% trans 'Cart' %} <span id="nav-cart-count-mobile" class="badge"></span></a></li>
                 <li><a href="{% url 'public_offer' %}">{% trans 'Public Offer' %}</a></li>
                 <li class="mt-2 lang-switcher-mobile">
-                    <form action="{% url 'set_language' %}" method="post" aria-label="{% trans 'Change language' %}" class="lang-form">
+                    <form action="{% url 'set_language' %}" method="post" aria-label="{% trans 'Change language' %}" class="lang-form" data-default-lang="ru" data-lang-codes="ru,en,uz">
                         {% csrf_token %}
                         <input name="next" type="hidden" value="{{ request.get_full_path }}" />
                         {% get_current_language as LANGUAGE_CODE %}
@@ -68,13 +68,31 @@
     </div>
 </nav>
 <script>
-// resilient auto-submit for language switch (handles Turbolinks/partial reloads or blocked inline onchange)
+// resilient auto-submit for language switch & proper URL prefixing when prefix_default_language=False
 document.addEventListener('DOMContentLoaded', function(){
+    const langSet = new Set((document.querySelector('.lang-form')?.dataset.langCodes||'').split(',').filter(Boolean));
+    const defaultLang = document.querySelector('.lang-form')?.dataset.defaultLang || 'ru';
+    function stripLeadingLang(path){
+        const parts = path.split('/').filter(p=>p.length>0);
+        if(parts.length && langSet.has(parts[0])) parts.shift();
+        return '/' + parts.join('/') + (path.endsWith('/') && parts.length? '/':'');
+    }
+    function buildNext(targetLang){
+        const loc = window.location;
+        const base = stripLeadingLang(loc.pathname);
+        const query = loc.search || '';
+        const hash = loc.hash || '';
+        if(targetLang === defaultLang){
+            return base + query + hash;
+        }
+        return '/' + targetLang + (base === '/'? '': base) + query + hash;
+    }
     document.querySelectorAll('select[data-auto-lang]').forEach(function(sel){
         if(sel.dataset._langBound) return; sel.dataset._langBound = '1';
         sel.addEventListener('change', function(){
             const form = sel.closest('form'); if(!form) return;
-            // disable select to prevent double post race
+            const nextInput = form.querySelector('input[name="next"]');
+            if(nextInput){ nextInput.value = buildNext(sel.value); }
             sel.disabled = true; form.submit();
         });
     });

@@ -6,7 +6,7 @@ from users.models import Contact
 from .forms import ContactForm, ReviewForm
 from .models import Product, Category, Review
 from decimal import Decimal, InvalidOperation
-from designs.models import DesignAsset  # added for mixed cart
+from designs.models import DesignAsset
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.loader import render_to_string
 
@@ -36,9 +36,8 @@ def home(request):
     )
 
 
-# ------------------------- CART UTILITIES -------------------------
+
 def _get_cart(session):
-    # cart structure: {"P:<uuid>": qty, "D:<uuid>": qty}
     return session.get('cart', {})
 
 def _save_cart(session, cart):
@@ -46,7 +45,7 @@ def _save_cart(session, cart):
     session.modified = True
 
 
-# ------------------------- STORE VIEW -----------------------------
+
 def store_view(request):
     """Product listing with optional category + name search filters.
 
@@ -56,7 +55,6 @@ def store_view(request):
     - Preserve submitted search/category values in the form.
     """
     qs = Product.objects.filter(is_active=True).select_related('category')
-    # Category filter (expect primary key in GET)
     category_raw = request.GET.get('category')
     current_category_id = None
     if category_raw:
@@ -66,7 +64,6 @@ def store_view(request):
             current_category_id = None
     if current_category_id:
         qs = qs.filter(category_id=current_category_id)
-    # Search across translated names (django-parler)
     search = request.GET.get('q')
     if search:
         qs = qs.filter(translations__name__icontains=search).distinct()
@@ -74,7 +71,7 @@ def store_view(request):
         per_page = int(request.GET.get('page_size', '9'))
     except ValueError:
         per_page = 9
-    per_page = max(3, min(per_page, 48))  # sane bounds
+    per_page = max(3, min(per_page, 48))
     paginator = Paginator(qs, per_page)
     page = request.GET.get('page')
     try:
@@ -96,7 +93,6 @@ def store_view(request):
     'page_size_options': [9, 18, 27, 36],
     }
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        # Return only the products grid + pagination
         html = render_to_string('partials/_product_grid.html', context, request=request)
         pagination = render_to_string('partials/_pagination.html', context, request=request)
         return JsonResponse({'html': html, 'pagination': pagination})
@@ -108,12 +104,10 @@ def product_detail(request, slug):
     related = Product.objects.filter(category=product.category, is_active=True).exclude(pk=product.pk)[:8]
     reviews = product.reviews.select_related('user').order_by('-created_at')
     form = None
-    # Handle review submission
     if request.method == 'POST' and request.POST.get('form_type') == 'review':
         if not request.user.is_authenticated:
             messages.error(request, 'You must be logged in to leave a review.')
             return redirect('login')
-        # Prevent duplicate review (unique_together)
         existing = Review.objects.filter(product=product, user=request.user).first()
         form = ReviewForm(request.POST, instance=existing)
         if form.is_valid():
@@ -138,8 +132,8 @@ def product_detail(request, slug):
 
 @require_POST
 def add_to_cart(request):
-    item_id = request.POST.get('product_id')  # existing param name
-    item_type = request.POST.get('type', 'product')  # 'product' or 'design'
+    item_id = request.POST.get('product_id')
+    item_type = request.POST.get('type', 'product')
     qty = request.POST.get('qty', '1')
     try:
         qty = int(qty)
@@ -163,8 +157,8 @@ def add_to_cart(request):
 @require_POST
 def update_cart_item(request):
     try:
-        product_id = request.POST.get('product_id')  # already prefixed key (P:, D:, C:)
-        action = request.POST.get('action')  # inc | dec | remove
+        product_id = request.POST.get('product_id')
+        action = request.POST.get('action')
         cart = _get_cart(request.session)
         key = str(product_id)
         if key not in cart:
@@ -181,7 +175,6 @@ def update_cart_item(request):
 
         _save_cart(request.session, cart)
 
-        # Compute updated subtotal & line total if item still exists
         line_total = 0.0
         if key in cart:
             if key.startswith('P:'):
@@ -211,7 +204,6 @@ def update_cart_item(request):
                     price_val = 0
                 line_total = price_val * cart[key]
 
-        # Subtotal (iterate once over current cart)
         subtotal = 0.0
         if cart:
             product_ids = [k.split(':', 1)[1] for k in cart if k.startswith('P:')]
@@ -251,11 +243,6 @@ def update_cart_item(request):
 
 
 def cart_view(request):
-    """Render the cart page with all current items and a subtotal.
-
-    Uses translation fallback for product name/price so the page never errors
-    if a particular translation is missing. Missing prices are treated as 0.
-    """
     cart = _get_cart(request.session)
     product_ids = [k.split(':', 1)[1] for k in cart if k.startswith('P:')]
     design_ids = [k.split(':', 1)[1] for k in cart if k.startswith('D:')]
@@ -287,7 +274,7 @@ def cart_view(request):
 
         obj = prod_map.get(key) or design_map.get(key)
         if not obj:
-            continue  # stale entry
+            continue
 
         if hasattr(obj, 'safe_translation_getter'):
             price_val = obj.safe_translation_getter('price', any_language=True)
@@ -311,7 +298,6 @@ def cart_view(request):
             })
             continue
 
-        # Fallback: object without parler translation (e.g. DesignAsset without translated fields)
         try:
             price_number = Decimal(str(getattr(obj, 'price', 0) or 0))
         except (InvalidOperation, TypeError):
@@ -346,7 +332,6 @@ def checkout_view(request):
     donation_price = request.session.get('donation_price')
 
     for key, qty in cart.items():
-        # Advance payment entries
         if key.startswith('C:'):
             try:
                 price_dec = Decimal(str(donation_price))
@@ -363,9 +348,9 @@ def checkout_view(request):
 
         obj = prod_map.get(key) or design_map.get(key)
         if not obj:
-            continue  # stale key
+            continue
 
-        # Products with translations
+
         if hasattr(obj, 'safe_translation_getter'):
             price_val = obj.safe_translation_getter('price', any_language=True)
             name_val = obj.safe_translation_getter('name', any_language=True) or str(obj.pk)
@@ -375,13 +360,12 @@ def checkout_view(request):
                 price_number = Decimal('0')
             line_total = price_number * qty
             total += line_total
-            # Attach safe fallback values for template rendering
             obj.name = name_val
             obj.price = price_number
             items.append({'product': obj, 'qty': qty, 'line_total': line_total})
             continue
 
-        # Design assets or other objects without translation helper
+
         try:
             price_number = Decimal(str(getattr(obj, 'price', 0) or 0))
         except (InvalidOperation, TypeError):
@@ -390,14 +374,13 @@ def checkout_view(request):
         total += line_total
         items.append({'product': obj, 'qty': qty, 'line_total': line_total})
     if request.method == 'POST':
-        # Here you'd create Order / OrderItems
         request.session.pop('cart', None)
         messages.success(request, 'Order placed successfully!')
         return redirect('store')
     return render(request, 'checkout.html', {'items': items, 'total': total})
 
 
-# ------------------------- ADVANCE PAYMENT (DONATION) ------------------
+
 def donation_view(request):
     if request.method == 'POST':
         amount = request.POST.get('amount')
@@ -414,7 +397,6 @@ def donation_view(request):
             messages.error(request, 'Enter a valid positive amount.')
         else:
             cart = _get_cart(request.session)
-            # Store unit price in session and qty in cart
             request.session['donation_price'] = str(amount_dec)
             cart['C:DONATION'] = cart.get('C:DONATION', 0) + qty_int
             _save_cart(request.session, cart)
@@ -423,7 +405,6 @@ def donation_view(request):
     return render(request, 'donation.html')
 
 
-# ------------------------- PUBLIC OFFER PAGE ------------------
 def public_offer(request):
     """Static public offer / terms of service page."""
     return render(request, 'public_offer.html')

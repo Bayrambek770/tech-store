@@ -19,7 +19,6 @@ class ProductCartTests(TestCase):
 		self.assertEqual(data['count'], 2)
 
 	def test_cart_view_renders(self):
-		# add first
 		self.client.post(reverse('add_to_cart'), {'product_id': self.product.pk, 'qty': 1})
 		resp = self.client.get(reverse('cart'))
 		self.assertContains(resp, "Test")

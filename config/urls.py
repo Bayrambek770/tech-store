@@ -1,4 +1,3 @@
-
 from django.contrib import admin
 from django.urls import path, include
 from django.http import JsonResponse
@@ -27,7 +26,7 @@ if 'rosetta' in settings.INSTALLED_APPS:
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_MEDIA)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 def loaderio_verify(request):
     return HttpResponse("loaderio-e6da3c1bb4025cc9378003dd3c8deb4a", content_type="text/plain")

@@ -6,7 +6,7 @@ import re
 
 
 
-class ContactForm(forms.ModelForm):  # Not translatable model currently
+class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = ['name', 'email', 'message']
@@ -33,7 +33,7 @@ class ContactForm(forms.ModelForm):  # Not translatable model currently
         return message
 
 
-class ReviewForm(forms.ModelForm):  # Review model not converted to TranslatableModel
+class ReviewForm(forms.ModelForm):
     rating = forms.IntegerField(min_value=1, max_value=5, widget=forms.NumberInput(attrs={'class':'form-control','min':1,'max':5}))
     comment = forms.CharField(required=False, widget=forms.Textarea(attrs={'class':'form-control','rows':3,'placeholder':'Share your experience...'}))
 
@@ -43,7 +43,6 @@ class ReviewForm(forms.ModelForm):  # Review model not converted to Translatable
 
     def clean_comment(self):
         comment = self.cleaned_data.get('comment','').strip()
-        # Optional: limit length
         if len(comment) > 2000:
             raise forms.ValidationError('Comment too long (max 2000 characters).')
         return comment

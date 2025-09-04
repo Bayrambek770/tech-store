@@ -1,15 +1,16 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 from .models import DesignAsset, DesignCategory, DesignReview
 from django.db.models import Q
 from .forms import DesignReviewForm
+from django.contrib import messages
 
 
 def marketplace(request):
     qs = DesignAsset.objects.filter(is_active=True).select_related('category')
-    cat_type = request.GET.get('type')  # '3d' or 'interior'
+    cat_type = request.GET.get('type')
     cat_slug = request.GET.get('category')
     if cat_type:
         qs = qs.filter(category__type=cat_type)
@@ -17,7 +18,6 @@ def marketplace(request):
         qs = qs.filter(category__slug=cat_slug)
     search = request.GET.get('q')
     if search:
-        # For TranslatableModel field 'name' we must query through translations relation
         qs = qs.filter(translations__name__icontains=search)
     try:
         per_page = int(request.GET.get('page_size', '12'))
@@ -33,7 +33,6 @@ def marketplace(request):
     except EmptyPage:
         page_obj = paginator.page(paginator.num_pages)
 
-    # Order categories by type then translated name (via translations__name)
     categories = DesignCategory.objects.all().order_by('type', 'translations__name')
     context = {
         'assets': page_obj.object_list,
@@ -62,9 +61,7 @@ def asset_detail(request, slug):
     form = None
     if request.method == 'POST' and request.POST.get('form_type') == 'review':
         if not request.user.is_authenticated:
-            from django.contrib import messages
             messages.error(request, 'You must be logged in to leave a review.')
-            from django.shortcuts import redirect
             return redirect('login')
         existing = DesignReview.objects.filter(asset=asset, user=request.user).first()
         form = DesignReviewForm(request.POST, instance=existing)
@@ -73,9 +70,7 @@ def asset_detail(request, slug):
             rev.asset = asset
             rev.user = request.user
             rev.save()
-            from django.contrib import messages
             messages.success(request, 'Your review has been saved.')
-            from django.shortcuts import redirect
             return redirect('designs:asset_detail', slug=asset.slug)
     else:
         if request.user.is_authenticated:

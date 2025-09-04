@@ -30,7 +30,6 @@ class DesignCategory(TranslatableModel, BaseModel):
     class Meta:
         verbose_name = 'Design Category'
         verbose_name_plural = 'Design Categories'
-        # Can't order by translated field directly at model meta; admin can specify ordering.
         ordering = ['created_at']
 
     def __str__(self):

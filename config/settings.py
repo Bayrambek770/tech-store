@@ -2,13 +2,9 @@ from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-# -------------------------------------------------------------
-# Environment variables (django-decouple). Keep it simple.
-# -------------------------------------------------------------
 try:
-    from decouple import config  # type: ignore
-except ImportError:  # graceful fallback for local scripts
+    from decouple import config
+except ImportError:
     def config(key, default=None, cast=str):
         return default
 
@@ -37,7 +33,7 @@ INSTALLED_APPS = [
     'products',
     'users',
     'designs',
-    # 'rosetta',  # disabled (module not installed)
+    # 'rosetta',  # disabled
 
 ]
 
@@ -120,9 +116,9 @@ LOCALE_PATHS = [
     BASE_DIR / 'locale'
 ]
 
-# Ensure correct language persistence
+
 LANGUAGE_COOKIE_NAME = 'django_language'
-LANGUAGE_COOKIE_AGE = 60 * 60 * 24 * 30  # 30 days
+LANGUAGE_COOKIE_AGE = 60 * 60 * 24 * 30
 
 TIME_ZONE = config('TIME_ZONE', default='UTC')
 
@@ -144,7 +140,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-# Email configuration (adjust credentials as needed)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = config('EMAIL_HOST', default='smtp.gmail.com')
 EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
@@ -161,7 +156,7 @@ PARLER_LANGUAGES = {
         {'code': 'uz'},
     ),
     'default': {
-        'fallbacks': ['ru'],  # default language
+        'fallbacks': ['ru'],
         'hide_untranslated': False,
     }
 }
@@ -181,9 +176,6 @@ if not DEBUG:
     SECURE_CONTENT_TYPE_NOSNIFF = True
     X_FRAME_OPTIONS = 'DENY'
 
-# ------------------------------------------------------------------
-# Logging
-# ------------------------------------------------------------------
 LOG_LEVEL = config('DJANGO_LOG_LEVEL', default='INFO')
 LOGGING = {
     'version': 1,
@@ -206,10 +198,8 @@ LOGGING = {
     },
 }
 
-# ------------------------------------------------------------------
-# Local developer overrides
-# ------------------------------------------------------------------
-try:  # noqa
-    from .local_settings import *  # type: ignore
+
+try:
+    from .local_settings import *
 except ImportError:
     pass

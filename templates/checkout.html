@@ -156,71 +156,7 @@
                 </div>
             </div>
             <hr class="my-4">
-            <h5 class="mb-3">{% trans "Payment" %}</h5>
-            <div class="form-group mb-2">
-                <div class="custom-control custom-radio mb-1">
-                <input type="radio" id="pay_card" name="payment_method" class="custom-control-input" value="card" checked>
-                <label class="custom-control-label" for="pay_card">{% trans "Credit / Debit Card" %}</label>
-                </div>
-                <div class="custom-control custom-radio">
-                <input type="radio" id="pay_cod" name="payment_method" value="cod" class="custom-control-input">
-                <label class="custom-control-label" for="pay_cod">{% trans "Cash on Delivery" %}</label>
-                </div>
-            </div>
-            <div id="card-fields" class="border rounded p-3 bg-light mb-3">
-                <div class="form-group mb-2">
-                <label for="card_number" class="small mb-1">{% trans "Card Number" %}</label>
-                <input
-                    type="text"
-                    id="card_number"
-                    name="card_number"
-                    inputmode="numeric"
-                    autocomplete="cc-number"
-                    class="form-control"
-                    maxlength="19"
-                    placeholder="{% trans '4111 1111 1111 1111' %}"
-                    pattern="^(\d{4} ?){3}\d{4}$"
-                    data-strip="true"
-                    required
-                    oninvalid="this.setCustomValidity('Enter 16 digit card number')"
-                    oninput="this.setCustomValidity('')">
-                </div>
-                <div class="form-row">
-                <div class="form-group col-6 mb-2">
-                    <label for="card_exp" class="small mb-1">{% trans "Expiry (MM/YY)" %}</label>
-                    <input
-                    type="text"
-                    id="card_exp"
-                    name="card_exp"
-                    inputmode="numeric"
-                    autocomplete="cc-exp"
-                    class="form-control"
-                    maxlength="5"
-                    placeholder="{% trans '08/27' %}"
-                    pattern="^(0[1-9]|1[0-2])\/\d{2}$"
-                    required
-                    oninvalid="this.setCustomValidity('Format MM/YY, month 01-12')"
-                    oninput="this.setCustomValidity('')">
-                </div>
-                <div class="form-group col-6 mb-2">
-                    <label for="card_cvc" class="small mb-1">{% trans "CVC" %}</label>
-                    <input
-                    type="text"
-                    id="card_cvc"
-                    name="card_cvc"
-                    inputmode="numeric"
-                    autocomplete="cc-csc"
-                    class="form-control"
-                    maxlength="4"
-                    placeholder="{% trans '123' %}"
-                    pattern="^\d{3,4}$"
-                    required
-                    oninvalid="this.setCustomValidity('CVC 3 or 4 digits')"
-                    oninput="this.setCustomValidity('')">
-                </div>
-                </div>
-                <div class="d-flex align-items-center small text-muted"><i class="ti-lock mr-1"></i> {% trans "Your card data is secured." %}</div>
-            </div>
+            <!-- Payment fields removed: external payment link will be integrated later -->
             </div>
             <div class="col-md-5">
             <h5 class="mb-3">{% trans "Order Summary" %}</h5>
@@ -257,53 +193,20 @@
 (function(){
     const form = document.getElementById('checkout-form');
     const payBtn = document.getElementById('pay-btn');
-    const cardSection = document.getElementById('card-fields');
     const errorsBox = document.getElementById('form-errors');
-    const methodRadios = document.querySelectorAll('input[name="payment_method"]');
     const requiredSelectors = ['#first_name','#last_name','#email','#phone','#address1','#country','#state','#zip'];
-    const cardSelectors = ['#card_number','#card_exp','#card_cvc'];
-
-    function digitsOnly(v){return v.replace(/\D+/g,'');}
-    function formatCard(num){ return digitsOnly(num).slice(0,16).replace(/(.{4})/g,'$1 ').trim(); }
-    function formatExp(v){ const d=digitsOnly(v).slice(0,4); if(d.length<3) return d; return d.slice(0,2)+'/'+d.slice(2); }
-
-    const cardNumber = document.getElementById('card_number');
-    const cardExp = document.getElementById('card_exp');
-    const cardCvc = document.getElementById('card_cvc');
-
-    cardNumber.addEventListener('input', e=>{ e.target.value = formatCard(e.target.value); validate(); });
-    cardExp.addEventListener('input', e=>{ e.target.value = formatExp(e.target.value); validate(); });
-    cardCvc.addEventListener('input', e=>{ e.target.value = digitsOnly(e.target.value).slice(0,4); validate(); });
-    methodRadios.forEach(r=> r.addEventListener('change', ()=>{ togglePaymentFields(); validate(); }));
     form.querySelectorAll('input').forEach(inp=> inp.addEventListener('input', ()=> validate()));
-
-    function togglePaymentFields(){
-        const method = document.querySelector('input[name="payment_method"]:checked').value;
-        if(method==='card'){
-            cardSection.style.display='block';
-            cardSelectors.forEach(sel=> form.querySelector(sel).setAttribute('required','required'));
-        } else {
-            cardSection.style.display='none';
-            cardSelectors.forEach(sel=> form.querySelector(sel).removeAttribute('required'));
-        }
-    }
     function validEmail(v){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
     function validate(){
         let errs=[];
         requiredSelectors.forEach(sel=>{ const el=form.querySelector(sel); if(el && !el.value.trim()) errs.push(sel+' required'); });
         const email = form.querySelector('#email'); if(email && !validEmail(email.value)) errs.push('Invalid email');
-        const method = document.querySelector('input[name="payment_method"]:checked').value;
-        if(method==='card'){
-            const rawCard = digitsOnly(cardNumber.value); if(rawCard.length!==16) errs.push('Card number must be 16 digits');
-            const exp = cardExp.value; if(!/^\d{2}\/\d{2}$/.test(exp)) errs.push('Expiry format MM/YY'); else { const mm=parseInt(exp.slice(0,2),10); if(mm<1||mm>12) errs.push('Expiry month 01-12'); }
-            const cvc = digitsOnly(cardCvc.value); if(cvc.length<3||cvc.length>4) errs.push('CVC 3-4 digits');
-        }
+    // Card validation removed
         if(errs.length){
             payBtn.disabled=true; errorsBox.style.display='block'; errorsBox.textContent=errs[0];
         } else {
             errorsBox.style.display='none'; errorsBox.textContent=''; payBtn.disabled=false; }
     }
-    togglePaymentFields();
     validate();
 })();
 </script>

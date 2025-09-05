@@ -15,21 +15,45 @@
                 </span>
             </a></li>
             <li><a href="{% url 'public_offer' %}">{% trans 'Public Offer' %}</a></li>
-            <li class="lang-switcher">
-                <form action="{% url 'set_language' %}" method="post" aria-label="{% trans 'Change language' %}" class="lang-form" data-default-lang="ru" data-lang-codes="ru,en,uz">
-                    {% csrf_token %}
-                    <input name="next" type="hidden" value="{{ request.get_full_path }}" />
-                    {% get_current_language as LANGUAGE_CODE %}
-                    {% get_available_languages as LANGUAGES %}
-                    <div class="lang-select-wrapper">
-                        <select name="language" class="lang-select" aria-label="{% trans 'Select language' %}" data-auto-lang>
-                            {% for lang_code, lang_name in LANGUAGES %}
-                                <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>{{ lang_code|upper }} · {{ lang_name }}</option>
-                            {% endfor %}
-                        </select>
-                        <span class="lang-caret" aria-hidden="true">▾</span>
-                    </div>
-                </form>
+            <li class="lang-switcher lang-switcher-modern" id="langSwitcherDesktop">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                <button id="langToggle" class="lang-toggle" type="button" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu" data-current-lang="{{ LANGUAGE_CODE }}">
+                    <span class="lang-current" data-lang-label>
+                        {{ LANGUAGE_CODE|upper }}
+                    </span>
+                    <span class="caret" aria-hidden="true">▼</span>
+                </button>
+                <div id="langMenu" class="lang-dropdown" role="menu" aria-labelledby="langToggle" hidden>
+                    <ul class="lang-list" role="none">
+                        {% for lang_code, lang_name in LANGUAGES %}
+                        <li role="none">
+                            <button type="button" class="lang-option" role="menuitem" tabindex="-1" data-lang="{{ lang_code }}" data-label="{{ lang_name }}" aria-current="{% if lang_code == LANGUAGE_CODE %}true{% else %}false{% endif %}">
+                                <span class="flag" aria-hidden="true">{% if lang_code == 'en' %}🇬🇧{% elif lang_code == 'ru' %}🇷🇺{% elif lang_code == 'uz' %}🇺🇿{% else %}🌐{% endif %}</span>
+                                <span class="lang-text">{{ lang_name }}</span>
+                                {% if lang_code == LANGUAGE_CODE %}<span class="check" aria-hidden="true">✓</span>{% endif %}
+                            </button>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <form id="langForm" action="{% url 'set_language' %}" method="post" class="d-none" aria-hidden="true">
+                        {% csrf_token %}
+                        <input type="hidden" name="language" value="{{ LANGUAGE_CODE }}">
+                        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    </form>
+                    <noscript>
+                        <div class="noscript-lang-forms">
+                        {% for lang_code, lang_name in LANGUAGES %}
+                            <form action="{% url 'set_language' %}" method="post" style="margin:4px 0;">
+                                {% csrf_token %}
+                                <input type="hidden" name="language" value="{{ lang_code }}">
+                                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                                <button class="lang-fallback-btn" {% if lang_code == LANGUAGE_CODE %}disabled{% endif %}>{{ lang_name }}</button>
+                            </form>
+                        {% endfor %}
+                        </div>
+                    </noscript>
+                </div>
             </li>
         </ul>
         <button class="site-nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="offcanvasMenu">
@@ -47,34 +71,56 @@
                 <li><a href="{% url 'store' %}">{% trans 'Store' %}</a></li>
                 <li><a href="{% url 'cart' %}" class="cart-link">{% trans 'Cart' %} <span id="nav-cart-count-mobile" class="badge"></span></a></li>
                 <li><a href="{% url 'public_offer' %}">{% trans 'Public Offer' %}</a></li>
-                <li class="mt-2 lang-switcher-mobile">
-                    <form action="{% url 'set_language' %}" method="post" aria-label="{% trans 'Change language' %}" class="lang-form" data-default-lang="ru" data-lang-codes="ru,en,uz">
-                        {% csrf_token %}
-                        <input name="next" type="hidden" value="{{ request.get_full_path }}" />
-                        {% get_current_language as LANGUAGE_CODE %}
-                        {% get_available_languages as LANGUAGES %}
-                        <div class="lang-dropdown">
-                            <span class="lang-label">{{ LANGUAGE_CODE|upper }}</span>
-                            <select name="language" aria-label="{% trans 'Select language' %}" class="lang-select-native" data-auto-lang>
-                                {% for lang_code, lang_name in LANGUAGES %}
-                                    <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>{{ lang_code|upper }} · {{ lang_name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                    </form>
+                <li class="mt-2 lang-switcher-mobile" id="langSwitcherMobile">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    <button id="langToggleMobile" class="lang-toggle" type="button" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="langMenuMobile" data-current-lang="{{ LANGUAGE_CODE }}">
+                        <span class="lang-current" data-lang-label>{{ LANGUAGE_CODE|upper }}</span>
+                        <span class="caret" aria-hidden="true">▼</span>
+                    </button>
+                    <div id="langMenuMobile" class="lang-dropdown" role="menu" aria-labelledby="langToggleMobile" hidden>
+                        <ul class="lang-list" role="none">
+                            {% for lang_code, lang_name in LANGUAGES %}
+                            <li role="none">
+                                <button type="button" class="lang-option" role="menuitem" tabindex="-1" data-lang="{{ lang_code }}" data-label="{{ lang_name }}" aria-current="{% if lang_code == LANGUAGE_CODE %}true{% else %}false{% endif %}">
+                                    <span class="flag" aria-hidden="true">{% if lang_code == 'en' %}🇬🇧{% elif lang_code == 'ru' %}🇷🇺{% elif lang_code == 'uz' %}🇺🇿{% else %}🌐{% endif %}</span>
+                                    <span class="lang-text">{{ lang_name }}</span>
+                                    {% if lang_code == LANGUAGE_CODE %}<span class="check" aria-hidden="true">✓</span>{% endif %}
+                                </button>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <form id="langFormMobile" action="{% url 'set_language' %}" method="post" class="d-none" aria-hidden="true">
+                            {% csrf_token %}
+                            <input type="hidden" name="language" value="{{ LANGUAGE_CODE }}">
+                            <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                        </form>
+                        <noscript>
+                            <div class="noscript-lang-forms">
+                            {% for lang_code, lang_name in LANGUAGES %}
+                                <form action="{% url 'set_language' %}" method="post" style="margin:4px 0;">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="language" value="{{ lang_code }}">
+                                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                                    <button class="lang-fallback-btn" {% if lang_code == LANGUAGE_CODE %}disabled{% endif %}>{{ lang_name }}</button>
+                                </form>
+                            {% endfor %}
+                            </div>
+                        </noscript>
+                    </div>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 <script>
-// resilient auto-submit for language switch & proper URL prefixing when prefix_default_language=False
+// Accessible modern language dropdown (desktop + mobile)
 document.addEventListener('DOMContentLoaded', function(){
-    const langSet = new Set((document.querySelector('.lang-form')?.dataset.langCodes||'').split(',').filter(Boolean));
-    const defaultLang = document.querySelector('.lang-form')?.dataset.defaultLang || 'ru';
+    const defaultLang = 'ru';
+    const available = ['ru','en','uz'];
     function stripLeadingLang(path){
         const parts = path.split('/').filter(p=>p.length>0);
-        if(parts.length && langSet.has(parts[0])) parts.shift();
+        if(parts.length && available.includes(parts[0])) parts.shift();
         return '/' + parts.join('/') + (path.endsWith('/') && parts.length? '/':'');
     }
     function buildNext(targetLang){
@@ -82,19 +128,60 @@ document.addEventListener('DOMContentLoaded', function(){
         const base = stripLeadingLang(loc.pathname);
         const query = loc.search || '';
         const hash = loc.hash || '';
-        if(targetLang === defaultLang){
-            return base + query + hash;
-        }
+        if(targetLang === defaultLang){ return base + query + hash; }
         return '/' + targetLang + (base === '/'? '': base) + query + hash;
     }
-    document.querySelectorAll('select[data-auto-lang]').forEach(function(sel){
-        if(sel.dataset._langBound) return; sel.dataset._langBound = '1';
-        sel.addEventListener('change', function(){
-            const form = sel.closest('form'); if(!form) return;
-            const nextInput = form.querySelector('input[name="next"]');
-            if(nextInput){ nextInput.value = buildNext(sel.value); }
-            sel.disabled = true; form.submit();
+
+    function initSwitcher(rootId, toggleId, menuId, formId){
+        const root = document.getElementById(rootId); if(!root) return;
+        const toggle = document.getElementById(toggleId);
+        const menu = document.getElementById(menuId);
+        const form = document.getElementById(formId);
+        if(!toggle || !menu || !form) return;
+        const options = Array.from(menu.querySelectorAll('.lang-option'));
+        let open = false; let focusIndex = -1;
+
+        function openMenu(){
+            if(open) return; open = true; menu.hidden = false; toggle.setAttribute('aria-expanded','true'); toggle.classList.add('open'); focusFirst(); document.addEventListener('mousedown', onDocClick); document.addEventListener('keydown', onKey);
+        }
+        function closeMenu(focusToggle=true){
+            if(!open) return; open=false; menu.hidden = true; toggle.setAttribute('aria-expanded','false'); toggle.classList.remove('open'); document.removeEventListener('mousedown', onDocClick); document.removeEventListener('keydown', onKey); if(focusToggle) toggle.focus(); }
+        function onDocClick(e){ if(!root.contains(e.target)) closeMenu(false); }
+        function focusFirst(){ focusIndex = 0; focusCurrent(); }
+        function focusCurrent(){ const opt = options[focusIndex]; if(opt) opt.focus(); }
+        function move(delta){ if(!open) return; focusIndex = (focusIndex + delta + options.length)%options.length; focusCurrent(); }
+        function selectCurrent(){ const opt=options[focusIndex]; if(opt) selectLang(opt.dataset.lang, form); }
+        function onKey(e){
+            switch(e.key){
+                case 'Escape': closeMenu(); break;
+                case 'ArrowDown': e.preventDefault(); if(!open){ openMenu(); } else { move(1);} break;
+                case 'ArrowUp': e.preventDefault(); if(!open){ openMenu(); } else { move(-1);} break;
+                case 'Home': e.preventDefault(); focusIndex=0; focusCurrent(); break;
+                case 'End': e.preventDefault(); focusIndex=options.length-1; focusCurrent(); break;
+                case 'Enter': case ' ': if(open){ e.preventDefault(); selectCurrent(); } break;
+                case 'Tab': if(open){ // simple focus trap
+                    if(e.shiftKey && document.activeElement === options[0]){ e.preventDefault(); options[options.length-1].focus(); }
+                    else if(!e.shiftKey && document.activeElement === options[options.length-1]){ e.preventDefault(); options[0].focus(); }
+                } break;
+            }
+        }
+        toggle.addEventListener('click', ()=> open? closeMenu(): openMenu());
+        toggle.addEventListener('keydown', e=>{ if(['ArrowDown','ArrowUp','Enter',' '].includes(e.key)){ e.preventDefault(); open? closeMenu(): openMenu(); }});
+        options.forEach((btn,i)=>{
+            btn.addEventListener('click', ()=> selectLang(btn.dataset.lang, form));
+            btn.addEventListener('mouseenter', ()=>{ focusIndex = i; });
         });
-    });
+        function selectLang(code, form){
+            if(!available.includes(code)) return;
+            const nextInput = form.querySelector('input[name="next"]');
+            const langInput = form.querySelector('input[name="language"]');
+            if(nextInput) nextInput.value = buildNext(code);
+            if(langInput) langInput.value = code;
+            form.submit();
+        }
+    }
+
+    initSwitcher('langSwitcherDesktop','langToggle','langMenu','langForm');
+    initSwitcher('langSwitcherMobile','langToggleMobile','langMenuMobile','langFormMobile');
 });
 </script>

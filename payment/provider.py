@@ -35,8 +35,13 @@ class InterforumClient:
     def create_payment_link(cls, transaction):
         amount = transaction.amount
         currency_code = transaction.currency
-        # dynamic return URL (success or cancel evaluated in callback view)
-        return_url = settings.SITE_BASE_URL.rstrip('/') + f"/payments/return/?tx={transaction.id}"
+        # dynamic return URL (matches orders:payment_return route)
+        base_url = getattr(settings, 'SITE_BASE_URL', '') or ''
+        if base_url:
+            return_url = base_url.rstrip('/') + f"/orders/payment-return/?tx={transaction.id}"
+        else:
+            # fallback relative path (caller should redirect after payment without absolute domain)
+            return_url = f"/orders/payment-return/?tx={transaction.id}"
         if currency_code == "UZS":
             currency = 860
         elif currency_code == "USD":

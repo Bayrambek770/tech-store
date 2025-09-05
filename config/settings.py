@@ -153,6 +153,10 @@ DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default=EMAIL_HOST_USER or 'we
 PAYLOV_MERCHANT_ID = config("PAYLOV_MERCHANT_ID", "")
 PAYLOV_USERNAME = config("PAYLOV_USERNAME", "")
 PAYLOV_PASSWORD = config("PAYLOV_PASSWORD", "")
+
+# Base site URL (needed for external payment return links)
+# If not provided via env SITE_BASE_URL, derive a sensible default.
+SITE_BASE_URL = config('SITE_BASE_URL', default=('http://localhost:8000' if DEBUG else (ALLOWED_HOSTS[0].rstrip('/') if ALLOWED_HOSTS and ALLOWED_HOSTS[0] != '*' else ''))) or ''
 # django-parler configuration
 PARLER_LANGUAGES = {
     None: (

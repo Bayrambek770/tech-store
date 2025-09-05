@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-05 05:23+0000\n"
+"POT-Creation-Date: 2025-09-05 05:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Your cart is empty."
 msgstr ""
 
-#: orders/views.py:92 templates/donation.html:4 templates/index.html:235
+#: orders/views.py:92 templates/donation.html:4 templates/index.html:236
 msgid "Advance Payment"
 msgstr ""
 
@@ -85,7 +85,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: products/models.py:24 templates/public_offer.html:98
+#: products/models.py:24 templates/public_offer.html:94
 msgid "Description"
 msgstr ""
 
@@ -221,7 +221,7 @@ msgstr ""
 msgid "Doe"
 msgstr ""
 
-#: templates/checkout.html:51 templates/public_offer.html:106
+#: templates/checkout.html:51 templates/public_offer.html:102
 #: users/models.py:26
 msgid "Email"
 msgstr ""
@@ -397,7 +397,7 @@ msgid "Dark and White"
 msgstr ""
 
 #: templates/index.html:32
-msgid "Premium Components • Design Assets • Smart Advance Payments"
+msgid "Premium Components • Design Assets"
 msgstr ""
 
 #: templates/index.html:34
@@ -499,61 +499,61 @@ msgstr ""
 msgid "Go Shopping"
 msgstr ""
 
-#: templates/index.html:199
+#: templates/index.html:200
 msgid "Advance Pay"
 msgstr ""
 
-#: templates/index.html:208
+#: templates/index.html:209
 msgid "How can you communicate?"
 msgstr ""
 
-#: templates/index.html:209
+#: templates/index.html:210
 msgid "Contact Us"
 msgstr ""
 
-#: templates/index.html:214
+#: templates/index.html:215
 msgid "Your Name"
 msgstr ""
 
-#: templates/index.html:214
+#: templates/index.html:215
 msgid "Your name"
 msgstr ""
 
-#: templates/index.html:217
+#: templates/index.html:218
 msgid "Enter Email"
 msgstr ""
 
-#: templates/index.html:217
+#: templates/index.html:218
 #: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1920
 msgid "Email address"
 msgstr ""
 
-#: templates/index.html:220
+#: templates/index.html:221
 msgid "Write Something"
 msgstr ""
 
-#: templates/index.html:220 users/models.py:28
+#: templates/index.html:221 users/models.py:28
 msgid "Message"
 msgstr ""
 
-#: templates/index.html:223
+#: templates/index.html:224
 msgid "Send Message"
 msgstr ""
 
-#: templates/index.html:223
+#: templates/index.html:224
 msgid "Send message"
 msgstr ""
 
-#: templates/index.html:232
+#: templates/index.html:233
 msgid "All for PC. All rights reserved."
 msgstr ""
 
-#: templates/index.html:234 templates/layouts/navbar.html:17
+#: templates/index.html:235 templates/layouts/navbar.html:17
 #: templates/layouts/navbar.html:49
 msgid "Public Offer"
 msgstr ""
 
-#: templates/index.html:236 templates/layouts/navbar.html:9
+#: templates/index.html:237 templates/layouts/navbar.html:9
 #: templates/layouts/navbar.html:46
 msgid "Marketplace"
 msgstr ""
@@ -651,146 +651,121 @@ msgstr ""
 msgid "Contents"
 msgstr ""
 
-#: templates/public_offer.html:44 templates/public_offer.html:66
+#: templates/public_offer.html:44 templates/public_offer.html:65
 msgid "1. Acceptance of the Offer"
 msgstr ""
 
-#: templates/public_offer.html:45 templates/public_offer.html:67
+#: templates/public_offer.html:45 templates/public_offer.html:66
 msgid "2. Definitions"
 msgstr ""
 
-#: templates/public_offer.html:46 templates/public_offer.html:68
+#: templates/public_offer.html:46 templates/public_offer.html:67
 msgid "3. Subject of the Agreement"
 msgstr ""
 
-#: templates/public_offer.html:47 templates/public_offer.html:69
+#: templates/public_offer.html:47
 msgid "4. Product Information & Availability"
 msgstr ""
 
-#: templates/public_offer.html:48 templates/public_offer.html:70
-msgid "5. Prices, Discounts & Advance Payments"
+#: templates/public_offer.html:48
+msgid "5. Prices and Discounts"
 msgstr ""
 
-#: templates/public_offer.html:49 templates/public_offer.html:71
+#: templates/public_offer.html:49 templates/public_offer.html:68
 msgid "6. Ordering Process"
 msgstr ""
 
-#: templates/public_offer.html:50 templates/public_offer.html:72
+#: templates/public_offer.html:50 templates/public_offer.html:69
 msgid "7. Payment Methods & Security"
 msgstr ""
 
-#: templates/public_offer.html:51 templates/public_offer.html:73
+#: templates/public_offer.html:51 templates/public_offer.html:70
 msgid "8. Delivery & Digital Assets"
 msgstr ""
 
-#: templates/public_offer.html:52 templates/public_offer.html:74
+#: templates/public_offer.html:52 templates/public_offer.html:71
 msgid "9. User Accounts & Security"
 msgstr ""
 
-#: templates/public_offer.html:53 templates/public_offer.html:75
+#: templates/public_offer.html:53 templates/public_offer.html:72
 msgid "10. Reviews & User Content"
 msgstr ""
 
-#: templates/public_offer.html:54 templates/public_offer.html:76
+#: templates/public_offer.html:54 templates/public_offer.html:73
 msgid "11. Intellectual Property"
 msgstr ""
 
-#: templates/public_offer.html:55 templates/public_offer.html:77
+#: templates/public_offer.html:55 templates/public_offer.html:74
 msgid "12. Warranty Disclaimer"
 msgstr ""
 
-#: templates/public_offer.html:56 templates/public_offer.html:78
+#: templates/public_offer.html:56 templates/public_offer.html:75
 msgid "13. Returns, Refunds & Cancellations"
 msgstr ""
 
-#: templates/public_offer.html:57 templates/public_offer.html:79
-msgid "14. Advance / Donation Policy"
-msgstr ""
-
-#: templates/public_offer.html:58 templates/public_offer.html:80
+#: templates/public_offer.html:57 templates/public_offer.html:76
 msgid "15. Limitation of Liability"
 msgstr ""
 
-#: templates/public_offer.html:59 templates/public_offer.html:81
+#: templates/public_offer.html:58 templates/public_offer.html:77
 msgid "16. Data Protection & Privacy"
 msgstr ""
 
-#: templates/public_offer.html:60 templates/public_offer.html:82
+#: templates/public_offer.html:59 templates/public_offer.html:78
 msgid "17. Anti-Fraud & Security Monitoring"
 msgstr ""
 
-#: templates/public_offer.html:61 templates/public_offer.html:83
+#: templates/public_offer.html:60 templates/public_offer.html:79
 msgid "18. Force Majeure"
 msgstr ""
 
-#: templates/public_offer.html:62 templates/public_offer.html:84
+#: templates/public_offer.html:61 templates/public_offer.html:80
 msgid "19. Amendments"
 msgstr ""
 
-#: templates/public_offer.html:63 templates/public_offer.html:85
+#: templates/public_offer.html:62 templates/public_offer.html:81
 msgid "20. Governing Law & Disputes"
 msgstr ""
 
-#: templates/public_offer.html:64 templates/public_offer.html:86
+#: templates/public_offer.html:63 templates/public_offer.html:82
 msgid "21. Contact Information"
+msgstr ""
+
+#: templates/public_offer.html:65
+msgid ""
+"By accessing or using this website (the \"Platform\"), placing an order, "
+"creating an account, submitting a donation, or downloading a digital design "
+"asset, you irrevocably agree to this Public Offer (the \"Agreement\"). If "
+"you disagree with any clause, you must cease usage immediately. Your "
+"continued use constitutes ongoing acceptance."
 msgstr ""
 
 #: templates/public_offer.html:66
 msgid ""
-"By accessing or using this website (the \"Platform\"), placing an order, "
-"creating an account, submitting an advance payment or donation, or "
-"downloading a digital design asset, you irrevocably agree to this Public "
-"Offer (the \"Agreement\"). If you disagree with any clause, you must cease "
-"usage immediately. Your continued use constitutes ongoing acceptance."
+"<strong>\"Products\"</strong> – physical computer hardware listed in the "
+"Store. <strong>\"Design Assets\"</strong> – downloadable or licensable "
+"digital works provided via the Marketplace. <strong>\"User\"</strong> – any "
+"natural or legal person accessing the Platform. <strong>\"Account\"</strong> "
+"– personalized access credentials enabling orders and reviews."
 msgstr ""
 
 #: templates/public_offer.html:67
 msgid ""
-"<strong>\"Products\"</strong> – physical computer hardware listed in the "
-"Store. <strong>\"Design Assets\"</strong> – downloadable or licensable "
-"digital works provided via the Marketplace. <strong>\"Advance Payment\"</"
-"strong> – voluntary pre-payment or contribution processed through the "
-"Advance Payment module. <strong>\"User\"</strong> – any natural or legal "
-"person accessing the Platform. <strong>\"Account\"</strong> – personalized "
-"access credentials enabling orders and reviews."
+"We provide: (a) an e-commerce interface for purchasing hardware Products; "
+"(b) a curated Marketplace for Design Assets; and (c) a session-based cart "
+"enabling combined checkout. We reserve the right to modify available "
+"Products, pricing, and features without prior notice."
 msgstr ""
 
 #: templates/public_offer.html:68
 msgid ""
-"We provide: (a) an e-commerce interface for purchasing hardware Products; "
-"(b) a curated Marketplace for Design Assets; (c) a session-based cart "
-"enabling combined checkout; and (d) an optional Advance Payment feature. We "
-"reserve the right to modify available Products, pricing, and features "
-"without prior notice."
+"Order steps: (1) Add items (physical or digital); (2) Review cart; (3) "
+"Provide checkout details; (4) Submit payment; (5) Receive confirmation. We "
+"may decline or cancel orders (e.g., suspected fraud, pricing errors, "
+"regulatory concerns) with refund where payment has settled."
 msgstr ""
 
 #: templates/public_offer.html:69
-msgid ""
-"All listings include indicative specifications, pricing, discount data and "
-"media. While we strive for accuracy, minor discrepancies (e.g., color tone, "
-"packaging) may occur. Stock status is dynamic; placement of items in a cart "
-"does not reserve inventory until order confirmation."
-msgstr ""
-
-#: templates/public_offer.html:70
-msgid ""
-"Prices are shown in the local currency unless otherwise stated and may "
-"change before order acceptance. Percentage discount calculations are based "
-"on the pre-discount list price. Advance Payments are discretionary and do "
-"not grant equity or ownership; they may be applied toward future purchases "
-"at our discretion or treated as goodwill support."
-msgstr ""
-
-#: templates/public_offer.html:71
-msgid ""
-"Order steps: (1) Add items (physical or digital) / choose optional Advance "
-"Payment; (2) Review cart; (3) Provide checkout details; (4) Submit payment; "
-"(5) Receive confirmation. We may decline or cancel orders (e.g., suspected "
-"fraud, pricing errors, regulatory concerns) with refund where payment has "
-"settled."
-msgstr ""
-
-#: templates/public_offer.html:72
 msgid ""
 "Supported payment channels are listed at checkout. Transactions are "
 "processed through vetted third-party providers using encrypted transport. We "
@@ -798,7 +773,7 @@ msgid ""
 "without proper authorization."
 msgstr ""
 
-#: templates/public_offer.html:73
+#: templates/public_offer.html:70
 msgid ""
 "Physical Products ship per carrier timelines displayed at checkout; risk of "
 "loss transfers upon carrier acceptance. Digital Design Assets are delivered "
@@ -806,14 +781,14 @@ msgid ""
 "transferable and revocable upon breach."
 msgstr ""
 
-#: templates/public_offer.html:74
+#: templates/public_offer.html:71
 msgid ""
 "You must maintain accurate profile data, safeguard credentials, and promptly "
 "report unauthorized use. We may suspend accounts exhibiting abusive, "
 "fraudulent or security-compromising behavior."
 msgstr ""
 
-#: templates/public_offer.html:75
+#: templates/public_offer.html:72
 msgid ""
 "Reviews must reflect genuine personal experience and comply with applicable "
 "law. We may moderate or remove content that is misleading, defamatory, "
@@ -821,7 +796,7 @@ msgid ""
 "Product or Asset per account (editable thereafter)."
 msgstr ""
 
-#: templates/public_offer.html:76
+#: templates/public_offer.html:73
 msgid ""
 "All trademarks, logos, interface design, code, product data and Design "
 "Assets (unless otherwise attributed) remain our or the respective creator’s "
@@ -829,41 +804,31 @@ msgid ""
 "extraction is prohibited."
 msgstr ""
 
-#: templates/public_offer.html:77
+#: templates/public_offer.html:74
 msgid ""
-"Except where mandated by law, the Platform and content are provided \"AS "
-"IS\" without warranties (express or implied) including merchantability, "
-"fitness for a particular purpose, title, or non-infringement. Hardware "
-"manufacturer warranties may apply separately."
+"Except where mandated by law, the Platform and content are provided without "
+"warranties (express or implied) including merchantability, fitness for a "
+"particular purpose, title, or non-infringement. Hardware manufacturer "
+"warranties may apply separately."
 msgstr ""
 
-#: templates/public_offer.html:78
+#: templates/public_offer.html:75
 msgid ""
 "Eligible physical Products may be returned in original condition within the "
-"statutory window (unless classified as final sale). Digital Assets and "
-"Advance Payments are generally non-refundable once accessed or booked, "
-"except where required by consumer protection rules or in cases of confirmed "
-"technical defect."
+"statutory window (unless classified as final sale). Digital Assets are "
+"generally non-refundable once accessed or booked, except where required by "
+"consumer protection rules or in cases of confirmed technical defect."
 msgstr ""
 
-#: templates/public_offer.html:79
-msgid ""
-"Advance Payments are voluntary and processed like a standalone cart line. "
-"They don’t constitute purchase of goods unless later applied at checkout per "
-"an explicit program. Misuse (e.g., money laundering attempts) will result in "
-"reversal and possible reporting."
-msgstr ""
-
-#: templates/public_offer.html:80
+#: templates/public_offer.html:76
 msgid ""
 "To the maximum extent permitted, aggregate liability for any claims arising "
-"out of Platform use shall not exceed the greater of: (a) the total fees paid "
-"for the disputed order; or (b) the amount of the Advance Payment linked to "
-"the claim. We are not liable for indirect, incidental, special or "
-"consequential damages."
+"out of Platform use shall not exceed the total fees paid for the disputed "
+"order. We are not liable for indirect, incidental, special or consequential "
+"damages."
 msgstr ""
 
-#: templates/public_offer.html:81
+#: templates/public_offer.html:77
 msgid ""
 "Personal data is processed under our Privacy Policy (available separately) "
 "for legitimate operational, security, and communication purposes. You "
@@ -871,7 +836,7 @@ msgid ""
 "exist."
 msgstr ""
 
-#: templates/public_offer.html:82
+#: templates/public_offer.html:78
 msgid ""
 "We implement automated and manual review layers to detect anomalous patterns "
 "(bulk account creation, scripted cart manipulation, abnormal payment "
@@ -879,7 +844,7 @@ msgid ""
 "referral."
 msgstr ""
 
-#: templates/public_offer.html:83
+#: templates/public_offer.html:79
 msgid ""
 "Performance delays or failures caused by events beyond reasonable control "
 "(natural disasters, power failures, cyber incidents, regulatory actions, "
@@ -887,14 +852,14 @@ msgid ""
 "once impediment ends."
 msgstr ""
 
-#: templates/public_offer.html:84
+#: templates/public_offer.html:80
 msgid ""
 "We may revise this Offer by posting an updated version with a new effective "
 "date. Material revisions will, where feasible, include a notice banner. "
 "Continued usage following publication constitutes acceptance."
 msgstr ""
 
-#: templates/public_offer.html:85
+#: templates/public_offer.html:81
 msgid ""
 "Applicable governing law is determined by our principal place of business "
 "unless mandatory consumer jurisdiction rules apply. Parties shall first "
@@ -902,29 +867,29 @@ msgid ""
 "courts of general jurisdiction."
 msgstr ""
 
-#: templates/public_offer.html:86
+#: templates/public_offer.html:82
 msgid ""
-"Questions, legal notices, or data requests: <a href=\"mailto:support@example."
-"com\">support@example.com</a>. Physical correspondence address available "
-"upon legitimate written request."
+"Questions, legal notices, or data requests: <a href=\"mailto:"
+"darkandwhite@inbox.eu\">darkandwhite@inbox.eu</a>. Physical correspondence "
+"address available upon legitimate written request."
 msgstr ""
 
-#: templates/public_offer.html:87
+#: templates/public_offer.html:83
 msgid "Need a copy?"
 msgstr ""
 
-#: templates/public_offer.html:87
+#: templates/public_offer.html:83
 msgid ""
 "You may print or store this page locally. Continued use of the Platform "
 "signifies ongoing acceptance of the latest version of these terms."
 msgstr ""
 
 # Company info table (public_offer)
-#: templates/public_offer.html:91
+#: templates/public_offer.html:87
 msgid "Company Legal & Banking Information"
 msgstr "Company Legal & Banking Information"
 
-#: templates/public_offer.html:92
+#: templates/public_offer.html:88
 msgid ""
 "The following table summarizes the officially registered corporate and "
 "banking details of the service provider for reference in contractual / "
@@ -934,63 +899,63 @@ msgstr ""
 "banking details of the service provider for reference in contractual / "
 "public offer contexts."
 
-#: templates/public_offer.html:97
+#: templates/public_offer.html:93
 msgid "Field"
 msgstr "Field"
 
-#: templates/public_offer.html:102
+#: templates/public_offer.html:98
 msgid "Full Company Name"
 msgstr "Full Company Name"
 
-#: templates/public_offer.html:103
+#: templates/public_offer.html:99
 msgid "TIN (STIR)"
 msgstr "TIN (STIR)"
 
-#: templates/public_offer.html:104
+#: templates/public_offer.html:100
 msgid "Registered Address"
 msgstr "Registered Address"
 
-#: templates/public_offer.html:105
+#: templates/public_offer.html:101
 msgid "Tel"
 msgstr ""
 
-#: templates/public_offer.html:107
+#: templates/public_offer.html:103
 msgid "Bank Name"
 msgstr "Bank Name"
 
-#: templates/public_offer.html:108
+#: templates/public_offer.html:104
 msgid "MFO"
 msgstr "MFO"
 
-#: templates/public_offer.html:109
+#: templates/public_offer.html:105
 msgid "SWIFT"
 msgstr "SWIFT"
 
-#: templates/public_offer.html:111
+#: templates/public_offer.html:107
 msgid "Bank Accounts"
 msgstr "Bank Accounts"
 
-#: templates/public_offer.html:114
+#: templates/public_offer.html:110
 msgid "Deposit account (UZS)"
 msgstr "Deposit account (UZS)"
 
-#: templates/public_offer.html:114 templates/public_offer.html:115
+#: templates/public_offer.html:110 templates/public_offer.html:111
 msgid "Opened:"
 msgstr "Opened:"
 
-#: templates/public_offer.html:115
+#: templates/public_offer.html:111
 msgid "Deposit account (USD)"
 msgstr "Deposit account (USD)"
 
-#: templates/public_offer.html:123
+#: templates/public_offer.html:119
 msgid "Follow us"
 msgstr ""
 
-#: templates/public_offer.html:127
+#: templates/public_offer.html:123
 msgid "Telegram"
 msgstr ""
 
-#: templates/public_offer.html:132
+#: templates/public_offer.html:128
 msgid "Instagram"
 msgstr ""
 

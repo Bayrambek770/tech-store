@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-05 05:23+0000\n"
+"POT-Creation-Date: 2025-09-05 05:54+0000\n"
 "PO-Revision-Date: 2025-08-28 01:28+0000\n"
 "Last-Translator:   <admin@mail.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,7 +83,7 @@ msgstr ""
 msgid "Your cart is empty."
 msgstr "Ваша корзина пуста."
 
-#: orders/views.py:92 templates/donation.html:4 templates/index.html:235
+#: orders/views.py:92 templates/donation.html:4 templates/index.html:236
 msgid "Advance Payment"
 msgstr "Авансовый платеж"
 
@@ -95,7 +95,7 @@ msgstr ""
 msgid "Name"
 msgstr "Название"
 
-#: products/models.py:24 templates/public_offer.html:98
+#: products/models.py:24 templates/public_offer.html:94
 msgid "Description"
 msgstr ""
 
@@ -232,7 +232,7 @@ msgstr "Фамилия"
 msgid "Doe"
 msgstr "Иванов"
 
-#: templates/checkout.html:51 templates/public_offer.html:106
+#: templates/checkout.html:51 templates/public_offer.html:102
 #: users/models.py:26
 msgid "Email"
 msgstr "Email"
@@ -419,7 +419,9 @@ msgid "Dark and White"
 msgstr "Dark and White"
 
 #: templates/index.html:32
-msgid "Premium Components • Design Assets • Smart Advance Payments"
+#, fuzzy
+#| msgid "Premium Components • Design Assets • Smart Advance Payments"
+msgid "Premium Components • Design Assets"
 msgstr "Премиум компоненты • Дизайн-активы • Умные авансы"
 
 #: templates/index.html:34
@@ -528,61 +530,61 @@ msgstr "акция действует до 15 июля 2025!"
 msgid "Go Shopping"
 msgstr "В магазин"
 
-#: templates/index.html:199
+#: templates/index.html:200
 msgid "Advance Pay"
 msgstr "Авансовый платеж"
 
-#: templates/index.html:208
+#: templates/index.html:209
 msgid "How can you communicate?"
 msgstr "Как с нами связаться?"
 
-#: templates/index.html:209
+#: templates/index.html:210
 msgid "Contact Us"
 msgstr "Свяжитесь с нами"
 
-#: templates/index.html:214
+#: templates/index.html:215
 msgid "Your Name"
 msgstr "Ваше имя"
 
-#: templates/index.html:214
+#: templates/index.html:215
 msgid "Your name"
 msgstr "Ваше имя"
 
-#: templates/index.html:217
+#: templates/index.html:218
 msgid "Enter Email"
 msgstr "Введите Email"
 
-#: templates/index.html:217
+#: templates/index.html:218
 #: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1920
 msgid "Email address"
 msgstr "Адрес электронной почты"
 
-#: templates/index.html:220
+#: templates/index.html:221
 msgid "Write Something"
 msgstr "Напишите сообщение"
 
-#: templates/index.html:220 users/models.py:28
+#: templates/index.html:221 users/models.py:28
 msgid "Message"
 msgstr "Сообщение"
 
-#: templates/index.html:223
+#: templates/index.html:224
 msgid "Send Message"
 msgstr "Отправить сообщение"
 
-#: templates/index.html:223
+#: templates/index.html:224
 msgid "Send message"
 msgstr "Отправить сообщение"
 
-#: templates/index.html:232
+#: templates/index.html:233
 msgid "All for PC. All rights reserved."
 msgstr "All for PC. Все права защищены."
 
-#: templates/index.html:234 templates/layouts/navbar.html:17
+#: templates/index.html:235 templates/layouts/navbar.html:17
 #: templates/layouts/navbar.html:49
 msgid "Public Offer"
 msgstr "Публичная оферта"
 
-#: templates/index.html:236 templates/layouts/navbar.html:9
+#: templates/index.html:237 templates/layouts/navbar.html:9
 #: templates/layouts/navbar.html:46
 msgid "Marketplace"
 msgstr "Маркетплейс"
@@ -623,12 +625,8 @@ msgid "No items in this order."
 msgstr "В этом заказе нет товаров."
 
 #: templates/orders/order_success.html:43
-msgid "Back to Store"
-msgstr "Назад в магазин"
-
 msgid "Back to Home"
 msgstr "На главную"
-
 
 #: templates/product_detail.html:47
 msgid "Secure checkout • Easy returns • Fast support"
@@ -686,179 +684,146 @@ msgstr "Публичная оферта и условия обслуживани
 msgid "Contents"
 msgstr "Содержание"
 
-#: templates/public_offer.html:44 templates/public_offer.html:66
+#: templates/public_offer.html:44 templates/public_offer.html:65
 msgid "1. Acceptance of the Offer"
 msgstr "1. Принятие оферты"
 
-#: templates/public_offer.html:45 templates/public_offer.html:67
+#: templates/public_offer.html:45 templates/public_offer.html:66
 msgid "2. Definitions"
 msgstr "2. Определения"
 
-#: templates/public_offer.html:46 templates/public_offer.html:68
+#: templates/public_offer.html:46 templates/public_offer.html:67
 msgid "3. Subject of the Agreement"
 msgstr "3. Предмет соглашения"
 
-#: templates/public_offer.html:47 templates/public_offer.html:69
+#: templates/public_offer.html:47
 msgid "4. Product Information & Availability"
 msgstr "4. Информация о товарах и наличие"
 
-#: templates/public_offer.html:48 templates/public_offer.html:70
-msgid "5. Prices, Discounts & Advance Payments"
+#: templates/public_offer.html:48
+#, fuzzy
+#| msgid "5. Prices, Discounts & Advance Payments"
+msgid "5. Prices and Discounts"
 msgstr "5. Цены, скидки и авансовые платежи"
 
-#: templates/public_offer.html:49 templates/public_offer.html:71
+#: templates/public_offer.html:49 templates/public_offer.html:68
 msgid "6. Ordering Process"
 msgstr "6. Процесс оформления заказа"
 
-#: templates/public_offer.html:50 templates/public_offer.html:72
+#: templates/public_offer.html:50 templates/public_offer.html:69
 msgid "7. Payment Methods & Security"
 msgstr "7. Способы оплаты и безопасность"
 
-#: templates/public_offer.html:51 templates/public_offer.html:73
+#: templates/public_offer.html:51 templates/public_offer.html:70
 msgid "8. Delivery & Digital Assets"
 msgstr "8. Доставка и цифровые объекты"
 
-#: templates/public_offer.html:52 templates/public_offer.html:74
+#: templates/public_offer.html:52 templates/public_offer.html:71
 msgid "9. User Accounts & Security"
 msgstr "9. Учетные записи пользователей и безопасность"
 
-#: templates/public_offer.html:53 templates/public_offer.html:75
+#: templates/public_offer.html:53 templates/public_offer.html:72
 msgid "10. Reviews & User Content"
 msgstr "10. Отзывы и пользовательский контент"
 
-#: templates/public_offer.html:54 templates/public_offer.html:76
+#: templates/public_offer.html:54 templates/public_offer.html:73
 msgid "11. Intellectual Property"
 msgstr "11. Интеллектуальная собственность"
 
-#: templates/public_offer.html:55 templates/public_offer.html:77
+#: templates/public_offer.html:55 templates/public_offer.html:74
 msgid "12. Warranty Disclaimer"
 msgstr "12. Отказ от гарантий"
 
-#: templates/public_offer.html:56 templates/public_offer.html:78
+#: templates/public_offer.html:56 templates/public_offer.html:75
 msgid "13. Returns, Refunds & Cancellations"
 msgstr "13. Возвраты, возвраты средств и отмены"
 
-#: templates/public_offer.html:57 templates/public_offer.html:79
-msgid "14. Advance / Donation Policy"
-msgstr "14. Политика авансов / пожертвований"
-
-#: templates/public_offer.html:58 templates/public_offer.html:80
+#: templates/public_offer.html:57 templates/public_offer.html:76
 msgid "15. Limitation of Liability"
 msgstr "15. Ограничение ответственности"
 
-#: templates/public_offer.html:59 templates/public_offer.html:81
+#: templates/public_offer.html:58 templates/public_offer.html:77
 msgid "16. Data Protection & Privacy"
 msgstr "16. Защита данных и конфиденциальность"
 
-#: templates/public_offer.html:60 templates/public_offer.html:82
+#: templates/public_offer.html:59 templates/public_offer.html:78
 msgid "17. Anti-Fraud & Security Monitoring"
 msgstr "17. Мониторинг мошенничества и безопасности"
 
-#: templates/public_offer.html:61 templates/public_offer.html:83
+#: templates/public_offer.html:60 templates/public_offer.html:79
 msgid "18. Force Majeure"
 msgstr "18. Форс-мажор"
 
-#: templates/public_offer.html:62 templates/public_offer.html:84
+#: templates/public_offer.html:61 templates/public_offer.html:80
 msgid "19. Amendments"
 msgstr "19. Изменения"
 
-#: templates/public_offer.html:63 templates/public_offer.html:85
+#: templates/public_offer.html:62 templates/public_offer.html:81
 msgid "20. Governing Law & Disputes"
 msgstr "20. Применимое право и споры"
 
-#: templates/public_offer.html:64 templates/public_offer.html:86
+#: templates/public_offer.html:63 templates/public_offer.html:82
 msgid "21. Contact Information"
 msgstr "21. Контактная информация"
 
-#: templates/public_offer.html:66
+#: templates/public_offer.html:65
 msgid ""
 "By accessing or using this website (the \"Platform\"), placing an order, "
-"creating an account, submitting an advance payment or donation, or "
-"downloading a digital design asset, you irrevocably agree to this Public "
-"Offer (the \"Agreement\"). If you disagree with any clause, you must cease "
-"usage immediately. Your continued use constitutes ongoing acceptance."
+"creating an account, submitting a donation, or downloading a digital design "
+"asset, you irrevocably agree to this Public Offer (the \"Agreement\"). If "
+"you disagree with any clause, you must cease usage immediately. Your "
+"continued use constitutes ongoing acceptance."
 msgstr ""
-"Получая доступ или используя этот веб‑сайт (\"Платформа\"), оформляя заказ, "
-"создавая учетную запись, внося аванс или пожертвование либо скачивая "
-"цифровой дизайн‑актив, вы безотзывно соглашаетесь с настоящей Публичной "
-"офертой (\"Соглашение\"). Если вы не согласны с каким‑либо пунктом, "
-"немедленно прекратите использование. Дальнейшее использование означает "
-"продолжение принятия условий."
+"Получая доступ к этому веб‑сайту («Платформа») или используя его, оформляя "
+"заказ, создавая учетную запись, внося пожертвование или загружая цифровой "
+"дизайн‑актив, вы безотзывно принимаете настоящую Публичную оферту "
+"(«Соглашение»). Если вы не согласны с каким‑либо положением, вы должны "
+"немедленно прекратить использование. Дальнейшее использование означает "
+"продолжающееся принятие условий."
 
-#: templates/public_offer.html:67
+#: templates/public_offer.html:66
 msgid ""
 "<strong>\"Products\"</strong> – physical computer hardware listed in the "
 "Store. <strong>\"Design Assets\"</strong> – downloadable or licensable "
-"digital works provided via the Marketplace. <strong>\"Advance Payment\"</"
-"strong> – voluntary pre-payment or contribution processed through the "
-"Advance Payment module. <strong>\"User\"</strong> – any natural or legal "
-"person accessing the Platform. <strong>\"Account\"</strong> – personalized "
-"access credentials enabling orders and reviews."
+"digital works provided via the Marketplace. <strong>\"User\"</strong> – any "
+"natural or legal person accessing the Platform. <strong>\"Account\"</strong> "
+"– personalized access credentials enabling orders and reviews."
 msgstr ""
-"<strong>\"Товары\"</strong> – физическое компьютерное оборудование, "
-"представленное в Магазине. <strong>\"Дизайн‑активы\"</strong> – загружаемые "
-"или лицензируемые цифровые работы на Маркетплейсе. <strong>\"Авансовый "
-"платеж\"</strong> – добровольная предоплата или взнос через модуль авансов. "
-"<strong>\"Пользователь\"</strong> – любое физическое или юридическое лицо, "
-"получающее доступ к Платформе. <strong>\"Учетная запись\"</strong> – "
+"<strong>«Товары»</strong> — физическое компьютерное оборудование, "
+"представленное в Магазине. <strong>«Дизайн‑активы»</strong> — загружаемые "
+"или лицензируемые цифровые работы, предоставляемые через Маркетплейс. "
+"<strong>«Пользователь»</strong> — любое физическое или юридическое лицо, "
+"получающее доступ к Платформе. <strong>«Учетная запись»</strong> — "
 "персонализированные учетные данные, позволяющие оформлять заказы и оставлять "
 "отзывы."
 
-#: templates/public_offer.html:68
+#: templates/public_offer.html:67
 msgid ""
 "We provide: (a) an e-commerce interface for purchasing hardware Products; "
-"(b) a curated Marketplace for Design Assets; (c) a session-based cart "
-"enabling combined checkout; and (d) an optional Advance Payment feature. We "
-"reserve the right to modify available Products, pricing, and features "
-"without prior notice."
+"(b) a curated Marketplace for Design Assets; and (c) a session-based cart "
+"enabling combined checkout. We reserve the right to modify available "
+"Products, pricing, and features without prior notice."
 msgstr ""
-"Мы предоставляем: (a) интерфейс электронной коммерции для покупки аппаратных "
+"Мы предоставляем: (a) интерфейс электронной торговли для покупки аппаратных "
 "Товаров; (b) модерируемый Маркетплейс для Дизайн‑активов; (c) сессионную "
-"корзину для совместного оформления; и (d) необязательную функцию Авансового "
-"платежа. Мы оставляем за собой право менять ассортимент, цены и "
-"функциональность без предварительного уведомления."
+"корзину, позволяющую совместно оформлять покупку. Мы оставляем за собой "
+"право изменять доступные Товары, цены и функциональность без предварительного "
+"уведомления."
+
+#: templates/public_offer.html:68
+msgid ""
+"Order steps: (1) Add items (physical or digital); (2) Review cart; (3) "
+"Provide checkout details; (4) Submit payment; (5) Receive confirmation. We "
+"may decline or cancel orders (e.g., suspected fraud, pricing errors, "
+"regulatory concerns) with refund where payment has settled."
+msgstr ""
+"Этапы заказа: (1) Добавьте позиции (физические или цифровые); (2) Проверьте "
+"корзину; (3) Укажите данные для оформления; (4) Произведите оплату; (5) "
+"Получите подтверждение. Мы можем отклонить или отменить заказ (например, "
+"при подозрении на мошенничество, ошибках цены, регуляторных рисках) с "
+"возвратом средств, если оплата была завершена."
 
 #: templates/public_offer.html:69
-msgid ""
-"All listings include indicative specifications, pricing, discount data and "
-"media. While we strive for accuracy, minor discrepancies (e.g., color tone, "
-"packaging) may occur. Stock status is dynamic; placement of items in a cart "
-"does not reserve inventory until order confirmation."
-msgstr ""
-"Все карточки содержат ориентировочные характеристики, цену, данные о скидках "
-"и медиа. Хотя мы стремимся к точности, возможны незначительные расхождения "
-"(например, оттенок цвета, упаковка). Наличие динамично; помещение товара в "
-"корзину не резервирует его до подтверждения заказа."
-
-#: templates/public_offer.html:70
-msgid ""
-"Prices are shown in the local currency unless otherwise stated and may "
-"change before order acceptance. Percentage discount calculations are based "
-"on the pre-discount list price. Advance Payments are discretionary and do "
-"not grant equity or ownership; they may be applied toward future purchases "
-"at our discretion or treated as goodwill support."
-msgstr ""
-"Цены отображаются в локальной валюте, если не указано иное, и могут "
-"изменяться до принятия заказа. Процент скидки рассчитывается от базовой цены "
-"до скидки. Авансовые платежи добровольны и не дают доли или права "
-"собственности; они могут быть зачтены в будущие покупки по нашему усмотрению "
-"или рассматриваться как поддержка."
-
-#: templates/public_offer.html:71
-msgid ""
-"Order steps: (1) Add items (physical or digital) / choose optional Advance "
-"Payment; (2) Review cart; (3) Provide checkout details; (4) Submit payment; "
-"(5) Receive confirmation. We may decline or cancel orders (e.g., suspected "
-"fraud, pricing errors, regulatory concerns) with refund where payment has "
-"settled."
-msgstr ""
-"Этапы заказа: (1) Добавьте позиции (физические или цифровые) / выберите "
-"опциональный аванс; (2) Проверьте корзину; (3) Укажите данные оформления; "
-"(4) Произведите оплату; (5) Получите подтверждение. Мы можем отклонить или "
-"отменить заказ (например, подозрение на мошенничество, ошибки цены, "
-"нормативные ограничения) с возвратом, если платеж уже совершен."
-
-#: templates/public_offer.html:72
 msgid ""
 "Supported payment channels are listed at checkout. Transactions are "
 "processed through vetted third-party providers using encrypted transport. We "
@@ -867,34 +832,34 @@ msgid ""
 msgstr ""
 "Поддерживаемые способы оплаты перечислены при оформлении. Транзакции "
 "обрабатываются проверенными сторонними провайдерами с использованием "
-"шифрования. Мы не храним исходные номера карт. Вы соглашаетесь не "
+"шифрованного канала. Мы не храним открытые номера карт. Вы соглашаетесь не "
 "использовать платёжные инструменты без надлежащего разрешения."
 
-#: templates/public_offer.html:73
+#: templates/public_offer.html:70
 msgid ""
 "Physical Products ship per carrier timelines displayed at checkout; risk of "
 "loss transfers upon carrier acceptance. Digital Design Assets are delivered "
 "via authenticated download or licensed access; license is non-exclusive, non-"
 "transferable and revocable upon breach."
 msgstr ""
-"Физические Товары отправляются согласно срокам перевозчика, показанным при "
-"оформлении; риск утраты переходит при принятии перевозчиком. Цифровые "
+"Физические Товары отправляются в сроки перевозчика, указанные при оформлении; "
+"риск утраты переходит в момент принятия груза перевозчиком. Цифровые "
 "Дизайн‑активы предоставляются через аутентифицированную загрузку или "
 "лицензированный доступ; лицензия неисключительная, непередаваемая и может "
 "быть отозвана при нарушении."
 
-#: templates/public_offer.html:74
+#: templates/public_offer.html:71
 msgid ""
 "You must maintain accurate profile data, safeguard credentials, and promptly "
 "report unauthorized use. We may suspend accounts exhibiting abusive, "
 "fraudulent or security-compromising behavior."
 msgstr ""
-"Вы должны поддерживать актуальные профильные данные, защищать учетные данные "
-"и своевременно сообщать о несанкционированном использовании. Мы можем "
-"приостановить учетные записи при злоупотреблениях, мошенничестве или угрозе "
-"безопасности."
+"Вы должны поддерживать точность профильных данных, защищать учетные данные и "
+"незамедлительно сообщать о несанкционированном использовании. Мы можем "
+"приостанавливать учетные записи при злоупотреблениях, мошенничестве или "
+"угрозе безопасности."
 
-#: templates/public_offer.html:75
+#: templates/public_offer.html:72
 msgid ""
 "Reviews must reflect genuine personal experience and comply with applicable "
 "law. We may moderate or remove content that is misleading, defamatory, "
@@ -902,102 +867,87 @@ msgid ""
 "Product or Asset per account (editable thereafter)."
 msgstr ""
 "Отзывы должны отражать реальный личный опыт и соответствовать применимому "
-"законодательству. Мы можем модерировать или удалять вводящий в заблуждение, "
-"клеветнический, непристойный, нарушающий права, спам‑подобный или нарушающий "
-"Соглашение контент. Один отзыв на Товар или Актив на аккаунт (с последующим "
-"редактированием)."
+"законодательству. Мы можем модерировать или удалять контент, который является "
+"вводящим в заблуждение, клеветническим, непристойным, нарушающим права, "
+"спамоподобным или противоречащим настоящему Соглашению. Один отзыв на Товар "
+"или Актив от одной учетной записи (с последующим редактированием)."
 
-#: templates/public_offer.html:76
+#: templates/public_offer.html:73
 msgid ""
 "All trademarks, logos, interface design, code, product data and Design "
 "Assets (unless otherwise attributed) remain our or the respective creator’s "
 "intellectual property. Unauthorized reproduction, scraping, or automated "
 "extraction is prohibited."
 msgstr ""
-"Все товарные знаки, логотипы, дизайн интерфейса, код, данные о товарах и "
-"Дизайн‑активы (если не указано иное) являются нашей или соответствующего "
-"автора интеллектуальной собственностью. Несанкционированное воспроизведение, "
-"сбор или автоматизированное извлечение запрещены."
+"Все товарные знаки, логотипы, дизайн интерфейса, программный код, данные о "
+"товарах и Дизайн‑активы (если не указано иное) являются интеллектуальной "
+"собственностью нашей компании или соответствующего автора. Несанкционированные "
+"воспроизведение, сбор или автоматизированное извлечение запрещены."
 
-#: templates/public_offer.html:77
+#: templates/public_offer.html:74
 msgid ""
-"Except where mandated by law, the Platform and content are provided \"AS "
-"IS\" without warranties (express or implied) including merchantability, "
-"fitness for a particular purpose, title, or non-infringement. Hardware "
-"manufacturer warranties may apply separately."
+"Except where mandated by law, the Platform and content are provided without "
+"warranties (express or implied) including merchantability, fitness for a "
+"particular purpose, title, or non-infringement. Hardware manufacturer "
+"warranties may apply separately."
 msgstr ""
 "За исключением случаев, предусмотренных законом, Платформа и контент "
-"предоставляются \"КАК ЕСТЬ\" без каких-либо (явных или подразумеваемых) "
-"гарантий, включая товарную пригодность, пригодность для конкретной цели, "
-"права собственности или ненарушение прав. Гарантии производителя "
-"оборудования могут применяться отдельно."
+"предоставляются «КАК ЕСТЬ» без каких‑либо явных или подразумеваемых гарантий, "
+"включая товарную пригодность, пригодность для конкретной цели, права "
+"собственности или ненарушение прав. Гарантии производителя оборудования могут "
+"применяться отдельно."
 
-#: templates/public_offer.html:78
+#: templates/public_offer.html:75
 msgid ""
 "Eligible physical Products may be returned in original condition within the "
-"statutory window (unless classified as final sale). Digital Assets and "
-"Advance Payments are generally non-refundable once accessed or booked, "
-"except where required by consumer protection rules or in cases of confirmed "
-"technical defect."
+"statutory window (unless classified as final sale). Digital Assets are "
+"generally non-refundable once accessed or booked, except where required by "
+"consumer protection rules or in cases of confirmed technical defect."
 msgstr ""
-"Допустимые физические Товары могут быть возвращены в первоначальном "
-"состоянии в пределах установленного законом срока (если не обозначены как "
-"окончательная продажа). Цифровые Активы и Авансовые платежи обычно не "
-"подлежат возврату после доступа или бронирования, кроме случаев, требуемых "
-"правилами защиты прав потребителей или при подтверждённом техническом "
+"Допустимые физические Товары могут быть возвращены в первоначальном состоянии "
+"в пределах установленного законом срока (если не отнесены к категории "
+"окончательной продажи). Цифровые Активы, как правило, не подлежат возврату "
+"после получения доступа или загрузки, за исключением случаев, предусмотренных "
+"правилами защиты прав потребителей, либо при подтверждённом техническом "
 "дефекте."
 
-#: templates/public_offer.html:79
-msgid ""
-"Advance Payments are voluntary and processed like a standalone cart line. "
-"They don’t constitute purchase of goods unless later applied at checkout per "
-"an explicit program. Misuse (e.g., money laundering attempts) will result in "
-"reversal and possible reporting."
-msgstr ""
-"Авансовые платежи добровольны и обрабатываются как отдельная строка корзины. "
-"Они не означают покупку товаров, если позже не зачтены при оформлении по "
-"явной программе. Злоупотребление (например, попытки отмывания средств) "
-"приведёт к отмене и возможному сообщению компетентным органам."
-
-#: templates/public_offer.html:80
+#: templates/public_offer.html:76
 msgid ""
 "To the maximum extent permitted, aggregate liability for any claims arising "
-"out of Platform use shall not exceed the greater of: (a) the total fees paid "
-"for the disputed order; or (b) the amount of the Advance Payment linked to "
-"the claim. We are not liable for indirect, incidental, special or "
-"consequential damages."
+"out of Platform use shall not exceed the total fees paid for the disputed "
+"order. We are not liable for indirect, incidental, special or consequential "
+"damages."
 msgstr ""
-"В максимально допустимой степени совокупная ответственность по любым "
-"требованиям из использования Платформы не превышает большую из величин: (a) "
-"общая сумма, уплаченная за спорный заказ; или (b) размер Авансового платежа, "
-"связанного с требованием. Мы не отвечаем за косвенные, случайные, особые или "
-"последующие убытки."
+"В максимально допустимых законом пределах совокупная ответственность по любым "
+"требованиям, возникающим из использования Платформы, не превышает общую сумму, "
+"уплаченную за спорный заказ. Мы не несём ответственности за косвенные, "
+"случайные, особые или последующие убытки."
 
-#: templates/public_offer.html:81
+#: templates/public_offer.html:77
 msgid ""
 "Personal data is processed under our Privacy Policy (available separately) "
 "for legitimate operational, security, and communication purposes. You "
 "consent to necessary cross-border data transfers where applicable safeguards "
 "exist."
 msgstr ""
-"Персональные данные обрабатываются согласно нашей Политике "
+"Персональные данные обрабатываются в соответствии с нашей Политикой "
 "конфиденциальности (доступна отдельно) для законных операционных, "
 "безопасностных и коммуникационных целей. Вы соглашаетесь на необходимые "
-"трансграничные передачи данных при наличии соответствующих гарантий."
+"трансграничные передачи данных при наличии применимых гарантий защиты."
 
-#: templates/public_offer.html:82
+#: templates/public_offer.html:78
 msgid ""
 "We implement automated and manual review layers to detect anomalous patterns "
 "(bulk account creation, scripted cart manipulation, abnormal payment "
 "attempts). Confirmed abuse may trigger suspension and law enforcement "
 "referral."
 msgstr ""
-"Мы используем автоматические и ручные проверки для выявления аномалий "
-"(массовое создание аккаунтов, скриптовые манипуляции с корзиной, необычные "
-"платежные попытки). Подтверждённые нарушения могут привести к блокировке и "
-"передаче информации в правоохранительные органы."
+"Мы применяем автоматические и ручные уровни проверки для выявления аномалий "
+"(массовое создание учетных записей, скриптовые манипуляции с корзиной, "
+"необычные платёжные попытки). Подтверждённые злоупотребления могут привести к "
+"блокировке и передаче информации в правоохранительные органы."
 
-#: templates/public_offer.html:83
+#: templates/public_offer.html:79
 msgid ""
 "Performance delays or failures caused by events beyond reasonable control "
 "(natural disasters, power failures, cyber incidents, regulatory actions, "
@@ -1005,21 +955,22 @@ msgid ""
 "once impediment ends."
 msgstr ""
 "Задержки или сбои исполнения, вызванные событиями вне разумного контроля "
-"(стихийные бедствия, отключения электроэнергии, киберинциденты, регуляторные "
-"меры, сбои цепочек поставок), не считаются нарушением. Обязательства "
-"возобновляются после прекращения препятствия."
+"(стихийные бедствия, отключения электроэнергии, киберинциденты, действия "
+"регуляторов, нарушения цепочек поставок), не считаются нарушением. "
+"Обязательства возобновляются после устранения препятствия."
 
-#: templates/public_offer.html:84
+#: templates/public_offer.html:80
 msgid ""
 "We may revise this Offer by posting an updated version with a new effective "
 "date. Material revisions will, where feasible, include a notice banner. "
 "Continued usage following publication constitutes acceptance."
 msgstr ""
-"Мы можем изменять эту Оферту, публикуя обновлённую версию с новой датой "
-"вступления. Существенные изменения, где возможно, будут сопровождаться "
-"уведомлением. Дальнейшее использование после публикации означает принятие."
+"Мы можем изменять настоящую Оферту, публикуя обновлённую версию с новой датой "
+"вступления в силу. Существенные изменения, где это возможно, будут сопровождаться "
+"информационным уведомлением. Дальнейшее использование после публикации "
+"означает принятие."
 
-#: templates/public_offer.html:85
+#: templates/public_offer.html:81
 msgid ""
 "Applicable governing law is determined by our principal place of business "
 "unless mandatory consumer jurisdiction rules apply. Parties shall first "
@@ -1027,25 +978,25 @@ msgid ""
 "courts of general jurisdiction."
 msgstr ""
 "Применимое право определяется местом нашего основного ведения деятельности, "
-"если только обязательные нормы потребительской юрисдикции не предписывают "
-"иное. Стороны сначала стремятся к мирному урегулированию; при неудаче споры "
-"рассматриваются компетентными судами общей юрисдикции."
+"если обязательные нормы потребительской юрисдикции не предусматривают иного. "
+"Стороны сначала стремятся к мирному урегулированию; при неудаче споры "
+"передаются в компетентные суды общей юрисдикции."
 
-#: templates/public_offer.html:86
+#: templates/public_offer.html:82
 msgid ""
-"Questions, legal notices, or data requests: <a href=\"mailto:support@example."
-"com\">support@example.com</a>. Physical correspondence address available "
-"upon legitimate written request."
+"Questions, legal notices, or data requests: <a href=\"mailto:"
+"darkandwhite@inbox.eu\">darkandwhite@inbox.eu</a>. Physical correspondence "
+"address available upon legitimate written request."
 msgstr ""
 "Вопросы, юридические уведомления или запросы данных: <a href=\"mailto:"
-"support@example.com\">support@example.com</a>. Почтовый адрес "
-"предоставляется при обоснованном письменном запросе."
+"darkandwhite@inbox.eu\">darkandwhite@inbox.eu</a>. Почтовый адрес "
+"предоставляется по обоснованному письменному запросу."
 
-#: templates/public_offer.html:87
+#: templates/public_offer.html:83
 msgid "Need a copy?"
 msgstr "Нужна копия?"
 
-#: templates/public_offer.html:87
+#: templates/public_offer.html:83
 msgid ""
 "You may print or store this page locally. Continued use of the Platform "
 "signifies ongoing acceptance of the latest version of these terms."
@@ -1054,11 +1005,11 @@ msgstr ""
 "использования Платформы означает принятие актуальной версии условий."
 
 # Company info table (public_offer)
-#: templates/public_offer.html:91
+#: templates/public_offer.html:87
 msgid "Company Legal & Banking Information"
 msgstr "Юридическая и банковская информация компании"
 
-#: templates/public_offer.html:92
+#: templates/public_offer.html:88
 msgid ""
 "The following table summarizes the officially registered corporate and "
 "banking details of the service provider for reference in contractual / "
@@ -1068,63 +1019,63 @@ msgstr ""
 "банковскими сведениями поставщика услуг для использования в договорных целях "
 "и в публичной оферте."
 
-#: templates/public_offer.html:97
+#: templates/public_offer.html:93
 msgid "Field"
 msgstr "Поле"
 
-#: templates/public_offer.html:102
+#: templates/public_offer.html:98
 msgid "Full Company Name"
 msgstr "Полное наименование компании"
 
-#: templates/public_offer.html:103
+#: templates/public_offer.html:99
 msgid "TIN (STIR)"
 msgstr "ИНН (СТИР)"
 
-#: templates/public_offer.html:104
+#: templates/public_offer.html:100
 msgid "Registered Address"
 msgstr "Юридический адрес"
 
-#: templates/public_offer.html:105
+#: templates/public_offer.html:101
 msgid "Tel"
 msgstr ""
 
-#: templates/public_offer.html:107
+#: templates/public_offer.html:103
 msgid "Bank Name"
 msgstr "Наименование банка"
 
-#: templates/public_offer.html:108
+#: templates/public_offer.html:104
 msgid "MFO"
 msgstr "МФО"
 
-#: templates/public_offer.html:109
+#: templates/public_offer.html:105
 msgid "SWIFT"
 msgstr "SWIFT"
 
-#: templates/public_offer.html:111
+#: templates/public_offer.html:107
 msgid "Bank Accounts"
 msgstr "Банковские счета"
 
-#: templates/public_offer.html:114
+#: templates/public_offer.html:110
 msgid "Deposit account (UZS)"
 msgstr "Депозитный счёт (UZS)"
 
-#: templates/public_offer.html:114 templates/public_offer.html:115
+#: templates/public_offer.html:110 templates/public_offer.html:111
 msgid "Opened:"
 msgstr "Открыт:"
 
-#: templates/public_offer.html:115
+#: templates/public_offer.html:111
 msgid "Deposit account (USD)"
 msgstr "Депозитный счёт (USD)"
 
-#: templates/public_offer.html:123
+#: templates/public_offer.html:119
 msgid "Follow us"
 msgstr "Следите за нами"
 
-#: templates/public_offer.html:127
+#: templates/public_offer.html:123
 msgid "Telegram"
 msgstr "Телеграм"
 
-#: templates/public_offer.html:132
+#: templates/public_offer.html:128
 msgid "Instagram"
 msgstr "Инстаграм"
 
@@ -2502,6 +2453,45 @@ msgstr ""
 #: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:236
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "14. Advance / Donation Policy"
+#~ msgstr "14. Политика авансов / пожертвований"
+
+#~ msgid ""
+#~ "All listings include indicative specifications, pricing, discount data "
+#~ "and media. While we strive for accuracy, minor discrepancies (e.g., color "
+#~ "tone, packaging) may occur. Stock status is dynamic; placement of items "
+#~ "in a cart does not reserve inventory until order confirmation."
+#~ msgstr ""
+#~ "Все карточки содержат ориентировочные характеристики, цену, данные о "
+#~ "скидках и медиа. Хотя мы стремимся к точности, возможны незначительные "
+#~ "расхождения (например, оттенок цвета, упаковка). Наличие динамично; "
+#~ "помещение товара в корзину не резервирует его до подтверждения заказа."
+
+#~ msgid ""
+#~ "Prices are shown in the local currency unless otherwise stated and may "
+#~ "change before order acceptance. Percentage discount calculations are "
+#~ "based on the pre-discount list price. Advance Payments are discretionary "
+#~ "and do not grant equity or ownership; they may be applied toward future "
+#~ "purchases at our discretion or treated as goodwill support."
+#~ msgstr ""
+#~ "Цены отображаются в локальной валюте, если не указано иное, и могут "
+#~ "изменяться до принятия заказа. Процент скидки рассчитывается от базовой "
+#~ "цены до скидки. Авансовые платежи добровольны и не дают доли или права "
+#~ "собственности; они могут быть зачтены в будущие покупки по нашему "
+#~ "усмотрению или рассматриваться как поддержка."
+
+#~ msgid ""
+#~ "Advance Payments are voluntary and processed like a standalone cart line. "
+#~ "They don’t constitute purchase of goods unless later applied at checkout "
+#~ "per an explicit program. Misuse (e.g., money laundering attempts) will "
+#~ "result in reversal and possible reporting."
+#~ msgstr ""
+#~ "Авансовые платежи добровольны и обрабатываются как отдельная строка "
+#~ "корзины. Они не означают покупку товаров, если позже не зачтены при "
+#~ "оформлении по явной программе. Злоупотребление (например, попытки "
+#~ "отмывания средств) приведёт к отмене и возможному сообщению компетентным "
+#~ "органам."
 
 #~ msgid "Logged in user"
 #~ msgstr "Авторизованный пользователь"

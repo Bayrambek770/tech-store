@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-05 05:23+0000\n"
+"POT-Creation-Date: 2025-09-05 05:54+0000\n"
 "PO-Revision-Date: 2025-08-28 00:56+0000\n"
 "Last-Translator:   <admin@mail.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,7 +81,7 @@ msgstr ""
 msgid "Your cart is empty."
 msgstr "Savatingiz bo'sh."
 
-#: orders/views.py:92 templates/donation.html:4 templates/index.html:235
+#: orders/views.py:92 templates/donation.html:4 templates/index.html:236
 msgid "Advance Payment"
 msgstr "Oldindan to'lov"
 
@@ -93,7 +93,7 @@ msgstr ""
 msgid "Name"
 msgstr "Nomi"
 
-#: products/models.py:24 templates/public_offer.html:98
+#: products/models.py:24 templates/public_offer.html:94
 msgid "Description"
 msgstr "Tavsif"
 
@@ -229,7 +229,7 @@ msgstr "Familiya"
 msgid "Doe"
 msgstr "Doe"
 
-#: templates/checkout.html:51 templates/public_offer.html:106
+#: templates/checkout.html:51 templates/public_offer.html:102
 #: users/models.py:26
 msgid "Email"
 msgstr "Email"
@@ -386,9 +386,6 @@ msgstr "Savatga qo'shish"
 msgid "Back to Store"
 msgstr "Do'konga qaytish"
 
-msgid "Back to Home"
-msgstr "Bosh sahifaga qaytish"
-
 #: templates/donation.html:33
 msgid ""
 "This is treated like a product only for checkout purposes. Taxes / shipping "
@@ -411,7 +408,9 @@ msgid "Dark and White"
 msgstr "Dark and White"
 
 #: templates/index.html:32
-msgid "Premium Components • Design Assets • Smart Advance Payments"
+#, fuzzy
+#| msgid "Premium Components • Design Assets • Smart Advance Payments"
+msgid "Premium Components • Design Assets"
 msgstr "Yuqori kompanentlar, Dizayn tovarlar va Qulay oldindan to'lov"
 
 #: templates/index.html:34
@@ -526,61 +525,61 @@ msgstr "aksiya 2025-yil 15-iyulgacha amal qiladi!"
 msgid "Go Shopping"
 msgstr "Xarid qilish"
 
-#: templates/index.html:199
+#: templates/index.html:200
 msgid "Advance Pay"
 msgstr "Oldindan to'lov"
 
-#: templates/index.html:208
+#: templates/index.html:209
 msgid "How can you communicate?"
 msgstr "Qanday qilib muloqot qila olasiz?"
 
-#: templates/index.html:209
+#: templates/index.html:210
 msgid "Contact Us"
 msgstr "Biz bilan bog'lanish"
 
-#: templates/index.html:214
+#: templates/index.html:215
 msgid "Your Name"
 msgstr "Ismingiz"
 
-#: templates/index.html:214
+#: templates/index.html:215
 msgid "Your name"
 msgstr "Ismingiz"
 
-#: templates/index.html:217
+#: templates/index.html:218
 msgid "Enter Email"
 msgstr "Email kiriting"
 
-#: templates/index.html:217
+#: templates/index.html:218
 #: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1920
 msgid "Email address"
 msgstr "Elektron pochta manzili"
 
-#: templates/index.html:220
+#: templates/index.html:221
 msgid "Write Something"
 msgstr "Xabar yozing"
 
-#: templates/index.html:220 users/models.py:28
+#: templates/index.html:221 users/models.py:28
 msgid "Message"
 msgstr "Xabar"
 
-#: templates/index.html:223
+#: templates/index.html:224
 msgid "Send Message"
 msgstr "Xabar yuborish"
 
-#: templates/index.html:223
+#: templates/index.html:224
 msgid "Send message"
 msgstr "Xabar yuborish"
 
-#: templates/index.html:232
+#: templates/index.html:233
 msgid "All for PC. All rights reserved."
 msgstr "All for PC. Barcha huquqlar himoyalangan."
 
-#: templates/index.html:234 templates/layouts/navbar.html:17
+#: templates/index.html:235 templates/layouts/navbar.html:17
 #: templates/layouts/navbar.html:49
 msgid "Public Offer"
 msgstr "Ommaviy oferta"
 
-#: templates/index.html:236 templates/layouts/navbar.html:9
+#: templates/index.html:237 templates/layouts/navbar.html:9
 #: templates/layouts/navbar.html:46
 msgid "Marketplace"
 msgstr "Bozor"
@@ -622,8 +621,8 @@ msgid "No items in this order."
 msgstr "Ushbu buyurtmada hech qanday mahsulot yo'q."
 
 #: templates/orders/order_success.html:43
-msgid "Back to Store"
-msgstr "Do'konga qaytish"
+msgid "Back to Home"
+msgstr "Bosh sahifaga qaytish"
 
 #: templates/product_detail.html:47
 msgid "Secure checkout • Easy returns • Fast support"
@@ -681,114 +680,109 @@ msgstr "Ommaviy oferta va foydalanish shartlari"
 msgid "Contents"
 msgstr "Mundarija"
 
-#: templates/public_offer.html:44 templates/public_offer.html:66
+#: templates/public_offer.html:44 templates/public_offer.html:65
 msgid "1. Acceptance of the Offer"
 msgstr "1. Oferta qabul qilinishi"
 
-#: templates/public_offer.html:45 templates/public_offer.html:67
+#: templates/public_offer.html:45 templates/public_offer.html:66
 msgid "2. Definitions"
 msgstr "2. Ta'riflar"
 
-#: templates/public_offer.html:46 templates/public_offer.html:68
+#: templates/public_offer.html:46 templates/public_offer.html:67
 msgid "3. Subject of the Agreement"
 msgstr "3. Shartnoma predmeti"
 
-#: templates/public_offer.html:47 templates/public_offer.html:69
+#: templates/public_offer.html:47
 msgid "4. Product Information & Availability"
 msgstr "4. Mahsulot ma'lumoti va mavjudligi"
 
-#: templates/public_offer.html:48 templates/public_offer.html:70
-msgid "5. Prices, Discounts & Advance Payments"
+#: templates/public_offer.html:48
+#, fuzzy
+#| msgid "5. Prices, Discounts & Advance Payments"
+msgid "5. Prices and Discounts"
 msgstr "5. Narxlar, chegirmalar va oldindan to'lovlar"
 
-#: templates/public_offer.html:49 templates/public_offer.html:71
+#: templates/public_offer.html:49 templates/public_offer.html:68
 msgid "6. Ordering Process"
 msgstr "6. Buyurtma jarayoni"
 
-#: templates/public_offer.html:50 templates/public_offer.html:72
+#: templates/public_offer.html:50 templates/public_offer.html:69
 msgid "7. Payment Methods & Security"
 msgstr "7. To'lov usullari va xavfsizlik"
 
-#: templates/public_offer.html:51 templates/public_offer.html:73
+#: templates/public_offer.html:51 templates/public_offer.html:70
 msgid "8. Delivery & Digital Assets"
 msgstr "8. Yetkazib berish va raqamli aktivlar"
 
-#: templates/public_offer.html:52 templates/public_offer.html:74
+#: templates/public_offer.html:52 templates/public_offer.html:71
 msgid "9. User Accounts & Security"
 msgstr "9. Foydalanuvchi hisobi va xavfsizlik"
 
-#: templates/public_offer.html:53 templates/public_offer.html:75
+#: templates/public_offer.html:53 templates/public_offer.html:72
 msgid "10. Reviews & User Content"
 msgstr "10. Sharhlar va foydalanuvchi kontenti"
 
-#: templates/public_offer.html:54 templates/public_offer.html:76
+#: templates/public_offer.html:54 templates/public_offer.html:73
 msgid "11. Intellectual Property"
 msgstr "11. Intellektual mulk"
 
-#: templates/public_offer.html:55 templates/public_offer.html:77
+#: templates/public_offer.html:55 templates/public_offer.html:74
 msgid "12. Warranty Disclaimer"
 msgstr "12. Kafolat rad etilishi"
 
-#: templates/public_offer.html:56 templates/public_offer.html:78
+#: templates/public_offer.html:56 templates/public_offer.html:75
 msgid "13. Returns, Refunds & Cancellations"
 msgstr "13. Qaytarish, qayta to'lash va bekor qilish"
 
-#: templates/public_offer.html:57 templates/public_offer.html:79
-msgid "14. Advance / Donation Policy"
-msgstr "14. Oldindan to'lov / xayriya siyosati"
-
-#: templates/public_offer.html:58 templates/public_offer.html:80
+#: templates/public_offer.html:57 templates/public_offer.html:76
 msgid "15. Limitation of Liability"
 msgstr "15. Javobgarlikni cheklash"
 
-#: templates/public_offer.html:59 templates/public_offer.html:81
+#: templates/public_offer.html:58 templates/public_offer.html:77
 msgid "16. Data Protection & Privacy"
 msgstr "16. Ma'lumotlarni himoya qilish va maxfiylik"
 
-#: templates/public_offer.html:60 templates/public_offer.html:82
+#: templates/public_offer.html:59 templates/public_offer.html:78
 msgid "17. Anti-Fraud & Security Monitoring"
 msgstr "17. Firibgarlikka qarshi va xavfsizlik monitoringi"
 
-#: templates/public_offer.html:61 templates/public_offer.html:83
+#: templates/public_offer.html:60 templates/public_offer.html:79
 msgid "18. Force Majeure"
 msgstr "18. Fors-major"
 
-#: templates/public_offer.html:62 templates/public_offer.html:84
+#: templates/public_offer.html:61 templates/public_offer.html:80
 msgid "19. Amendments"
 msgstr "19. O'zgartirishlar"
 
-#: templates/public_offer.html:63 templates/public_offer.html:85
+#: templates/public_offer.html:62 templates/public_offer.html:81
 msgid "20. Governing Law & Disputes"
 msgstr "20. Qo'llaniladigan qonun va nizolar"
 
-#: templates/public_offer.html:64 templates/public_offer.html:86
+#: templates/public_offer.html:63 templates/public_offer.html:82
 msgid "21. Contact Information"
 msgstr "21. Aloqa ma'lumotlari"
 
-#: templates/public_offer.html:66
+#: templates/public_offer.html:65
 msgid ""
 "By accessing or using this website (the \"Platform\"), placing an order, "
-"creating an account, submitting an advance payment or donation, or "
-"downloading a digital design asset, you irrevocably agree to this Public "
-"Offer (the \"Agreement\"). If you disagree with any clause, you must cease "
-"usage immediately. Your continued use constitutes ongoing acceptance."
-msgstr ""
-"Ushbu veb-saytdan (\"Platforma\") foydalanish, buyurtma berish, hisob "
-"yaratish, oldindan to'lov yoki xayriya yuborish yoki raqamli dizayn aktivini "
-"yuklab olish orqali siz ushbu Ommaviy ofertaga (\"Shartnoma\") qaytarib "
+"creating an account, submitting a donation, or downloading a digital design "
+"asset, you irrevocably agree to this Public Offer (the \"Agreement\"). If "
+"you disagree with any clause, you must cease usage immediately. Your "
+"continued use constitutes ongoing acceptance."
+msgstr "Siz ushbu veb-saytdan (\"Platforma\") foydalanish, buyurtma berish, hisob "
+"yaratish yoki xayriya yuborish yoki raqamli dizayn aktivini "
+"yuklab olish orqali ushbu Ommaviy ofertaga (\"Shartnoma\") qaytarib "
 "bo'lmaydigan tarzda rozilik bildirasiz. Agar biror bandga rozi bo'lmasangiz, "
 "darhol foydalanishni to'xtating. Foydalanishni davom ettirishingiz ushbu "
 "shartlarni qabul qilganingizni anglatadi."
 
-#: templates/public_offer.html:67
+#: templates/public_offer.html:66
 msgid ""
 "<strong>\"Products\"</strong> – physical computer hardware listed in the "
 "Store. <strong>\"Design Assets\"</strong> – downloadable or licensable "
-"digital works provided via the Marketplace. <strong>\"Advance Payment\"</"
-"strong> – voluntary pre-payment or contribution processed through the "
-"Advance Payment module. <strong>\"User\"</strong> – any natural or legal "
-"person accessing the Platform. <strong>\"Account\"</strong> – personalized "
-"access credentials enabling orders and reviews."
+"digital works provided via the Marketplace. <strong>\"User\"</strong> – any "
+"natural or legal person accessing the Platform. <strong>\"Account\"</strong> "
+"– personalized access credentials enabling orders and reviews."
 msgstr ""
 "<strong>\"Mahsulotlar\"</strong> – Do'konda keltirilgan fizik kompyuter "
 "jihozlari. <strong>\"Dizayn aktivlari\"</strong> – Marketplace orqali taqdim "
@@ -799,13 +793,12 @@ msgstr ""
 "<strong>\"Hisob\"</strong> – buyurtmalar va sharhlarni amalga oshirish "
 "imkonini beruvchi shaxsiy kirish ma'lumotlari."
 
-#: templates/public_offer.html:68
+#: templates/public_offer.html:67
 msgid ""
 "We provide: (a) an e-commerce interface for purchasing hardware Products; "
-"(b) a curated Marketplace for Design Assets; (c) a session-based cart "
-"enabling combined checkout; and (d) an optional Advance Payment feature. We "
-"reserve the right to modify available Products, pricing, and features "
-"without prior notice."
+"(b) a curated Marketplace for Design Assets; and (c) a session-based cart "
+"enabling combined checkout. We reserve the right to modify available "
+"Products, pricing, and features without prior notice."
 msgstr ""
 "Biz taqdim etamiz: (a) apparat Mahsulotlarini sotib olish uchun e-tijorat "
 "interfeysi; (b) Dizayn aktivlari uchun tanlangan Marketplace; (c) birgalikda "
@@ -813,48 +806,20 @@ msgstr ""
 "to'lov funksiyasi. Ogohlantirmasdan Mahsulotlar, narx va funksiyalarni "
 "o'zgartirish huquqini saqlab qolamiz."
 
+#: templates/public_offer.html:68
+msgid ""
+"Order steps: (1) Add items (physical or digital); (2) Review cart; (3) "
+"Provide checkout details; (4) Submit payment; (5) Receive confirmation. We "
+"may decline or cancel orders (e.g., suspected fraud, pricing errors, "
+"regulatory concerns) with refund where payment has settled."
+msgstr ""
+"Buyurtma bosqichlari: (1) Tovarlarni (fizik yoki raqamli) qo'shish; (2) "
+"Savatni ko'rib chiqish; (3) To'lov ma'lumotlarini kiritish; (4) "
+"To'lovni yuborish; (5) Tasdiq olish. Firibgarlik gumoni, narx xatosi yoki "
+"boshqa sabablar bo'lsa, to'lov o'tgan bo'lsa qaytarish bilan buyurtma rad "
+"etilishi yoki bekor qilinishi mumkin."
+
 #: templates/public_offer.html:69
-msgid ""
-"All listings include indicative specifications, pricing, discount data and "
-"media. While we strive for accuracy, minor discrepancies (e.g., color tone, "
-"packaging) may occur. Stock status is dynamic; placement of items in a cart "
-"does not reserve inventory until order confirmation."
-msgstr ""
-"Barcha ro'yxatlar taxminiy texnik tavsiflar, narx, chegirma ma'lumotlari va "
-"media materiallarni o'z ichiga oladi. Aniqlikka intilsak ham, kichik farqlar "
-"(rang ohangi, o'ram va h.k.) bo'lishi mumkin. Ombor holati dinamik; savatga "
-"qo'yish buyurtma tasdiqlanmaguncha zaxirani band qilmaydi."
-
-#: templates/public_offer.html:70
-msgid ""
-"Prices are shown in the local currency unless otherwise stated and may "
-"change before order acceptance. Percentage discount calculations are based "
-"on the pre-discount list price. Advance Payments are discretionary and do "
-"not grant equity or ownership; they may be applied toward future purchases "
-"at our discretion or treated as goodwill support."
-msgstr ""
-"Agar boshqacha ko'rsatilmagan bo'lsa, narxlar mahalliy valyutada "
-"ko'rsatiladi va buyurtma qabul qilinishidan oldin o'zgarishi mumkin. "
-"Chegirma foizlari chegirmagacha bo'lgan ro'yxat narxiga asoslanadi. Oldindan "
-"to'lovlar ixtiyoriy bo'lib, ulush yoki mulk huquqini bermaydi; kelajakdagi "
-"xaridlarga bizning ixtiyorimizga ko'ra qo'llanishi yoki goodwill ko'magi "
-"sifatida qaralishi mumkin."
-
-#: templates/public_offer.html:71
-msgid ""
-"Order steps: (1) Add items (physical or digital) / choose optional Advance "
-"Payment; (2) Review cart; (3) Provide checkout details; (4) Submit payment; "
-"(5) Receive confirmation. We may decline or cancel orders (e.g., suspected "
-"fraud, pricing errors, regulatory concerns) with refund where payment has "
-"settled."
-msgstr ""
-"Buyurtma bosqichlari: (1) Tovarlarni (fizik yoki raqamli) qo'shish / "
-"ixtiyoriy Oldindan to'lovni tanlash; (2) Savatni ko'rib chiqish; (3) To'lov "
-"ma'lumotlarini kiritish; (4) To'lovni yuborish; (5) Tasdiq olish. "
-"Firibgarlik gumoni, narx xatosi yoki boshqa sabablar bo'lsa, to'lov o'tgan "
-"bo'lsa qaytarish bilan buyurtma rad etilishi yoki bekor qilinishi mumkin."
-
-#: templates/public_offer.html:72
 msgid ""
 "Supported payment channels are listed at checkout. Transactions are "
 "processed through vetted third-party providers using encrypted transport. We "
@@ -866,7 +831,7 @@ msgstr ""
 "provayderlari tomonidan amalga oshiriladi. Karta raqamlarini saqlamaymiz. "
 "Ruxsatsiz to'lov vositalaridan foydalanmaslikka rozilik bildirasiz."
 
-#: templates/public_offer.html:73
+#: templates/public_offer.html:70
 msgid ""
 "Physical Products ship per carrier timelines displayed at checkout; risk of "
 "loss transfers upon carrier acceptance. Digital Design Assets are delivered "
@@ -879,7 +844,7 @@ msgstr ""
 "litsenziyalangan kirish orqali yetkaziladi; litsenziya mutlaq bo'lmagan, "
 "o'tkazilmaydigan va buzilish bo'lsa bekor qilinadi."
 
-#: templates/public_offer.html:74
+#: templates/public_offer.html:71
 msgid ""
 "You must maintain accurate profile data, safeguard credentials, and promptly "
 "report unauthorized use. We may suspend accounts exhibiting abusive, "
@@ -889,7 +854,7 @@ msgstr ""
 "ruxsatsiz foydalanishni zudlik bilan xabar bering. Suiiste'mol yoki xavfli "
 "xatti-harakatlarda hisob vaqtincha to'xtatilishi mumkin."
 
-#: templates/public_offer.html:75
+#: templates/public_offer.html:72
 msgid ""
 "Reviews must reflect genuine personal experience and comply with applicable "
 "law. We may moderate or remove content that is misleading, defamatory, "
@@ -902,7 +867,7 @@ msgstr ""
 "tahrirlanishi mumkin. Har bir mahsulot/aktiv uchun hisobga bitta sharh "
 "(keyin tahrirlanadi)."
 
-#: templates/public_offer.html:76
+#: templates/public_offer.html:73
 msgid ""
 "All trademarks, logos, interface design, code, product data and Design "
 "Assets (unless otherwise attributed) remain our or the respective creator’s "
@@ -914,60 +879,45 @@ msgstr ""
 "muallifga tegishli intellektual mulkdir. Ruxsatsiz ko'paytirish yoki "
 "avtomatlashtirilgan yig'ish taqiqlanadi."
 
-#: templates/public_offer.html:77
+#: templates/public_offer.html:74
 msgid ""
-"Except where mandated by law, the Platform and content are provided \"AS "
-"IS\" without warranties (express or implied) including merchantability, "
-"fitness for a particular purpose, title, or non-infringement. Hardware "
-"manufacturer warranties may apply separately."
+"Except where mandated by law, the Platform and content are provided without "
+"warranties (express or implied) including merchantability, fitness for a "
+"particular purpose, title, or non-infringement. Hardware manufacturer "
+"warranties may apply separately."
 msgstr ""
 "Qonun talab qilgan holatlar bundan mustasno, Platforma va kontent hech "
-"qanday kafolatlarsiz (aniq yoki nazarda tutilgan) 'HOZIRGI HOLATIDA' taqdim "
+"qanday kafolatlarsiz taqdim "
 "etiladi, shu jumladan sotuvga yaroqlilik, maqsadga muvofiqlik, nom yoki "
 "buzmaslik kafolatlari. Qurilma ishlab chiqaruvchi kafolatlari alohida "
 "qo'llanilishi mumkin."
 
-#: templates/public_offer.html:78
+#: templates/public_offer.html:75
 msgid ""
 "Eligible physical Products may be returned in original condition within the "
-"statutory window (unless classified as final sale). Digital Assets and "
-"Advance Payments are generally non-refundable once accessed or booked, "
-"except where required by consumer protection rules or in cases of confirmed "
-"technical defect."
+"statutory window (unless classified as final sale). Digital Assets are "
+"generally non-refundable once accessed or booked, except where required by "
+"consumer protection rules or in cases of confirmed technical defect."
 msgstr ""
 "Mos fizik Mahsulotlar qonunda belgilangan muddat ichida asl holatda "
-"qaytarilishi mumkin (yakuniy sotuv bo'lmasa). Raqamli aktivlar va Oldindan "
-"to'lovlar odatda foydalanilgandan yoki bron qilingandan so'ng qaytarilmaydi, "
+"qaytarilishi mumkin (yakuniy sotuv bo'lmasa). Raqamli aktivlar "
+"odatda foydalanilgandan yoki bron qilingandan so'ng qaytarilmaydi, "
 "iste'molchini himoya qilish qoidalari yoki tasdiqlangan texnik nuqson bundan "
 "mustasno."
 
-#: templates/public_offer.html:79
-msgid ""
-"Advance Payments are voluntary and processed like a standalone cart line. "
-"They don’t constitute purchase of goods unless later applied at checkout per "
-"an explicit program. Misuse (e.g., money laundering attempts) will result in "
-"reversal and possible reporting."
-msgstr ""
-"Oldindan to'lovlar ixtiyoriy va alohida savat qatori sifatida qayta "
-"ishlanadi. Ular keyinchalik aniq dastur bo'yicha qo'llanilmaguncha tovar "
-"sotib olish emas. Noto'g'ri foydalanish (masalan, pul yuvish) bekor "
-"qilinishi va xabar qilinishi mumkin."
-
-#: templates/public_offer.html:80
+#: templates/public_offer.html:76
 msgid ""
 "To the maximum extent permitted, aggregate liability for any claims arising "
-"out of Platform use shall not exceed the greater of: (a) the total fees paid "
-"for the disputed order; or (b) the amount of the Advance Payment linked to "
-"the claim. We are not liable for indirect, incidental, special or "
-"consequential damages."
+"out of Platform use shall not exceed the total fees paid for the disputed "
+"order. We are not liable for indirect, incidental, special or consequential "
+"damages."
 msgstr ""
 "Ruxsat etilgan eng katta darajada Platformadan foydalanishdan kelib "
 "chiqadigan talablar bo'yicha umumiy javobgarlik quyidagidan oshmaydi: (a) "
-"nizoli buyurtma uchun to'langan jami summa; yoki (b) talabga bog'liq "
-"Oldindan to'lov miqdori. Bilvosita yoki oqibat zararlari uchun javobgar "
+"nizoli buyurtma uchun to'langan jami summa. Bilvosita yoki oqibat zararlari uchun javobgar "
 "emasmiz."
 
-#: templates/public_offer.html:81
+#: templates/public_offer.html:77
 msgid ""
 "Personal data is processed under our Privacy Policy (available separately) "
 "for legitimate operational, security, and communication purposes. You "
@@ -979,7 +929,7 @@ msgstr ""
 "choralari mavjud bo'lsa, zarur transchegaraviy uzatishlarga rozilik "
 "bildirasiz."
 
-#: templates/public_offer.html:82
+#: templates/public_offer.html:78
 msgid ""
 "We implement automated and manual review layers to detect anomalous patterns "
 "(bulk account creation, scripted cart manipulation, abnormal payment "
@@ -991,7 +941,7 @@ msgstr ""
 "boshqarish, noodatiy to'lov urinishlari). Tasdiqlangan suiiste'mol hisobni "
 "to'xtatish va tegishli organlarga xabar berishga olib kelishi mumkin."
 
-#: templates/public_offer.html:83
+#: templates/public_offer.html:79
 msgid ""
 "Performance delays or failures caused by events beyond reasonable control "
 "(natural disasters, power failures, cyber incidents, regulatory actions, "
@@ -1003,7 +953,7 @@ msgstr ""
 "kechikish yoki bajarilmaslik buzilish hisoblanmaydi. To'siq tugashi bilan "
 "majburiyatlar davom etadi."
 
-#: templates/public_offer.html:84
+#: templates/public_offer.html:80
 msgid ""
 "We may revise this Offer by posting an updated version with a new effective "
 "date. Material revisions will, where feasible, include a notice banner. "
@@ -1014,7 +964,7 @@ msgstr ""
 "bo'lsa ogohlantirish banneri bilan beriladi. E'lon qilingandan so'ng "
 "foydalanishni davom ettirish qabul qilinganini anglatadi."
 
-#: templates/public_offer.html:85
+#: templates/public_offer.html:81
 msgid ""
 "Applicable governing law is determined by our principal place of business "
 "unless mandatory consumer jurisdiction rules apply. Parties shall first "
@@ -1026,21 +976,21 @@ msgstr ""
 "o'zaro kelishishga urinishadi; bo'lmasa nizo vakolatli umumiy sudlarga "
 "o'tadi."
 
-#: templates/public_offer.html:86
+#: templates/public_offer.html:82
 msgid ""
-"Questions, legal notices, or data requests: <a href=\"mailto:support@example."
-"com\">support@example.com</a>. Physical correspondence address available "
-"upon legitimate written request."
+"Questions, legal notices, or data requests: <a href=\"mailto:"
+"darkandwhite@inbox.eu\">darkandwhite@inbox.eu</a>. Physical correspondence "
+"address available upon legitimate written request."
 msgstr ""
 "Savollar, huquqiy bildirishnomalar yoki ma'lumot so'rovlari: <a "
-"href=\"mailto:support@example.com\">support@example.com</a>. Jismoniy pochta "
+"href=\"mailto:darkandwhite.uz@inbox.eu\">darkandwhite.uz@inbox.eu</a>. Jismoniy pochta "
 "manzili asosli yozma so'rov bilan beriladi."
 
-#: templates/public_offer.html:87
+#: templates/public_offer.html:83
 msgid "Need a copy?"
 msgstr "Nusxa kerakmi?"
 
-#: templates/public_offer.html:87
+#: templates/public_offer.html:83
 msgid ""
 "You may print or store this page locally. Continued use of the Platform "
 "signifies ongoing acceptance of the latest version of these terms."
@@ -1050,11 +1000,11 @@ msgstr ""
 "versiyasini qabul qilishni anglatadi."
 
 # Company info table (public_offer)
-#: templates/public_offer.html:91
+#: templates/public_offer.html:87
 msgid "Company Legal & Banking Information"
 msgstr "Kompaniyaning yuridik va bank ma'lumotlari"
 
-#: templates/public_offer.html:92
+#: templates/public_offer.html:88
 msgid ""
 "The following table summarizes the officially registered corporate and "
 "banking details of the service provider for reference in contractual / "
@@ -1063,63 +1013,63 @@ msgstr ""
 "Quyidagi jadval shartnoma / ommaviy oferta maqsadlari uchun provayderning "
 "rasmiy ro'yxatdan o'tgan korporativ va bank ma'lumotlarini jamlaydi."
 
-#: templates/public_offer.html:97
+#: templates/public_offer.html:93
 msgid "Field"
 msgstr "Maydon"
 
-#: templates/public_offer.html:102
+#: templates/public_offer.html:98
 msgid "Full Company Name"
 msgstr "To'liq kompaniya nomi"
 
-#: templates/public_offer.html:103
+#: templates/public_offer.html:99
 msgid "TIN (STIR)"
 msgstr "STIR"
 
-#: templates/public_offer.html:104
+#: templates/public_offer.html:100
 msgid "Registered Address"
 msgstr "Yuridik manzil"
 
-#: templates/public_offer.html:105
+#: templates/public_offer.html:101
 msgid "Tel"
 msgstr "Tel"
 
-#: templates/public_offer.html:107
+#: templates/public_offer.html:103
 msgid "Bank Name"
 msgstr "Bank nomi"
 
-#: templates/public_offer.html:108
+#: templates/public_offer.html:104
 msgid "MFO"
 msgstr "MFO"
 
-#: templates/public_offer.html:109
+#: templates/public_offer.html:105
 msgid "SWIFT"
 msgstr "SWIFT"
 
-#: templates/public_offer.html:111
+#: templates/public_offer.html:107
 msgid "Bank Accounts"
 msgstr "Bank hisoblari"
 
-#: templates/public_offer.html:114
+#: templates/public_offer.html:110
 msgid "Deposit account (UZS)"
 msgstr "Depozit hisobi (UZS)"
 
-#: templates/public_offer.html:114 templates/public_offer.html:115
+#: templates/public_offer.html:110 templates/public_offer.html:111
 msgid "Opened:"
 msgstr "Ochilgan:"
 
-#: templates/public_offer.html:115
+#: templates/public_offer.html:111
 msgid "Deposit account (USD)"
 msgstr "Depozit hisobi (USD)"
 
-#: templates/public_offer.html:123
+#: templates/public_offer.html:119
 msgid "Follow us"
 msgstr "Bizga qo'shiling"
 
-#: templates/public_offer.html:127
+#: templates/public_offer.html:123
 msgid "Telegram"
 msgstr "Telegram"
 
-#: templates/public_offer.html:132
+#: templates/public_offer.html:128
 msgid "Instagram"
 msgstr "Instagram"
 
@@ -2472,6 +2422,46 @@ msgstr ""
 #: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:236
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "14. Advance / Donation Policy"
+#~ msgstr "14. Oldindan to'lov / xayriya siyosati"
+
+#~ msgid ""
+#~ "All listings include indicative specifications, pricing, discount data "
+#~ "and media. While we strive for accuracy, minor discrepancies (e.g., color "
+#~ "tone, packaging) may occur. Stock status is dynamic; placement of items "
+#~ "in a cart does not reserve inventory until order confirmation."
+#~ msgstr ""
+#~ "Barcha ro'yxatlar taxminiy texnik tavsiflar, narx, chegirma ma'lumotlari "
+#~ "va media materiallarni o'z ichiga oladi. Aniqlikka intilsak ham, kichik "
+#~ "farqlar (rang ohangi, o'ram va h.k.) bo'lishi mumkin. Ombor holati "
+#~ "dinamik; savatga qo'yish buyurtma tasdiqlanmaguncha zaxirani band "
+#~ "qilmaydi."
+
+#~ msgid ""
+#~ "Prices are shown in the local currency unless otherwise stated and may "
+#~ "change before order acceptance. Percentage discount calculations are "
+#~ "based on the pre-discount list price. Advance Payments are discretionary "
+#~ "and do not grant equity or ownership; they may be applied toward future "
+#~ "purchases at our discretion or treated as goodwill support."
+#~ msgstr ""
+#~ "Agar boshqacha ko'rsatilmagan bo'lsa, narxlar mahalliy valyutada "
+#~ "ko'rsatiladi va buyurtma qabul qilinishidan oldin o'zgarishi mumkin. "
+#~ "Chegirma foizlari chegirmagacha bo'lgan ro'yxat narxiga asoslanadi. "
+#~ "Oldindan to'lovlar ixtiyoriy bo'lib, ulush yoki mulk huquqini bermaydi; "
+#~ "kelajakdagi xaridlarga bizning ixtiyorimizga ko'ra qo'llanishi yoki "
+#~ "goodwill ko'magi sifatida qaralishi mumkin."
+
+#~ msgid ""
+#~ "Advance Payments are voluntary and processed like a standalone cart line. "
+#~ "They don’t constitute purchase of goods unless later applied at checkout "
+#~ "per an explicit program. Misuse (e.g., money laundering attempts) will "
+#~ "result in reversal and possible reporting."
+#~ msgstr ""
+#~ "Oldindan to'lovlar ixtiyoriy va alohida savat qatori sifatida qayta "
+#~ "ishlanadi. Ular keyinchalik aniq dastur bo'yicha qo'llanilmaguncha tovar "
+#~ "sotib olish emas. Noto'g'ri foydalanish (masalan, pul yuvish) bekor "
+#~ "qilinishi va xabar qilinishi mumkin."
 
 #~ msgid "Logged in user"
 #~ msgstr "Tizimga kirgan foydalanuvchi"

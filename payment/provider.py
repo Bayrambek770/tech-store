@@ -33,8 +33,8 @@ class InterforumClient:
 
     @classmethod
     def create_payment_link(cls, transaction):
-    amount = transaction.amount
-    currency_code = transaction.currency
+        amount = transaction.amount
+        currency_code = transaction.currency
     # dynamic return URL
         base_url = (getattr(settings, 'SITE_BASE_URL', '') or '').rstrip('/')
         # Ensure base_url does not accidentally contain path segments that would duplicate

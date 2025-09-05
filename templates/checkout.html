@@ -9,7 +9,7 @@
 {% include 'layouts/navbar.html' with static_nav=True %}
         <div class="container checkout-container page-section-spacer" style="max-width:880px; padding: 20px; margin-top:130px">
                
-        <form id="checkout-form" class="row" method="post" novalidate>
+    <form id="checkout-form" class="row" method="post" action="{% url 'orders:create' %}" novalidate>
             {% csrf_token %}
             <div class="col-md-7 pr-md-5">
             <h5 class="mb-3">{% trans "Shipping & Contact" %}</h5>

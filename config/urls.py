@@ -15,6 +15,7 @@ urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('designs/', include('designs.urls', namespace='designs')),
+    path('orders/', include('orders.urls', namespace='orders')),
     path('', include('products.urls')),  # do not prefix default 'ru' in URLs
     prefix_default_language=False,
 )

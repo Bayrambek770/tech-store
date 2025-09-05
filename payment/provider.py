@@ -33,9 +33,9 @@ class InterforumClient:
 
     @classmethod
     def create_payment_link(cls, transaction):
-        amount = transaction.amount
-        currency_code = transaction.currency  # 'UZS' or 'USD'
-        # dynamic return URL (matches orders:payment_return route)
+    amount = transaction.amount
+    currency_code = transaction.currency
+    # dynamic return URL
         base_url = (getattr(settings, 'SITE_BASE_URL', '') or '').rstrip('/')
         # Ensure base_url does not accidentally contain path segments that would duplicate
         return_path = f"/orders/payment-return/?tx={transaction.id}"
@@ -49,17 +49,15 @@ class InterforumClient:
         elif currency_code == "USD":
             currency = 840
         else:
-            currency = 860  # fallback
+            currency = 860
         query_params = {
             "merchant_id": settings.PAYLOV_MERCHANT_ID,
             "amount": amount,
             "currency_id": currency,
+            "amount_in_tiyin": True,
             "return_url": return_url,
             "account.order_id": transaction.id,
         }
-        # amount_in_tiyin only for UZS (unless forced via setting)
-        if currency_code == 'UZS' or getattr(settings, 'PAYLOV_FORCE_TIYIN', False):
-            query_params["amount_in_tiyin"] = True
         query = urllib.parse.urlencode(query_params)
         encode_params = base64.b64encode(query.encode("utf-8"))
         encode_params = str(encode_params, "utf-8")
@@ -74,11 +72,7 @@ class InterforumClient:
             return True, self.ORDER_NOT_FOUND
 
         self.validate_transaction()
-        if self.transaction and self.transaction.currency == 'UZS':
-            amt = self.params.get("amount_tiyin") or self.params.get("amount")
-        else:
-            amt = self.params.get("amount") or self.params.get("amount_tiyin")
-        self.validate_amount(amt)
+        self.validate_amount(self.params["amount_tiyin"])
         return self.error, self.code
 
     def perform_transaction(self):
@@ -89,11 +83,7 @@ class InterforumClient:
             return True, self.SERVER_ERROR
 
         self.validate_transaction()
-        if self.transaction and self.transaction.currency == 'UZS':
-            amt = self.params.get("amount_tiyin") or self.params.get("amount")
-        else:
-            amt = self.params.get("amount") or self.params.get("amount_tiyin")
-        self.validate_amount(amt)
+        self.validate_amount(self.params["amount_tiyin"])
         return self.error, self.code
 
     def validate_transaction(self):
@@ -102,11 +92,7 @@ class InterforumClient:
             self.code = self.ORDER_ALREADY_PAID
 
     def validate_amount(self, amount):
-        try:
-            transaction_amount = int(self.transaction.amount)
-            passed_amount = int(amount) if amount is not None else None
-        except (TypeError, ValueError):
-            passed_amount = None
-        if passed_amount is None or passed_amount != transaction_amount:
+        transaction_amount = int(self.transaction.amount)
+        if amount != transaction_amount:
             self.error = True
             self.code = self.INVALID_AMOUNT

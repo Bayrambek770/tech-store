@@ -15,45 +15,25 @@
                 </span>
             </a></li>
             <li><a href="{% url 'public_offer' %}">{% trans 'Public Offer' %}</a></li>
-            <li class="lang-switcher lang-switcher-modern" id="langSwitcherDesktop">
+            <li class="lang-switcher">
                 {% get_current_language as LANGUAGE_CODE %}
                 {% get_available_languages as LANGUAGES %}
-                <button id="langToggle" class="lang-toggle" type="button" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu" data-current-lang="{{ LANGUAGE_CODE }}">
-                    <span class="lang-current" data-lang-label>
-                        {{ LANGUAGE_CODE|upper }}
-                    </span>
-                    <span class="caret" aria-hidden="true">▼</span>
-                </button>
-                <div id="langMenu" class="lang-dropdown" role="menu" aria-labelledby="langToggle" hidden>
-                    <ul class="lang-list" role="none">
+                <form action="{% url 'set_language' %}" method="post" class="lang-form glass-lang lang-form-enh" data-default-lang="ru" data-lang-codes="ru,en,uz" aria-label="{% trans 'Change language' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    <input type="hidden" name="language" value="{{ LANGUAGE_CODE }}" class="lang-active-input">
+                    <button type="button" class="lang-current-btn" id="langBtnDesktop" aria-haspopup="true" aria-expanded="false" aria-controls="langListDesktop">
+                        <span class="lang-label-text">{% for code,name in LANGUAGES %}{% if code == LANGUAGE_CODE %}{{ name }}{% endif %}{% endfor %}</span>
+                        <span class="caret" aria-hidden="true">▾</span>
+                    </button>
+                    <ul class="lang-menu" id="langListDesktop" role="menu" hidden>
                         {% for lang_code, lang_name in LANGUAGES %}
-                        <li role="none">
-                            <button type="button" class="lang-option" role="menuitem" tabindex="-1" data-lang="{{ lang_code }}" data-label="{{ lang_name }}" aria-current="{% if lang_code == LANGUAGE_CODE %}true{% else %}false{% endif %}">
-                                <span class="flag" aria-hidden="true">{% if lang_code == 'en' %}🇬🇧{% elif lang_code == 'ru' %}🇷🇺{% elif lang_code == 'uz' %}🇺🇿{% else %}🌐{% endif %}</span>
-                                <span class="lang-text">{{ lang_name }}</span>
-                                {% if lang_code == LANGUAGE_CODE %}<span class="check" aria-hidden="true">✓</span>{% endif %}
-                            </button>
-                        </li>
+                            {% if lang_code != LANGUAGE_CODE %}
+                            <li role="none"><button type="button" role="menuitem" class="lang-choice" data-lang="{{ lang_code }}">{{ lang_name }}</button></li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
-                    <form id="langForm" action="{% url 'set_language' %}" method="post" class="d-none" aria-hidden="true">
-                        {% csrf_token %}
-                        <input type="hidden" name="language" value="{{ LANGUAGE_CODE }}">
-                        <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                    </form>
-                    <noscript>
-                        <div class="noscript-lang-forms">
-                        {% for lang_code, lang_name in LANGUAGES %}
-                            <form action="{% url 'set_language' %}" method="post" style="margin:4px 0;">
-                                {% csrf_token %}
-                                <input type="hidden" name="language" value="{{ lang_code }}">
-                                <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                                <button class="lang-fallback-btn" {% if lang_code == LANGUAGE_CODE %}disabled{% endif %}>{{ lang_name }}</button>
-                            </form>
-                        {% endfor %}
-                        </div>
-                    </noscript>
-                </div>
+                </form>
             </li>
         </ul>
         <button class="site-nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="offcanvasMenu">
@@ -71,117 +51,84 @@
                 <li><a href="{% url 'store' %}">{% trans 'Store' %}</a></li>
                 <li><a href="{% url 'cart' %}" class="cart-link">{% trans 'Cart' %} <span id="nav-cart-count-mobile" class="badge"></span></a></li>
                 <li><a href="{% url 'public_offer' %}">{% trans 'Public Offer' %}</a></li>
-                <li class="mt-2 lang-switcher-mobile" id="langSwitcherMobile">
+                <li class="mt-2 lang-switcher-mobile">
                     {% get_current_language as LANGUAGE_CODE %}
                     {% get_available_languages as LANGUAGES %}
-                    <button id="langToggleMobile" class="lang-toggle" type="button" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="langMenuMobile" data-current-lang="{{ LANGUAGE_CODE }}">
-                        <span class="lang-current" data-lang-label>{{ LANGUAGE_CODE|upper }}</span>
-                        <span class="caret" aria-hidden="true">▼</span>
-                    </button>
-                    <div id="langMenuMobile" class="lang-dropdown" role="menu" aria-labelledby="langToggleMobile" hidden>
-                        <ul class="lang-list" role="none">
+                    <form action="{% url 'set_language' %}" method="post" class="lang-form glass-lang lang-form-enh" data-default-lang="ru" data-lang-codes="ru,en,uz" aria-label="{% trans 'Change language' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                        <input type="hidden" name="language" value="{{ LANGUAGE_CODE }}" class="lang-active-input">
+                        <button type="button" class="lang-current-btn" id="langBtnMobile" aria-haspopup="true" aria-expanded="false" aria-controls="langListMobile">
+                            <span class="lang-label-text">{% for code,name in LANGUAGES %}{% if code == LANGUAGE_CODE %}{{ name }}{% endif %}{% endfor %}</span>
+                            <span class="caret" aria-hidden="true">▾</span>
+                        </button>
+                        <ul class="lang-menu" id="langListMobile" role="menu" hidden>
                             {% for lang_code, lang_name in LANGUAGES %}
-                            <li role="none">
-                                <button type="button" class="lang-option" role="menuitem" tabindex="-1" data-lang="{{ lang_code }}" data-label="{{ lang_name }}" aria-current="{% if lang_code == LANGUAGE_CODE %}true{% else %}false{% endif %}">
-                                    <span class="flag" aria-hidden="true">{% if lang_code == 'en' %}🇬🇧{% elif lang_code == 'ru' %}🇷🇺{% elif lang_code == 'uz' %}🇺🇿{% else %}🌐{% endif %}</span>
-                                    <span class="lang-text">{{ lang_name }}</span>
-                                    {% if lang_code == LANGUAGE_CODE %}<span class="check" aria-hidden="true">✓</span>{% endif %}
-                                </button>
-                            </li>
+                                {% if lang_code != LANGUAGE_CODE %}
+                                <li role="none"><button type="button" role="menuitem" class="lang-choice" data-lang="{{ lang_code }}">{{ lang_name }}</button></li>
+                                {% endif %}
                             {% endfor %}
                         </ul>
-                        <form id="langFormMobile" action="{% url 'set_language' %}" method="post" class="d-none" aria-hidden="true">
-                            {% csrf_token %}
-                            <input type="hidden" name="language" value="{{ LANGUAGE_CODE }}">
-                            <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                        </form>
-                        <noscript>
-                            <div class="noscript-lang-forms">
-                            {% for lang_code, lang_name in LANGUAGES %}
-                                <form action="{% url 'set_language' %}" method="post" style="margin:4px 0;">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="language" value="{{ lang_code }}">
-                                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                                    <button class="lang-fallback-btn" {% if lang_code == LANGUAGE_CODE %}disabled{% endif %}>{{ lang_name }}</button>
-                                </form>
-                            {% endfor %}
-                            </div>
-                        </noscript>
-                    </div>
+                    </form>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+<style>
+/* Glass effect language selector */
+/* custom minimal dropdown */
+.lang-form-enh{position:relative;}
+.lang-current-btn{display:flex;align-items:center;justify-content:center;gap:6px;background:rgba(255,255,255,0.18);backdrop-filter:blur(14px) saturate(180%);-webkit-backdrop-filter:blur(14px) saturate(180%);border:1px solid rgba(255,255,255,0.35);border-radius:30px;color:#000 !important;font-size:14px;font-weight:600;cursor:pointer;padding:8px 18px;min-height:40px;line-height:1.1;box-shadow:0 4px 12px -4px rgba(0,0,0,.15) inset,0 2px 6px -2px rgba(0,0,0,.15);transition:.25s;} 
+.lang-current-btn:hover,.lang-current-btn:focus{border-color:rgba(0,0,0,0.55);background:rgba(255,255,255,0.28);outline:none;}
+.lang-current-btn .caret{font-size:11px;transition:transform .25s;}
+.lang-current-btn[aria-expanded="true"] .caret{transform:rotate(180deg);} 
+.lang-menu{position:absolute;top:110%;right:0;background:#fff;border-radius:14px;padding:8px 8px;list-style:none;margin:6px 0 0;min-width:180px;box-shadow:0 10px 28px -4px rgba(0,0,0,.15),0 4px 10px -2px rgba(0,0,0,.12);z-index:1000;}
+.lang-menu li{margin:0;padding:0;}
+.lang-choice{width:100%;text-align:left;background:transparent;border:none;padding:10px 12px;border-radius:10px;font-size:14px;cursor:pointer;color:#222;display:flex;align-items:center;justify-content:space-between;transition:.18s;} 
+.lang-choice:hover,.lang-choice:focus{background:#f2f2f2;outline:none;} 
+@media (prefers-color-scheme:dark){.lang-current-btn{color:#000 !important;border-color:rgba(255,255,255,0.28);} .lang-menu{background:#695c5c;color:#eee;} .lang-choice{color:#eee;} .lang-choice:hover{background:#2a2a2a;}}
+@media (prefers-color-scheme:dark){.glass-lang .lang-select-wrapper{background:rgba(255,255,255,0.10);border-color:rgba(255,255,255,0.25);} .glass-lang .lang-select{color:#f3f3f3;} }
+.glass-lang .lang-select:focus{outline:none;}
+/* remove custom caret span; rely on native arrow */
+.glass-lang .lang-select:focus + .lang-caret{transform:rotate(180deg);} 
+</style>
 <script>
-// Accessible modern language dropdown (desktop + mobile)
+// Simple auto-submit select with URL language prefix logic
 document.addEventListener('DOMContentLoaded', function(){
     const defaultLang = 'ru';
-    const available = ['ru','en','uz'];
-    function stripLeadingLang(path){
+    function stripLeadingLang(path, codes){
         const parts = path.split('/').filter(p=>p.length>0);
-        if(parts.length && available.includes(parts[0])) parts.shift();
+        if(parts.length && codes.includes(parts[0])) parts.shift();
         return '/' + parts.join('/') + (path.endsWith('/') && parts.length? '/':'');
     }
-    function buildNext(targetLang){
-        const loc = window.location;
-        const base = stripLeadingLang(loc.pathname);
-        const query = loc.search || '';
-        const hash = loc.hash || '';
-        if(targetLang === defaultLang){ return base + query + hash; }
-        return '/' + targetLang + (base === '/'? '': base) + query + hash;
+    function buildNext(target, codes){
+        const loc = window.location; const base = stripLeadingLang(loc.pathname, codes); const q=loc.search||''; const h=loc.hash||'';
+        if(target===defaultLang) return base+q+h; return '/' + target + (base==='/'?'':base) + q + h;
     }
-
-    function initSwitcher(rootId, toggleId, menuId, formId){
-        const root = document.getElementById(rootId); if(!root) return;
-        const toggle = document.getElementById(toggleId);
-        const menu = document.getElementById(menuId);
-        const form = document.getElementById(formId);
-        if(!toggle || !menu || !form) return;
-        const options = Array.from(menu.querySelectorAll('.lang-option'));
-        let open = false; let focusIndex = -1;
-
-        function openMenu(){
-            if(open) return; open = true; menu.hidden = false; toggle.setAttribute('aria-expanded','true'); toggle.classList.add('open'); focusFirst(); document.addEventListener('mousedown', onDocClick); document.addEventListener('keydown', onKey);
-        }
-        function closeMenu(focusToggle=true){
-            if(!open) return; open=false; menu.hidden = true; toggle.setAttribute('aria-expanded','false'); toggle.classList.remove('open'); document.removeEventListener('mousedown', onDocClick); document.removeEventListener('keydown', onKey); if(focusToggle) toggle.focus(); }
-        function onDocClick(e){ if(!root.contains(e.target)) closeMenu(false); }
-        function focusFirst(){ focusIndex = 0; focusCurrent(); }
-        function focusCurrent(){ const opt = options[focusIndex]; if(opt) opt.focus(); }
-        function move(delta){ if(!open) return; focusIndex = (focusIndex + delta + options.length)%options.length; focusCurrent(); }
-        function selectCurrent(){ const opt=options[focusIndex]; if(opt) selectLang(opt.dataset.lang, form); }
-        function onKey(e){
-            switch(e.key){
-                case 'Escape': closeMenu(); break;
-                case 'ArrowDown': e.preventDefault(); if(!open){ openMenu(); } else { move(1);} break;
-                case 'ArrowUp': e.preventDefault(); if(!open){ openMenu(); } else { move(-1);} break;
-                case 'Home': e.preventDefault(); focusIndex=0; focusCurrent(); break;
-                case 'End': e.preventDefault(); focusIndex=options.length-1; focusCurrent(); break;
-                case 'Enter': case ' ': if(open){ e.preventDefault(); selectCurrent(); } break;
-                case 'Tab': if(open){ // simple focus trap
-                    if(e.shiftKey && document.activeElement === options[0]){ e.preventDefault(); options[options.length-1].focus(); }
-                    else if(!e.shiftKey && document.activeElement === options[options.length-1]){ e.preventDefault(); options[0].focus(); }
-                } break;
-            }
-        }
-        toggle.addEventListener('click', ()=> open? closeMenu(): openMenu());
-        toggle.addEventListener('keydown', e=>{ if(['ArrowDown','ArrowUp','Enter',' '].includes(e.key)){ e.preventDefault(); open? closeMenu(): openMenu(); }});
-        options.forEach((btn,i)=>{
-            btn.addEventListener('click', ()=> selectLang(btn.dataset.lang, form));
-            btn.addEventListener('mouseenter', ()=>{ focusIndex = i; });
+    document.querySelectorAll('.lang-form-enh').forEach(form=>{
+        const btn = form.querySelector('.lang-current-btn');
+        const menu = form.querySelector('.lang-menu');
+        const activeInput = form.querySelector('.lang-active-input');
+        const codes = (form.dataset.langCodes||'').split(',').filter(Boolean);
+        if(!btn || !menu || !activeInput) return;
+        let open=false;
+        function openMenu(){ if(open) return; open=true; menu.hidden=false; btn.setAttribute('aria-expanded','true'); document.addEventListener('mousedown', outside); document.addEventListener('keydown', keyHandler); positionMenu(); }
+        function closeMenu(focus=true){ if(!open) return; open=false; menu.hidden=true; btn.setAttribute('aria-expanded','false'); document.removeEventListener('mousedown', outside); document.removeEventListener('keydown', keyHandler); if(focus) btn.focus(); }
+        function outside(e){ if(!form.contains(e.target)) closeMenu(false); }
+        function keyHandler(e){ if(e.key==='Escape'){ closeMenu(); } }
+        function positionMenu(){ /* could adjust if near edge */ }
+        btn.addEventListener('click', ()=> open? closeMenu(): openMenu());
+        menu.querySelectorAll('.lang-choice').forEach(choice=>{
+            choice.addEventListener('click', ()=>{
+                const code = choice.dataset.lang;
+                if(!code) return;
+                const nextInp = form.querySelector('input[name="next"]');
+                if(nextInp) nextInp.value = buildNext(code, codes);
+                activeInput.value = code;
+                form.submit();
+            });
         });
-        function selectLang(code, form){
-            if(!available.includes(code)) return;
-            const nextInput = form.querySelector('input[name="next"]');
-            const langInput = form.querySelector('input[name="language"]');
-            if(nextInput) nextInput.value = buildNext(code);
-            if(langInput) langInput.value = code;
-            form.submit();
-        }
-    }
-
-    initSwitcher('langSwitcherDesktop','langToggle','langMenu','langForm');
-    initSwitcher('langSwitcherMobile','langToggleMobile','langMenuMobile','langFormMobile');
+    });
 });
 </script>

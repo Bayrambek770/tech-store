@@ -36,12 +36,14 @@ class InterforumClient:
         amount = transaction.amount
         currency_code = transaction.currency
         # dynamic return URL (matches orders:payment_return route)
-        base_url = getattr(settings, 'SITE_BASE_URL', '') or ''
-        if base_url:
-            return_url = base_url.rstrip('/') + f"/orders/payment-return/?tx={transaction.id}"
+        base_url = (getattr(settings, 'SITE_BASE_URL', '') or '').rstrip('/')
+        # Ensure base_url does not accidentally contain path segments that would duplicate
+        return_path = f"/orders/payment-return/?tx={transaction.id}"
+        if base_url and base_url.startswith('http'):
+            return_url = base_url + return_path
         else:
-            # fallback relative path (caller should redirect after payment without absolute domain)
-            return_url = f"/orders/payment-return/?tx={transaction.id}"
+            # relative fallback
+            return_url = return_path
         if currency_code == "UZS":
             currency = 860
         elif currency_code == "USD":

@@ -129,15 +129,11 @@ def create_order(request):
 
 @require_GET
 def payment_return(request):
-    """Handle user returning from Paylov.
-    Expect ?tx=<transaction_id> and provider may separately notify server to set status.
-    If transaction not success -> redirect home (cart remains untouched because we only clear after link creation already).
-    On success -> show order success page.
-    """
+    # Simple logic: if transaction exists and is SUCCESS show order success, else go home
     tx_id = request.GET.get('tx')
     if not tx_id:
         return redirect('home')
     tx = Transaction.objects.filter(id=tx_id).select_related('order').first()
     if not tx or tx.status != TransactionStatus.SUCCESS:
         return redirect('home')
-    return redirect('orders:success', order_id=tx.order_id)
+    return render(request, 'orders/order_success.html', {'order': tx.order})

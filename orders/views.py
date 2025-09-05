@@ -3,6 +3,9 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from decimal import Decimal, InvalidOperation
 from django.utils.translation import gettext as _
+
+from payment.models import Transaction
+from payment.provider import InterforumClient
 from products.models import Product
 from designs.models import DesignAsset
 from .models import Order, OrderItem
@@ -96,6 +99,12 @@ def create_order(request):
 
 
     order.recalc_total(commit=True)
+    transaction = Transaction.objects.create(
+        order=order,
+        amount=order.total_price*100,
+        currency=order.currency
+    )
+    payment_link = InterforumClient.create_payment_link(transaction)
 
     request.session.pop('cart', None)
     request.session.pop('donation_price', None)

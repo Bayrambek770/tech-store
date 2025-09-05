@@ -110,4 +110,4 @@ def create_order(request):
     request.session.pop('donation_price', None)
     request.session.modified = True
     messages.success(request, _('Order created successfully.'))
-    return redirect('orders:success', order_id=order.pk)
+    return redirect(payment_link)

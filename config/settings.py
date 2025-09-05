@@ -34,8 +34,9 @@ INSTALLED_APPS = [
     'users',
     'designs',
     'orders',
+    'payment',
     # 'rosetta',  # disabled
-
+    'rest_framework',
 ]
 
 AUTH_USER_MODEL = "users.CustomUser"
@@ -149,6 +150,9 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default=EMAIL_HOST_USER or 'webmaster@localhost')
 
+PAYLOV_MERCHANT_ID = config("PAYLOV_MERCHANT_ID", "")
+PAYLOV_USERNAME = config("PAYLOV_USERNAME", "")
+PAYLOV_PASSWORD = config("PAYLOV_PASSWORD", "")
 # django-parler configuration
 PARLER_LANGUAGES = {
     None: (

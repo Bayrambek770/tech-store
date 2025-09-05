@@ -11,6 +11,9 @@
                
     <form id="checkout-form" class="row" method="post" action="{% url 'orders:create' %}" novalidate>
             {% csrf_token %}
+            {# Derive currency from active language: en -> USD, others -> UZS (interim logic) #}
+            {% get_current_language as LANGUAGE_CODE %}
+            <input type="hidden" name="currency" value="{% if LANGUAGE_CODE|slice:":2" == 'en' %}USD{% else %}UZS{% endif %}">
             <div class="col-md-7 pr-md-5">
             <h5 class="mb-3">{% trans "Shipping & Contact" %}</h5>
             <div class="form-row">

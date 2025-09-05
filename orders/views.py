@@ -29,7 +29,10 @@ def create_order(request):
         messages.info(request, _('Your cart is empty.'))
         return redirect('store')
 
-    currency = request.POST.get('currency', 'UZS')
+    raw_currency = (request.POST.get('currency') or '').upper()
+    if raw_currency not in ('UZS','USD'):
+        raw_currency = 'UZS'
+    currency = raw_currency
     order = Order.objects.create(
         currency=currency,
         first_name=request.POST.get('first_name') or '',
@@ -74,6 +77,7 @@ def create_order(request):
                 name=product.safe_translation_getter('name', any_language=True) or str(product.pk),
                 quantity=qty_int,
                 unit_price=unit_price,
+                currency=currency,
             )
             continue
 
@@ -94,6 +98,7 @@ def create_order(request):
                 name=design.safe_translation_getter('name', any_language=True) or str(design.pk),
                 quantity=qty_int,
                 unit_price=unit_price,
+                currency=currency,
             )
             continue
 
@@ -108,6 +113,7 @@ def create_order(request):
                 name=_('Advance Payment'),
                 quantity=qty_int,
                 unit_price=unit_price,
+                currency=currency,
             )
 
 

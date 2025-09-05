@@ -34,7 +34,7 @@ class InterforumClient:
     @classmethod
     def create_payment_link(cls, transaction):
         amount = transaction.amount
-        currency_code = transaction.currency
+        currency_code = transaction.currency  # 'UZS' or 'USD'
         # dynamic return URL (matches orders:payment_return route)
         base_url = (getattr(settings, 'SITE_BASE_URL', '') or '').rstrip('/')
         # Ensure base_url does not accidentally contain path segments that would duplicate
@@ -48,14 +48,18 @@ class InterforumClient:
             currency = 860
         elif currency_code == "USD":
             currency = 840
+        else:
+            currency = 860  # fallback
         query_params = {
             "merchant_id": settings.PAYLOV_MERCHANT_ID,
             "amount": amount,
             "currency_id": currency,
-            "amount_in_tiyin": True,
             "return_url": return_url,
             "account.order_id": transaction.id,
         }
+        # Only include amount_in_tiyin for UZS (or if explicitly forced)
+        if currency_code == 'UZS' or getattr(settings, 'PAYLOV_FORCE_TIYIN', False):
+            query_params["amount_in_tiyin"] = True
         query = urllib.parse.urlencode(query_params)
         encode_params = base64.b64encode(query.encode("utf-8"))
         encode_params = str(encode_params, "utf-8")
@@ -70,8 +74,9 @@ class InterforumClient:
             return True, self.ORDER_NOT_FOUND
 
         self.validate_transaction()
-        self.validate_amount(self.params["amount_tiyin"])
-
+        # pick correct amount field depending on currency
+        amt = self.params.get("amount_tiyin") if (self.transaction and self.transaction.currency == 'UZS') else self.params.get("amount")
+        self.validate_amount(amt)
         return self.error, self.code
 
     def perform_transaction(self):
@@ -82,8 +87,8 @@ class InterforumClient:
             return True, self.SERVER_ERROR
 
         self.validate_transaction()
-        self.validate_amount(self.params["amount_tiyin"])
-
+        amt = self.params.get("amount_tiyin") if (self.transaction and self.transaction.currency == 'UZS') else self.params.get("amount")
+        self.validate_amount(amt)
         return self.error, self.code
 
     def validate_transaction(self):

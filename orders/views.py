@@ -9,6 +9,8 @@ from payment.provider import InterforumClient
 from products.models import Product
 from designs.models import DesignAsset
 from .models import Order, OrderItem
+from payment.models import TransactionStatus
+from django.views.decorators.http import require_GET
 
 
 def order_success(request, order_id):
@@ -28,7 +30,18 @@ def create_order(request):
         return redirect('store')
 
     currency = request.POST.get('currency', 'UZS')
-    order = Order.objects.create(currency=currency)
+    order = Order.objects.create(
+        currency=currency,
+        first_name=request.POST.get('first_name') or '',
+        last_name=request.POST.get('last_name') or '',
+        email=request.POST.get('email') or '',
+        phone=request.POST.get('phone') or '',
+        address1=request.POST.get('address1') or '',
+        address2=request.POST.get('address2') or '',
+        country=request.POST.get('country') or '',
+        state=request.POST.get('state') or '',
+        zip=request.POST.get('zip') or '',
+    )
 
     product_ids = [k.split(':', 1)[1] for k in cart if k.startswith('P:')]
     design_ids = [k.split(':', 1)[1] for k in cart if k.startswith('D:')]
@@ -130,3 +143,19 @@ def create_order(request):
 
     messages.success(request, _('Order created successfully.'))
     return redirect(payment_link)
+
+
+@require_GET
+def payment_return(request):
+    """Handle user returning from Paylov.
+    Expect ?tx=<transaction_id> and provider may separately notify server to set status.
+    If transaction not success -> redirect home (cart remains untouched because we only clear after link creation already).
+    On success -> show order success page.
+    """
+    tx_id = request.GET.get('tx')
+    if not tx_id:
+        return redirect('home')
+    tx = Transaction.objects.filter(id=tx_id).select_related('order').first()
+    if not tx or tx.status != TransactionStatus.SUCCESS:
+        return redirect('home')
+    return redirect('orders:success', order_id=tx.order_id)

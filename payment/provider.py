@@ -35,7 +35,8 @@ class InterforumClient:
     def create_payment_link(cls, transaction):
         amount = transaction.amount
         currency_code = transaction.currency
-        return_url = "https://darkandwhite.uz/"
+        # dynamic return URL (success or cancel evaluated in callback view)
+        return_url = settings.SITE_BASE_URL.rstrip('/') + f"/payments/return/?tx={transaction.id}"
         if currency_code == "UZS":
             currency = 860
         elif currency_code == "USD":

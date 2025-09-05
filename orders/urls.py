@@ -6,4 +6,5 @@ app_name = 'orders'
 urlpatterns = [
     path('create/', views.create_order, name='create'),
     path('success/<uuid:order_id>/', views.order_success, name='success'),
+    path('payment-return/', views.payment_return, name='payment_return'),
 ]

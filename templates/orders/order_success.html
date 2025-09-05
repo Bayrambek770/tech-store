@@ -9,38 +9,110 @@
   <link rel="stylesheet" href="{% static 'main/css/meyawo.css' %}">
   <link rel="stylesheet" href="{% static 'main/css/custom.css' %}">
   <style>
-    .order-success{max-width:760px;margin:140px auto 60px;padding:34px 34px 40px;border-radius:18px;background:linear-gradient(145deg,#ffffff,#f2f5fa);box-shadow:0 10px 32px -12px rgba(0,0,0,.15),0 2px 6px -2px rgba(0,0,0,.08);} 
-    .order-success h1{font-size:1.9rem;margin-bottom:.75rem;font-weight:700;letter-spacing:.5px;} 
-    .order-meta{font-size:.9rem;color:#555;margin-bottom:1.4rem;} 
-    .order-lines{list-style:none;padding:0;margin:0 0 1.5rem;} 
-    .order-lines li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #e3e8ef;font-size:.95rem;} 
+    .order-success{max-width:980px;margin:140px auto 60px;padding:40px 40px 48px;border-radius:26px;background:linear-gradient(140deg,#ffffff,#f3f6fb);box-shadow:0 14px 38px -14px rgba(0,0,0,.18),0 4px 14px -4px rgba(0,0,0,.1);} 
+    .order-success h1{font-size:2rem;margin-bottom:.75rem;font-weight:700;letter-spacing:.5px;} 
+    .order-meta{font-size:.85rem;color:#666;margin-bottom:1.2rem;display:flex;flex-wrap:wrap;gap:10px;} 
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin:24px 0 34px;} 
+    .panel{background:#fff;border:1px solid #e7ecf3;border-radius:18px;padding:18px 20px 20px;box-shadow:0 4px 12px -6px rgba(0,0,0,.07);} 
+    .panel h2{font-size:1rem;font-weight:600;margin:0 0 10px;color:#222;text-transform:uppercase;letter-spacing:.5px;} 
+    dl{margin:0;display:grid;grid-template-columns:auto 1fr;row-gap:6px;column-gap:16px;font-size:.85rem;} 
+    dt{font-weight:600;color:#333;} dd{margin:0;color:#444;word-break:break-word;} 
+    .order-lines{list-style:none;padding:0;margin:0;} 
+    .order-lines li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #e3e8ef;font-size:.9rem;gap:16px;} 
     .order-lines li:last-child{border-bottom:none;} 
-    .pill{display:inline-block;background:#0d6efd;color:#fff;padding:4px 10px;border-radius:30px;font-size:.7rem;font-weight:600;letter-spacing:.5px;margin-left:4px;} 
+    .pill{display:inline-block;background:#0d6efd;color:#fff;padding:4px 10px;border-radius:30px;font-size:.6rem;font-weight:600;letter-spacing:.5px;margin-left:6px;text-transform:uppercase;} 
+    .totals{display:flex;justify-content:space-between;font-weight:700;font-size:1rem;padding-top:6px;margin-top:10px;border-top:2px solid #dfe5ee;} 
+    .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;} 
+    .actions a,.actions button{flex:1 1 220px;max-width:320px;} 
+    .btn-outline{background:#fff;border:1px solid #0d6efd;color:#0d6efd;font-weight:600;} 
+    .btn-outline:hover{background:#0d6efd;color:#fff;} 
+    @media (max-width:720px){
+      .order-success{padding:28px 22px 36px;border-radius:20px;margin:120px 14px 60px;}
+      .grid{gap:18px;}
+      .panel{padding:16px 16px 18px;}
+      .order-lines li{font-size:.85rem;padding:8px 0;}
+      .actions{flex-direction:column;}
+    }
   </style>
 </head>
 <body>
   {% include 'layouts/navbar.html' with static_nav=True %}
   <main class="order-success">
     <h1>{% trans "Thank you for your purchase" %}</h1>
-    <div class="order-meta">{% trans "Order ID" %}: {{ order.id }} · {% trans "Placed" %}: {{ order.created_at|date:"Y-m-d H:i" }}</div>
-    <ul class="order-lines">
-      {% for item in order.items.all %}
-        <li>
-          <span>
-            {{ item.name }}
-            <span class="pill">{{ item.get_kind_display }}</span>
-          </span>
-          <span>x {{ item.quantity }} · {{ item.line_total|price_local }}</span>
-        </li>
-      {% empty %}
-        <li>{% trans "No items in this order." %}</li>
-      {% endfor %}
-      <li>
-        <strong>{% trans "Total" %}</strong>
-    <strong>{{ order.total_price|price_local }}</strong>
-      </li>
-    </ul>
-  <a href="{% url 'home' %}" class="btn btn-primary btn-block" style="width:100%;max-width:300px;">{% trans "Back to Home" %}</a>
+    <div class="order-meta">
+      <span><strong>{% trans "Order ID" %}</strong>: {{ order.id }}</span>
+      <span><strong>{% trans "Placed" %}</strong>: {{ order.created_at|date:"Y-m-d H:i" }}</span>
+    </div>
+    <div class="grid">
+      <section class="panel">
+        <h2>{% trans "Customer" %}</h2>
+        <dl>
+          <dt>{% trans "Name" %}</dt><dd>{{ order.first_name }} {{ order.last_name }}</dd>
+          <dt>{% trans "Email" %}</dt><dd>{{ order.email }}</dd>
+          <dt>{% trans "Phone" %}</dt><dd>{{ order.phone }}</dd>
+        </dl>
+      </section>
+      <section class="panel">
+        <h2>{% trans "Shipping" %}</h2>
+        <dl>
+          <dt>{% trans "Address" %}</dt><dd>{{ order.address1 }}{% if order.address2 %}, {{ order.address2 }}{% endif %}</dd>
+          <dt>{% trans "Country" %}</dt><dd>{{ order.country }}</dd>
+          <dt>{% trans "State/Region" %}</dt><dd>{{ order.state }}</dd>
+          <dt>{% trans "ZIP" %}</dt><dd>{{ order.zip }}</dd>
+        </dl>
+      </section>
+      <section class="panel" style="grid-column:1/-1;">
+        <h2>{% trans "Items" %}</h2>
+        <ul class="order-lines">
+          {% for item in order.items.all %}
+            <li>
+              <span>{{ item.name }} <span class="pill">{{ item.get_kind_display }}</span></span>
+              <span>{{ item.quantity }} × {{ item.unit_price|price_local }}</span>
+            </li>
+          {% empty %}
+            <li>{% trans "No items in this order." %}</li>
+          {% endfor %}
+        </ul>
+        <div class="totals">
+          <span>{% trans "Total" %}</span>
+          <span>{{ order.total_price|price_local }}</span>
+        </div>
+      </section>
+    </div>
+    <div class="actions">
+      <a href="{% url 'store' %}" class="btn btn-outline">{% trans "Back to Store" %}</a>
+      <form action="#" method="get" onsubmit="downloadReceipt(event)" style="flex:1 1 220px;max-width:320px;">
+        <button type="submit" class="btn btn-primary btn-block">{% trans "Download Receipt" %}</button>
+      </form>
+    </div>
   </main>
+  <script id="order-items" type="application/json">[
+  {% for item in order.items.all %}
+    {"id":"{{ item.id }}","name":"{{ item.name|escapejs }}","kind":"{{ item.kind }}","qty":{{ item.quantity }},"unit":"{{ item.unit_price }}","line":"{{ item.line_total }}"}{% if not forloop.last %},{% endif %}
+  {% endfor %}
+  ]</script>
+  <script>
+  function downloadReceipt(e){
+    e.preventDefault();
+    let itemsJson = document.getElementById('order-items').textContent.trim();
+    try { if(!itemsJson.startsWith('[')) itemsJson = '[]'; } catch(err){ itemsJson='[]'; }
+    let itemsData = [];
+    try { itemsData = JSON.parse(itemsJson); } catch(err) { itemsData = []; }
+    const data = {
+      id: "{{ order.id }}",
+      created: "{{ order.created_at|date:'c' }}",
+      currency: "{{ order.currency }}",
+      total: "{{ order.total_price }}",
+      customer: { name: "{{ order.first_name }} {{ order.last_name }}", email: "{{ order.email }}", phone: "{{ order.phone }}" },
+      address: { line1: "{{ order.address1 }}", line2: "{{ order.address2 }}", country: "{{ order.country }}", state: "{{ order.state }}", zip: "{{ order.zip }}" },
+      items: itemsData
+    };
+    const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'receipt-'+data.id+'.json';
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+  </script>
 </body>
 </html>

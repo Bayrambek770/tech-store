@@ -29,7 +29,8 @@ def create_order(request):
         messages.info(request, _('Your cart is empty.'))
         return redirect('store')
 
-    currency = 'UZS'
+    posted_currency = (request.POST.get('currency') or '').upper()
+    currency = 'USD' if posted_currency == 'USD' else 'UZS'
     order = Order.objects.create(
         currency=currency,
         first_name=request.POST.get('first_name') or '',

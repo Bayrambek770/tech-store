@@ -57,7 +57,7 @@ class InterforumClient:
             "return_url": return_url,
             "account.order_id": transaction.id,
         }
-        # Only include amount_in_tiyin for UZS (or if explicitly forced)
+        # amount_in_tiyin only for UZS (unless forced via setting)
         if currency_code == 'UZS' or getattr(settings, 'PAYLOV_FORCE_TIYIN', False):
             query_params["amount_in_tiyin"] = True
         query = urllib.parse.urlencode(query_params)
@@ -74,8 +74,10 @@ class InterforumClient:
             return True, self.ORDER_NOT_FOUND
 
         self.validate_transaction()
-        # pick correct amount field depending on currency
-        amt = self.params.get("amount_tiyin") if (self.transaction and self.transaction.currency == 'UZS') else self.params.get("amount")
+        if self.transaction and self.transaction.currency == 'UZS':
+            amt = self.params.get("amount_tiyin") or self.params.get("amount")
+        else:
+            amt = self.params.get("amount") or self.params.get("amount_tiyin")
         self.validate_amount(amt)
         return self.error, self.code
 
@@ -87,7 +89,10 @@ class InterforumClient:
             return True, self.SERVER_ERROR
 
         self.validate_transaction()
-        amt = self.params.get("amount_tiyin") if (self.transaction and self.transaction.currency == 'UZS') else self.params.get("amount")
+        if self.transaction and self.transaction.currency == 'UZS':
+            amt = self.params.get("amount_tiyin") or self.params.get("amount")
+        else:
+            amt = self.params.get("amount") or self.params.get("amount_tiyin")
         self.validate_amount(amt)
         return self.error, self.code
 
@@ -97,7 +102,11 @@ class InterforumClient:
             self.code = self.ORDER_ALREADY_PAID
 
     def validate_amount(self, amount):
-        transaction_amount = int(self.transaction.amount)
-        if amount != transaction_amount:
+        try:
+            transaction_amount = int(self.transaction.amount)
+            passed_amount = int(amount) if amount is not None else None
+        except (TypeError, ValueError):
+            passed_amount = None
+        if passed_amount is None or passed_amount != transaction_amount:
             self.error = True
             self.code = self.INVALID_AMOUNT

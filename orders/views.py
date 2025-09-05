@@ -117,30 +117,12 @@ def create_order(request):
         amount=order.total_price*100,
         currency=order.currency
     )
-    # Guard: ensure order has at least one item
-    if not OrderItem.objects.filter(order=order).exists():
-        messages.error(request, _('Order is empty.'))
-        transaction.delete()
-        order.delete()
-        return redirect('store')
 
-    # Try to obtain a payment link
-    try:
-        payment_link = InterforumClient.create_payment_link(transaction)
-        if not payment_link:
-            raise ValueError('Empty payment link')
-    except Exception:
-        # Roll back if payment init fails
-        transaction.delete()
-        order.delete()
-        messages.error(request, _('Failed to initialize payment. Please try again.'))
-        return redirect('store')
+    payment_link = InterforumClient.create_payment_link(transaction)
 
-    # Clear cart only after successful payment link creation
-    for k in ('cart', 'donation_price'):
-        request.session.pop(k, None)
+    request.session.pop('cart', None)
+    request.session.pop('donation_price', None)
     request.session.modified = True
-
     messages.success(request, _('Order created successfully.'))
     return redirect(payment_link)
 

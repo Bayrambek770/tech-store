@@ -50,6 +50,9 @@
                 <button class="offcanvas__close" id="navClose" aria-label="Close menu">&times;</button>
             </div>
             <ul class="offcanvas__links">
+                {% if user.is_superuser %}
+                <li><a href="{% url 'orders:dashboard' %}">{% trans 'Dashboard' %}</a></li>
+                {% endif %}
                 <li><a href="{% url 'designs:marketplace' %}">{% trans 'Marketplace' %}</a></li>
                 <li><a href="{% url 'store' %}">{% trans 'Store' %}</a></li>
                 <li><a href="{% url 'cart' %}" class="cart-link">{% trans 'Cart' %} <span id="nav-cart-count-mobile" class="badge"></span></a></li>

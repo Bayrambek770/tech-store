@@ -5,7 +5,6 @@ from decimal import Decimal, InvalidOperation
 from django.utils.translation import gettext as _
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import user_passes_test
-import time
 
 from payment.models import Transaction
 from payment.provider import InterforumClient
@@ -133,28 +132,16 @@ def create_order(request):
 
 @require_GET
 def payment_return(request):
-    # If transaction becomes SUCCESS shortly after return, show success; otherwise cancel waiting tx and go home
+    # Read-only: show success if already marked SUCCESS by the provider, else go home
     tx_id = request.GET.get('tx')
     if not tx_id:
         return redirect('home')
     tx = Transaction.objects.filter(id=tx_id).select_related('order').first()
-    if not tx:
+    print(tx.status, '*' * 10)
+    print(TransactionStatus.SUCCESS, '=' * 10)
+    if not tx or tx.status != TransactionStatus.SUCCESS:
         return redirect('home')
-    if tx.status == TransactionStatus.SUCCESS:
-        return render(request, 'orders/order_success.html', {'order': tx.order})
-
-    # short wait for provider callback
-    for _ in range(5):  # ~5 seconds
-        time.sleep(1)
-        tx.refresh_from_db()
-        if tx.status == TransactionStatus.SUCCESS:
-            return render(request, 'orders/order_success.html', {'order': tx.order})
-
-    # still not successful -> treat as user-cancel
-    if tx.status == TransactionStatus.WAITING:
-        tx.status = TransactionStatus.CANCELLED
-        tx.save(update_fields=['status'])
-    return redirect('home')
+    return render(request, 'orders/order_success.html', {'order': tx.order})
 
 
 # --------- Admin Dashboard (superuser only) ---------

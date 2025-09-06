@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-05 06:50+0000\n"
+"POT-Creation-Date: 2025-09-06 10:33+0000\n"
 "PO-Revision-Date: 2025-08-28 01:28+0000\n"
 "Last-Translator:   <admin@mail.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,21 +20,22 @@ msgstr ""
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: config/settings.py:111
+#: config/settings.py:112
 msgid "Russian"
 msgstr "Русский"
 
-#: config/settings.py:112
+#: config/settings.py:113
 msgid "English"
 msgstr "Английский"
 
-#: config/settings.py:113
+#: config/settings.py:114
 msgid "Uzbek"
 msgstr "Узбекский"
 
-#: orders/models.py:11
+#: orders/models.py:11 templates/orders/dashboard.html:48
+#: templates/orders/dashboard_order_detail.html:59
 msgid "Currency"
-msgstr ""
+msgstr "Валюта"
 
 #: orders/models.py:12
 #, fuzzy
@@ -42,62 +43,150 @@ msgstr ""
 msgid "Total Price"
 msgstr "Лучшие цены"
 
-#: orders/models.py:17
+#: orders/models.py:14
+#, fuzzy
+#| msgid "first name"
+msgid "First name"
+msgstr "имя"
+
+#: orders/models.py:15
+#, fuzzy
+#| msgid "last name"
+msgid "Last name"
+msgstr "фамилия"
+
+#: orders/models.py:16 templates/checkout.html:53
+#: templates/orders/dashboard_order_detail.html:43
+#: templates/orders/order_success.html:51 templates/public_offer.html:100
+#: users/models.py:26
+msgid "Email"
+msgstr "Email"
+
+#: orders/models.py:17 templates/checkout.html:68
+#: templates/orders/dashboard_order_detail.html:44
+#: templates/orders/order_success.html:52
+msgid "Phone"
+msgstr "Телефон"
+
+#: orders/models.py:18
+#, fuzzy
+#| msgid "Address Line 1"
+msgid "Address line 1"
+msgstr "Адрес (строка 1)"
+
+#: orders/models.py:19
+#, fuzzy
+#| msgid "Address Line 2"
+msgid "Address line 2"
+msgstr "Адрес (строка 2)"
+
+#: orders/models.py:20 templates/checkout.html:112 templates/checkout.html:123
+#: templates/orders/dashboard_order_detail.html:45
+#: templates/orders/order_success.html:59
+msgid "Country"
+msgstr "Страна"
+
+#: orders/models.py:21 templates/checkout.html:128
+#: templates/orders/order_success.html:60
+msgid "State/Region"
+msgstr "Регион"
+
+#: orders/models.py:22 templates/checkout.html:144 templates/checkout.html:155
+#: templates/orders/dashboard_order_detail.html:47
+#: templates/orders/order_success.html:61
+msgid "ZIP"
+msgstr "Индекс"
+
+#: orders/models.py:27 templates/orders/dashboard.html:45
+#: templates/orders/dashboard_order_detail.html:29
 #: venv/lib/python3.12/site-packages/django/forms/formsets.py:484
 #: venv/lib/python3.12/site-packages/django/forms/formsets.py:491
 msgid "Order"
-msgstr ""
+msgstr "Заказ"
 
-#: orders/models.py:18
+#: orders/models.py:28
 msgid "Orders"
-msgstr ""
+msgstr "Заказы"
 
-#: orders/models.py:36 products/models.py:74 products/models.py:84
+#: orders/models.py:46 products/models.py:74 products/models.py:84
 #: templates/cart.html:13
 msgid "Product"
 msgstr "Товар"
 
-#: orders/models.py:37
-#, fuzzy
-#| msgid "Design"
+#: orders/models.py:47
 msgid "Design Asset"
-msgstr "Дизайн"
+msgstr "Дизайн актив"
 
-#: orders/models.py:38
-#, fuzzy
-#| msgid "Syndication"
+#: orders/models.py:48
 msgid "Donation"
-msgstr "Синдикация"
+msgstr "Пожертвование"
 
-#: orders/models.py:51
-#, fuzzy
-#| msgid "Order Summary"
+#: orders/models.py:61
 msgid "Order Item"
 msgstr "Сводка заказа"
 
-#: orders/models.py:52
+#: orders/models.py:62
 msgid "Order Items"
-msgstr ""
+msgstr "Список заказов"
 
-#: orders/views.py:24 templates/cart.html:41 templates/cart.html:104
+#: orders/views.py:31 templates/cart.html:41 templates/cart.html:104
 msgid "Your cart is empty."
 msgstr "Ваша корзина пуста."
 
-#: orders/views.py:92 templates/donation.html:4 templates/index.html:236
+#: orders/views.py:111 templates/donation.html:4 templates/index.html:236
 msgid "Advance Payment"
 msgstr "Авансовый платеж"
 
-#: orders/views.py:103
+#: orders/views.py:129
 msgid "Order created successfully."
 msgstr ""
 
-#: products/models.py:23 products/models.py:39 users/models.py:25
+#: payment/models.py:17
+msgid "Waiting"
+msgstr "Ожидание"
+
+#: payment/models.py:18
+msgid "Success"
+msgstr "Успех"
+
+#: payment/models.py:19
+msgid "Failed"
+msgstr "Неудача"
+
+#: payment/models.py:20
+msgid "Cancelled"
+msgstr "Отменено"
+
+#: payment/models.py:28 templates/orders/dashboard.html:47
+msgid "Amount"
+msgstr "Сумма"
+
+#: payment/models.py:37
+msgid "Payment url"
+msgstr "Ссылка для оплаты"
+
+#: payment/models.py:54
+#, fuzzy
+#| msgid "Syndication"
+msgid "Transaction"
+msgstr "Синдикация"
+
+#: payment/models.py:55 templates/orders/dashboard.html:36
+#, fuzzy
+#| msgid "Syndication"
+msgid "Transactions"
+msgstr "Синдикация"
+
+#: products/models.py:23 products/models.py:39
+#: templates/orders/dashboard_order_detail.html:42
+#: templates/orders/dashboard_order_detail.html:87
+#: templates/orders/order_success.html:50 users/models.py:25
 msgid "Name"
 msgstr "Название"
 
 #: products/models.py:24 templates/public_offer.html:92
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: products/models.py:31 products/models.py:49
 msgid "Category"
@@ -153,8 +242,8 @@ msgstr "Отзывы"
 msgid "Review for %(product)s by %(user)s"
 msgstr "Отзыв о %(product)s от %(user)s"
 
-#: templates/cart.html:3 templates/layouts/navbar.html:11
-#: templates/layouts/navbar.html:48
+#: templates/cart.html:3 templates/layouts/navbar.html:14
+#: templates/layouts/navbar.html:58
 msgid "Cart"
 msgstr "Корзина"
 
@@ -176,7 +265,8 @@ msgstr "Изображение"
 msgid "Quantity"
 msgstr "Количество"
 
-#: templates/cart.html:16 templates/orders/order_success.html:39
+#: templates/cart.html:16 templates/orders/dashboard_order_detail.html:60
+#: templates/orders/order_success.html:77
 msgid "Total"
 msgstr "Итого"
 
@@ -212,124 +302,63 @@ msgstr "Перейти к оформлению"
 msgid "Checkout"
 msgstr "Оформление заказа"
 
-#: templates/checkout.html:15
+#: templates/checkout.html:17
 msgid "Shipping & Contact"
 msgstr "Доставка и контакты"
 
-#: templates/checkout.html:18
+#: templates/checkout.html:20
 msgid "First Name"
 msgstr "Имя"
 
-#: templates/checkout.html:29
+#: templates/checkout.html:31
 msgid "John"
 msgstr "Иван"
 
-#: templates/checkout.html:34
+#: templates/checkout.html:36
 msgid "Last Name"
 msgstr "Фамилия"
 
-#: templates/checkout.html:45
+#: templates/checkout.html:47
 msgid "Doe"
 msgstr "Иванов"
 
-#: templates/checkout.html:51 templates/public_offer.html:100
-#: users/models.py:26
-msgid "Email"
-msgstr "Email"
-
-#: templates/checkout.html:60
+#: templates/checkout.html:62
 msgid "you@example.com"
 msgstr "you@example.com"
 
-#: templates/checkout.html:66
-msgid "Phone"
-msgstr "Телефон"
-
-#: templates/checkout.html:76
+#: templates/checkout.html:78
 msgid "+1 555 123 4567"
 msgstr "+1 555 123 4567"
 
-#: templates/checkout.html:82
+#: templates/checkout.html:84
 msgid "Address Line 1"
 msgstr "Адрес (строка 1)"
 
-#: templates/checkout.html:92
+#: templates/checkout.html:94
 msgid "123 Main St"
 msgstr "Ул. Центральная 123"
 
-#: templates/checkout.html:97
+#: templates/checkout.html:99
 msgid "Address Line 2"
 msgstr "Адрес (строка 2)"
 
-#: templates/checkout.html:97
+#: templates/checkout.html:99
 msgid "Optional"
 msgstr "Необязательно"
 
-#: templates/checkout.html:110 templates/checkout.html:121
-msgid "Country"
-msgstr "Страна"
-
-#: templates/checkout.html:126
-msgid "State/Region"
-msgstr "Регион"
-
-#: templates/checkout.html:137
+#: templates/checkout.html:139
 msgid "State / Region"
 msgstr "Регион"
 
-#: templates/checkout.html:142 templates/checkout.html:153
-msgid "ZIP"
-msgstr "Индекс"
-
-#: templates/checkout.html:159
-msgid "Payment"
-msgstr "Оплата"
-
-#: templates/checkout.html:163
-msgid "Credit / Debit Card"
-msgstr "Банковская карта"
-
-#: templates/checkout.html:167
-msgid "Cash on Delivery"
-msgstr "Наложенный платеж"
-
-#: templates/checkout.html:172
-msgid "Card Number"
-msgstr "Номер карты"
-
-#: templates/checkout.html:181
-msgid "4111 1111 1111 1111"
-msgstr "4111 1111 1111 1111"
-
-#: templates/checkout.html:190
-msgid "Expiry (MM/YY)"
-msgstr "Срок (MM/ГГ)"
-
-#: templates/checkout.html:199
-msgid "08/27"
-msgstr "08/27"
-
-#: templates/checkout.html:206
-msgid "CVC"
-msgstr "CVC"
-
-#: templates/checkout.html:215
-msgid "123"
-msgstr "123"
-
-#: templates/checkout.html:222
-msgid "Your card data is secured."
-msgstr "Ваши данные карты защищены."
-
-#: templates/checkout.html:226
+#: templates/checkout.html:164
 msgid "Order Summary"
 msgstr "Сводка заказа"
 
-#: templates/checkout.html:241
+#: templates/checkout.html:179
 msgid "Total:"
 msgstr "Всего:"
 
-#: templates/checkout.html:242
+#: templates/checkout.html:180
 msgid "Pay Now"
 msgstr "Оплатить"
 
@@ -393,7 +422,8 @@ msgstr "Сумма (USD)"
 msgid "Add to Cart"
 msgstr "В корзину"
 
-#: templates/donation.html:31 templates/product_detail.html:45
+#: templates/donation.html:31 templates/orders/order_success.html:83
+#: templates/product_detail.html:45
 msgid "Back to Store"
 msgstr "Назад в магазин"
 
@@ -410,7 +440,7 @@ msgid "Start your development with All for PC landing page."
 msgstr "Начните разработку с лендинга All for PC."
 
 #: templates/index.html:11 templates/layouts/navbar.html:6
-#: templates/layouts/navbar.html:42
+#: templates/layouts/navbar.html:49
 msgid "All for PC"
 msgstr "Все для ПК"
 
@@ -579,54 +609,152 @@ msgstr "Отправить сообщение"
 msgid "All for PC. All rights reserved."
 msgstr "All for PC. Все права защищены."
 
-#: templates/index.html:235 templates/layouts/navbar.html:17
-#: templates/layouts/navbar.html:49
+#: templates/index.html:235 templates/layouts/navbar.html:20
+#: templates/layouts/navbar.html:59
 msgid "Public Offer"
 msgstr "Публичная оферта"
 
-#: templates/index.html:237 templates/layouts/navbar.html:9
-#: templates/layouts/navbar.html:46
+#: templates/index.html:237 templates/layouts/navbar.html:12
+#: templates/layouts/navbar.html:56
 msgid "Marketplace"
 msgstr "Маркетплейс"
 
-#: templates/layouts/navbar.html:10 templates/layouts/navbar.html:47
+#: templates/layouts/navbar.html:10 templates/layouts/navbar.html:54
+msgid "Dashboard"
+msgstr "Панель управления"
+
+#: templates/layouts/navbar.html:13 templates/layouts/navbar.html:57
 #: templates/store.html:8
 msgid "Store"
 msgstr "Магазин"
 
-#: templates/layouts/navbar.html:19 templates/layouts/navbar.html:51
+#: templates/layouts/navbar.html:24 templates/layouts/navbar.html:63
 msgid "Change language"
-msgstr ""
+msgstr "Сменить язык"
 
-#: templates/layouts/navbar.html:25 templates/layouts/navbar.html:58
-msgid "Select language"
-msgstr ""
+#: templates/orders/dashboard.html:8
+msgid "Admin Dashboard"
+msgstr "Панель администратора"
+
+#: templates/orders/dashboard.html:37
+#: templates/orders/dashboard_order_detail.html:32
+msgid "Admin"
+msgstr "Администратор"
+
+#: templates/orders/dashboard.html:46
+#: templates/orders/dashboard_order_detail.html:40
+#: templates/orders/order_success.html:48
+msgid "Customer"
+msgstr "Покупатель"
+
+#: templates/orders/dashboard.html:49
+#: templates/orders/dashboard_order_detail.html:62
+msgid "Status"
+msgstr "Статус"
+
+#: templates/orders/dashboard.html:50
+#: templates/orders/dashboard_order_detail.html:67
+msgid "Paid At"
+msgstr "Оплачено"
+
+#: templates/orders/dashboard.html:51
+msgid "Actions"
+msgstr "Действия"
+
+#: templates/orders/dashboard.html:70
+msgid "Details"
+msgstr "Детали"
+
+#: templates/orders/dashboard.html:75
+msgid "No transactions found"
+msgstr "Транзакции не найдены"
+
+#: templates/orders/dashboard_order_detail.html:8
+msgid "Order Details"
+msgstr "Детали заказа"
+
+#: templates/orders/dashboard_order_detail.html:31
+msgid "Back to Dashboard"
+msgstr "Назад в панель управления"
+
+#: templates/orders/dashboard_order_detail.html:46
+msgid "State"
+msgstr "Штат"
+
+#: templates/orders/dashboard_order_detail.html:48
+#: templates/orders/order_success.html:58
+msgid "Address"
+msgstr "Адресс"
+
+#: templates/orders/dashboard_order_detail.html:57
+msgid "Payment"
+msgstr "Оплата"
+
+#: templates/orders/dashboard_order_detail.html:68
+msgid "Transaction ID"
+msgstr "ID транзакции"
+
+#: templates/orders/dashboard_order_detail.html:69
+
+msgid "Payment Link"
+msgstr "Ссылка для оплаты"
+
+#: templates/orders/dashboard_order_detail.html:71
+msgid "No transactions yet"
+msgstr "Нет транзакций"
+
+#: templates/orders/dashboard_order_detail.html:81
+#: templates/orders/order_success.html:65
+msgid "Items"
+msgstr "Товары"
+
+#: templates/orders/dashboard_order_detail.html:88
+msgid "Type"
+msgstr "Тип"
+
+#: templates/orders/dashboard_order_detail.html:89
+msgid "Qty"
+msgstr "Количество"
+
+#: templates/orders/dashboard_order_detail.html:90
+msgid "Unit Price"
+msgstr "Цена за единицу"
+
+#: templates/orders/dashboard_order_detail.html:91
+msgid "Line Total"
+msgstr "Итого"
+
+#: templates/orders/dashboard_order_detail.html:105
+msgid "No items"
+msgstr "Нет товаров"
 
 #: templates/orders/order_success.html:8
-#, fuzzy
-#| msgid "6. Ordering Process"
 msgid "Order Success"
-msgstr "6. Процесс оформления заказа"
+msgstr "Успех заказа"
 
-#: templates/orders/order_success.html:24
+#: templates/orders/order_success.html:41
 msgid "Thank you for your purchase"
 msgstr "Спасибо за вашу покупку"
 
-#: templates/orders/order_success.html:25
+#: templates/orders/order_success.html:43
 msgid "Order ID"
 msgstr "ID заказа"
 
-#: templates/orders/order_success.html:25
+#: templates/orders/order_success.html:44
 msgid "Placed"
 msgstr "Размещен"
 
-#: templates/orders/order_success.html:36
+#: templates/orders/order_success.html:56
+msgid "Shipping"
+msgstr "Доставка"
+
+#: templates/orders/order_success.html:73
 msgid "No items in this order."
 msgstr "В этом заказе нет товаров."
 
-#: templates/orders/order_success.html:43
-msgid "Back to Home"
-msgstr "На главную"
+#: templates/orders/order_success.html:85
+msgid "Download Receipt"
+msgstr "Скачать квитанцию"
 
 #: templates/product_detail.html:47
 msgid "Secure checkout • Easy returns • Fast support"
@@ -2445,6 +2573,36 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
+#~ msgid "Credit / Debit Card"
+#~ msgstr "Банковская карта"
+
+#~ msgid "Cash on Delivery"
+#~ msgstr "Наложенный платеж"
+
+#~ msgid "Card Number"
+#~ msgstr "Номер карты"
+
+#~ msgid "4111 1111 1111 1111"
+#~ msgstr "4111 1111 1111 1111"
+
+#~ msgid "Expiry (MM/YY)"
+#~ msgstr "Срок (MM/ГГ)"
+
+#~ msgid "08/27"
+#~ msgstr "08/27"
+
+#~ msgid "CVC"
+#~ msgstr "CVC"
+
+#~ msgid "123"
+#~ msgstr "123"
+
+#~ msgid "Your card data is secured."
+#~ msgstr "Ваши данные карты защищены."
+
+#~ msgid "Back to Home"
+#~ msgstr "На главную"
+
 #~ msgid "4. Product Information & Availability"
 #~ msgstr "4. Информация о товарах и наличие"
 
@@ -2495,9 +2653,6 @@ msgstr ""
 #~ msgid "Logged in user"
 #~ msgstr "Авторизованный пользователь"
 
-#~ msgid "Account"
-#~ msgstr "Аккаунт"
-
 #~ msgid "Short Name"
 #~ msgstr "Сокращённое наименование"
 
@@ -2515,9 +2670,6 @@ msgstr ""
 
 #~ msgid "Bank Branch"
 #~ msgstr "Филиал банка"
-
-#~ msgid "Bank Address"
-#~ msgstr "Адрес банка"
 
 #~ msgid "Bank Phone"
 #~ msgstr "Телефон банка"

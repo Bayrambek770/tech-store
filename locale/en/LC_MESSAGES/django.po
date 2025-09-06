@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-05 06:50+0000\n"
+"POT-Creation-Date: 2025-09-06 10:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: config/settings.py:111
+#: config/settings.py:112
 msgid "Russian"
 msgstr ""
 
-#: config/settings.py:112
+#: config/settings.py:113
 msgid "English"
 msgstr ""
 
-#: config/settings.py:113
+#: config/settings.py:114
 msgid "Uzbek"
 msgstr ""
 
-#: orders/models.py:11
+#: orders/models.py:11 templates/orders/dashboard.html:48
+#: templates/orders/dashboard_order_detail.html:59
 msgid "Currency"
 msgstr ""
 
@@ -38,50 +39,132 @@ msgstr ""
 msgid "Total Price"
 msgstr ""
 
-#: orders/models.py:17
+#: orders/models.py:14
+msgid "First name"
+msgstr ""
+
+#: orders/models.py:15
+msgid "Last name"
+msgstr ""
+
+#: orders/models.py:16 templates/checkout.html:53
+#: templates/orders/dashboard_order_detail.html:43
+#: templates/orders/order_success.html:51 templates/public_offer.html:100
+#: users/models.py:26
+msgid "Email"
+msgstr ""
+
+#: orders/models.py:17 templates/checkout.html:68
+#: templates/orders/dashboard_order_detail.html:44
+#: templates/orders/order_success.html:52
+msgid "Phone"
+msgstr ""
+
+#: orders/models.py:18
+msgid "Address line 1"
+msgstr ""
+
+#: orders/models.py:19
+msgid "Address line 2"
+msgstr ""
+
+#: orders/models.py:20 templates/checkout.html:112 templates/checkout.html:123
+#: templates/orders/dashboard_order_detail.html:45
+#: templates/orders/order_success.html:59
+msgid "Country"
+msgstr ""
+
+#: orders/models.py:21 templates/checkout.html:128
+#: templates/orders/order_success.html:60
+msgid "State/Region"
+msgstr ""
+
+#: orders/models.py:22 templates/checkout.html:144 templates/checkout.html:155
+#: templates/orders/dashboard_order_detail.html:47
+#: templates/orders/order_success.html:61
+msgid "ZIP"
+msgstr ""
+
+#: orders/models.py:27 templates/orders/dashboard.html:45
+#: templates/orders/dashboard_order_detail.html:29
 #: venv/lib/python3.12/site-packages/django/forms/formsets.py:484
 #: venv/lib/python3.12/site-packages/django/forms/formsets.py:491
 msgid "Order"
 msgstr ""
 
-#: orders/models.py:18
+#: orders/models.py:28
 msgid "Orders"
 msgstr ""
 
-#: orders/models.py:36 products/models.py:74 products/models.py:84
+#: orders/models.py:46 products/models.py:74 products/models.py:84
 #: templates/cart.html:13
 msgid "Product"
 msgstr ""
 
-#: orders/models.py:37
+#: orders/models.py:47
 msgid "Design Asset"
 msgstr ""
 
-#: orders/models.py:38
+#: orders/models.py:48
 msgid "Donation"
 msgstr ""
 
-#: orders/models.py:51
+#: orders/models.py:61
 msgid "Order Item"
 msgstr ""
 
-#: orders/models.py:52
+#: orders/models.py:62
 msgid "Order Items"
 msgstr ""
 
-#: orders/views.py:24 templates/cart.html:41 templates/cart.html:104
+#: orders/views.py:31 templates/cart.html:41 templates/cart.html:104
 msgid "Your cart is empty."
 msgstr ""
 
-#: orders/views.py:92 templates/donation.html:4 templates/index.html:236
+#: orders/views.py:111 templates/donation.html:4 templates/index.html:236
 msgid "Advance Payment"
 msgstr ""
 
-#: orders/views.py:103
+#: orders/views.py:129
 msgid "Order created successfully."
 msgstr ""
 
-#: products/models.py:23 products/models.py:39 users/models.py:25
+#: payment/models.py:17
+msgid "Waiting"
+msgstr ""
+
+#: payment/models.py:18
+msgid "Success"
+msgstr ""
+
+#: payment/models.py:19
+msgid "Failed"
+msgstr ""
+
+#: payment/models.py:20
+msgid "Cancelled"
+msgstr ""
+
+#: payment/models.py:28 templates/orders/dashboard.html:47
+msgid "Amount"
+msgstr ""
+
+#: payment/models.py:37
+msgid "Payment url"
+msgstr ""
+
+#: payment/models.py:54
+msgid "Transaction"
+msgstr ""
+
+#: payment/models.py:55 templates/orders/dashboard.html:36
+msgid "Transactions"
+msgstr ""
+
+#: products/models.py:23 products/models.py:39
+#: templates/orders/dashboard_order_detail.html:42
+#: templates/orders/dashboard_order_detail.html:87
+#: templates/orders/order_success.html:50 users/models.py:25
 msgid "Name"
 msgstr ""
 
@@ -142,8 +225,8 @@ msgstr ""
 msgid "Review for %(product)s by %(user)s"
 msgstr ""
 
-#: templates/cart.html:3 templates/layouts/navbar.html:11
-#: templates/layouts/navbar.html:48
+#: templates/cart.html:3 templates/layouts/navbar.html:14
+#: templates/layouts/navbar.html:58
 msgid "Cart"
 msgstr ""
 
@@ -165,7 +248,8 @@ msgstr ""
 msgid "Quantity"
 msgstr ""
 
-#: templates/cart.html:16 templates/orders/order_success.html:39
+#: templates/cart.html:16 templates/orders/dashboard_order_detail.html:60
+#: templates/orders/order_success.html:77
 msgid "Total"
 msgstr ""
 
@@ -201,124 +285,63 @@ msgstr ""
 msgid "Checkout"
 msgstr ""
 
-#: templates/checkout.html:15
+#: templates/checkout.html:17
 msgid "Shipping & Contact"
 msgstr ""
 
-#: templates/checkout.html:18
+#: templates/checkout.html:20
 msgid "First Name"
 msgstr ""
 
-#: templates/checkout.html:29
+#: templates/checkout.html:31
 msgid "John"
 msgstr ""
 
-#: templates/checkout.html:34
+#: templates/checkout.html:36
 msgid "Last Name"
 msgstr ""
 
-#: templates/checkout.html:45
+#: templates/checkout.html:47
 msgid "Doe"
 msgstr ""
 
-#: templates/checkout.html:51 templates/public_offer.html:100
-#: users/models.py:26
-msgid "Email"
-msgstr ""
-
-#: templates/checkout.html:60
+#: templates/checkout.html:62
 msgid "you@example.com"
 msgstr ""
 
-#: templates/checkout.html:66
-msgid "Phone"
-msgstr ""
-
-#: templates/checkout.html:76
+#: templates/checkout.html:78
 msgid "+1 555 123 4567"
 msgstr ""
 
-#: templates/checkout.html:82
+#: templates/checkout.html:84
 msgid "Address Line 1"
 msgstr ""
 
-#: templates/checkout.html:92
+#: templates/checkout.html:94
 msgid "123 Main St"
 msgstr ""
 
-#: templates/checkout.html:97
+#: templates/checkout.html:99
 msgid "Address Line 2"
 msgstr ""
 
-#: templates/checkout.html:97
+#: templates/checkout.html:99
 msgid "Optional"
 msgstr ""
 
-#: templates/checkout.html:110 templates/checkout.html:121
-msgid "Country"
-msgstr ""
-
-#: templates/checkout.html:126
-msgid "State/Region"
-msgstr ""
-
-#: templates/checkout.html:137
+#: templates/checkout.html:139
 msgid "State / Region"
 msgstr ""
 
-#: templates/checkout.html:142 templates/checkout.html:153
-msgid "ZIP"
-msgstr ""
-
-#: templates/checkout.html:159
-msgid "Payment"
-msgstr ""
-
-#: templates/checkout.html:163
-msgid "Credit / Debit Card"
-msgstr ""
-
-#: templates/checkout.html:167
-msgid "Cash on Delivery"
-msgstr ""
-
-#: templates/checkout.html:172
-msgid "Card Number"
-msgstr ""
-
-#: templates/checkout.html:181
-msgid "4111 1111 1111 1111"
-msgstr ""
-
-#: templates/checkout.html:190
-msgid "Expiry (MM/YY)"
-msgstr ""
-
-#: templates/checkout.html:199
-msgid "08/27"
-msgstr ""
-
-#: templates/checkout.html:206
-msgid "CVC"
-msgstr ""
-
-#: templates/checkout.html:215
-msgid "123"
-msgstr ""
-
-#: templates/checkout.html:222
-msgid "Your card data is secured."
-msgstr ""
-
-#: templates/checkout.html:226
+#: templates/checkout.html:164
 msgid "Order Summary"
 msgstr ""
 
-#: templates/checkout.html:241
+#: templates/checkout.html:179
 msgid "Total:"
 msgstr ""
 
-#: templates/checkout.html:242
+#: templates/checkout.html:180
 msgid "Pay Now"
 msgstr ""
 
@@ -373,7 +396,8 @@ msgstr ""
 msgid "Add to Cart"
 msgstr ""
 
-#: templates/donation.html:31 templates/product_detail.html:45
+#: templates/donation.html:31 templates/orders/order_success.html:83
+#: templates/product_detail.html:45
 msgid "Back to Store"
 msgstr ""
 
@@ -388,7 +412,7 @@ msgid "Start your development with All for PC landing page."
 msgstr ""
 
 #: templates/index.html:11 templates/layouts/navbar.html:6
-#: templates/layouts/navbar.html:42
+#: templates/layouts/navbar.html:49
 msgid "All for PC"
 msgstr ""
 
@@ -548,51 +572,152 @@ msgstr ""
 msgid "All for PC. All rights reserved."
 msgstr ""
 
-#: templates/index.html:235 templates/layouts/navbar.html:17
-#: templates/layouts/navbar.html:49
+#: templates/index.html:235 templates/layouts/navbar.html:20
+#: templates/layouts/navbar.html:59
 msgid "Public Offer"
 msgstr ""
 
-#: templates/index.html:237 templates/layouts/navbar.html:9
-#: templates/layouts/navbar.html:46
+#: templates/index.html:237 templates/layouts/navbar.html:12
+#: templates/layouts/navbar.html:56
 msgid "Marketplace"
 msgstr ""
 
-#: templates/layouts/navbar.html:10 templates/layouts/navbar.html:47
+#: templates/layouts/navbar.html:10 templates/layouts/navbar.html:54
+msgid "Dashboard"
+msgstr ""
+
+#: templates/layouts/navbar.html:13 templates/layouts/navbar.html:57
 #: templates/store.html:8
 msgid "Store"
 msgstr ""
 
-#: templates/layouts/navbar.html:19 templates/layouts/navbar.html:51
+#: templates/layouts/navbar.html:24 templates/layouts/navbar.html:63
 msgid "Change language"
 msgstr ""
 
-#: templates/layouts/navbar.html:25 templates/layouts/navbar.html:58
-msgid "Select language"
+#: templates/orders/dashboard.html:8
+msgid "Admin Dashboard"
+msgstr ""
+
+#: templates/orders/dashboard.html:37
+#: templates/orders/dashboard_order_detail.html:32
+msgid "Admin"
+msgstr ""
+
+#: templates/orders/dashboard.html:46
+#: templates/orders/dashboard_order_detail.html:40
+#: templates/orders/order_success.html:48
+msgid "Customer"
+msgstr ""
+
+#: templates/orders/dashboard.html:49
+#: templates/orders/dashboard_order_detail.html:62
+msgid "Status"
+msgstr ""
+
+#: templates/orders/dashboard.html:50
+#: templates/orders/dashboard_order_detail.html:67
+msgid "Paid At"
+msgstr ""
+
+#: templates/orders/dashboard.html:51
+msgid "Actions"
+msgstr ""
+
+#: templates/orders/dashboard.html:70
+msgid "Details"
+msgstr ""
+
+#: templates/orders/dashboard.html:75
+msgid "No transactions found"
+msgstr ""
+
+#: templates/orders/dashboard_order_detail.html:8
+msgid "Order Details"
+msgstr ""
+
+#: templates/orders/dashboard_order_detail.html:31
+msgid "Back to Dashboard"
+msgstr ""
+
+#: templates/orders/dashboard_order_detail.html:46
+msgid "State"
+msgstr ""
+
+#: templates/orders/dashboard_order_detail.html:48
+#: templates/orders/order_success.html:58
+#, fuzzy
+#| msgid "Bank Address"
+msgid "Address"
+msgstr "Bank Address"
+
+#: templates/orders/dashboard_order_detail.html:57
+msgid "Payment"
+msgstr ""
+
+#: templates/orders/dashboard_order_detail.html:68
+msgid "Transaction ID"
+msgstr ""
+
+#: templates/orders/dashboard_order_detail.html:69
+msgid "Payment Link"
+msgstr ""
+
+#: templates/orders/dashboard_order_detail.html:71
+msgid "No transactions yet"
+msgstr ""
+
+#: templates/orders/dashboard_order_detail.html:81
+#: templates/orders/order_success.html:65
+msgid "Items"
+msgstr ""
+
+#: templates/orders/dashboard_order_detail.html:88
+msgid "Type"
+msgstr ""
+
+#: templates/orders/dashboard_order_detail.html:89
+msgid "Qty"
+msgstr ""
+
+#: templates/orders/dashboard_order_detail.html:90
+msgid "Unit Price"
+msgstr ""
+
+#: templates/orders/dashboard_order_detail.html:91
+msgid "Line Total"
+msgstr ""
+
+#: templates/orders/dashboard_order_detail.html:105
+msgid "No items"
 msgstr ""
 
 #: templates/orders/order_success.html:8
 msgid "Order Success"
 msgstr ""
 
-#: templates/orders/order_success.html:24
+#: templates/orders/order_success.html:41
 msgid "Thank you for your purchase"
 msgstr ""
 
-#: templates/orders/order_success.html:25
+#: templates/orders/order_success.html:43
 msgid "Order ID"
 msgstr ""
 
-#: templates/orders/order_success.html:25
+#: templates/orders/order_success.html:44
 msgid "Placed"
 msgstr ""
 
-#: templates/orders/order_success.html:36
+#: templates/orders/order_success.html:56
+msgid "Shipping"
+msgstr ""
+
+#: templates/orders/order_success.html:73
 msgid "No items in this order."
 msgstr ""
 
-#: templates/orders/order_success.html:43
-msgid "Back to Home"
+#: templates/orders/order_success.html:85
+msgid "Download Receipt"
 msgstr ""
 
 #: templates/product_detail.html:47

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-05 06:50+0000\n"
+"POT-Creation-Date: 2025-09-06 10:33+0000\n"
 "PO-Revision-Date: 2025-08-28 00:56+0000\n"
 "Last-Translator:   <admin@mail.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,20 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: config/settings.py:111
+#: config/settings.py:112
 msgid "Russian"
 msgstr "Ruscha"
 
-#: config/settings.py:112
+#: config/settings.py:113
 msgid "English"
 msgstr "Inglizcha"
 
-#: config/settings.py:113
+#: config/settings.py:114
 msgid "Uzbek"
 msgstr "O'zbekcha"
 
-#: orders/models.py:11
+#: orders/models.py:11 templates/orders/dashboard.html:48
+#: templates/orders/dashboard_order_detail.html:59
 msgid "Currency"
 msgstr ""
 
@@ -40,56 +41,156 @@ msgstr ""
 msgid "Total Price"
 msgstr "Eng yaxshi narxlar"
 
-#: orders/models.py:17
+#: orders/models.py:14
+#, fuzzy
+#| msgid "first name"
+msgid "First name"
+msgstr "ism"
+
+#: orders/models.py:15
+#, fuzzy
+#| msgid "last name"
+msgid "Last name"
+msgstr "familiya"
+
+#: orders/models.py:16 templates/checkout.html:53
+#: templates/orders/dashboard_order_detail.html:43
+#: templates/orders/order_success.html:51 templates/public_offer.html:100
+#: users/models.py:26
+msgid "Email"
+msgstr "Email"
+
+#: orders/models.py:17 templates/checkout.html:68
+#: templates/orders/dashboard_order_detail.html:44
+#: templates/orders/order_success.html:52
+msgid "Phone"
+msgstr "Telefon"
+
+#: orders/models.py:18
+#, fuzzy
+#| msgid "Address Line 1"
+msgid "Address line 1"
+msgstr "Manzil 1-qator"
+
+#: orders/models.py:19
+#, fuzzy
+#| msgid "Address Line 2"
+msgid "Address line 2"
+msgstr "Manzil 2-qator"
+
+#: orders/models.py:20 templates/checkout.html:112 templates/checkout.html:123
+#: templates/orders/dashboard_order_detail.html:45
+#: templates/orders/order_success.html:59
+msgid "Country"
+msgstr "Mamlakat"
+
+#: orders/models.py:21 templates/checkout.html:128
+#: templates/orders/order_success.html:60
+msgid "State/Region"
+msgstr "Viloyat"
+
+#: orders/models.py:22 templates/checkout.html:144 templates/checkout.html:155
+#: templates/orders/dashboard_order_detail.html:47
+#: templates/orders/order_success.html:61
+msgid "ZIP"
+msgstr "Indeks"
+
+#: orders/models.py:27 templates/orders/dashboard.html:45
+#: templates/orders/dashboard_order_detail.html:29
 #: venv/lib/python3.12/site-packages/django/forms/formsets.py:484
 #: venv/lib/python3.12/site-packages/django/forms/formsets.py:491
 msgid "Order"
 msgstr ""
 
-#: orders/models.py:18
+#: orders/models.py:28
 msgid "Orders"
 msgstr ""
 
-#: orders/models.py:36 products/models.py:74 products/models.py:84
+#: orders/models.py:46 products/models.py:74 products/models.py:84
 #: templates/cart.html:13
 msgid "Product"
 msgstr "Mahsulot"
 
-#: orders/models.py:37
+#: orders/models.py:47
 #, fuzzy
 #| msgid "Design"
 msgid "Design Asset"
 msgstr "Dizayn"
 
-#: orders/models.py:38
+#: orders/models.py:48
 #, fuzzy
 #| msgid "Syndication"
 msgid "Donation"
 msgstr "Sindikatsiya"
 
-#: orders/models.py:51
+#: orders/models.py:61
 #, fuzzy
 #| msgid "Order Summary"
 msgid "Order Item"
 msgstr "Buyurtma xulosasi"
 
-#: orders/models.py:52
+#: orders/models.py:62
 msgid "Order Items"
 msgstr ""
 
-#: orders/views.py:24 templates/cart.html:41 templates/cart.html:104
+#: orders/views.py:31 templates/cart.html:41 templates/cart.html:104
 msgid "Your cart is empty."
 msgstr "Savatingiz bo'sh."
 
-#: orders/views.py:92 templates/donation.html:4 templates/index.html:236
+#: orders/views.py:111 templates/donation.html:4 templates/index.html:236
 msgid "Advance Payment"
 msgstr "Oldindan to'lov"
 
-#: orders/views.py:103
+#: orders/views.py:129
 msgid "Order created successfully."
 msgstr ""
 
-#: products/models.py:23 products/models.py:39 users/models.py:25
+#: payment/models.py:17
+msgid "Waiting"
+msgstr "kutilyapti"
+
+#: payment/models.py:18
+msgid "Success"
+msgstr "Muvaffaqiyatli"
+
+msgstr "6. Buyurtma jarayoni"
+
+#: payment/models.py:19
+msgid "Failed"
+msgstr "Muvaffaqiyatsiz"
+
+#: payment/models.py:20
+msgid "Cancelled"
+msgstr "Bekor qilingan"
+
+#: payment/models.py:28 templates/orders/dashboard.html:47
+#, fuzzy
+#| msgid "Account"
+msgid "Amount"
+msgstr "Hisob"
+
+#: payment/models.py:37
+#, fuzzy
+#| msgid "Payment"
+msgid "Payment url"
+msgstr "To'lov URL"
+
+#: payment/models.py:54
+#, fuzzy
+#| msgid "Syndication"
+msgid "Transaction"
+msgstr "Sindikatsiya"
+
+#: payment/models.py:55 templates/orders/dashboard.html:36
+#, fuzzy
+#| msgid "Syndication"
+msgid "Transactions"
+msgstr "Sindikatsiya"
+
+#: products/models.py:23 products/models.py:39
+#: templates/orders/dashboard_order_detail.html:42
+#: templates/orders/dashboard_order_detail.html:87
+#: templates/orders/order_success.html:50 users/models.py:25
 msgid "Name"
 msgstr "Nomi"
 
@@ -150,8 +251,8 @@ msgstr "Sharhlar"
 msgid "Review for %(product)s by %(user)s"
 msgstr "%(user)s tomonidan %(product)s uchun sharh"
 
-#: templates/cart.html:3 templates/layouts/navbar.html:11
-#: templates/layouts/navbar.html:48
+#: templates/cart.html:3 templates/layouts/navbar.html:14
+#: templates/layouts/navbar.html:58
 msgid "Cart"
 msgstr "Savat"
 
@@ -173,7 +274,8 @@ msgstr "Rasm"
 msgid "Quantity"
 msgstr "Soni"
 
-#: templates/cart.html:16 templates/orders/order_success.html:39
+#: templates/cart.html:16 templates/orders/dashboard_order_detail.html:60
+#: templates/orders/order_success.html:77
 msgid "Total"
 msgstr "Jami"
 
@@ -209,124 +311,63 @@ msgstr "To'lovga o'tish"
 msgid "Checkout"
 msgstr "To'lov"
 
-#: templates/checkout.html:15
+#: templates/checkout.html:17
 msgid "Shipping & Contact"
 msgstr "Yuk va aloqa"
 
-#: templates/checkout.html:18
+#: templates/checkout.html:20
 msgid "First Name"
 msgstr "Ism"
 
-#: templates/checkout.html:29
+#: templates/checkout.html:31
 msgid "John"
 msgstr "John"
 
-#: templates/checkout.html:34
+#: templates/checkout.html:36
 msgid "Last Name"
 msgstr "Familiya"
 
-#: templates/checkout.html:45
+#: templates/checkout.html:47
 msgid "Doe"
 msgstr "Doe"
 
-#: templates/checkout.html:51 templates/public_offer.html:100
-#: users/models.py:26
-msgid "Email"
-msgstr "Email"
-
-#: templates/checkout.html:60
+#: templates/checkout.html:62
 msgid "you@example.com"
 msgstr "you@example.com"
 
-#: templates/checkout.html:66
-msgid "Phone"
-msgstr "Telefon"
-
-#: templates/checkout.html:76
+#: templates/checkout.html:78
 msgid "+1 555 123 4567"
 msgstr "+1 555 123 4567"
 
-#: templates/checkout.html:82
+#: templates/checkout.html:84
 msgid "Address Line 1"
 msgstr "Manzil 1-qator"
 
-#: templates/checkout.html:92
+#: templates/checkout.html:94
 msgid "123 Main St"
 msgstr "Asosiy ko'cha 123"
 
-#: templates/checkout.html:97
+#: templates/checkout.html:99
 msgid "Address Line 2"
 msgstr "Manzil 2-qator"
 
-#: templates/checkout.html:97
+#: templates/checkout.html:99
 msgid "Optional"
 msgstr "Ixtiyoriy"
 
-#: templates/checkout.html:110 templates/checkout.html:121
-msgid "Country"
-msgstr "Mamlakat"
-
-#: templates/checkout.html:126
-msgid "State/Region"
-msgstr "Viloyat"
-
-#: templates/checkout.html:137
+#: templates/checkout.html:139
 msgid "State / Region"
 msgstr "Viloyat"
 
-#: templates/checkout.html:142 templates/checkout.html:153
-msgid "ZIP"
-msgstr "Indeks"
-
-#: templates/checkout.html:159
-msgid "Payment"
-msgstr "To'lov"
-
-#: templates/checkout.html:163
-msgid "Credit / Debit Card"
-msgstr "Kredit / Debet karta"
-
-#: templates/checkout.html:167
-msgid "Cash on Delivery"
-msgstr "Yetkazilganda naqd"
-
-#: templates/checkout.html:172
-msgid "Card Number"
-msgstr "Karta raqami"
-
-#: templates/checkout.html:181
-msgid "4111 1111 1111 1111"
-msgstr "4111 1111 1111 1111"
-
-#: templates/checkout.html:190
-msgid "Expiry (MM/YY)"
-msgstr "Amal muddati (OY/YIL)"
-
-#: templates/checkout.html:199
-msgid "08/27"
-msgstr "08/27"
-
-#: templates/checkout.html:206
-msgid "CVC"
-msgstr "CVC"
-
-#: templates/checkout.html:215
-msgid "123"
-msgstr "123"
-
-#: templates/checkout.html:222
-msgid "Your card data is secured."
-msgstr "Kartangiz ma'lumotlari himoyalangan."
-
-#: templates/checkout.html:226
+#: templates/checkout.html:164
 msgid "Order Summary"
 msgstr "Buyurtma xulosasi"
 
-#: templates/checkout.html:241
+#: templates/checkout.html:179
 msgid "Total:"
 msgstr "Jami:"
 
-#: templates/checkout.html:242
+#: templates/checkout.html:180
 msgid "Pay Now"
 msgstr "To'lash"
 
@@ -382,7 +423,8 @@ msgstr "Miqdor (USD)"
 msgid "Add to Cart"
 msgstr "Savatga qo'shish"
 
-#: templates/donation.html:31 templates/product_detail.html:45
+#: templates/donation.html:31 templates/orders/order_success.html:83
+#: templates/product_detail.html:45
 msgid "Back to Store"
 msgstr "Do'konga qaytish"
 
@@ -399,7 +441,7 @@ msgid "Start your development with All for PC landing page."
 msgstr "Loyihangizni All for PC landing sahifasidan boshlang."
 
 #: templates/index.html:11 templates/layouts/navbar.html:6
-#: templates/layouts/navbar.html:42
+#: templates/layouts/navbar.html:49
 msgid "All for PC"
 msgstr "All for PC"
 
@@ -574,55 +616,161 @@ msgstr "Xabar yuborish"
 msgid "All for PC. All rights reserved."
 msgstr "All for PC. Barcha huquqlar himoyalangan."
 
-#: templates/index.html:235 templates/layouts/navbar.html:17
-#: templates/layouts/navbar.html:49
+#: templates/index.html:235 templates/layouts/navbar.html:20
+#: templates/layouts/navbar.html:59
 msgid "Public Offer"
 msgstr "Ommaviy oferta"
 
-#: templates/index.html:237 templates/layouts/navbar.html:9
-#: templates/layouts/navbar.html:46
+#: templates/index.html:237 templates/layouts/navbar.html:12
+#: templates/layouts/navbar.html:56
 msgid "Marketplace"
 msgstr "Bozor"
 
-#: templates/layouts/navbar.html:10 templates/layouts/navbar.html:47
+#: templates/layouts/navbar.html:10 templates/layouts/navbar.html:54
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: templates/layouts/navbar.html:13 templates/layouts/navbar.html:57
 #: templates/store.html:8
 msgid "Store"
 msgstr "Do'kon"
 
 # Language switcher generic
-#: templates/layouts/navbar.html:19 templates/layouts/navbar.html:51
+#: templates/layouts/navbar.html:24 templates/layouts/navbar.html:63
 msgid "Change language"
 msgstr "Tilni o'zgartirish"
 
-#: templates/layouts/navbar.html:25 templates/layouts/navbar.html:58
-msgid "Select language"
-msgstr "Tilni tanlang"
+#: templates/orders/dashboard.html:8
+msgid "Admin Dashboard"
+msgstr "Admin Dashboard"
 
-#: templates/orders/order_success.html:8
-#, fuzzy
-#| msgid "6. Ordering Process"
-msgid "Order Success"
-msgstr "6. Buyurtma jarayoni"
+#: templates/orders/dashboard.html:37
+#: templates/orders/dashboard_order_detail.html:32
+msgid "Admin"
+msgstr "Admin"
 
-#: templates/orders/order_success.html:24
-msgid "Thank you for your purchase"
-msgstr "Xaridingiz uchun rahmat"
+#: templates/orders/order_success.html:48
+msgid "Customer Reviews"
+msgstr "Mijozlar sharhlari"
 
-#: templates/orders/order_success.html:25
+
+#: templates/orders/dashboard_order_detail.html:40, #: templates/orders/dashboard.html:46
+msgid "Customer"
+msgstr "Mijoz"
+
+#: templates/orders/dashboard.html:49
+#: templates/orders/dashboard_order_detail.html:62
+msgid "Status"
+msgstr "Holat"
+
+#: templates/orders/dashboard.html:50
+#: templates/orders/dashboard_order_detail.html:67
+msgid "Paid At"
+msgstr "To'langan vaqt"
+
+#: templates/orders/dashboard.html:51
+msgid "Actions"
+msgstr "Harakatlar"
+
+#: templates/orders/dashboard.html:70
+msgid "Details"
+msgstr "Tafsilotlar"
+
+#: templates/orders/dashboard.html:75
+msgid "No transactions found"
+msgstr "Hech qanday tranzaksiya topilmadi"
+
+#: templates/orders/dashboard_order_detail.html:8
 msgid "Order ID"
 msgstr "Buyurtma ID"
 
-#: templates/orders/order_success.html:25
+#: templates/orders/dashboard_order_detail.html:31
+msgid "Back to Dashboard"
+msgstr "Dashboardga qaytish"
+
+#: templates/orders/dashboard_order_detail.html:46
+msgid "State"
+msgstr "Viloyat"
+
+
+#: templates/orders/order_success.html:58
+msgid "Bank Address"
+msgstr "Bank manzili"
+
+#: templates/orders/dashboard_order_detail.html:48
+msgid "Address"
+msgstr "Manzil"
+
+#: templates/orders/dashboard_order_detail.html:57
+msgid "Payment"
+msgstr "To'lov"
+
+#: templates/orders/dashboard_order_detail.html:68
+msgid "Transaction ID"
+msgstr "Tranzaksiya ID"
+
+#: templates/orders/dashboard_order_detail.html:69
+#, fuzzy
+#| msgid "Payment"
+msgid "Payment Link"
+msgstr "To'lov"
+
+#: templates/orders/dashboard_order_detail.html:71
+msgid "No transactions yet"
+msgstr "Hali hech qanday tranzaksiya yo'q"
+
+#: templates/orders/dashboard_order_detail.html:81
+#: templates/orders/order_success.html:65
+msgid "Items"
+msgstr "Mahsulotlar"
+
+#: templates/orders/dashboard_order_detail.html:88
+msgid "Type"
+msgstr "Turi"
+
+#: templates/orders/dashboard_order_detail.html:89
+msgid "Qty"
+msgstr "Soni"
+
+#: templates/orders/dashboard_order_detail.html:90
+msgid "Unit Price"
+msgstr "Birlik narxi"
+
+#: templates/orders/dashboard_order_detail.html:91
+msgid "Line Total"
+msgstr "Jami"
+
+#: templates/orders/dashboard_order_detail.html:105
+msgid "No items"
+msgstr "Hech qanday mahsulot yo'q"
+
+#: templates/orders/order_success.html:8
+msgid "Order Success"
+msgstr "Buyurtma muvaffaqiyatli"
+
+#: templates/orders/order_success.html:41
+msgid "Thank you for your purchase"
+msgstr "Xaridingiz uchun rahmat"
+
+#: templates/orders/order_success.html:43
+msgid "Order ID"
+msgstr "Buyurtma ID"
+
+#: templates/orders/order_success.html:44
 msgid "Placed"
 msgstr "Joylashtirilgan"
 
-#: templates/orders/order_success.html:36
+#: templates/orders/order_success.html:56
+msgid "Shipping"
+msgstr "Yetkazib berish"
+
+#: templates/orders/order_success.html:73
 msgid "No items in this order."
 msgstr "Ushbu buyurtmada hech qanday mahsulot yo'q."
 
-#: templates/orders/order_success.html:43
-msgid "Back to Home"
-msgstr "Bosh sahifaga qaytish"
+#: templates/orders/order_success.html:85
+msgid "Download Receipt"
+msgstr "Chiqim qog'ozini yuklab olish"
 
 #: templates/product_detail.html:47
 msgid "Secure checkout • Easy returns • Fast support"
@@ -697,7 +845,6 @@ msgid "4. Ordering Process"
 msgstr "4. Buyurtma jarayoni"
 
 #: templates/public_offer.html:48 templates/public_offer.html:67
-
 msgid "5. Payment Methods & Security"
 msgstr "5. To'lov usullari va xavfsizlik"
 
@@ -2413,6 +2560,39 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
+#~ msgid "Credit / Debit Card"
+#~ msgstr "Kredit / Debet karta"
+
+#~ msgid "Cash on Delivery"
+#~ msgstr "Yetkazilganda naqd"
+
+#~ msgid "Card Number"
+#~ msgstr "Karta raqami"
+
+#~ msgid "4111 1111 1111 1111"
+#~ msgstr "4111 1111 1111 1111"
+
+#~ msgid "Expiry (MM/YY)"
+#~ msgstr "Amal muddati (OY/YIL)"
+
+#~ msgid "08/27"
+#~ msgstr "08/27"
+
+#~ msgid "CVC"
+#~ msgstr "CVC"
+
+#~ msgid "123"
+#~ msgstr "123"
+
+#~ msgid "Your card data is secured."
+#~ msgstr "Kartangiz ma'lumotlari himoyalangan."
+
+#~ msgid "Select language"
+#~ msgstr "Tilni tanlang"
+
+#~ msgid "Back to Home"
+#~ msgstr "Bosh sahifaga qaytish"
+
 #~ msgid "4. Product Information & Availability"
 #~ msgstr "4. Mahsulot ma'lumoti va mavjudligi"
 
@@ -2464,9 +2644,6 @@ msgstr ""
 #~ msgid "Logged in user"
 #~ msgstr "Tizimga kirgan foydalanuvchi"
 
-#~ msgid "Account"
-#~ msgstr "Hisob"
-
 #~ msgid "Short Name"
 #~ msgstr "Qisqa nom"
 
@@ -2484,9 +2661,6 @@ msgstr ""
 
 #~ msgid "Bank Branch"
 #~ msgstr "Bank filiali"
-
-#~ msgid "Bank Address"
-#~ msgstr "Bank manzili"
 
 #~ msgid "Bank Phone"
 #~ msgstr "Bank telefoni"

@@ -11,6 +11,7 @@ from designs.models import DesignAsset
 from .models import Order, OrderItem
 from payment.models import TransactionStatus
 from django.views.decorators.http import require_GET
+import time
 
 
 def order_success(request, order_id):
@@ -130,11 +131,15 @@ def create_order(request):
 
 @require_GET
 def payment_return(request):
-    # Simple logic: if transaction exists and is SUCCESS show order success, else go home
+    # If transaction exists and becomes SUCCESS shortly after return, show success; else go home
     tx_id = request.GET.get('tx')
     if not tx_id:
         return redirect('home')
-    tx = Transaction.objects.filter(id=tx_id).select_related('order').first()
-    if not tx or tx.status != TransactionStatus.SUCCESS:
-        return redirect('home')
-    return render(request, 'orders/order_success.html', {'order': tx.order})
+    # Try a short poll to allow the gateway's server-to-server callback to update status
+    attempts = 6  # ~6 seconds max
+    for _ in range(attempts):
+        tx = Transaction.objects.filter(id=tx_id).select_related('order').first()
+        if tx and tx.status == TransactionStatus.SUCCESS:
+            return render(request, 'orders/order_success.html', {'order': tx.order})
+        time.sleep(1)
+    return redirect('home')

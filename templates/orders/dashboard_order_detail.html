@@ -1,0 +1,117 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% trans "Order Details" %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <style>
+    :root{
+      --status-success: #198754;
+      --status-cancelled: #dc3545;
+      --status-failed: #212529;
+      --status-waiting: #ffc107;
+    }
+    .status-badge{ font-size:.85rem; }
+    .status-success{ background: var(--status-success); color:#fff; }
+    .status-cancelled{ background: var(--status-cancelled); color:#fff; }
+    .status-failed{ background: var(--status-failed); color:#fff; }
+    .status-waiting{ background: var(--status-waiting); color:#212529; }
+    .card{ border-radius:.75rem; }
+    .table-sm td, .table-sm th{ padding:.5rem .5rem; }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container py-3">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1 class="h4 mb-0">{% trans "Order" %} #{{ order.id }}</h1>
+      <div>
+        <a class="btn btn-sm btn-secondary" href="{% url 'orders:dashboard' %}">{% trans "Back to Dashboard" %}</a>
+        <a class="btn btn-sm btn-outline-dark" href="/admin/">{% trans "Admin" %}</a>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-12 col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="h6 text-uppercase text-muted mb-3">{% trans "Customer" %}</h2>
+            <div class="row g-2 small">
+              <div class="col-6"><strong>{% trans "Name" %}:</strong> {{ order.first_name }} {{ order.last_name }}</div>
+              <div class="col-6"><strong>{% trans "Email" %}:</strong> {{ order.email }}</div>
+              <div class="col-6"><strong>{% trans "Phone" %}:</strong> {{ order.phone }}</div>
+              <div class="col-6"><strong>{% trans "Country" %}:</strong> {{ order.country }}</div>
+              <div class="col-6"><strong>{% trans "State" %}:</strong> {{ order.state }}</div>
+              <div class="col-6"><strong>{% trans "ZIP" %}:</strong> {{ order.zip }}</div>
+              <div class="col-12"><strong>{% trans "Address" %}:</strong> {{ order.address1 }} {% if order.address2 %}, {{ order.address2 }}{% endif %}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="h6 text-uppercase text-muted mb-3">{% trans "Payment" %}</h2>
+            <div class="row g-2 small">
+              <div class="col-6"><strong>{% trans "Currency" %}:</strong> {{ order.currency }}</div>
+              <div class="col-6"><strong>{% trans "Total" %}:</strong> {{ order.total_price }}</div>
+              {% if transaction %}
+                <div class="col-6"><strong>{% trans "Status" %}:</strong>
+                  <span class="badge status-badge {% if transaction.status == 'success' %}status-success{% elif transaction.status == 'cancelled' %}status-cancelled{% elif transaction.status == 'failed' %}status-failed{% else %}status-waiting{% endif %}">
+                    {{ transaction.get_status_display }}
+                  </span>
+                </div>
+                <div class="col-6"><strong>{% trans "Paid At" %}:</strong> {{ transaction.payment_time|date:"Y-m-d H:i" }}</div>
+                <div class="col-12"><strong>{% trans "Transaction ID" %}:</strong> {{ transaction.transaction_id }}</div>
+                <div class="col-12"><strong>{% trans "Payment Link" %}:</strong> <a href="{{ transaction.payment_url }}" target="_blank" rel="noopener">{{ transaction.payment_url }}</a></div>
+              {% else %}
+                <div class="col-12 text-muted">{% trans "No transactions yet" %}</div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="h6 text-uppercase text-muted mb-3">{% trans "Items" %}</h2>
+            <div class="table-responsive">
+              <table class="table table-sm align-middle">
+                <thead class="table-light">
+                  <tr>
+                    <th>#</th>
+                    <th>{% trans "Name" %}</th>
+                    <th>{% trans "Type" %}</th>
+                    <th>{% trans "Qty" %}</th>
+                    <th>{% trans "Unit Price" %}</th>
+                    <th>{% trans "Line Total" %}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for it in items %}
+                    <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td>{{ it.name }}</td>
+                      <td>{{ it.get_kind_display }}</td>
+                      <td>{{ it.quantity }}</td>
+                      <td>{{ it.unit_price }}</td>
+                      <td>{{ it.line_total }}</td>
+                    </tr>
+                  {% empty %}
+                    <tr><td colspan="6" class="text-center text-muted">{% trans "No items" %}</td></tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

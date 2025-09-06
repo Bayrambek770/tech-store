@@ -6,6 +6,9 @@
             <img src="{% static 'images/new_logo.PNG' %}" alt="{% trans 'All for PC' %}" width="60" height="80" loading="lazy"> {% trans 'Dark and White' %}
         </a>
         <ul class="site-nav__links" data-desktop-links>
+            {% if user.is_superuser %}
+                <li><a href="{% url 'orders:dashboard' %}">{% trans 'Dashboard' %}</a></li>
+            {% endif %}
             <li><a href="{% url 'designs:marketplace' %}">{% trans 'Marketplace' %}</a></li>
             <li><a href="{% url 'store' %}">{% trans 'Store' %}</a></li>
             <li><a href="{% url 'cart' %}" class="cart-link" title="{% trans 'Cart' %}">

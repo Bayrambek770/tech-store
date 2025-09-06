@@ -3,6 +3,8 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from decimal import Decimal, InvalidOperation
 from django.utils.translation import gettext as _
+from django.core.paginator import Paginator
+from django.contrib.auth.decorators import user_passes_test
 
 from payment.models import Transaction
 from payment.provider import InterforumClient
@@ -11,7 +13,6 @@ from designs.models import DesignAsset
 from .models import Order, OrderItem
 from payment.models import TransactionStatus
 from django.views.decorators.http import require_GET
-import time
 
 
 def order_success(request, order_id):
@@ -131,15 +132,49 @@ def create_order(request):
 
 @require_GET
 def payment_return(request):
-    # If transaction exists and becomes SUCCESS shortly after return, show success; else go home
+    # Simple logic: if transaction exists and is SUCCESS show order success, else go home
     tx_id = request.GET.get('tx')
     if not tx_id:
         return redirect('home')
-    # Try a short poll to allow the gateway's server-to-server callback to update status
-    attempts = 6  # ~6 seconds max
-    for _ in range(attempts):
-        tx = Transaction.objects.filter(id=tx_id).select_related('order').first()
-        if tx and tx.status == TransactionStatus.SUCCESS:
-            return render(request, 'orders/order_success.html', {'order': tx.order})
-        time.sleep(1)
-    return redirect('home')
+    tx = Transaction.objects.filter(id=tx_id).select_related('order').first()
+    if not tx or tx.status != TransactionStatus.SUCCESS:
+        return redirect('home')
+    return render(request, 'orders/order_success.html', {'order': tx.order})
+
+
+# --------- Admin Dashboard (superuser only) ---------
+
+def _is_superuser(user):
+    return user.is_authenticated and user.is_superuser
+
+
+@user_passes_test(_is_superuser)
+def dashboard(request):
+    # Show all transactions with related order, paginated
+    tx_qs = (
+        Transaction.objects.select_related('order')
+        .order_by('-created_at')
+    )
+    page_number = request.GET.get('page', 1)
+    paginator = Paginator(tx_qs, 20)
+    page_obj = paginator.get_page(page_number)
+    context = {
+        'page_obj': page_obj,
+        'paginator': paginator,
+    }
+    return render(request, 'orders/dashboard.html', context)
+
+
+@user_passes_test(_is_superuser)
+def dashboard_order_detail(request, order_id):
+    order = get_object_or_404(
+        Order.objects.prefetch_related('items').select_related(), pk=order_id
+    )
+    # Prefer the latest transaction as primary info
+    tx = order.transactions.order_by('-created_at').first()
+    context = {
+        'order': order,
+        'transaction': tx,
+        'items': order.items.all(),
+    }
+    return render(request, 'orders/dashboard_order_detail.html', context)

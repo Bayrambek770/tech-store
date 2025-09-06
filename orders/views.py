@@ -137,14 +137,11 @@ def payment_return(request):
     if not tx_id:
         return redirect('home')
     tx = Transaction.objects.filter(id=tx_id).select_related('order').first()
-    print(tx.status, '*' * 10)
-    print(TransactionStatus.SUCCESS, '=' * 10)
     if not tx or tx.status != TransactionStatus.SUCCESS:
         return redirect('home')
     return render(request, 'orders/order_success.html', {'order': tx.order})
 
 
-# --------- Admin Dashboard (superuser only) ---------
 
 def _is_superuser(user):
     return user.is_authenticated and user.is_superuser
@@ -152,7 +149,6 @@ def _is_superuser(user):
 
 @user_passes_test(_is_superuser)
 def dashboard(request):
-    # Show all transactions with related order, paginated
     tx_qs = (
         Transaction.objects.select_related('order')
         .order_by('-created_at')
@@ -172,7 +168,7 @@ def dashboard_order_detail(request, order_id):
     order = get_object_or_404(
         Order.objects.prefetch_related('items').select_related(), pk=order_id
     )
-    # Prefer the latest transaction as primary info
+
     tx = order.transactions.order_by('-created_at').first()
     context = {
         'order': order,

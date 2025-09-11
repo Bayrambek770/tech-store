@@ -445,10 +445,8 @@ msgid "All for PC"
 msgstr "Все для ПК"
 
 #: templates/index.html:32
-#, fuzzy
-#| msgid "Premium Components • Design Assets • Smart Advance Payments"
 msgid "Premium Components • Design Assets"
-msgstr "Премиум компоненты • Дизайн-активы • Умные авансы"
+msgstr "Премиум компоненты • Дизайн-активы"
 
 #: templates/index.html:34
 msgid "Learn more about OOO J&Z Shop section"

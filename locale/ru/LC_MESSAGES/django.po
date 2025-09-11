@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-06 10:33+0000\n"
+"POT-Creation-Date: 2025-09-11 12:11+0000\n"
 "PO-Revision-Date: 2025-08-28 01:28+0000\n"
 "Last-Translator:   <admin@mail.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,7 +57,7 @@ msgstr "фамилия"
 
 #: orders/models.py:16 templates/checkout.html:53
 #: templates/orders/dashboard_order_detail.html:43
-#: templates/orders/order_success.html:51 templates/public_offer.html:100
+#: templates/orders/order_success.html:51 templates/public_offer.html:101
 #: users/models.py:26
 msgid "Email"
 msgstr "Email"
@@ -444,10 +444,6 @@ msgstr "Начните разработку с лендинга All for PC."
 msgid "All for PC"
 msgstr "Все для ПК"
 
-#: templates/index.html:31 templates/layouts/navbar.html:6
-msgid "Dark and White"
-msgstr "Dark and White"
-
 #: templates/index.html:32
 #, fuzzy
 #| msgid "Premium Components • Design Assets • Smart Advance Payments"
@@ -471,10 +467,21 @@ msgid "About Us"
 msgstr "О нас"
 
 #: templates/index.html:47
+#, fuzzy
+#| msgid ""
+#| "Welcome to the store with a funny name DARK AND WHITE.\n"
+#| "                        Why DARK AND WHITE? Because we're small, but "
+#| "without fuss, we'll help you climb Mount Fuji!\n"
+#| "                        We offer everything you need to create gaming "
+#| "stations, work machines and servers: processors,\n"
+#| "                        graphics cards, RAM. Here you will find only "
+#| "proven brands – AMD, Intel, NVIDIA, ASUS, MSI and\n"
+#| "                        others,\n"
+#| "                        as well as exclusive offers that will help save."
 msgid ""
-"Welcome to the store with a funny name DARK AND WHITE.\n"
-"                        Why DARK AND WHITE? Because we're small, but without "
-"fuss, we'll help you climb Mount Fuji!\n"
+"Welcome to the store with a funny name \"Premium Gold Online Trading\".\n"
+"                        Why \"Premium Gold Online Trading\"? Because we're "
+"small, but without fuss, we'll help you climb Mount Fuji!\n"
 "                        We offer everything you need to create gaming "
 "stations, work machines and servers: processors,\n"
 "                        graphics cards, RAM. Here you will find only proven "
@@ -695,7 +702,6 @@ msgid "Transaction ID"
 msgstr "ID транзакции"
 
 #: templates/orders/dashboard_order_detail.html:69
-
 msgid "Payment Link"
 msgstr "Ссылка для оплаты"
 
@@ -1102,10 +1108,15 @@ msgstr ""
 "передаются в компетентные суды общей юрисдикции."
 
 #: templates/public_offer.html:80
+#, fuzzy
+#| msgid ""
+#| "Questions, legal notices, or data requests: <a href=\"mailto:"
+#| "darkandwhite@inbox.eu\">darkandwhite@inbox.eu</a>. Physical "
+#| "correspondence address available upon legitimate written request."
 msgid ""
-"Questions, legal notices, or data requests: <a href=\"mailto:"
-"darkandwhite@inbox.eu\">darkandwhite@inbox.eu</a>. Physical correspondence "
-"address available upon legitimate written request."
+"Questions, legal notices, or data requests: <a href=\"mailto:uzcomp@inbox."
+"eu\">uzcomp@inbox.eu</a>. Physical correspondence address available upon "
+"legitimate written request."
 msgstr ""
 "Вопросы, юридические уведомления или запросы данных: <a href=\"mailto:"
 "darkandwhite@inbox.eu\">darkandwhite@inbox.eu</a>. Почтовый адрес "
@@ -1155,46 +1166,50 @@ msgid "Registered Address"
 msgstr "Юридический адрес"
 
 #: templates/public_offer.html:99
-msgid "Tel"
+msgid "Tel1"
 msgstr ""
 
-#: templates/public_offer.html:101
+#: templates/public_offer.html:100
+msgid "WhatsApp"
+msgstr ""
+
+#: templates/public_offer.html:102
 msgid "Bank Name"
 msgstr "Наименование банка"
 
-#: templates/public_offer.html:102
+#: templates/public_offer.html:103
 msgid "MFO"
 msgstr "МФО"
 
-#: templates/public_offer.html:103
+#: templates/public_offer.html:104
 msgid "SWIFT"
 msgstr "SWIFT"
 
-#: templates/public_offer.html:105
+#: templates/public_offer.html:106
 msgid "Bank Accounts"
 msgstr "Банковские счета"
 
-#: templates/public_offer.html:108
+#: templates/public_offer.html:109
 msgid "Deposit account (UZS)"
 msgstr "Депозитный счёт (UZS)"
 
-#: templates/public_offer.html:108 templates/public_offer.html:109
+#: templates/public_offer.html:109 templates/public_offer.html:110
 msgid "Opened:"
 msgstr "Открыт:"
 
-#: templates/public_offer.html:109
+#: templates/public_offer.html:110
 msgid "Deposit account (USD)"
 msgstr "Депозитный счёт (USD)"
 
-#: templates/public_offer.html:117
+#: templates/public_offer.html:118
 msgid "Follow us"
 msgstr "Следите за нами"
 
-#: templates/public_offer.html:121
+#: templates/public_offer.html:122
 msgid "Telegram"
 msgstr "Телеграм"
 
-#: templates/public_offer.html:126
+#: templates/public_offer.html:127
 msgid "Instagram"
 msgstr "Инстаграм"
 
@@ -2572,6 +2587,9 @@ msgstr ""
 #: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:236
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Dark and White"
+#~ msgstr "Dark and White"
 
 #~ msgid "Credit / Debit Card"
 #~ msgstr "Банковская карта"

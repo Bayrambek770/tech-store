@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-06 10:33+0000\n"
+"POT-Creation-Date: 2025-09-11 12:12+0000\n"
 "PO-Revision-Date: 2025-08-28 00:56+0000\n"
 "Last-Translator:   <admin@mail.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgstr "familiya"
 
 #: orders/models.py:16 templates/checkout.html:53
 #: templates/orders/dashboard_order_detail.html:43
-#: templates/orders/order_success.html:51 templates/public_offer.html:100
+#: templates/orders/order_success.html:51 templates/public_offer.html:101
 #: users/models.py:26
 msgid "Email"
 msgstr "Email"
@@ -124,14 +124,12 @@ msgid "Donation"
 msgstr "Sindikatsiya"
 
 #: orders/models.py:61
-#, fuzzy
-#| msgid "Order Summary"
 msgid "Order Item"
-msgstr "Buyurtma xulosasi"
+msgstr "Buyurtma elementi"
 
 #: orders/models.py:62
 msgid "Order Items"
-msgstr ""
+msgstr "Buyurtma elementlari"
 
 #: orders/views.py:31 templates/cart.html:41 templates/cart.html:104
 msgid "Your cart is empty."
@@ -153,8 +151,6 @@ msgstr "kutilyapti"
 msgid "Success"
 msgstr "Muvaffaqiyatli"
 
-msgstr "6. Buyurtma jarayoni"
-
 #: payment/models.py:19
 msgid "Failed"
 msgstr "Muvaffaqiyatsiz"
@@ -164,10 +160,8 @@ msgid "Cancelled"
 msgstr "Bekor qilingan"
 
 #: payment/models.py:28 templates/orders/dashboard.html:47
-#, fuzzy
-#| msgid "Account"
 msgid "Amount"
-msgstr "Hisob"
+msgstr "Miqdor"
 
 #: payment/models.py:37
 #, fuzzy
@@ -176,16 +170,12 @@ msgid "Payment url"
 msgstr "To'lov URL"
 
 #: payment/models.py:54
-#, fuzzy
-#| msgid "Syndication"
 msgid "Transaction"
-msgstr "Sindikatsiya"
+msgstr "Transaktsiya"
 
 #: payment/models.py:55 templates/orders/dashboard.html:36
-#, fuzzy
-#| msgid "Syndication"
 msgid "Transactions"
-msgstr "Sindikatsiya"
+msgstr "Transaktsiyalar"
 
 #: products/models.py:23 products/models.py:39
 #: templates/orders/dashboard_order_detail.html:42
@@ -445,10 +435,6 @@ msgstr "Loyihangizni All for PC landing sahifasidan boshlang."
 msgid "All for PC"
 msgstr "All for PC"
 
-#: templates/index.html:31 templates/layouts/navbar.html:6
-msgid "Dark and White"
-msgstr "Dark and White"
-
 #: templates/index.html:32
 #, fuzzy
 #| msgid "Premium Components • Design Assets • Smart Advance Payments"
@@ -473,9 +459,9 @@ msgstr "Biz haqimizda"
 
 #: templates/index.html:47
 msgid ""
-"Welcome to the store with a funny name DARK AND WHITE.\n"
-"                        Why DARK AND WHITE? Because we're small, but without "
-"fuss, we'll help you climb Mount Fuji!\n"
+"Welcome to the store with a funny name \"Premium Gold Online Trading\".\n"
+"                        Why \"Premium Gold Online Trading\"? Because we're "
+"small, but without fuss, we'll help you climb Mount Fuji!\n"
 "                        We offer everything you need to create gaming "
 "stations, work machines and servers: processors,\n"
 "                        graphics cards, RAM. Here you will find only proven "
@@ -483,8 +469,8 @@ msgid ""
 "                        others,\n"
 "                        as well as exclusive offers that will help save."
 msgstr ""
-"DARK AND WHITE ismli do'konga xush kelibsiz.\n"
-"Nima uchun DARK AND WHITE? Chunki biz kichkinamiz, lekin shov-shuvsiz Fudzi "
+"PREMIUM GOLD ONLINE TRADING ismli do'konga xush kelibsiz.\n"
+"Nima uchun PREMIUM GOLD ONLINE TRADING? Chunki biz kichkinamiz, lekin shov-shuvsiz Fudzi "
 "tog'iga chiqishingizga yordam beramiz!\n"
 "Biz sizga o'yin stantsiyalari, ish mashinalari va serverlarni yaratish uchun "
 "kerak bo'lgan hamma narsani taklif qilamiz: protsessorlar,\n"
@@ -649,12 +635,9 @@ msgstr "Admin Dashboard"
 msgid "Admin"
 msgstr "Admin"
 
+#: templates/orders/dashboard.html:46
+#: templates/orders/dashboard_order_detail.html:40
 #: templates/orders/order_success.html:48
-msgid "Customer Reviews"
-msgstr "Mijozlar sharhlari"
-
-
-#: templates/orders/dashboard_order_detail.html:40, #: templates/orders/dashboard.html:46
 msgid "Customer"
 msgstr "Mijoz"
 
@@ -681,8 +664,8 @@ msgid "No transactions found"
 msgstr "Hech qanday tranzaksiya topilmadi"
 
 #: templates/orders/dashboard_order_detail.html:8
-msgid "Order ID"
-msgstr "Buyurtma ID"
+msgid "Order Details"
+msgstr "Buyurtma tafsilotlari"
 
 #: templates/orders/dashboard_order_detail.html:31
 msgid "Back to Dashboard"
@@ -692,12 +675,8 @@ msgstr "Dashboardga qaytish"
 msgid "State"
 msgstr "Viloyat"
 
-
-#: templates/orders/order_success.html:58
-msgid "Bank Address"
-msgstr "Bank manzili"
-
 #: templates/orders/dashboard_order_detail.html:48
+#: templates/orders/order_success.html:58
 msgid "Address"
 msgstr "Manzil"
 
@@ -1115,12 +1094,12 @@ msgstr ""
 
 #: templates/public_offer.html:80
 msgid ""
-"Questions, legal notices, or data requests: <a href=\"mailto:"
-"darkandwhite@inbox.eu\">darkandwhite@inbox.eu</a>. Physical correspondence "
-"address available upon legitimate written request."
+"Questions, legal notices, or data requests: <a href=\"mailto:uzcomp@inbox."
+"eu\">uzcomp@inbox.eu</a>. Physical correspondence address available upon "
+"legitimate written request."
 msgstr ""
 "Savollar, huquqiy bildirishnomalar yoki ma'lumot so'rovlari: <a "
-"href=\"mailto:darkandwhite.uz@inbox.eu\">darkandwhite.uz@inbox.eu</a>. "
+"href=\"mailto:uzcomp.uz@inbox.eu\">uzcomp.uz@inbox.eu</a>. "
 "Jismoniy pochta manzili asosli yozma so'rov bilan beriladi."
 
 #: templates/public_offer.html:81
@@ -1167,46 +1146,50 @@ msgid "Registered Address"
 msgstr "Yuridik manzil"
 
 #: templates/public_offer.html:99
-msgid "Tel"
-msgstr "Tel"
+msgid "Tel1"
+msgstr "Telefon raqam"
 
-#: templates/public_offer.html:101
+#: templates/public_offer.html:100
+msgid "WhatsApp"
+msgstr "WhatsApp raqam"
+
+#: templates/public_offer.html:102
 msgid "Bank Name"
 msgstr "Bank nomi"
 
-#: templates/public_offer.html:102
+#: templates/public_offer.html:103
 msgid "MFO"
 msgstr "MFO"
 
-#: templates/public_offer.html:103
+#: templates/public_offer.html:104
 msgid "SWIFT"
 msgstr "SWIFT"
 
-#: templates/public_offer.html:105
+#: templates/public_offer.html:106
 msgid "Bank Accounts"
 msgstr "Bank hisoblari"
 
-#: templates/public_offer.html:108
+#: templates/public_offer.html:109
 msgid "Deposit account (UZS)"
 msgstr "Depozit hisobi (UZS)"
 
-#: templates/public_offer.html:108 templates/public_offer.html:109
+#: templates/public_offer.html:109 templates/public_offer.html:110
 msgid "Opened:"
 msgstr "Ochilgan:"
 
-#: templates/public_offer.html:109
+#: templates/public_offer.html:110
 msgid "Deposit account (USD)"
 msgstr "Depozit hisobi (USD)"
 
-#: templates/public_offer.html:117
+#: templates/public_offer.html:118
 msgid "Follow us"
 msgstr "Bizga qo'shiling"
 
-#: templates/public_offer.html:121
+#: templates/public_offer.html:122
 msgid "Telegram"
 msgstr "Telegram"
 
-#: templates/public_offer.html:126
+#: templates/public_offer.html:127
 msgid "Instagram"
 msgstr "Instagram"
 
@@ -2559,6 +2542,15 @@ msgstr ""
 #: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:236
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Dark and White"
+#~ msgstr "Dark and White"
+
+#~ msgid "Bank Address"
+#~ msgstr "Bank manzili"
+
+#~ msgid "Tel"
+#~ msgstr "Tel"
 
 #~ msgid "Credit / Debit Card"
 #~ msgstr "Kredit / Debet karta"

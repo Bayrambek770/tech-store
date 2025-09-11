@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-06 10:33+0000\n"
+"POT-Creation-Date: 2025-09-11 12:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 
 #: orders/models.py:16 templates/checkout.html:53
 #: templates/orders/dashboard_order_detail.html:43
-#: templates/orders/order_success.html:51 templates/public_offer.html:100
+#: templates/orders/order_success.html:51 templates/public_offer.html:101
 #: users/models.py:26
 msgid "Email"
 msgstr ""
@@ -416,10 +416,6 @@ msgstr ""
 msgid "All for PC"
 msgstr ""
 
-#: templates/index.html:31 templates/layouts/navbar.html:6
-msgid "Dark and White"
-msgstr ""
-
 #: templates/index.html:32
 msgid "Premium Components • Design Assets"
 msgstr ""
@@ -442,9 +438,9 @@ msgstr ""
 
 #: templates/index.html:47
 msgid ""
-"Welcome to the store with a funny name DARK AND WHITE.\n"
-"                        Why DARK AND WHITE? Because we're small, but without "
-"fuss, we'll help you climb Mount Fuji!\n"
+"Welcome to the store with a funny name \"Premium Gold Online Trading\".\n"
+"                        Why \"Premium Gold Online Trading\"? Because we're "
+"small, but without fuss, we'll help you climb Mount Fuji!\n"
 "                        We offer everything you need to create gaming "
 "stations, work machines and servers: processors,\n"
 "                        graphics cards, RAM. Here you will find only proven "
@@ -986,9 +982,9 @@ msgstr ""
 
 #: templates/public_offer.html:80
 msgid ""
-"Questions, legal notices, or data requests: <a href=\"mailto:"
-"darkandwhite@inbox.eu\">darkandwhite@inbox.eu</a>. Physical correspondence "
-"address available upon legitimate written request."
+"Questions, legal notices, or data requests: <a href=\"mailto:uzcomp@inbox."
+"eu\">uzcomp@inbox.eu</a>. Physical correspondence address available upon "
+"legitimate written request."
 msgstr ""
 
 #: templates/public_offer.html:81
@@ -1033,46 +1029,50 @@ msgid "Registered Address"
 msgstr "Registered Address"
 
 #: templates/public_offer.html:99
-msgid "Tel"
+msgid "Tel1"
 msgstr ""
 
-#: templates/public_offer.html:101
+#: templates/public_offer.html:100
+msgid "WhatsApp"
+msgstr ""
+
+#: templates/public_offer.html:102
 msgid "Bank Name"
 msgstr "Bank Name"
 
-#: templates/public_offer.html:102
+#: templates/public_offer.html:103
 msgid "MFO"
 msgstr "MFO"
 
-#: templates/public_offer.html:103
+#: templates/public_offer.html:104
 msgid "SWIFT"
 msgstr "SWIFT"
 
-#: templates/public_offer.html:105
+#: templates/public_offer.html:106
 msgid "Bank Accounts"
 msgstr "Bank Accounts"
 
-#: templates/public_offer.html:108
+#: templates/public_offer.html:109
 msgid "Deposit account (UZS)"
 msgstr "Deposit account (UZS)"
 
-#: templates/public_offer.html:108 templates/public_offer.html:109
+#: templates/public_offer.html:109 templates/public_offer.html:110
 msgid "Opened:"
 msgstr "Opened:"
 
-#: templates/public_offer.html:109
+#: templates/public_offer.html:110
 msgid "Deposit account (USD)"
 msgstr "Deposit account (USD)"
 
-#: templates/public_offer.html:117
+#: templates/public_offer.html:118
 msgid "Follow us"
 msgstr ""
 
-#: templates/public_offer.html:121
+#: templates/public_offer.html:122
 msgid "Telegram"
 msgstr ""
 
-#: templates/public_offer.html:126
+#: templates/public_offer.html:127
 msgid "Instagram"
 msgstr ""
 

@@ -3,7 +3,7 @@
 <nav class="site-nav" aria-label="Main navigation">
     <div class="site-nav__bar">
         <a class="site-nav__brand" href="{% url 'home' %}">
-            <img src="{% static 'images/uzcomp2.jpg' %}" alt="{% trans 'All for PC' %}" width="60" height="80" loading="lazy">UzComp
+            <img class="site-nav__brand-logo" src="{% static 'images/uzcomp2.jpg' %}" alt="{% trans 'All for PC' %}" loading="lazy">
         </a>
         <ul class="site-nav__links" data-desktop-links>
             {% if user.is_superuser %}
@@ -82,6 +82,12 @@
     </div>
 </nav>
 <style>
+/* Responsive brand logo that doesn't bloat navbar height */
+.site-nav__brand{display:inline-flex;align-items:center;gap:8px;}
+.site-nav__brand-logo{display:block;height:40px;width:auto;max-width:100%;border-radius:12px;object-fit:cover;}
+@media (min-width: 992px){ /* desktop */
+    .site-nav__brand-logo{width:300px;height:60px;border-radius:20px;}
+}
 /* Glass effect language selector */
 /* custom minimal dropdown */
 .lang-form-enh{position:relative;}

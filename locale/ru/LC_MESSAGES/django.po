@@ -467,17 +467,6 @@ msgid "About Us"
 msgstr "О нас"
 
 #: templates/index.html:47
-#, fuzzy
-#| msgid ""
-#| "Welcome to the store with a funny name DARK AND WHITE.\n"
-#| "                        Why DARK AND WHITE? Because we're small, but "
-#| "without fuss, we'll help you climb Mount Fuji!\n"
-#| "                        We offer everything you need to create gaming "
-#| "stations, work machines and servers: processors,\n"
-#| "                        graphics cards, RAM. Here you will find only "
-#| "proven brands – AMD, Intel, NVIDIA, ASUS, MSI and\n"
-#| "                        others,\n"
-#| "                        as well as exclusive offers that will help save."
 msgid ""
 "Welcome to the store with a funny name \"Premium Gold Online Trading\".\n"
 "                        Why \"Premium Gold Online Trading\"? Because we're "
@@ -489,8 +478,8 @@ msgid ""
 "                        others,\n"
 "                        as well as exclusive offers that will help save."
 msgstr ""
-"Добро пожаловать в магазин с забавным названием DARK AND WHITE.\n"
-"Почему DARK AND WHITE? Потому что мы маленькие, но без суеты поможем вам "
+"Добро пожаловать в магазин с забавным названием \"Premium Gold Online Trading\".\n"
+"Почему \"Premium Gold Online Trading\"? Потому что мы маленькие, но без суеты поможем вам "
 "взобраться на гору Фудзи!\n"
 "Мы предлагаем всё необходимое для создания игровых станций, рабочих машин и "
 "серверов: процессоры, видеокарты, оперативная память. Здесь вы найдете "
@@ -1108,18 +1097,13 @@ msgstr ""
 "передаются в компетентные суды общей юрисдикции."
 
 #: templates/public_offer.html:80
-#, fuzzy
-#| msgid ""
-#| "Questions, legal notices, or data requests: <a href=\"mailto:"
-#| "darkandwhite@inbox.eu\">darkandwhite@inbox.eu</a>. Physical "
-#| "correspondence address available upon legitimate written request."
 msgid ""
 "Questions, legal notices, or data requests: <a href=\"mailto:uzcomp@inbox."
 "eu\">uzcomp@inbox.eu</a>. Physical correspondence address available upon "
 "legitimate written request."
 msgstr ""
 "Вопросы, юридические уведомления или запросы данных: <a href=\"mailto:"
-"darkandwhite@inbox.eu\">darkandwhite@inbox.eu</a>. Почтовый адрес "
+"uzcomp@inbox.eu\">uzcomp@inbox.eu</a>. Почтовый адрес "
 "предоставляется по обоснованному письменному запросу."
 
 #: templates/public_offer.html:81
@@ -1167,11 +1151,11 @@ msgstr "Юридический адрес"
 
 #: templates/public_offer.html:99
 msgid "Tel1"
-msgstr ""
+msgstr "Телефон"
 
 #: templates/public_offer.html:100
 msgid "WhatsApp"
-msgstr ""
+msgstr "WhatsApp номер"
 
 #: templates/public_offer.html:102
 msgid "Bank Name"
@@ -2589,7 +2573,7 @@ msgid "Connect, get help, or contribute"
 msgstr ""
 
 #~ msgid "Dark and White"
-#~ msgstr "Dark and White"
+#~ msgstr ""
 
 #~ msgid "Credit / Debit Card"
 #~ msgstr "Банковская карта"

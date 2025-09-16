@@ -4,26 +4,30 @@
 {% block content %}
 <div class="container py-5 design-marketplace">
   <div class="d-flex flex-wrap align-items-center mb-4">
-  <h2 style='margin-top:50px' class="mb-3 mr-4">{% trans 'Design Marketplace' %}</h2>
-    <form id="filter-form" class="form-inline flex-wrap">
-      <select name="type" id="type" class="form-control mr-2 mb-2">
-        <option value="">{% trans 'All Types' %}</option>
-        <option value="3d" {% if current_type == '3d' %}selected{% endif %}>{% trans '3D Max Products' %}</option>
-        <option value="interior" {% if current_type == 'interior' %}selected{% endif %}>{% trans 'Interior Design' %}</option>
-      </select>
-      <select name="category" id="category" class="form-control mr-2 mb-2">
-        <option value="">{% trans 'All Categories' %}</option>
-        {% for cat in categories %}
-          <option value="{{ cat.slug }}" {% if current_category == cat.slug %}selected{% endif %}>{{ cat.get_type_display }} - {{ cat.name }}</option>
-        {% endfor %}
-      </select>
-    <select name="page_size" id="page_size" class="form-control mr-2 mb-2">
-        {% for size in page_size_options %}
-      <option value="{{ size }}" {% if size == page_size %}selected{% endif %}>{{ size }} {% trans '/ page' %}</option>
-        {% endfor %}
-      </select>
-    <input type="text" name="q" value="{{ search_query|default:'' }}" placeholder="{% trans 'Search...' %}" class="form-control mr-2 mb-2" style="min-width:180px;">
-    <button class="btn btn-primary mb-2">{% trans 'Apply' %}</button>
+    <h2 style='margin-top:50px' class="mb-3 mr-4">{% trans 'Design Marketplace' %}</h2>
+    <form id="filter-form" class="marketplace-filters">
+      <div class="filters-row">
+        <button class="ui-primary-btn" type="submit">{% trans "Купить сейчас" %}</button>
+        <input type="text" name="q" value="{{ search_query|default:'' }}" placeholder="Мед высшего качества" class="ui-pill-input">
+        <div class="filters-inline">
+          <select name="type" id="type" class="ui-select">
+            <option value="">{% trans 'All Types' %}</option>
+            <option value="3d" {% if current_type == '3d' %}selected{% endif %}>{% trans '3D Max Products' %}</option>
+            <option value="interior" {% if current_type == 'interior' %}selected{% endif %}>{% trans 'Interior Design' %}</option>
+          </select>
+          <select name="category" id="category" class="ui-select">
+            <option value="">{% trans 'All Categories' %}</option>
+            {% for cat in categories %}
+              <option value="{{ cat.slug }}" {% if current_category == cat.slug %}selected{% endif %}>{{ cat.get_type_display }} - {{ cat.name }}</option>
+            {% endfor %}
+          </select>
+          <select name="page_size" id="page_size" class="ui-select">
+            {% for size in page_size_options %}
+              <option value="{{ size }}" {% if size == page_size %}selected{% endif %}>{{ size }} {% trans '/ page' %}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
     </form>
   </div>
   <div id="asset-grid">
@@ -34,6 +38,22 @@
   </div>
 </div>
 <style>
+.marketplace-filters .filters-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.ui-pill-input{flex:1 1 360px;background:#fff;border:1px solid #E0E0E0;border-radius:9999px;padding:12px 18px;height:48px;line-height:24px;font-size:16px;color:#333;text-align:center}
+.ui-pill-input::placeholder{color:#666}
+.ui-primary-btn{background:#FFD700;border:none;color:#333;font-weight:700;border-radius:14px;padding:10px 18px;height:48px;line-height:28px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}
+.ui-select{background:#fff;border:1px solid #E0E0E0;border-radius:14px;padding:10px 14px;height:48px;line-height:28px;min-width:160px;color:#333}
+.marketplace-filters .filters-inline{display:flex;gap:10px;flex-wrap:wrap}
+.pagination{gap:6px;flex-wrap:wrap}
+.pagination .page-link, .pagination a, .pagination span{border:1px solid #E0E0E0;border-radius:12px;padding:8px 12px;color:#333;background:#fff}
+.pagination .active .page-link{background:#FFD700;border-color:#FFD700;color:#000;font-weight:600}
+@media (max-width: 600px){
+  .ui-pill-input{flex:1 1 100%;}
+  .ui-select{flex:1 1 48%;min-width:0}
+  .ui-primary-btn{flex:1 1 100%;}
+  .marketplace-filters .filters-row{flex-direction:column;align-items:stretch}
+  .marketplace-filters .filters-inline{justify-content:space-between}
+}
 .design-marketplace .asset-card{position:relative;overflow:hidden;border:1px solid #eee;border-radius:12px;transition:box-shadow .25s,transform .25s;background:#fff;display:flex;flex-direction:column}
 .design-marketplace .asset-card:hover{box-shadow:0 10px 28px -8px rgba(0,0,0,.18);transform:translateY(-4px)}
 .design-marketplace .asset-thumb{height:180px;object-fit:cover;width:100%;background:#f5f7fa}
@@ -52,10 +72,10 @@
       if(btn.dataset.bound) return; btn.dataset.bound='1';
       btn.addEventListener('click', e=>{ 
         e.preventDefault(); e.stopPropagation();
-        if(btn.classList.contains('added-once')){ window.location.href = '{% url 'cart' %}'; return; }
+  if(btn.classList.contains('added-once')){ window.location.href = "{% url 'cart' %}"; return; }
         const id = btn.getAttribute('data-id');
         btn.disabled = true;
-        fetch('{% url 'add_to_cart' %}', {method:'POST', headers:{'X-CSRFToken':'{{ csrf_token }}'}, body:new URLSearchParams({product_id:id, qty:1, type:'design'})})
+  fetch("{% url 'add_to_cart' %}", {method:'POST', headers:{'X-CSRFToken':'{{ csrf_token }}'}, body:new URLSearchParams({product_id:id, qty:1, type:'design'})})
           .then(r=>r.json()).then(d=>{ if(d.ok){ const nav=document.getElementById('nav-cart-count'); if(nav) nav.textContent=d.count?d.count:''; btn.innerHTML='<i class="ti-check"></i>'; btn.classList.add('added-once','btn-success'); btn.classList.remove('btn-outline-primary'); btn.title='View in cart'; } })
           .finally(()=>{ btn.disabled=false; });
       });

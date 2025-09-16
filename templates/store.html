@@ -22,26 +22,24 @@
             <h2 class="mb-2 mb-md-0 mr-md-3">{% trans "Product Store" %}</h2>
             <span class="text-muted">{% trans "Browse & discover" %}</span>
         </div>
-        <form method="get" class="store-filters row mb-4" id="filter-form">
-        <div class="col-lg-5 mb-2 mb-lg-0"><input type="text" name="q" value="{{ search_query|default:'' }}" class="form-control"
-            placeholder="{% trans 'Search products...' %}"></div>
-            <div class="col-lg-3 mb-2 mb-lg-0">
-                <select name="category" class="form-control">
-                    <option value="">{% trans "All Categories" %}</option>
-                    {% for cat in categories %}
-                    <option value="{{ cat.id }}" {% if current_category == cat.id %}selected{% endif %}>{{ cat.name }}
-                    </option>
-                    {% endfor %}
-                </select>
+        <form method="get" class="store-filters mb-4" id="filter-form">
+            <div class="filters-row">
+                <button class="ui-primary-btn" type="submit">{% trans "Купить сейчас" %}</button>
+                <input type="text" name="q" value="{{ search_query|default:'' }}" class="ui-pill-input" placeholder="Мед высшего качества">
+                <div class="filters-inline">
+                    <select name="category" class="ui-select">
+                        <option value="">{% trans "All Categories" %}</option>
+                        {% for cat in categories %}
+                        <option value="{{ cat.id }}" {% if current_category == cat.id %}selected{% endif %}>{{ cat.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="page_size" class="ui-select" id="page-size-select">
+                        {% for size in page_size_options %}
+                        <option value="{{ size }}" {% if page_size == size %}selected{% endif %}>{{ size }} {% trans '/ page' %}</option>
+                        {% endfor %}
+                    </select>
+                </div>
             </div>
-            <div class="col-lg-2 mb-2 mb-lg-0">
-                <select name="page_size" class="form-control" id="page-size-select">
-                    {% for size in page_size_options %}
-                    <option value="{{ size }}" {% if page_size == size %}selected{% endif %}>{{ size }} {% trans '/ page' %}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="col-lg-2"><button class="btn btn-primary btn-block">{% trans "Apply" %}</button></div>
         </form>
         <div id="products-wrapper">
             {% include 'partials/_product_grid.html' %}
@@ -148,6 +146,24 @@
         .store-actions-inner .left,.store-actions-inner .right{width:100%;display:flex;justify-content:space-between;}
         #direct-checkout-btn{flex:1;justify-content:center;}
     }
+        /* Redesigned filters: capsule input and yellow action button */
+        .store-filters .filters-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+        .ui-pill-input{flex:1 1 360px;background:#fff;border:1px solid #E0E0E0;border-radius:9999px;padding:12px 18px;height:48px;line-height:24px;font-size:16px;color:#333;text-align:center}
+        .ui-pill-input::placeholder{color:#666}
+        .ui-primary-btn{background:#FFD700;border:none;color:#333;font-weight:700;border-radius:14px;padding:10px 18px;height:48px;line-height:28px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}
+        .ui-select{background:#fff;border:1px solid #E0E0E0;border-radius:14px;padding:10px 14px;height:48px;line-height:28px;min-width:160px;color:#333}
+        .store-filters .filters-inline{display:flex;gap:10px;flex-wrap:wrap}
+        /* Pagination minimalist styling */
+        .pagination{gap:6px;flex-wrap:wrap}
+        .pagination .page-link, .pagination a, .pagination span{border:1px solid #E0E0E0;border-radius:12px;padding:8px 12px;color:#333;background:#fff}
+        .pagination .active .page-link{background:#FFD700;border-color:#FFD700;color:#000;font-weight:600}
+        @media (max-width: 600px){
+            .ui-pill-input{flex:1 1 100%;}
+            .ui-select{flex:1 1 48%;min-width:0}
+            .ui-primary-btn{flex:1 1 100%;}
+            .store-filters .filters-row{flex-direction:column;align-items:stretch}
+            .store-filters .filters-inline{justify-content:space-between}
+        }
     </style>
 </body>
 

@@ -8,7 +8,7 @@
     <form id="filter-form" class="marketplace-filters">
       <div class="filters-row">
         <button class="ui-primary-btn" type="submit">{% trans "Купить сейчас" %}</button>
-        <input type="text" name="q" value="{{ search_query|default:'' }}" placeholder="Мед высшего качества" class="ui-pill-input">
+        <input type="text" name="q" value="{{ search_query|default:'' }}" placeholder="{% trans 'Search designs...' %}" class="ui-pill-input">
         <div class="filters-inline">
           <select name="type" id="type" class="ui-select">
             <option value="">{% trans 'All Types' %}</option>

@@ -2,12 +2,18 @@
 <nav aria-label="Page navigation">
   <ul class="pagination pagination-sm justify-content-center mb-0">
     {% for num in paginator.page_range %}
-      {% if num == page_obj.number %}
-        <li class="page-item active"><span class="page-link">{{ num }}</span></li>
-      {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-        <li class="page-item"><a class="page-link" href="#" data-page="{{ num }}">{{ num }}</a></li>
+      {% if num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        {% if num == page_obj.number %}
+          <li class="page-item active"><span class="page-link styled-page-link">{{ num }}</span></li>
+        {% else %}
+          <li class="page-item"><a class="page-link styled-page-link" href="#" data-page="{{ num }}">{{ num }}</a></li>
+        {% endif %}
       {% endif %}
     {% endfor %}
   </ul>
 </nav>
 {% endif %}
+<style>
+.styled-page-link{border:1px solid #E0E0E0;border-radius:12px;padding:8px 12px;color:#333;background:#fff;font-weight:600;}
+.page-item.active .styled-page-link{background:#FFD700;border-color:#FFD700;color:#000;}
+</style>

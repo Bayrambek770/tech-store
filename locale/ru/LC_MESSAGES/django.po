@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 08:30+0000\n"
+"POT-Creation-Date: 2025-09-16 11:05+0000\n"
 "PO-Revision-Date: 2025-08-28 01:28+0000\n"
 "Last-Translator:   <admin@mail.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -369,8 +369,8 @@ msgid "Design Marketplace"
 msgstr "Маркетплейс"
 
 #: templates/designs/marketplace.html:10 templates/store.html:27
-msgid "Купить сейчас"
-msgstr "Купить сейчас"
+msgid "Apply"
+msgstr "Применить"
 
 #: templates/designs/marketplace.html:11
 msgid "Search designs..."
@@ -2567,8 +2567,8 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
-#~ msgid "Apply"
-#~ msgstr "Применить"
+#~ msgid "Купить сейчас"
+#~ msgstr "Купить сейчас"
 
 #~ msgid "Credit / Debit Card"
 #~ msgstr "Банковская карта"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 08:30+0000\n"
+"POT-Creation-Date: 2025-09-16 11:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -350,8 +350,8 @@ msgid "Design Marketplace"
 msgstr ""
 
 #: templates/designs/marketplace.html:10 templates/store.html:27
-msgid "Купить сейчас"
-msgstr "Buy now"
+msgid "Apply"
+msgstr ""
 
 #: templates/designs/marketplace.html:11
 msgid "Search designs..."
@@ -2373,6 +2373,9 @@ msgstr ""
 #: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:236
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Купить сейчас"
+#~ msgstr "Buy now"
 
 #~ msgid "Short Name"
 #~ msgstr "Short Name"

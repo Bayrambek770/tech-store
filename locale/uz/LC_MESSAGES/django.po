@@ -243,47 +243,43 @@ msgstr "%(user)s tomonidan %(product)s uchun sharh"
 
 #: templates/about.html:7 templates/layouts/navbar.html:9
 #: templates/layouts/navbar.html:61
-#, fuzzy
-#| msgid "About Us"
 msgid "About"
 msgstr "Biz haqimizda"
 
 #: templates/about.html:16
 msgid "About Our Shop"
-msgstr ""
+msgstr "Do'konimiz haqida"
 
 #: templates/about.html:17
-#, fuzzy
-#| msgid "Premium Components • Design Assets"
 msgid "Premium components and design assets for builders and creators."
-msgstr "Yuqori kompanentlar, Dizayn tovarlar"
+msgstr "Yuqori sifatli komponentlar va dizayn aktivlari quruvchilar va yaratuvchilar uchun."
 
 #: templates/about.html:20
 msgid "Our Mission"
-msgstr ""
+msgstr "Bizning maqsadimiz"
 
 #: templates/about.html:21
 msgid ""
 "We help gamers, creators, and professionals build reliable rigs with curated "
 "parts and fair prices. Our team obsesses over quality and service so you can "
 "focus on what you do best."
-msgstr ""
+msgstr "Biz o'yinchilar, yaratuvchilar va mutaxassislarga ishonchli tizimlarni yaratishda yordam beramiz, tanlangan qismlar va adolatli narxlar bilan. Bizning jamoamiz sifat va xizmatga e'tibor beradi, shuning uchun siz o'zingiz eng yaxshi qiladigan narsaga e'tibor qaratishingiz mumkin."
 
 #: templates/about.html:24
 msgid "What We Offer"
-msgstr ""
+msgstr "Biz taklif qilamiz"
 
 #: templates/about.html:26
 msgid "A handpicked selection of CPUs, GPUs, RAM, and more."
-msgstr ""
+msgstr "Markaziy protsessorlar, grafik protsessorlar, operativ xotira va boshqa komponentlar tanlangan."
 
 #: templates/about.html:27
 msgid "Fast delivery across Russia and the CIS."
-msgstr ""
+msgstr "Rossiya va MDH bo'ylab tez yetkazib berish."
 
 #: templates/about.html:28
 msgid "Expert advice and friendly support."
-msgstr ""
+msgstr "Mutaxassislar maslahatlari va do'stona yordam."
 
 #: templates/cart.html:3 templates/layouts/navbar.html:20
 #: templates/layouts/navbar.html:24
@@ -698,12 +694,12 @@ msgstr "Bozor"
 
 #: templates/layouts/navbar.html:11 templates/layouts/navbar.html:63
 msgid "Shop"
-msgstr ""
+msgstr "Do'kon"
 
 #: templates/layouts/navbar.html:12 templates/layouts/navbar.html:64
 #: templates/news.html:7 templates/news.html:39
 msgid "News"
-msgstr ""
+msgstr "Yangiliklar"
 
 #: templates/layouts/navbar.html:18 templates/layouts/navbar.html:59
 msgid "Dashboard"

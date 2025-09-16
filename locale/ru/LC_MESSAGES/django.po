@@ -38,20 +38,14 @@ msgid "Currency"
 msgstr "Валюта"
 
 #: orders/models.py:12
-#, fuzzy
-#| msgid "Best Prices"
 msgid "Total Price"
-msgstr "Лучшие цены"
+msgstr "Общая сумма"
 
 #: orders/models.py:14
-#, fuzzy
-#| msgid "first name"
 msgid "First name"
 msgstr "имя"
 
 #: orders/models.py:15
-#, fuzzy
-#| msgid "last name"
 msgid "Last name"
 msgstr "фамилия"
 
@@ -69,14 +63,10 @@ msgid "Phone"
 msgstr "Телефон"
 
 #: orders/models.py:18
-#, fuzzy
-#| msgid "Address Line 1"
 msgid "Address line 1"
 msgstr "Адрес (строка 1)"
 
 #: orders/models.py:19
-#, fuzzy
-#| msgid "Address Line 2"
 msgid "Address line 2"
 msgstr "Адрес (строка 2)"
 
@@ -139,7 +129,7 @@ msgstr "Авансовый платеж"
 
 #: orders/views.py:129
 msgid "Order created successfully."
-msgstr ""
+msgstr "Заказ успешно создан."
 
 #: payment/models.py:17
 msgid "Waiting"
@@ -166,16 +156,12 @@ msgid "Payment url"
 msgstr "Ссылка для оплаты"
 
 #: payment/models.py:54
-#, fuzzy
-#| msgid "Syndication"
 msgid "Transaction"
-msgstr "Синдикация"
+msgstr "Транзакция"
 
 #: payment/models.py:55 templates/orders/dashboard.html:36
-#, fuzzy
-#| msgid "Syndication"
 msgid "Transactions"
-msgstr "Синдикация"
+msgstr "Транзакции"
 
 #: products/models.py:23 products/models.py:39
 #: templates/orders/dashboard_order_detail.html:42
@@ -363,10 +349,8 @@ msgid "Pay Now"
 msgstr "Оплатить"
 
 #: templates/designs/marketplace.html:3 templates/designs/marketplace.html:7
-#, fuzzy
-#| msgid "Marketplace"
 msgid "Design Marketplace"
-msgstr "Маркетплейс"
+msgstr "Маркетплейс дизайнов"
 
 #: templates/designs/marketplace.html:10 templates/store.html:27
 msgid "Apply"

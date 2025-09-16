@@ -5,20 +5,25 @@
         <a class="site-nav__brand" href="{% url 'home' %}">
             <img class="site-nav__brand-logo" src="{% static 'images/uzcomp2.jpg' %}" alt="{% trans 'All for PC' %}" loading="lazy">
         </a>
-        <ul class="site-nav__links" data-desktop-links>
-            {% if user.is_superuser %}
-                <li><a href="{% url 'orders:dashboard' %}">{% trans 'Dashboard' %}</a></li>
-            {% endif %}
+        <ul class="site-nav__links site-nav__center" data-desktop-links>
+            <li><a href="{% url 'about' %}">{% trans 'About' %}</a></li>
             <li><a href="{% url 'designs:marketplace' %}">{% trans 'Marketplace' %}</a></li>
-            <li><a href="{% url 'store' %}">{% trans 'Store' %}</a></li>
-            <li><a href="{% url 'cart' %}" class="cart-link" title="{% trans 'Cart' %}">
-                <span class="icon-wrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>
-                    <span id="nav-cart-count" class="badge"></span>
-                </span>
-            </a></li>
+            <li><a href="{% url 'store' %}">{% trans 'Shop' %}</a></li>
+            <li><a href="{% url 'news' %}">{% trans 'News' %}</a></li>
+            <li><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
             <li><a href="{% url 'public_offer' %}">{% trans 'Public Offer' %}</a></li>
-            <li class="lang-switcher">
+        </ul>
+        <div class="site-nav__links site-nav__actions">
+            {% if user.is_superuser %}
+                <a class="nav-link d-none d-lg-inline" href="{% url 'orders:dashboard' %}">{% trans 'Dashboard' %}</a>
+            {% endif %}
+            <a href="{% url 'cart' %}" class="" title="{% trans 'Cart' %}">
+                <span class="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>
+                </span>
+                <!-- <span class="cart-label">{% trans 'Cart' %}</span> -->
+            </a>
+            <div class="lang-switcher">
                 {% get_current_language as LANGUAGE_CODE %}
                 {% get_available_languages as LANGUAGES %}
                 <form action="{% url 'set_language' %}" method="post" class="lang-form glass-lang lang-form-enh" data-default-lang="ru" data-lang-codes="ru,en,uz" aria-label="{% trans 'Change language' %}">
@@ -37,8 +42,8 @@
                         {% endfor %}
                     </ul>
                 </form>
-            </li>
-        </ul>
+            </div>
+        </div>
         <button class="site-nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="offcanvasMenu">
             <span></span><span></span><span></span>
         </button>
@@ -53,30 +58,12 @@
                 {% if user.is_superuser %}
                 <li><a href="{% url 'orders:dashboard' %}">{% trans 'Dashboard' %}</a></li>
                 {% endif %}
+                <li><a href="{% url 'about' %}">{% trans 'About' %}</a></li>
                 <li><a href="{% url 'designs:marketplace' %}">{% trans 'Marketplace' %}</a></li>
-                <li><a href="{% url 'store' %}">{% trans 'Store' %}</a></li>
-                <li><a href="{% url 'cart' %}" class="cart-link">{% trans 'Cart' %} <span id="nav-cart-count-mobile" class="badge"></span></a></li>
+                <li><a href="{% url 'store' %}">{% trans 'Shop' %}</a></li>
+                <li><a href="{% url 'news' %}">{% trans 'News' %}</a></li>
+                <li><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
                 <li><a href="{% url 'public_offer' %}">{% trans 'Public Offer' %}</a></li>
-                <li class="mt-2 lang-switcher-mobile">
-                    {% get_current_language as LANGUAGE_CODE %}
-                    {% get_available_languages as LANGUAGES %}
-                    <form action="{% url 'set_language' %}" method="post" class="lang-form glass-lang lang-form-enh" data-default-lang="ru" data-lang-codes="ru,en,uz" aria-label="{% trans 'Change language' %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                        <input type="hidden" name="language" value="{{ LANGUAGE_CODE }}" class="lang-active-input">
-                        <button type="button" class="lang-current-btn" id="langBtnMobile" aria-haspopup="true" aria-expanded="false" aria-controls="langListMobile">
-                            <span class="lang-label-text">{% for code,name in LANGUAGES %}{% if code == LANGUAGE_CODE %}{{ name }}{% endif %}{% endfor %}</span>
-                            <span class="caret" aria-hidden="true">▾</span>
-                        </button>
-                        <ul class="lang-menu" id="langListMobile" role="menu" hidden>
-                            {% for lang_code, lang_name in LANGUAGES %}
-                                {% if lang_code != LANGUAGE_CODE %}
-                                <li role="none"><button type="button" role="menuitem" class="lang-choice" data-lang="{{ lang_code }}">{{ lang_name }}</button></li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </form>
-                </li>
             </ul>
         </div>
     </div>
@@ -88,8 +75,18 @@
 @media (min-width: 992px){ /* desktop */
     .site-nav__brand-logo{width:300px;height:60px;border-radius:20px;}
 }
+/* Layout: brand | center nav | actions */
+.site-nav__bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.site-nav__center{flex:1;display:flex;justify-content:center;gap:25px;align-items:center}
+.site-nav__center>li{list-style:none}
+.site-nav__center a{padding:8px 12px;display:inline-block;text-align:center;min-width:120px;border-radius:999px}
+.site-nav__actions{display:flex;align-items:center;gap:12px}
 /* Glass effect language selector */
 /* custom minimal dropdown */
+@media (min-width: 992px){
+    /* Nudge center group slightly left to visually center considering right-side actions */
+    .site-nav__center{margin-left:-25px}
+}
 .lang-form-enh{position:relative;}
 .lang-current-btn{display:flex;align-items:center;justify-content:center;gap:6px;background:rgba(255,255,255,0.18);backdrop-filter:blur(14px) saturate(180%);-webkit-backdrop-filter:blur(14px) saturate(180%);border:1px solid rgba(255,255,255,0.35);border-radius:30px;color:#000 !important;font-size:14px;font-weight:600;cursor:pointer;padding:8px 18px;min-height:40px;line-height:1.1;box-shadow:0 4px 12px -4px rgba(0,0,0,.15) inset,0 2px 6px -2px rgba(0,0,0,.15);transition:.25s;} 
 .lang-current-btn:hover,.lang-current-btn:focus{border-color:rgba(0,0,0,0.55);background:rgba(255,255,255,0.28);outline:none;}
@@ -104,6 +101,21 @@
 .glass-lang .lang-select:focus{outline:none;}
 /* remove custom caret span; rely on native arrow */
 .glass-lang .lang-select:focus + .lang-caret{transform:rotate(180deg);} 
+/* Cart as pill-style button consistent with center items (responsive) */
+.site-nav__btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;text-decoration:none;padding:clamp(6px,0.9vw,10px) clamp(10px,1.2vw,16px);font-size:clamp(12px,1.05vw,14px);min-height:clamp(34px,4.2vw,40px);justify-content:center}
+.site-nav__btn:hover{text-decoration:none}
+@media (min-width: 992px){ .site-nav__btn{min-width:clamp(110px,12vw,150px)} }
+/* Ensure offcanvas toggles are visible when opened */
+.site-nav__offcanvas[aria-hidden="true"]{display:none}
+.site-nav__offcanvas[aria-hidden="false"]{display:block !important}
+body.nav-open{overflow:hidden}
+/* Offcanvas base styles */
+.site-nav__offcanvas{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:9999;opacity:0;pointer-events:none;transition:opacity .28s cubic-bezier(0.22, 0.61, 0.36, 1);will-change: opacity}
+.site-nav__offcanvas[aria-hidden="false"]{opacity:1;pointer-events:auto}
+.offcanvas__panel{position:absolute;top:0;right:0;height:100%;width:min(86vw,360px);max-width:100%;background:#fff;box-shadow:-6px 0 16px rgba(0,0,0,.15);padding:16px;overflow:auto;transform:translateX(100%);transition:transform .32s cubic-bezier(0.22, 0.61, 0.36, 1);will-change: transform}
+.site-nav__offcanvas[aria-hidden="false"] .offcanvas__panel{transform:translateX(0);transition-delay:.06s}
+.offcanvas__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.offcanvas__close{background:transparent;border:none;font-size:28px;line-height:1;cursor:pointer}
 </style>
 <script>
 // Simple auto-submit select with URL language prefix logic
@@ -142,5 +154,57 @@ document.addEventListener('DOMContentLoaded', function(){
             });
         });
     });
+    // Offcanvas (hamburger) toggle
+    const navToggle = document.getElementById('navToggle');
+    const offcanvas = document.getElementById('offcanvasMenu');
+    const navClose = document.getElementById('navClose');
+    if(navToggle && offcanvas){
+        const panel = offcanvas.querySelector('.offcanvas__panel');
+        const openCanvas = ()=>{
+            // Stage 1: ensure element participates in layout
+            offcanvas.style.display = 'block';
+            offcanvas.setAttribute('aria-hidden','true');
+            // Stage 2: next frame, toggle to visible to trigger CSS transitions
+            requestAnimationFrame(()=>{
+                // force reflow to ensure transition triggers reliably
+                void offcanvas.offsetWidth;
+                offcanvas.setAttribute('aria-hidden','false');
+                document.body.classList.add('nav-open');
+                navToggle.setAttribute('aria-expanded','true');
+            });
+                // Initialize cart count from server
+                fetch('{% url "cart_count" %}', {headers:{'X-Requested-With':'XMLHttpRequest'}})
+                    .then(r=>r.ok?r.json():null).then(d=>{
+                        if(!d) return; const n = document.getElementById('nav-cart-count'); const m=document.getElementById('nav-cart-count-mobile');
+                        if(n) n.textContent = d.count ? d.count : '';
+                        if(m) m.textContent = d.count ? d.count : '';
+                    }).catch(()=>{});
+        };
+        const closeCanvas = ()=>{
+            offcanvas.setAttribute('aria-hidden','true');
+            document.body.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded','false');
+            const finalize = ()=>{ offcanvas.style.display = ''; cleanup(); };
+            let done = false;
+            const onEnd = (e)=>{
+                if(done) return; if(!panel) return;
+                if(e.target === panel && e.propertyName === 'transform'){
+                    done = true; finalize();
+                }
+            };
+            const cleanup = ()=>{ if(panel) panel.removeEventListener('transitionend', onEnd); };
+            if(panel) panel.addEventListener('transitionend', onEnd);
+            // Fallback timeout in case transitionend isn't fired
+            setTimeout(()=>{ if(!done) finalize(); }, 450);
+        };
+        navToggle.addEventListener('click', ()=>{
+            const hidden = offcanvas.getAttribute('aria-hidden') !== 'false';
+            if(hidden) openCanvas(); else closeCanvas();
+        });
+        if(navClose) navClose.addEventListener('click', closeCanvas);
+        offcanvas.addEventListener('click', (e)=>{ if(e.target === offcanvas) closeCanvas(); });
+        document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeCanvas(); });
+        offcanvas.querySelectorAll('a').forEach(a=> a.addEventListener('click', closeCanvas));
+    }
 });
 </script>

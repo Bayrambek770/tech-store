@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 11:05+0000\n"
+"POT-Creation-Date: 2025-09-16 16:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,7 +121,8 @@ msgstr ""
 msgid "Your cart is empty."
 msgstr ""
 
-#: orders/views.py:111 templates/donation.html:4 templates/index.html:236
+#: orders/views.py:111 templates/donation.html:4 templates/index.html:244
+#: templates/partials/footer.html:7
 msgid "Advance Payment"
 msgstr ""
 
@@ -173,10 +174,11 @@ msgid "Description"
 msgstr ""
 
 #: products/models.py:31 products/models.py:49
+#: templates/designs/marketplace.html:20
 msgid "Category"
 msgstr ""
 
-#: products/models.py:32
+#: products/models.py:32 templates/news.html:47 templates/news.html:51
 msgid "Categories"
 msgstr ""
 
@@ -225,8 +227,48 @@ msgstr ""
 msgid "Review for %(product)s by %(user)s"
 msgstr ""
 
-#: templates/cart.html:3 templates/layouts/navbar.html:14
-#: templates/layouts/navbar.html:58
+#: templates/about.html:7 templates/layouts/navbar.html:9
+#: templates/layouts/navbar.html:61
+msgid "About"
+msgstr ""
+
+#: templates/about.html:16
+msgid "About Our Shop"
+msgstr ""
+
+#: templates/about.html:17
+msgid "Premium components and design assets for builders and creators."
+msgstr ""
+
+#: templates/about.html:20
+msgid "Our Mission"
+msgstr ""
+
+#: templates/about.html:21
+msgid ""
+"We help gamers, creators, and professionals build reliable rigs with curated "
+"parts and fair prices. Our team obsesses over quality and service so you can "
+"focus on what you do best."
+msgstr ""
+
+#: templates/about.html:24
+msgid "What We Offer"
+msgstr ""
+
+#: templates/about.html:26
+msgid "A handpicked selection of CPUs, GPUs, RAM, and more."
+msgstr ""
+
+#: templates/about.html:27
+msgid "Fast delivery across Russia and the CIS."
+msgstr ""
+
+#: templates/about.html:28
+msgid "Expert advice and friendly support."
+msgstr ""
+
+#: templates/cart.html:3 templates/layouts/navbar.html:20
+#: templates/layouts/navbar.html:24
 msgid "Cart"
 msgstr ""
 
@@ -345,35 +387,114 @@ msgstr ""
 msgid "Pay Now"
 msgstr ""
 
+#: templates/contact.html:7 templates/layouts/navbar.html:13
+#: templates/layouts/navbar.html:65 users/models.py:35
+msgid "Contact"
+msgstr ""
+
+#: templates/contact.html:19 templates/index.html:218
+msgid "Contact Us"
+msgstr ""
+
+#: templates/contact.html:20
+msgid "We'd love to hear from you."
+msgstr ""
+
+#: templates/contact.html:24
+msgid "Send a message"
+msgstr ""
+
+#: templates/contact.html:29 templates/index.html:223
+msgid "Your Name"
+msgstr ""
+
+#: templates/contact.html:29 templates/index.html:223
+msgid "Your name"
+msgstr ""
+
+#: templates/contact.html:32 templates/index.html:226
+msgid "Enter Email"
+msgstr ""
+
+#: templates/contact.html:32 templates/index.html:226
+#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1920
+msgid "Email address"
+msgstr ""
+
+#: templates/contact.html:35 templates/index.html:229
+msgid "Write Something"
+msgstr ""
+
+#: templates/contact.html:35 templates/index.html:229 users/models.py:28
+msgid "Message"
+msgstr ""
+
+#: templates/contact.html:38 templates/index.html:232
+msgid "Send Message"
+msgstr ""
+
+#: templates/contact.html:38 templates/index.html:232
+msgid "Send message"
+msgstr ""
+
+#: templates/contact.html:48
+msgid "Location"
+msgstr ""
+
+#: templates/contact.html:49
+msgid "We operate online; pickups by arrangement."
+msgstr ""
+
+#: templates/contact.html:51
+msgid "Map"
+msgstr ""
+
 #: templates/designs/marketplace.html:3 templates/designs/marketplace.html:7
 msgid "Design Marketplace"
 msgstr ""
 
-#: templates/designs/marketplace.html:10 templates/store.html:27
-msgid "Apply"
+#: templates/designs/marketplace.html:8
+msgid "Filter and search designs"
 msgstr ""
 
 #: templates/designs/marketplace.html:11
 msgid "Search designs..."
 msgstr ""
 
-#: templates/designs/marketplace.html:14
-msgid "All Types"
+#: templates/designs/marketplace.html:11
+msgid "Search"
+msgstr ""
+
+#: templates/designs/marketplace.html:12 templates/store.html:27
+msgid "Apply"
 msgstr ""
 
 #: templates/designs/marketplace.html:15
-msgid "3D Max Products"
+#: templates/orders/dashboard_order_detail.html:88
+msgid "Type"
 msgstr ""
 
 #: templates/designs/marketplace.html:16
+msgid "All Types"
+msgstr ""
+
+#: templates/designs/marketplace.html:17
+msgid "3D Max Products"
+msgstr ""
+
+#: templates/designs/marketplace.html:18
 msgid "Interior Design"
 msgstr ""
 
-#: templates/designs/marketplace.html:19 templates/store.html:31
+#: templates/designs/marketplace.html:21 templates/store.html:31
 msgid "All Categories"
 msgstr ""
 
-#: templates/designs/marketplace.html:26 templates/store.html:38
+#: templates/designs/marketplace.html:26
+msgid "Page size"
+msgstr ""
+
+#: templates/designs/marketplace.html:28 templates/store.html:38
 msgid "/ page"
 msgstr ""
 
@@ -412,31 +533,31 @@ msgid "Start your development with All for PC landing page."
 msgstr ""
 
 #: templates/index.html:11 templates/layouts/navbar.html:6
-#: templates/layouts/navbar.html:49
+#: templates/layouts/navbar.html:54
 msgid "All for PC"
 msgstr ""
 
-#: templates/index.html:32
+#: templates/index.html:40
 msgid "Premium Components • Design Assets"
 msgstr ""
 
-#: templates/index.html:34
+#: templates/index.html:42
 msgid "Learn more about OOO J&Z Shop section"
 msgstr ""
 
-#: templates/index.html:34
+#: templates/index.html:42
 msgid "Learn more"
 msgstr ""
 
-#: templates/index.html:45
+#: templates/index.html:53
 msgid "Who are we ?"
 msgstr ""
 
-#: templates/index.html:46
+#: templates/index.html:54
 msgid "About Us"
 msgstr ""
 
-#: templates/index.html:47
+#: templates/index.html:55
 msgid ""
 "Welcome to the store with a funny name \"Premium Gold Online Trading\".\n"
 "                        Why \"Premium Gold Online Trading\"? Because we're "
@@ -449,146 +570,193 @@ msgid ""
 "                        as well as exclusive offers that will help save."
 msgstr ""
 
-#: templates/index.html:61
+#: templates/index.html:69
 msgid "Why choose us?"
 msgstr ""
 
-#: templates/index.html:67
+#: templates/index.html:75
 msgid "Wide range"
 msgstr ""
 
-#: templates/index.html:68
+#: templates/index.html:76
 msgid "From budget solutions to top components for enthusiasts."
 msgstr ""
 
-#: templates/index.html:76
+#: templates/index.html:84
 msgid "Fast delivery"
 msgstr ""
 
-#: templates/index.html:77
+#: templates/index.html:85
 msgid "Sending throughout Russia and the CIS as soon as possible."
 msgstr ""
 
-#: templates/index.html:85
+#: templates/index.html:93
 msgid "Expert support"
 msgstr ""
 
-#: templates/index.html:86
+#: templates/index.html:94
 msgid "Our specialists will help you to choose components for your tasks."
 msgstr ""
 
-#: templates/index.html:94
+#: templates/index.html:102
 msgid "Best Prices"
 msgstr ""
 
-#: templates/index.html:95
+#: templates/index.html:103
 msgid "Promotions, discounts and bonuses for regular customers."
 msgstr ""
 
-#: templates/index.html:107
+#: templates/index.html:115
 msgid "Now in stock"
 msgstr ""
 
-#: templates/index.html:108
+#: templates/index.html:116
 msgid "Hot offers"
 msgstr ""
 
-#: templates/index.html:163
+#: templates/index.html:171
 #, python-format
 msgid "View %(name)s details"
 msgstr ""
 
-#: templates/index.html:173 templates/product_detail.html:19
+#: templates/index.html:181 templates/product_detail.html:19
 #: templates/product_detail.html:60
 msgid "No image"
 msgstr ""
 
-#: templates/index.html:190
+#: templates/index.html:198
 msgid "Promo banner"
 msgstr ""
 
-#: templates/index.html:194
+#: templates/index.html:202
 msgid "Do not miss the chance to equip your PC at a bargain price"
 msgstr ""
 
-#: templates/index.html:195
+#: templates/index.html:203
 msgid "the promotion is valid until July 15, 2025!"
 msgstr ""
 
-#: templates/index.html:198
+#: templates/index.html:206
 msgid "Go Shopping"
 msgstr ""
 
-#: templates/index.html:200
+#: templates/index.html:208
 msgid "Advance Pay"
 msgstr ""
 
-#: templates/index.html:209
+#: templates/index.html:217
 msgid "How can you communicate?"
 msgstr ""
 
-#: templates/index.html:210
-msgid "Contact Us"
-msgstr ""
-
-#: templates/index.html:215
-msgid "Your Name"
-msgstr ""
-
-#: templates/index.html:215
-msgid "Your name"
-msgstr ""
-
-#: templates/index.html:218
-msgid "Enter Email"
-msgstr ""
-
-#: templates/index.html:218
-#: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1920
-msgid "Email address"
-msgstr ""
-
-#: templates/index.html:221
-msgid "Write Something"
-msgstr ""
-
-#: templates/index.html:221 users/models.py:28
-msgid "Message"
-msgstr ""
-
-#: templates/index.html:224
-msgid "Send Message"
-msgstr ""
-
-#: templates/index.html:224
-msgid "Send message"
-msgstr ""
-
-#: templates/index.html:233
+#: templates/index.html:241 templates/partials/footer.html:4
 msgid "All for PC. All rights reserved."
 msgstr ""
 
-#: templates/index.html:235 templates/layouts/navbar.html:20
-#: templates/layouts/navbar.html:59
+#: templates/index.html:243 templates/layouts/navbar.html:14
+#: templates/layouts/navbar.html:66 templates/partials/footer.html:6
 msgid "Public Offer"
 msgstr ""
 
-#: templates/index.html:237 templates/layouts/navbar.html:12
-#: templates/layouts/navbar.html:56
+#: templates/index.html:245 templates/layouts/navbar.html:10
+#: templates/layouts/navbar.html:62 templates/partials/footer.html:8
 msgid "Marketplace"
 msgstr ""
 
-#: templates/layouts/navbar.html:10 templates/layouts/navbar.html:54
+#: templates/layouts/navbar.html:11 templates/layouts/navbar.html:63
+msgid "Shop"
+msgstr ""
+
+#: templates/layouts/navbar.html:12 templates/layouts/navbar.html:64
+#: templates/news.html:7 templates/news.html:39
+msgid "News"
+msgstr ""
+
+#: templates/layouts/navbar.html:18 templates/layouts/navbar.html:59
 msgid "Dashboard"
 msgstr ""
 
-#: templates/layouts/navbar.html:13 templates/layouts/navbar.html:57
-#: templates/store.html:8
-msgid "Store"
+#: templates/layouts/navbar.html:29
+msgid "Change language"
 msgstr ""
 
-#: templates/layouts/navbar.html:24 templates/layouts/navbar.html:63
-msgid "Change language"
+#: templates/news.html:40
+msgid "Latest updates and announcements."
+msgstr ""
+
+#: templates/news.html:44
+msgid "News filters and sections"
+msgstr ""
+
+#: templates/news.html:53
+msgid "CPUs & Processors"
+msgstr ""
+
+#: templates/news.html:54
+msgid "GPUs & Graphics"
+msgstr ""
+
+#: templates/news.html:55
+msgid "Memory (RAM)"
+msgstr ""
+
+#: templates/news.html:56
+msgid "Storage & SSDs"
+msgstr ""
+
+#: templates/news.html:63 templates/news.html:67
+msgid "Latest News"
+msgstr ""
+
+#: templates/news.html:69
+msgid "RAM Trends 2025: DDR5 gets faster and cheaper"
+msgstr ""
+
+#: templates/news.html:70
+msgid "GPU Market Update: Better availability, smarter upscaling"
+msgstr ""
+
+#: templates/news.html:71
+msgid "CPU Advances: Efficiency cores and cache matter"
+msgstr ""
+
+#: templates/news.html:78 templates/news.html:82
+msgid "Archived News"
+msgstr ""
+
+#: templates/news.html:84
+msgid "2024 Highlights: PCIe 5 SSDs arrive for consumers"
+msgstr ""
+
+#: templates/news.html:85
+msgid "2024 Recap: New GPU encoding features for streamers"
+msgstr ""
+
+#: templates/news.html:86
+msgid "2023-2024 CPU Generations: Platform and efficiency gains"
+msgstr ""
+
+#: templates/news.html:93 templates/news.html:97
+msgid "Topics"
+msgstr ""
+
+#: templates/news.html:99
+msgid "Build Guides"
+msgstr ""
+
+#: templates/news.html:100
+msgid "Performance Tuning"
+msgstr ""
+
+#: templates/news.html:101
+msgid "Buying Advice"
+msgstr ""
+
+#: templates/news.html:102
+msgid "Troubleshooting"
+msgstr ""
+
+#: templates/news.html:109
+msgid "Go to Shop"
 msgstr ""
 
 #: templates/orders/dashboard.html:8
@@ -666,10 +834,6 @@ msgstr ""
 #: templates/orders/dashboard_order_detail.html:81
 #: templates/orders/order_success.html:65
 msgid "Items"
-msgstr ""
-
-#: templates/orders/dashboard_order_detail.html:88
-msgid "Type"
 msgstr ""
 
 #: templates/orders/dashboard_order_detail.html:89
@@ -1076,6 +1240,10 @@ msgstr ""
 msgid "Instagram"
 msgstr ""
 
+#: templates/store.html:8
+msgid "Store"
+msgstr ""
+
 #: templates/store.html:22
 msgid "Product Store"
 msgstr ""
@@ -1130,10 +1298,6 @@ msgstr ""
 
 #: users/models.py:29 users/models.py:45
 msgid "Created at"
-msgstr ""
-
-#: users/models.py:35
-msgid "Contact"
 msgstr ""
 
 #: users/models.py:36

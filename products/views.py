@@ -9,6 +9,7 @@ from decimal import Decimal, InvalidOperation
 from designs.models import DesignAsset
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.loader import render_to_string
+from django.views.decorators.http import require_GET
 
 def home(request):
     products = Product.objects.filter(discount__gte=10)[:6]
@@ -34,6 +35,44 @@ def home(request):
             'form': form,
         }
     )
+
+
+def about_view(request):
+    return render(request, 'about.html')
+
+
+def news_view(request):
+    # Static placeholder page for now
+    return render(request, 'news.html')
+
+
+def contact_page(request):
+    message = ''
+    success = False
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            message = "Your message has been sent successfully!"
+            success = True
+            form = ContactForm()
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html', {
+        'message': message,
+        'success': success,
+        'form': form,
+    })
+
+
+@require_GET
+def cart_count(request):
+    cart = request.session.get('cart', {})
+    try:
+        count = sum(int(q) for q in cart.values()) if isinstance(cart, dict) else 0
+    except Exception:
+        count = 0
+    return JsonResponse({'count': count})
 
 
 

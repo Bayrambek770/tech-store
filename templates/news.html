@@ -1,0 +1,180 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% trans "News" %} — All for PC</title>
+  <link rel="stylesheet" href="{% static 'main/css/meyawo.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/custom.css' %}">
+  <style>
+    /* Responsive accordion/dropdowns */
+    .news-wrap{max-width:960px;margin:0 auto}
+    .news-accordion{display:grid;gap:16px}
+    details.ac-card{border:1px solid rgba(0,0,0,.08);border-radius:12px;background:#fff;box-shadow:0 8px 24px -18px rgba(0,0,0,.3);overflow:hidden}
+    summary.ac-header{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px}
+    summary.ac-header::-webkit-details-marker{display:none}
+    .ac-title{font-weight:600;font-size:clamp(16px,2.6vw,20px)}
+  .ac-arrow{flex:0 0 auto;width:20px;height:20px;position:relative}
+  .ac-arrow::before{content:"";position:absolute;top:50%;left:50%;width:10px;height:10px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translate(-50%,-60%) rotate(45deg);transition:transform .25s ease}
+  details[open] summary .ac-arrow::before{transform:translate(-50%,-40%) rotate(-135deg)}
+    .ac-panel{padding:0 18px;max-height:0;overflow:hidden;transition:max-height .3s ease,opacity .25s ease;padding-bottom:0;opacity:.6}
+    details[open] .ac-panel{padding-bottom:16px;opacity:1}
+    .ac-panel p,.ac-panel li{font-size:clamp(14px,2.2vw,16px);line-height:1.65}
+    .ac-list{margin:8px 0 0 16px}
+    .ac-list li{margin:6px 0}
+    /* Touch targets */
+    @media (pointer:coarse){summary.ac-header{padding:18px 20px}}
+    /* Container spacing */
+    .news-section{margin-top:24px}
+    /* A11y helper in case Bootstrap CSS isn't loaded */
+    .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body class="tight-spacing">
+  {% include 'layouts/navbar.html' %}
+
+  <main class="container py-5">
+    <header class="mb-4 text-center">
+      <h1 class="mb-2" style="margin-top: 80px;">{% trans "News" %}</h1>
+      <p class="text-muted">{% trans "Latest updates and announcements." %}</p>
+    </header>
+    <section class="news-section">
+      <div class="news-wrap">
+        <div class="news-accordion" role="tablist" aria-label="{% trans 'News filters and sections' %}">
+          <details class="ac-card" open>
+            <summary class="ac-header" role="button" aria-controls="panel-categories" aria-expanded="true" tabindex="0">
+              <span class="ac-title">{% trans "Categories" %}</span>
+              <span class="ac-arrow" aria-hidden="true"></span>
+            </summary>
+            <div id="panel-categories" class="ac-panel" role="region" aria-labelledby="summary-categories">
+              <p id="summary-categories" class="visually-hidden">{% trans "Categories" %}</p>
+              <ul class="ac-list">
+                <li>{% trans "CPUs & Processors" %}</li>
+                <li>{% trans "GPUs & Graphics" %}</li>
+                <li>{% trans "Memory (RAM)" %}</li>
+                <li>{% trans "Storage & SSDs" %}</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="ac-card">
+            <summary class="ac-header" role="button" aria-controls="panel-latest" aria-expanded="false" tabindex="0">
+              <span class="ac-title">{% trans "Latest News" %}</span>
+              <span class="ac-arrow" aria-hidden="true"></span>
+            </summary>
+            <div id="panel-latest" class="ac-panel" role="region" aria-labelledby="summary-latest">
+              <p id="summary-latest" class="visually-hidden">{% trans "Latest News" %}</p>
+              <ul class="ac-list">
+                <li>{% trans "RAM Trends 2025: DDR5 gets faster and cheaper" %}</li>
+                <li>{% trans "GPU Market Update: Better availability, smarter upscaling" %}</li>
+                <li>{% trans "CPU Advances: Efficiency cores and cache matter" %}</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="ac-card">
+            <summary class="ac-header" role="button" aria-controls="panel-archived" aria-expanded="false" tabindex="0">
+              <span class="ac-title">{% trans "Archived News" %}</span>
+              <span class="ac-arrow" aria-hidden="true"></span>
+            </summary>
+            <div id="panel-archived" class="ac-panel" role="region" aria-labelledby="summary-archived">
+              <p id="summary-archived" class="visually-hidden">{% trans "Archived News" %}</p>
+              <ul class="ac-list">
+                <li>{% trans "2024 Highlights: PCIe 5 SSDs arrive for consumers" %}</li>
+                <li>{% trans "2024 Recap: New GPU encoding features for streamers" %}</li>
+                <li>{% trans "2023-2024 CPU Generations: Platform and efficiency gains" %}</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="ac-card">
+            <summary class="ac-header" role="button" aria-controls="panel-topics" aria-expanded="false" tabindex="0">
+              <span class="ac-title">{% trans "Topics" %}</span>
+              <span class="ac-arrow" aria-hidden="true"></span>
+            </summary>
+            <div id="panel-topics" class="ac-panel" role="region" aria-labelledby="summary-topics">
+              <p id="summary-topics" class="visually-hidden">{% trans "Topics" %}</p>
+              <ul class="ac-list">
+                <li>{% trans "Build Guides" %}</li>
+                <li>{% trans "Performance Tuning" %}</li>
+                <li>{% trans "Buying Advice" %}</li>
+                <li>{% trans "Troubleshooting" %}</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <div class="text-center mt-4">
+          <a class="btn btn-primary" href="{% url 'store' %}">{% trans "Go to Shop" %}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {% include 'partials/footer.html' %}
+  <script src="{% static 'main/vendors/jquery/jquery-3.4.1.js' %}"></script>
+  <script src="{% static 'main/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+  <script>
+    // Accessible, exclusive accordion behavior with smooth panel transitions
+    (function(){
+      const container = document.querySelector('.news-accordion');
+      if(!container) return;
+      const cards = Array.from(container.querySelectorAll('details.ac-card'));
+
+      function setPanelHeight(card){
+        const panel = card.querySelector('.ac-panel');
+        if(!panel) return;
+        if(card.open){
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }else{
+          panel.style.maxHeight = '0px';
+        }
+      }
+
+      function updateAria(card){
+        const summary = card.querySelector('summary.ac-header');
+        if(summary){ summary.setAttribute('aria-expanded', String(card.open)); }
+      }
+
+      // Initialize
+      cards.forEach((c, idx)=>{
+        // ensure only first is open by default
+        if(idx === 0){ c.setAttribute('open',''); } else { c.removeAttribute('open'); }
+        setPanelHeight(c);
+        updateAria(c);
+      });
+
+      // Handle toggle: enforce single-open
+      cards.forEach((card)=>{
+        card.addEventListener('toggle', (e)=>{
+          if(card.open){
+            // close others first
+            cards.forEach(other=>{
+              if(other !== card && other.open){ other.removeAttribute('open'); setPanelHeight(other); updateAria(other); }
+            });
+            setPanelHeight(card);
+          }else{
+            setPanelHeight(card);
+          }
+          updateAria(card);
+        });
+
+        // Improve keyboard/touch feel: animate on summary click as well
+        const summary = card.querySelector('summary.ac-header');
+        if(summary){
+          summary.addEventListener('click', ()=>{
+            // Allow default to toggle <details>; heights handled in 'toggle'
+            // No-op here; kept for future enhancements
+          }, {passive:true});
+        }
+      });
+
+      // Recompute heights on resize to keep transitions accurate
+      window.addEventListener('resize', ()=>{
+        cards.forEach(c=>{ if(c.open) setPanelHeight(c); });
+      });
+    })();
+  </script>
+</body>
+</html>

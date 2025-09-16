@@ -6,7 +6,9 @@
         {% if num == page_obj.number %}
           <li class="page-item active"><span class="page-link styled-page-link">{{ num }}</span></li>
         {% else %}
-          <li class="page-item"><a class="page-link styled-page-link" href="#" data-page="{{ num }}">{{ num }}</a></li>
+          <li class="page-item">
+            <span class="page-link styled-page-link" href="#" data-page="{{ num }}">{{ num }}</span>
+          </li>
         {% endif %}
       {% endif %}
     {% endfor %}

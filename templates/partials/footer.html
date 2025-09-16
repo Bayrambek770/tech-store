@@ -1,0 +1,11 @@
+{% load i18n %}
+<footer class="py-4 border-top text-center small" style="background:#111; color:#aaa;">
+  <div class="container">
+    <div class="mb-2">&copy; {{ now|date:'Y' }} {% trans "All for PC. All rights reserved." %}</div>
+    <div>
+      <a href="{% url 'public_offer' %}" class="text-light mr-3">{% trans "Public Offer" %}</a>
+      <a href="{% url 'donation' %}" class="text-light mr-3">{% trans "Advance Payment" %}</a>
+      <a href="{% url 'designs:marketplace' %}" class="text-light">{% trans "Marketplace" %}</a>
+    </div>
+  </div>
+</footer>

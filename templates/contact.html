@@ -1,0 +1,60 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% trans "Contact" %} — All for PC</title>
+  <link rel="stylesheet" href="{% static 'main/css/meyawo.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/custom.css' %}">
+  <style>
+    #location { scroll-margin-top: 96px; }
+  </style>
+</head>
+<body class="tight-spacing">
+  {% include 'layouts/navbar.html' %}
+
+  <main class="container py-5">
+    <header class="mb-4 text-center">
+      <h1 class="mb-2" style="margin-top: 80px;">{% trans "Contact Us" %}</h1>
+      <p class="text-muted">{% trans "We'd love to hear from you." %}</p>
+    </header>
+
+    <section class="mb-5" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="h4 mb-4">{% trans "Send a message" %}</h2>
+      <form action="" class="contact-form col-md-10 col-lg-8 m-auto" method="post">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <input type="text" size="50" class="form-control" placeholder="{% trans 'Your Name' %}" name="name" required aria-label="{% trans 'Your name' %}">
+          </div>
+          <div class="form-group col-sm-6">
+            <input type="email" class="form-control" placeholder="{% trans 'Enter Email' %}" name="email" required aria-label="{% trans 'Email address' %}">
+          </div>
+          <div class="form-group col-sm-12">
+            <textarea name="message" id="message" rows="6" class="form-control" placeholder="{% trans 'Write Something' %}" aria-label="{% trans 'Message' %}"></textarea>
+          </div>
+          <div class="form-group col-sm-12 mt-3">
+            <input id="send-btn" type="submit" value="{% trans 'Send Message' %}" class="btn btn-outline-primary rounded" aria-label="{% trans 'Send message' %}">
+          </div>
+        </div>
+      </form>
+      {% if message %}
+        <p class="text-center mt-3 {% if success %}text-success{% else %}text-danger{% endif %}">{{ message }}</p>
+      {% endif %}
+    </section>
+
+    <section id="location" class="mb-5">
+      <h2 class="h4 mb-3">{% trans "Location" %}</h2>
+      <p class="mb-2">{% trans "We operate online; pickups by arrangement." %}</p>
+      <div class="embed-responsive embed-responsive-16by9 border rounded">
+        <iframe class="embed-responsive-item" src="https://www.openstreetmap.org/export/embed.html?bbox=37.61%2C55.74%2C37.64%2C55.76&amp;layer=mapnik" aria-label="{% trans 'Map' %}"></iframe>
+      </div>
+    </section>
+  </main>
+
+  {% include 'partials/footer.html' %}
+  <script src="{% static 'main/vendors/jquery/jquery-3.4.1.js' %}"></script>
+  <script src="{% static 'main/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+</body>
+</html>

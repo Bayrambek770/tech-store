@@ -232,8 +232,6 @@ msgstr "Отзыв о %(product)s от %(user)s"
 
 #: templates/about.html:7 templates/layouts/navbar.html:9
 #: templates/layouts/navbar.html:61
-#, fuzzy
-#| msgid "About Us"
 msgid "About"
 msgstr "О нас"
 

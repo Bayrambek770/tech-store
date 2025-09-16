@@ -7,7 +7,7 @@
     <h2 style='margin-top:50px' class="mb-3 mr-4">{% trans 'Design Marketplace' %}</h2>
     <form id="filter-form" class="marketplace-filters">
       <div class="filters-row">
-        <button class="ui-primary-btn" type="submit">{% trans "Купить сейчас" %}</button>
+        <button class="ui-primary-btn" type="submit">{% trans "Apply" %}</button>
         <input type="text" name="q" value="{{ search_query|default:'' }}" placeholder="{% trans 'Search designs...' %}" class="ui-pill-input">
         <div class="filters-inline">
           <select name="type" id="type" class="ui-select">
@@ -93,8 +93,15 @@
     });
   }
   function attachPagination(){
-    document.querySelectorAll('#pagination-wrapper a[data-page]').forEach(a=>{
-      a.addEventListener('click', e=>{e.preventDefault(); const page=a.getAttribute('data-page'); const url = window.location.pathname + '?page=' + page; ajaxLoad(url);});
+    document.querySelectorAll('#pagination-wrapper [data-page]').forEach(el=>{
+      el.addEventListener('click', e=>{
+        // Prevent default for anchors; spans have no default behavior
+        if(el.tagName.toLowerCase() === 'a'){ e.preventDefault(); }
+        const page = el.getAttribute('data-page');
+        if(!page) return;
+        const url = window.location.pathname + '?page=' + page;
+        ajaxLoad(url);
+      });
     });
   }
   form.addEventListener('submit', function(e){ e.preventDefault(); ajaxLoad(window.location.pathname); });

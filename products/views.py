@@ -12,7 +12,7 @@ from django.template.loader import render_to_string
 from django.views.decorators.http import require_GET
 
 def home(request):
-    products = Product.objects.filter(discount__gte=10)[:3]
+    products = Product.objects.filter(discount__gte=10)[:6]
     message = ''
     success = False
 

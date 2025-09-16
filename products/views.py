@@ -11,7 +11,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.loader import render_to_string
 
 def home(request):
-    products = Product.objects.filter(discount__gte=10)[:3]
+    products = Product.objects.filter(discount__gte=10)[:6]
     message = ''
     success = False
 

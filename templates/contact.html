@@ -46,9 +46,11 @@
 
     <section id="location" class="mb-5">
       <h2 class="h4 mb-3">{% trans "Location" %}</h2>
-      <p class="mb-2">{% trans "We operate online; pickups by arrangement." %}</p>
+      <address class="mb-3" style="font-style: normal; line-height:1.5">
+        {% blocktrans %}Farg‘ona viloyati, Marg'ilon shahri, uzun Xovuz MFY, Eshon Said ko'chasi, 6-uy{% endblocktrans %}
+      </address>
       <div class="embed-responsive embed-responsive-16by9 border rounded">
-        <iframe class="embed-responsive-item" src="https://www.openstreetmap.org/export/embed.html?bbox=37.61%2C55.74%2C37.64%2C55.76&amp;layer=mapnik" aria-label="{% trans 'Map' %}"></iframe>
+        <iframe class="embed-responsive-item" src="https://www.openstreetmap.org/export/embed.html?bbox=71.7147%2C40.4622%2C71.7347%2C40.4822&amp;layer=mapnik&amp;marker=40.4722%2C71.7247" aria-label="{% trans 'Map showing Marg\'ilon location' %}"></iframe>
       </div>
     </section>
   </main>
